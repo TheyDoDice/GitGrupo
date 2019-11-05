@@ -81,3 +81,10 @@ C:\Users\admin\Desktop\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\
 C:\Users\admin\Desktop\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
 C:\Users\admin\Desktop\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.frm_principal.resources
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Properties.Resources.resources
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
+C:\Users\admin\Desktop\GitGrupo\ConnectarBBDD 25-10-2019\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
