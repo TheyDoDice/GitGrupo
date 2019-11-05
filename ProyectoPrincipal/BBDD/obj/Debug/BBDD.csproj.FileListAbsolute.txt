@@ -1,0 +1,6 @@
+C:\Users\admin\Desktop\Proyectos\BBDD.dll
+C:\Users\admin\Desktop\Proyectos\BBDD.pdb
+C:\Users\admin\Desktop\ProyectoPrincipal\BBDD\obj\Debug\BBDD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\ProyectoPrincipal\BBDD\obj\Debug\BBDD.dll
+C:\Users\admin\Desktop\ProyectoPrincipal\BBDD\obj\Debug\BBDD.pdb
+C:\Users\admin\Desktop\ProyectoPrincipal\BBDD\obj\Debug\BBDD.csprojAssemblyReference.cache

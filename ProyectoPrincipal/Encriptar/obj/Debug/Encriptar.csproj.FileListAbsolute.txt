@@ -1,0 +1,6 @@
+C:\Users\admin\Desktop\Proyectos\Encriptar.dll
+C:\Users\admin\Desktop\Proyectos\Encriptar.pdb
+C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.dll
+C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.pdb
