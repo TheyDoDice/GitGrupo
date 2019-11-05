@@ -11,3 +11,16 @@ C:\Users\admin\source\repos\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csproj
 C:\Users\admin\source\repos\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csproj.CopyComplete
 C:\Users\admin\source\repos\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.exe
 C:\Users\admin\source\repos\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.pdb
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\CrearUsuari.exe.config
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\CrearUsuari.exe
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\CrearUsuari.pdb
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\BBDD.dll
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\BBDD.pdb
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.Form1.resources
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.Properties.Resources.resources
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csproj.CopyComplete
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.exe
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.pdb
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csprojAssemblyReference.cache

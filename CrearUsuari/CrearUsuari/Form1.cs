@@ -17,6 +17,7 @@ namespace CrearUsuari
         Dades dBUtils = new SQL();
         public string consulta = "select * from Users";
         public DataSet dataSet;
+        public DataTable datable;
 
         public Form1()
         {
@@ -27,22 +28,40 @@ namespace CrearUsuari
         {
             dBUtils.Connectar();
 
-            dataSet = dBUtils.PortarPerConsulta(consulta, "users");
-            dataGridView1.DataSource = dataSet.Tables["users"];
+            dataSet = dBUtils.PortarPerConsulta(consulta);
+            dataGridView1.DataSource = dataSet.Tables[0];
+            datable = dataSet.Tables[0];
 
-            comboBox1.DataSource = dataSet.Tables[0];
-
+            comboBox1.DataSource = datable;
             comboBox1.DisplayMember = "Username";
             comboBox1.ValueMember = "idUser";
+
+
         }
 
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
         {
-            string codeUser = txt_codeUser.Text;
-            string userName = txt_userName.Text;
-            string loging = txt_login.Text;
-            string photo = txt_photo.Text;
+
             string contra = txt_password.Text;
+
+            DataRow datarow = datable.NewRow();
+
+            datarow["idUser"] = 39;
+            datarow["CodeUser"] = txt_codeUser.Text;
+            datarow["UserName"] = txt_userName.Text;
+            datarow["Photo"] = txt_photo.Text; ;
+            datarow["Login"] = txt_login.Text;
+            datarow["Password"] = txt_password.Text;
+            datarow["Salt"] = txt_password.Text;
+
+            datable.Rows.Add(datarow);
+
+            if (dBUtils.Actualitzar(consulta, "users", dataSet))
+            {
+                MessageBox.Show("actualizado");
+            }else{
+                MessageBox.Show("no acualizado");
+            }
             
         }
 
@@ -65,37 +84,6 @@ namespace CrearUsuari
                 private void btn_insertar_usuario_Click(object sender, EventArgs e)
                 {
                     bool insert;
-                    bool correcte;
-                    if (txt_codeUser.Text.Trim() == "")
-                    {
-                        validador_usuari.SetError(txt_codeUser, "Ha d'escriure un nom d' usuari");
-                        correcte = false;
-                    }
-                    else
-                    {
-                        validador_usuari.Clear();
-                        correcte = true;
-                    }
-
-                    if (txt_contrasenya.Text != txtb_repetir_contrasenya.Text)
-                    {
-                        validador_contrasenya.SetError(txtb_validacio_contrasenya, "Les contrasenyes no coincideixen");
-                        correcte = false;
-                    }
-                    else
-                    {
-                        validador_contrasenya.Clear();
-                        correcte = true;
-                    }
-
-                    if( txt_contrasenya.Text == "" || txtb_repetir_contrasenya.Text == "")
-                    {
-                        validador_contrasenya.SetError(txtb_validacio_contrasenya, "S'ha d'introduïr una contrasenya.");
-                    }
-                    else
-                    {
-
-                    }
 
                     if (correcte)
                     {
@@ -115,7 +103,7 @@ namespace CrearUsuari
 
 
         ;        }
-
+        
                 private void btn_delete_user_Click(object sender, EventArgs e)
                 {
                     foreach (DataGridViewRow row in dataGridView1.SelectedRows)
