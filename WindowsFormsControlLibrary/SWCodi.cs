@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OutlookPrueba;
-using System.Data;
+using BBDD;
 using System.Data.OleDb;
 using System.Reflection;
 
@@ -90,7 +89,7 @@ namespace WindowsFormsControlLibrary
         {
             textBoxCodi.Text = Codi;
             string query = "Select * From " + NomTaula + " Where "+ NomCodi+ " = "+"'"+Codi+"'";
-            Dades dades = new Dades();
+            Dades dades = new SQL();
             DataSet dataSet = dades.PortarPerConsulta(query, NomTaula);
             if(dataSet != null)
             {
@@ -115,6 +114,7 @@ namespace WindowsFormsControlLibrary
             tipus = assembly.GetType(ClasseCS+"."+FormCS);
             dllBD = Activator.CreateInstance(tipus, args);
             ((Form)dllBD).Show();*/
+
             string[] args = { NomTaula, "" };
             HelpForm form = new HelpForm(args);
             form.Show();

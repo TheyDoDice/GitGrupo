@@ -43,7 +43,7 @@
             this.lbl_password = new System.Windows.Forms.Label();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.lbl_UserRank = new System.Windows.Forms.Label();
-            this.cct_rank = new WindowsFormsControlLibrary.SWCodi();
+            this.swCodi1 = new WindowsFormsControlLibrary.SWCodi();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -75,7 +75,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cct_rank);
+            this.groupBox1.Controls.Add(this.swCodi1);
             this.groupBox1.Controls.Add(this.lbl_UserRank);
             this.groupBox1.Controls.Add(this.lbl_photo);
             this.groupBox1.Controls.Add(this.txt_photo);
@@ -193,21 +193,21 @@
             this.lbl_UserRank.TabIndex = 14;
             this.lbl_UserRank.Text = "User Rank:";
             // 
-            // cct_rank
+            // swCodi1
             // 
-            this.cct_rank.ClasseCS = null;
-            this.cct_rank.CodiID = null;
-            this.cct_rank.ControlID = null;
-            this.cct_rank.FormCS = null;
-            this.cct_rank.Location = new System.Drawing.Point(73, 75);
-            this.cct_rank.Name = "cct_rank";
-            this.cct_rank.NomCodi = "CodeRank";
-            this.cct_rank.NomDesc = "DescRank";
-            this.cct_rank.NomID = "idUserRank";
-            this.cct_rank.NomTaula = "UserRanks";
-            this.cct_rank.Requerit = false;
-            this.cct_rank.Size = new System.Drawing.Size(503, 43);
-            this.cct_rank.TabIndex = 15;
+            this.swCodi1.ClasseCS = null;
+            this.swCodi1.CodiID = null;
+            this.swCodi1.ControlID = null;
+            this.swCodi1.FormCS = null;
+            this.swCodi1.Location = new System.Drawing.Point(75, 75);
+            this.swCodi1.Name = "swCodi1";
+            this.swCodi1.NomCodi = "CodeRank";
+            this.swCodi1.NomDesc = "DescRank";
+            this.swCodi1.NomID = "idUserRank";
+            this.swCodi1.NomTaula = "UserRanks";
+            this.swCodi1.Requerit = false;
+            this.swCodi1.Size = new System.Drawing.Size(510, 49);
+            this.swCodi1.TabIndex = 15;
             // 
             // Form1
             // 
@@ -244,7 +244,7 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Label lbl_UserRank;
-        private WindowsFormsControlLibrary.SWCodi cct_rank;
+        private WindowsFormsControlLibrary.SWCodi swCodi1;
     }
 }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OutlookPrueba;
+using BBDD;
 
 namespace WindowsFormsControlLibrary
 {
@@ -23,7 +23,7 @@ namespace WindowsFormsControlLibrary
 
         private void HelpForm_Load(object sender, EventArgs e)
         {
-            Dades dades = new Dades();
+            Dades dades = new SQL();
             DataSet dataSet = new DataSet();
 
             dataSet = dades.PortarTaula(args[0].ToString());

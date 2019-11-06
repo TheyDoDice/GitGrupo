@@ -67,7 +67,7 @@ namespace CrearUsuari
         private bool dadesUsuariCorrectes()
         {
             return txt_codeUser.Text != "" && txt_userName.Text != "" && txt_photo.Text != "" &&
-                   txt_login.Text != ""    && txt_password.Text != "" && txt_password.Text != "";
+                   txt_login.Text != ""    && txt_password.Text != "";
         }
 
         /*
