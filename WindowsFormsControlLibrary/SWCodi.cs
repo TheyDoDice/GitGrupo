@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OutlookPrueba;
+using System.Data;
+using System.Data.OleDb;
 
 namespace WindowsFormsControlLibrary
 {
@@ -18,14 +21,6 @@ namespace WindowsFormsControlLibrary
             this.Requerit = false;
         }
 
-        public SWCodi(string form, string classe, string taula, bool requerit) : this()
-        {
-            this.FormCS = form;
-            this.ClasseCS = classe;
-            this.NomTaula = taula;
-            this.Requerit = requerit;
-        }
-
         private bool _Requerit;
         private string _FormCS;
         private string _ClasseCs;
@@ -34,6 +29,7 @@ namespace WindowsFormsControlLibrary
         private string _NomDesc;
         private string _NomTaula;
         private string _ControlID;
+        private string _CodiID;
 
         public bool Requerit
         {
@@ -48,7 +44,7 @@ namespace WindowsFormsControlLibrary
         }
 
         public string ClasseCS
-        {
+        {   
             get { return _ClasseCs; }
             set { _ClasseCs = value; }
         }
@@ -83,25 +79,42 @@ namespace WindowsFormsControlLibrary
             set { _ControlID = value; }
         }
 
-        public void ValidaCodi()
+        public string CodiID
         {
+            get { return _CodiID; }
+            set { _CodiID = value; }
+        }
 
+        public void ValidaCodi(string Codi)
+        {
+            string query = "Select * From " + NomTaula + " Where "+ NomCodi+ " = "+"'"+Codi+"'";
+            Dades dades = new Dades();
+            DataSet dataSet = dades.PortarPerConsulta(query, NomTaula);
+            if(dataSet != null)
+            {
+                try
+                {
+                    textBoxDesc.Text = dataSet.Tables[NomTaula].Rows[0][NomID].ToString();                    
+                    CodiID = dataSet.Tables[NomTaula].Rows[0][NomID].ToString();
+                }
+                catch
+                {
+
+                }
+
+            }
         }
 
         public void ObreCS()
         {
-
+            Form form = new HelpForm();
         }
 
         private void textBoxCodi_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
-
-            }
-            else if(e.KeyCode == Keys.F2)
-            {
-                //Abrir formulario ClasseCs
+                ValidaCodi(textBoxCodi.Text);
             }
         }
     }

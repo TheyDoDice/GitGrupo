@@ -1,0 +1,13 @@
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\bin\Debug\WindowsFormsControlLibrary.dll
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\bin\Debug\WindowsFormsControlLibrary.pdb
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\bin\Debug\OutlookPrueba.exe
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\bin\Debug\OutlookPrueba.pdb
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\bin\Debug\OutlookPrueba.exe.config
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csprojAssemblyReference.cache
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.SWCodi.resources
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csproj.GenerateResource.cache
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csproj.CoreCompileInputs.cache
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csproj.CopyComplete
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.dll
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.pdb
+G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.HelpForm.resources

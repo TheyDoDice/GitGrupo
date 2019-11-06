@@ -42,6 +42,7 @@
             // 
             // textBoxDesc
             // 
+            this.textBoxDesc.Enabled = false;
             this.textBoxDesc.Location = new System.Drawing.Point(120, 15);
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(374, 20);
