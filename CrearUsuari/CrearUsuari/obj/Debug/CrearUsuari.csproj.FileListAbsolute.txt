@@ -23,4 +23,6 @@ C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.cs
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csproj.CopyComplete
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.exe
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.pdb
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\WindowsFormsControlLibrary.dll
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\WindowsFormsControlLibrary.pdb
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csprojAssemblyReference.cache

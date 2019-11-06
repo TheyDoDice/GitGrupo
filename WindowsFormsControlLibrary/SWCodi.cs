@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using BBDD;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OutlookPrueba;
-using System.Data;
 using System.Data.OleDb;
 
 namespace WindowsFormsControlLibrary
@@ -88,20 +87,19 @@ namespace WindowsFormsControlLibrary
         public void ValidaCodi(string Codi)
         {
             string query = "Select * From " + NomTaula + " Where "+ NomCodi+ " = "+"'"+Codi+"'";
-            Dades dades = new Dades();
+            Dades dades = new SQL();
             DataSet dataSet = dades.PortarPerConsulta(query, NomTaula);
             if(dataSet != null)
             {
                 try
                 {
-                    textBoxDesc.Text = dataSet.Tables[NomTaula].Rows[0][NomID].ToString();                    
+                    textBoxDesc.Text = dataSet.Tables[NomTaula].Rows[0][NomDesc].ToString();                    
                     CodiID = dataSet.Tables[NomTaula].Rows[0][NomID].ToString();
                 }
                 catch
                 {
 
                 }
-
             }
         }
 

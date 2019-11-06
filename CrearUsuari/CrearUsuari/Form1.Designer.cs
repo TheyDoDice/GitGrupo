@@ -42,6 +42,8 @@
             this.txt_codeUser = new System.Windows.Forms.TextBox();
             this.lbl_password = new System.Windows.Forms.Label();
             this.txt_password = new System.Windows.Forms.TextBox();
+            this.lbl_UserRank = new System.Windows.Forms.Label();
+            this.cct_rank = new WindowsFormsControlLibrary.SWCodi();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,9 +55,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 225);
+            this.groupBox2.Location = new System.Drawing.Point(12, 226);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(729, 317);
+            this.groupBox2.Size = new System.Drawing.Size(716, 313);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             // 
@@ -68,11 +70,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(702, 282);
+            this.dataGridView1.Size = new System.Drawing.Size(689, 278);
             this.dataGridView1.TabIndex = 15;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cct_rank);
+            this.groupBox1.Controls.Add(this.lbl_UserRank);
             this.groupBox1.Controls.Add(this.lbl_photo);
             this.groupBox1.Controls.Add(this.txt_photo);
             this.groupBox1.Controls.Add(this.lbl_login);
@@ -86,7 +90,7 @@
             this.groupBox1.Controls.Add(this.txt_password);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 207);
+            this.groupBox1.Size = new System.Drawing.Size(729, 208);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
@@ -149,7 +153,7 @@
             // 
             // btn_insertar_usuario
             // 
-            this.btn_insertar_usuario.Location = new System.Drawing.Point(20, 166);
+            this.btn_insertar_usuario.Location = new System.Drawing.Point(20, 160);
             this.btn_insertar_usuario.Name = "btn_insertar_usuario";
             this.btn_insertar_usuario.Size = new System.Drawing.Size(117, 23);
             this.btn_insertar_usuario.TabIndex = 7;
@@ -180,11 +184,36 @@
             this.txt_password.Size = new System.Drawing.Size(117, 20);
             this.txt_password.TabIndex = 6;
             // 
+            // lbl_UserRank
+            // 
+            this.lbl_UserRank.AutoSize = true;
+            this.lbl_UserRank.Location = new System.Drawing.Point(17, 93);
+            this.lbl_UserRank.Name = "lbl_UserRank";
+            this.lbl_UserRank.Size = new System.Drawing.Size(61, 13);
+            this.lbl_UserRank.TabIndex = 14;
+            this.lbl_UserRank.Text = "User Rank:";
+            // 
+            // cct_rank
+            // 
+            this.cct_rank.ClasseCS = null;
+            this.cct_rank.CodiID = null;
+            this.cct_rank.ControlID = null;
+            this.cct_rank.FormCS = null;
+            this.cct_rank.Location = new System.Drawing.Point(73, 75);
+            this.cct_rank.Name = "cct_rank";
+            this.cct_rank.NomCodi = "CodeRank";
+            this.cct_rank.NomDesc = "DescRank";
+            this.cct_rank.NomID = "idUserRank";
+            this.cct_rank.NomTaula = "UserRanks";
+            this.cct_rank.Requerit = false;
+            this.cct_rank.Size = new System.Drawing.Size(503, 43);
+            this.cct_rank.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 563);
+            this.ClientSize = new System.Drawing.Size(733, 560);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -214,6 +243,8 @@
         private System.Windows.Forms.TextBox txt_codeUser;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.TextBox txt_password;
+        private System.Windows.Forms.Label lbl_UserRank;
+        private WindowsFormsControlLibrary.SWCodi cct_rank;
     }
 }
 
