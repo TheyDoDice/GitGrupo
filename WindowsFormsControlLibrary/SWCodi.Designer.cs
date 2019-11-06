@@ -39,6 +39,7 @@
             this.textBoxCodi.Size = new System.Drawing.Size(100, 20);
             this.textBoxCodi.TabIndex = 0;
             this.textBoxCodi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCodi_KeyUp);
+            this.textBoxCodi.MouseEnter += new System.EventHandler(this.textBoxCodi_MouseEnter);
             // 
             // textBoxDesc
             // 

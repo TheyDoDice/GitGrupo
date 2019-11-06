@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using BBDD;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OutlookPrueba;
+using System.Data;
 using System.Data.OleDb;
+using System.Reflection;
 
 namespace WindowsFormsControlLibrary
 {
@@ -86,8 +88,9 @@ namespace WindowsFormsControlLibrary
 
         public void ValidaCodi(string Codi)
         {
+            textBoxCodi.Text = Codi;
             string query = "Select * From " + NomTaula + " Where "+ NomCodi+ " = "+"'"+Codi+"'";
-            Dades dades = new SQL();
+            Dades dades = new Dades();
             DataSet dataSet = dades.PortarPerConsulta(query, NomTaula);
             if(dataSet != null)
             {
@@ -100,20 +103,42 @@ namespace WindowsFormsControlLibrary
                 {
 
                 }
+
             }
         }
 
         public void ObreCS()
         {
-            Form form = new HelpForm();
+            /*Assembly assembly = Assembly.LoadFrom(@ClasseCS+".dll");
+            Object dllBD;
+            Type tipus;
+            tipus = assembly.GetType(ClasseCS+"."+FormCS);
+            dllBD = Activator.CreateInstance(tipus, args);
+            ((Form)dllBD).Show();*/
+            string[] args = { NomTaula, "" };
+            HelpForm form = new HelpForm(args);
+            form.Show();
+            form.FormClosed += (se, ev) => ValidaCodi(args[1]);
         }
 
         private void textBoxCodi_KeyUp(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Enter)
             {
                 ValidaCodi(textBoxCodi.Text);
             }
+
+            if(e.KeyCode == Keys.F2)
+            {
+                ObreCS();
+            }
+
+        }
+
+        private void textBoxCodi_MouseEnter(object sender, EventArgs e)
+        {
+
         }
     }
 }

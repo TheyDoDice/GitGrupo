@@ -7,14 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OutlookPrueba;
 
 namespace WindowsFormsControlLibrary
 {
     public partial class HelpForm : Form
     {
-        public HelpForm()
+        string [] args;
+
+        public HelpForm(string [] args)
         {
             InitializeComponent();
+            this.args = args;
+        }
+
+        private void HelpForm_Load(object sender, EventArgs e)
+        {
+            Dades dades = new Dades();
+            DataSet dataSet = new DataSet();
+
+            dataSet = dades.PortarTaula(args[0].ToString());
+            dataGridView1.DataSource = dataSet.Tables[0];
+            dataGridView1.Columns[0].Visible = false;
+
+
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            args[1] = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            this.Close();
         }
     }
 }

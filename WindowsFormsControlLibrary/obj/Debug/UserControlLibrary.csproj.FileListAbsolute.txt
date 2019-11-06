@@ -11,13 +11,3 @@ G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\UserControlL
 G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.dll
 G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.pdb
 G:\S2AM\Projecte\OutlookPrueba\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.HelpForm.resources
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csprojAssemblyReference.cache
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.HelpForm.resources
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.SWCodi.resources
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.dll
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.pdb
-C:\Users\admin\Desktop\GitGrupo\Proyectos\WindowsFormsControlLibrary.dll
-C:\Users\admin\Desktop\GitGrupo\Proyectos\WindowsFormsControlLibrary.pdb
-C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csproj.CopyComplete
