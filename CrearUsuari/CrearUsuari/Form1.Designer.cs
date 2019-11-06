@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_actualitzar_taula = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lbl_photo = new System.Windows.Forms.Label();
             this.txt_photo = new System.Windows.Forms.TextBox();
             this.lbl_login = new System.Windows.Forms.Label();
@@ -54,22 +52,12 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.btn_actualitzar_taula);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 225);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(729, 347);
+            this.groupBox2.Size = new System.Drawing.Size(729, 317);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
-            // 
-            // btn_actualitzar_taula
-            // 
-            this.btn_actualitzar_taula.Location = new System.Drawing.Point(6, 317);
-            this.btn_actualitzar_taula.Name = "btn_actualitzar_taula";
-            this.btn_actualitzar_taula.Size = new System.Drawing.Size(135, 23);
-            this.btn_actualitzar_taula.TabIndex = 13;
-            this.btn_actualitzar_taula.Text = "Actualitzar taula";
-            this.btn_actualitzar_taula.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -80,12 +68,11 @@
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(702, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(702, 282);
             this.dataGridView1.TabIndex = 15;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lbl_photo);
             this.groupBox1.Controls.Add(this.txt_photo);
             this.groupBox1.Controls.Add(this.lbl_login);
@@ -103,14 +90,6 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 112);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(218, 21);
-            this.comboBox1.TabIndex = 14;
-            // 
             // lbl_photo
             // 
             this.lbl_photo.AutoSize = true;
@@ -124,9 +103,8 @@
             // 
             this.txt_photo.Location = new System.Drawing.Point(307, 17);
             this.txt_photo.Name = "txt_photo";
-            this.txt_photo.PasswordChar = '*';
             this.txt_photo.Size = new System.Drawing.Size(117, 20);
-            this.txt_photo.TabIndex = 12;
+            this.txt_photo.TabIndex = 3;
             // 
             // lbl_login
             // 
@@ -141,9 +119,8 @@
             // 
             this.txt_login.Location = new System.Drawing.Point(540, 17);
             this.txt_login.Name = "txt_login";
-            this.txt_login.PasswordChar = '*';
             this.txt_login.Size = new System.Drawing.Size(117, 20);
-            this.txt_login.TabIndex = 10;
+            this.txt_login.TabIndex = 4;
             // 
             // lbl_UserName
             // 
@@ -159,7 +136,7 @@
             this.txt_userName.Location = new System.Drawing.Point(88, 49);
             this.txt_userName.Name = "txt_userName";
             this.txt_userName.Size = new System.Drawing.Size(112, 20);
-            this.txt_userName.TabIndex = 9;
+            this.txt_userName.TabIndex = 5;
             // 
             // lb_codeUser
             // 
@@ -184,7 +161,7 @@
             // 
             this.txt_codeUser.Location = new System.Drawing.Point(88, 17);
             this.txt_codeUser.Name = "txt_codeUser";
-            this.txt_codeUser.Size = new System.Drawing.Size(53, 20);
+            this.txt_codeUser.Size = new System.Drawing.Size(112, 20);
             this.txt_codeUser.TabIndex = 2;
             // 
             // lbl_password
@@ -200,15 +177,14 @@
             // 
             this.txt_password.Location = new System.Drawing.Point(307, 53);
             this.txt_password.Name = "txt_password";
-            this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(117, 20);
-            this.txt_password.TabIndex = 3;
+            this.txt_password.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 577);
+            this.ClientSize = new System.Drawing.Size(746, 563);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -225,7 +201,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btn_actualitzar_taula;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbl_photo;
@@ -239,7 +214,6 @@
         private System.Windows.Forms.TextBox txt_codeUser;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.TextBox txt_password;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

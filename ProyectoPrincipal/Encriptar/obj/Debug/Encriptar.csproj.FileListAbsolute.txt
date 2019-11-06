@@ -4,3 +4,9 @@ C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csprojAss
 C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.dll
 C:\Users\admin\Desktop\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.pdb
+C:\Users\admin\Desktop\GitGrupo\Proyectos\Encriptar.dll
+C:\Users\admin\Desktop\GitGrupo\Proyectos\Encriptar.pdb
+C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.dll
+C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.pdb

@@ -29,13 +29,11 @@ namespace CrearUsuari
             dBUtils.Connectar();
 
             dataSet = dBUtils.PortarPerConsulta(consulta);
-            dataGridView1.DataSource = dataSet.Tables[0];
             datable = dataSet.Tables[0];
+            dataGridView1.DataSource = datable;
+            
 
-            comboBox1.DataSource = datable;
-            comboBox1.DisplayMember = "Username";
-            comboBox1.ValueMember = "idUser";
-
+            dataGridView1.Columns["idUser"].Visible = false;
 
         }
 
@@ -45,24 +43,30 @@ namespace CrearUsuari
             string contra = txt_password.Text;
 
             DataRow datarow = datable.NewRow();
-
-            datarow["idUser"] = 39;
+            
             datarow["CodeUser"] = txt_codeUser.Text;
             datarow["UserName"] = txt_userName.Text;
-            datarow["Photo"] = txt_photo.Text; ;
-            datarow["Login"] = txt_login.Text;
+            datarow["Photo"]    = txt_photo.Text; ;
+            datarow["Login"]    = txt_login.Text;
             datarow["Password"] = txt_password.Text;
-            datarow["Salt"] = txt_password.Text;
+            datarow["Salt"]     = txt_password.Text;
 
-            datable.Rows.Add(datarow);
-
-            if (dBUtils.Actualitzar(consulta, "users", dataSet))
+            if (dadesUsuariCorrectes())
             {
-                MessageBox.Show("actualizado");
-            }else{
-                MessageBox.Show("no acualizado");
+                datable.Rows.Add(datarow);
+                dBUtils.Actualitzar(consulta, "users", dataSet);
+            }
+            else
+            {
+                MessageBox.Show("Falten dades.");
             }
             
+        }
+
+        private bool dadesUsuariCorrectes()
+        {
+            return txt_codeUser.Text != "" && txt_userName.Text != "" && txt_photo.Text != "" &&
+                   txt_login.Text != ""    && txt_password.Text != "" && txt_password.Text != "";
         }
 
         /*

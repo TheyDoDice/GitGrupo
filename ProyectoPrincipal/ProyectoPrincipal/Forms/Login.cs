@@ -15,7 +15,6 @@ namespace ProyectoPrincipal.Forms
     public partial class Login : Form
     {
         private string username = "User";
-        private string password = "";
 
         private bool primerClickUser = true;
         private bool primerClickPass = true;

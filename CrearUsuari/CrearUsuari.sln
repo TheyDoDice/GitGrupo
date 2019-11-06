@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrearUsuari", "CrearUsuari\CrearUsuari.csproj", "{24B5EB5A-64BA-47EC-B87A-A56A208F8D0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBDD", "..\ProyectoPrincipal\BBDD\BBDD.csproj", "{2C0CF561-873C-464C-8957-AFBB90D89983}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{24B5EB5A-64BA-47EC-B87A-A56A208F8D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24B5EB5A-64BA-47EC-B87A-A56A208F8D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24B5EB5A-64BA-47EC-B87A-A56A208F8D0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C0CF561-873C-464C-8957-AFBB90D89983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C0CF561-873C-464C-8957-AFBB90D89983}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C0CF561-873C-464C-8957-AFBB90D89983}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C0CF561-873C-464C-8957-AFBB90D89983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

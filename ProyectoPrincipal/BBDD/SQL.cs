@@ -132,7 +132,7 @@ namespace BBDD
 
                 if (dataSetActual.HasChanges())
                 {
-                    adapter.Update(dataSetActual, Taula);
+                    adapter.Update(dataSetActual.Tables[0]);
                 }
             }
             catch
