@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BBDD;
+using Encriptar;
 using WindowsFormsControlLibrary;
 
 namespace CrearUsuari
@@ -35,25 +37,44 @@ namespace CrearUsuari
             
 
             dataGridView1.Columns["idUser"].Visible = false;
+            
+            Regex rg = new Regex("^id");
+            
+            foreach (DataGridViewColumn item in dataGridView1.Columns)
+            {
+                if (rg.Match(item.Name).Success)
+                {
+                    dataGridView1.Columns[item.Name].Visible = false;
+                }
+            }
 
         }
 
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
         {
-
-            string contra = txt_password.Text;
-
-            DataRow datarow = datable.NewRow();
-            
-            datarow["CodeUser"] = txt_codeUser.Text;
-            datarow["UserName"] = txt_userName.Text;
-            datarow["Photo"]    = txt_photo.Text; ;
-            datarow["Login"]    = txt_login.Text;
-            datarow["Password"] = txt_password.Text;
-            datarow["Salt"]     = txt_password.Text;
-
             if (dadesUsuariCorrectes())
             {
+                string contra = txt_password.Text;
+
+                Hash encript = new Hash();
+                
+                byte[] salt = encript.GenerateSalt();
+                
+                byte[] hash = encript.ComputeHash(txt_password.Text, salt);
+
+                DataRow datarow = datable.NewRow();
+            
+                datarow["CodeUser"] = txt_codeUser.Text;
+                datarow["UserName"] = txt_userName.Text;
+                datarow["Photo"]    = txt_photo.Text; ;
+                datarow["Login"]    = txt_login.Text;
+                datarow["Password"] = Convert.ToBase64String(hash);
+                datarow["Salt"]     = Convert.ToBase64String(salt);
+                datarow["idUserRank"] = swc_UserRank.CodiID;
+                datarow["idUserCategory"] = swc_UserCategory.CodiID;
+                datarow["idPlanet"] = swc_UserPlanet.CodiID;
+                datarow["idSpecie"] = swc_UserSpecie.CodiID;
+                
                 datable.Rows.Add(datarow);
                 dBUtils.Actualitzar(consulta, "users", dataSet);
             }
@@ -67,55 +88,9 @@ namespace CrearUsuari
         private bool dadesUsuariCorrectes()
         {
             return txt_codeUser.Text != "" && txt_userName.Text != "" && txt_photo.Text != "" &&
-                   txt_login.Text != ""    && txt_password.Text != "";
+                   txt_login.Text != "" && txt_password.Text != "" && swc_UserRank.CodiID != null &&
+                   swc_UserCategory.CodiID != null && swc_UserPlanet.CodiID != null &&
+                   swc_UserSpecie.CodiID != null;
         }
-
-        /*
-                private void btn_actualitzar_taula_Click(object sender, EventArgs e)
-                {
-                    bool actualitzar;
-
-                    actualitzar = dBUtils.Actualitzar(consulta, "prova", dadesConsulta);
-                    if (actualitzar)
-                    {
-                        MessageBox.Show("Taula actualitzada correctament", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No s' ha pogut actualitzar la taula", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                private void btn_insertar_usuario_Click(object sender, EventArgs e)
-                {
-                    bool insert;
-
-                    if (correcte)
-                    {
-                        insert = dBUtils.InsertarUsuariSQL(txt_codeUser.Text.Trim());
-                        if (insert)
-                        {
-                            MessageBox.Show("Usuari insertat correctament.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dataGridView1.Update();
-                            dataGridView1.Refresh();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("No s'ha pogut insertar l' usuari.", "Error de inserció", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
-
-        ;        }
-        
-                private void btn_delete_user_Click(object sender, EventArgs e)
-                {
-                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                    {
-                        dataGridView1.Rows.RemoveAt(row.Index);
-                        MessageBox.Show("Usuari borrat correctament.", "Error de inserció", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }*/
     }
 }

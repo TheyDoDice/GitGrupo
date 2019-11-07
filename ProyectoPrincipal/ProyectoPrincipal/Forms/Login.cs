@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Encriptar;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -96,9 +97,9 @@ namespace ProyectoPrincipal.Forms
             try
             {
                 byte[] passwordBase = Convert.FromBase64String(dataSet.Tables[0].Rows[0]["Password"].ToString());
-                byte[] saltBase = Encoding.UTF8.GetBytes(dataSet.Tables[0].Rows[0]["Salt"].ToString());
+                byte[] saltBase = Convert.FromBase64String(dataSet.Tables[0].Rows[0]["Salt"].ToString());
 
-                Encriptar.Hash encript = new Encriptar.Hash();
+                Hash encript = new Hash();
 
                 return encript.VerifyPassword(password, saltBase, passwordBase);
             }

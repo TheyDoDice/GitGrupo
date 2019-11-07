@@ -34,17 +34,17 @@
             // 
             // textBoxCodi
             // 
-            this.textBoxCodi.Location = new System.Drawing.Point(14, 15);
+            this.textBoxCodi.Location = new System.Drawing.Point(3, 3);
             this.textBoxCodi.Name = "textBoxCodi";
             this.textBoxCodi.Size = new System.Drawing.Size(100, 20);
             this.textBoxCodi.TabIndex = 0;
+            this.textBoxCodi.TextChanged += new System.EventHandler(this.textBoxCodi_TextChanged);
             this.textBoxCodi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCodi_KeyUp);
-            this.textBoxCodi.MouseEnter += new System.EventHandler(this.textBoxCodi_MouseEnter);
             // 
             // textBoxDesc
             // 
             this.textBoxDesc.Enabled = false;
-            this.textBoxDesc.Location = new System.Drawing.Point(120, 15);
+            this.textBoxDesc.Location = new System.Drawing.Point(109, 3);
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(374, 20);
             this.textBoxDesc.TabIndex = 1;
@@ -56,7 +56,7 @@
             this.Controls.Add(this.textBoxDesc);
             this.Controls.Add(this.textBoxCodi);
             this.Name = "SWCodi";
-            this.Size = new System.Drawing.Size(510, 49);
+            this.Size = new System.Drawing.Size(487, 27);
             this.ResumeLayout(false);
             this.PerformLayout();
 

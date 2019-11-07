@@ -30,6 +30,7 @@ namespace WindowsFormsControlLibrary
             dataGridView1.DataSource = dataSet.Tables[0];
             dataGridView1.Columns[0].Visible = false;
 
+            this.CenterToScreen();
 
         }
 

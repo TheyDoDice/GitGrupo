@@ -123,12 +123,6 @@ namespace WindowsFormsControlLibrary
 
         private void textBoxCodi_KeyUp(object sender, KeyEventArgs e)
         {
-            
-            if (e.KeyCode == Keys.Enter)
-            {
-                ValidaCodi(textBoxCodi.Text);
-            }
-
             if(e.KeyCode == Keys.F2)
             {
                 ObreCS();
@@ -136,9 +130,9 @@ namespace WindowsFormsControlLibrary
 
         }
 
-        private void textBoxCodi_MouseEnter(object sender, EventArgs e)
+        private void textBoxCodi_TextChanged(object sender, EventArgs e)
         {
-
+            ValidaCodi(textBoxCodi.Text);
         }
     }
 }
