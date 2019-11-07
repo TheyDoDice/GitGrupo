@@ -47,7 +47,6 @@ namespace CrearUsuari
                     dataGridView1.Columns[item.Name].Visible = false;
                 }
             }
-
         }
 
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
