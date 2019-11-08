@@ -108,6 +108,7 @@ namespace CrearUsuari
                         {
                             if (subControl is SWTextbox1 swc)
                             {
+
                                 datarow[swc.nomCamp] = swc.Text;
 
                             }
@@ -115,6 +116,7 @@ namespace CrearUsuari
                         }
                     }
                 }
+                
                 
                 dBUtils.Actualitzar(consulta, "users", dataSet);
             }
