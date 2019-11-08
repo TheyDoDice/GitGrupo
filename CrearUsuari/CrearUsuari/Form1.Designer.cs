@@ -37,23 +37,23 @@
             this.lbl_login = new System.Windows.Forms.Label();
             this.lbl_photo = new System.Windows.Forms.Label();
             this.lbl_UserRank = new System.Windows.Forms.Label();
-            this.swc_UserRank = new WindowsFormsControlLibrary.SWCodi();
             this.lbl_UserCategory = new System.Windows.Forms.Label();
-            this.swc_UserCategory = new WindowsFormsControlLibrary.SWCodi();
             this.lbl_UserPlanet = new System.Windows.Forms.Label();
-            this.swc_UserPlanet = new WindowsFormsControlLibrary.SWCodi();
             this.lbl_UserSpecie = new System.Windows.Forms.Label();
-            this.swc_UserSpecie = new WindowsFormsControlLibrary.SWCodi();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_codeUser = new SWTextbox.SWTextbox1();
-            this.swTextbox12 = new SWTextbox.SWTextbox1();
-            this.swTextbox13 = new SWTextbox.SWTextbox1();
-            this.txt_password = new SWTextbox.SWTextbox1();
-            this.swTextbox15 = new SWTextbox.SWTextbox1();
-            this.txt_idUserRank = new SWTextbox.SWTextbox1();
-            this.swTextbox17 = new SWTextbox.SWTextbox1();
-            this.swTextbox18 = new SWTextbox.SWTextbox1();
+            this.swc_UserSpecie = new WindowsFormsControlLibrary.SWCodi();
+            this.swc_UserPlanet = new WindowsFormsControlLibrary.SWCodi();
+            this.swc_UserCategory = new WindowsFormsControlLibrary.SWCodi();
+            this.swc_UserRank = new WindowsFormsControlLibrary.SWCodi();
             this.swTextbox19 = new SWTextbox.SWTextbox1();
+            this.swTextbox18 = new SWTextbox.SWTextbox1();
+            this.swTextbox17 = new SWTextbox.SWTextbox1();
+            this.txt_idUserRank = new SWTextbox.SWTextbox1();
+            this.swTextbox15 = new SWTextbox.SWTextbox1();
+            this.txt_password = new SWTextbox.SWTextbox1();
+            this.swTextbox13 = new SWTextbox.SWTextbox1();
+            this.swTextbox12 = new SWTextbox.SWTextbox1();
+            this.txt_codeUser = new SWTextbox.SWTextbox1();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -147,22 +147,6 @@
             this.lbl_UserRank.TabIndex = 14;
             this.lbl_UserRank.Text = "User Rank:";
             // 
-            // swc_UserRank
-            // 
-            this.swc_UserRank.ClasseCS = null;
-            this.swc_UserRank.CodiID = null;
-            this.swc_UserRank.ControlID = "txt_idUserRank";
-            this.swc_UserRank.FormCS = null;
-            this.swc_UserRank.Location = new System.Drawing.Point(97, 79);
-            this.swc_UserRank.Name = "swc_UserRank";
-            this.swc_UserRank.NomCodi = "CodeRank";
-            this.swc_UserRank.NomDesc = "DescRank";
-            this.swc_UserRank.NomID = "idUserRank";
-            this.swc_UserRank.NomTaula = "UserRanks";
-            this.swc_UserRank.Requerit = false;
-            this.swc_UserRank.Size = new System.Drawing.Size(487, 30);
-            this.swc_UserRank.TabIndex = 7;
-            // 
             // lbl_UserCategory
             // 
             this.lbl_UserCategory.AutoSize = true;
@@ -171,22 +155,6 @@
             this.lbl_UserCategory.Size = new System.Drawing.Size(77, 13);
             this.lbl_UserCategory.TabIndex = 16;
             this.lbl_UserCategory.Text = "User Category:";
-            // 
-            // swc_UserCategory
-            // 
-            this.swc_UserCategory.ClasseCS = null;
-            this.swc_UserCategory.CodiID = null;
-            this.swc_UserCategory.ControlID = null;
-            this.swc_UserCategory.FormCS = null;
-            this.swc_UserCategory.Location = new System.Drawing.Point(97, 112);
-            this.swc_UserCategory.Name = "swc_UserCategory";
-            this.swc_UserCategory.NomCodi = "CodeCategory";
-            this.swc_UserCategory.NomDesc = "DescCategory";
-            this.swc_UserCategory.NomID = "idUserCategory";
-            this.swc_UserCategory.NomTaula = "UserCategories";
-            this.swc_UserCategory.Requerit = false;
-            this.swc_UserCategory.Size = new System.Drawing.Size(510, 25);
-            this.swc_UserCategory.TabIndex = 8;
             // 
             // lbl_UserPlanet
             // 
@@ -197,22 +165,6 @@
             this.lbl_UserPlanet.TabIndex = 18;
             this.lbl_UserPlanet.Text = "Planet:";
             // 
-            // swc_UserPlanet
-            // 
-            this.swc_UserPlanet.ClasseCS = null;
-            this.swc_UserPlanet.CodiID = null;
-            this.swc_UserPlanet.ControlID = null;
-            this.swc_UserPlanet.FormCS = null;
-            this.swc_UserPlanet.Location = new System.Drawing.Point(97, 143);
-            this.swc_UserPlanet.Name = "swc_UserPlanet";
-            this.swc_UserPlanet.NomCodi = "CodePlanet";
-            this.swc_UserPlanet.NomDesc = "DescPlanet";
-            this.swc_UserPlanet.NomID = "idPlanet";
-            this.swc_UserPlanet.NomTaula = "Planets";
-            this.swc_UserPlanet.Requerit = false;
-            this.swc_UserPlanet.Size = new System.Drawing.Size(510, 25);
-            this.swc_UserPlanet.TabIndex = 9;
-            // 
             // lbl_UserSpecie
             // 
             this.lbl_UserSpecie.AutoSize = true;
@@ -221,22 +173,6 @@
             this.lbl_UserSpecie.Size = new System.Drawing.Size(43, 13);
             this.lbl_UserSpecie.TabIndex = 20;
             this.lbl_UserSpecie.Text = "Specie:";
-            // 
-            // swc_UserSpecie
-            // 
-            this.swc_UserSpecie.ClasseCS = null;
-            this.swc_UserSpecie.CodiID = null;
-            this.swc_UserSpecie.ControlID = null;
-            this.swc_UserSpecie.FormCS = null;
-            this.swc_UserSpecie.Location = new System.Drawing.Point(97, 177);
-            this.swc_UserSpecie.Name = "swc_UserSpecie";
-            this.swc_UserSpecie.NomCodi = "CodeSpecie";
-            this.swc_UserSpecie.NomDesc = "DescSpecie";
-            this.swc_UserSpecie.NomID = "idSpecie";
-            this.swc_UserSpecie.NomTaula = "Species";
-            this.swc_UserSpecie.Requerit = false;
-            this.swc_UserSpecie.Size = new System.Drawing.Size(510, 25);
-            this.swc_UserSpecie.TabIndex = 10;
             // 
             // groupBox1
             // 
@@ -269,95 +205,186 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // txt_codeUser
+            // swc_UserSpecie
             // 
-            this.txt_codeUser.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.txt_codeUser.Location = new System.Drawing.Point(97, 18);
-            this.txt_codeUser.mensaje = null;
-            this.txt_codeUser.Name = "txt_codeUser";
-            this.txt_codeUser.nomCamp = "CodeUser";
-            this.txt_codeUser.Size = new System.Drawing.Size(102, 20);
-            this.txt_codeUser.TabIndex = 22;
+            this.swc_UserSpecie.ClasseCS = null;
+            this.swc_UserSpecie.CodiID = null;
+            this.swc_UserSpecie.ControlID = "swTextbox19";
+            this.swc_UserSpecie.FormCS = null;
+            this.swc_UserSpecie.Location = new System.Drawing.Point(97, 177);
+            this.swc_UserSpecie.Name = "swc_UserSpecie";
+            this.swc_UserSpecie.NomCodi = "CodeSpecie";
+            this.swc_UserSpecie.NomDesc = "DescSpecie";
+            this.swc_UserSpecie.NomID = "idSpecie";
+            this.swc_UserSpecie.NomTaula = "Species";
+            this.swc_UserSpecie.Requerit = false;
+            this.swc_UserSpecie.Size = new System.Drawing.Size(510, 25);
+            this.swc_UserSpecie.TabIndex = 10;
             // 
-            // swTextbox12
+            // swc_UserPlanet
             // 
-            this.swTextbox12.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.swTextbox12.Location = new System.Drawing.Point(97, 53);
-            this.swTextbox12.mensaje = null;
-            this.swTextbox12.Name = "swTextbox12";
-            this.swTextbox12.nomCamp = "Username";
-            this.swTextbox12.Size = new System.Drawing.Size(102, 20);
-            this.swTextbox12.TabIndex = 23;
+            this.swc_UserPlanet.ClasseCS = null;
+            this.swc_UserPlanet.CodiID = null;
+            this.swc_UserPlanet.ControlID = "swTextbox18";
+            this.swc_UserPlanet.FormCS = null;
+            this.swc_UserPlanet.Location = new System.Drawing.Point(97, 143);
+            this.swc_UserPlanet.Name = "swc_UserPlanet";
+            this.swc_UserPlanet.NomCodi = "CodePlanet";
+            this.swc_UserPlanet.NomDesc = "DescPlanet";
+            this.swc_UserPlanet.NomID = "idPlanet";
+            this.swc_UserPlanet.NomTaula = "Planets";
+            this.swc_UserPlanet.Requerit = false;
+            this.swc_UserPlanet.Size = new System.Drawing.Size(510, 25);
+            this.swc_UserPlanet.TabIndex = 9;
             // 
-            // swTextbox13
+            // swc_UserCategory
             // 
-            this.swTextbox13.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.swTextbox13.Location = new System.Drawing.Point(284, 17);
-            this.swTextbox13.mensaje = null;
-            this.swTextbox13.Name = "swTextbox13";
-            this.swTextbox13.nomCamp = "Photo";
-            this.swTextbox13.Size = new System.Drawing.Size(102, 20);
-            this.swTextbox13.TabIndex = 24;
+            this.swc_UserCategory.ClasseCS = null;
+            this.swc_UserCategory.CodiID = null;
+            this.swc_UserCategory.ControlID = "swTextbox17";
+            this.swc_UserCategory.FormCS = null;
+            this.swc_UserCategory.Location = new System.Drawing.Point(97, 112);
+            this.swc_UserCategory.Name = "swc_UserCategory";
+            this.swc_UserCategory.NomCodi = "CodeCategory";
+            this.swc_UserCategory.NomDesc = "DescCategory";
+            this.swc_UserCategory.NomID = "idUserCategory";
+            this.swc_UserCategory.NomTaula = "UserCategories";
+            this.swc_UserCategory.Requerit = false;
+            this.swc_UserCategory.Size = new System.Drawing.Size(510, 25);
+            this.swc_UserCategory.TabIndex = 8;
             // 
-            // txt_password
+            // swc_UserRank
             // 
-            this.txt_password.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.txt_password.Location = new System.Drawing.Point(284, 53);
-            this.txt_password.mensaje = null;
-            this.txt_password.Name = "txt_password";
-            this.txt_password.nomCamp = "Password";
-            this.txt_password.Size = new System.Drawing.Size(102, 20);
-            this.txt_password.TabIndex = 25;
-            // 
-            // swTextbox15
-            // 
-            this.swTextbox15.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.swTextbox15.Location = new System.Drawing.Point(476, 14);
-            this.swTextbox15.mensaje = null;
-            this.swTextbox15.Name = "swTextbox15";
-            this.swTextbox15.nomCamp = "Login";
-            this.swTextbox15.Size = new System.Drawing.Size(102, 20);
-            this.swTextbox15.TabIndex = 26;
-            // 
-            // txt_idUserRank
-            // 
-            this.txt_idUserRank.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.txt_idUserRank.Location = new System.Drawing.Point(603, 84);
-            this.txt_idUserRank.mensaje = null;
-            this.txt_idUserRank.Name = "txt_idUserRank";
-            this.txt_idUserRank.nomCamp = "iduserrank";
-            this.txt_idUserRank.Size = new System.Drawing.Size(44, 20);
-            this.txt_idUserRank.TabIndex = 27;
-            // 
-            // swTextbox17
-            // 
-            this.swTextbox17.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.swTextbox17.Location = new System.Drawing.Point(603, 117);
-            this.swTextbox17.mensaje = null;
-            this.swTextbox17.Name = "swTextbox17";
-            this.swTextbox17.nomCamp = "idUserCategory";
-            this.swTextbox17.Size = new System.Drawing.Size(44, 20);
-            this.swTextbox17.TabIndex = 28;
-            // 
-            // swTextbox18
-            // 
-            this.swTextbox18.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
-            this.swTextbox18.Location = new System.Drawing.Point(603, 146);
-            this.swTextbox18.mensaje = null;
-            this.swTextbox18.Name = "swTextbox18";
-            this.swTextbox18.nomCamp = "idPlanet";
-            this.swTextbox18.Size = new System.Drawing.Size(44, 20);
-            this.swTextbox18.TabIndex = 29;
+            this.swc_UserRank.ClasseCS = null;
+            this.swc_UserRank.CodiID = null;
+            this.swc_UserRank.ControlID = "txt_idUserRank";
+            this.swc_UserRank.FormCS = null;
+            this.swc_UserRank.Location = new System.Drawing.Point(97, 79);
+            this.swc_UserRank.Name = "swc_UserRank";
+            this.swc_UserRank.NomCodi = "CodeRank";
+            this.swc_UserRank.NomDesc = "DescRank";
+            this.swc_UserRank.NomID = "idUserRank";
+            this.swc_UserRank.NomTaula = "UserRanks";
+            this.swc_UserRank.Requerit = false;
+            this.swc_UserRank.Size = new System.Drawing.Size(487, 30);
+            this.swc_UserRank.TabIndex = 7;
             // 
             // swTextbox19
             // 
+            this.swTextbox19.controlID = "swc_UserSpecie";
             this.swTextbox19.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox19.foranea = true;
             this.swTextbox19.Location = new System.Drawing.Point(604, 177);
             this.swTextbox19.mensaje = null;
             this.swTextbox19.Name = "swTextbox19";
             this.swTextbox19.nomCamp = "idSpecie";
+            this.swTextbox19.nomComboBox = null;
             this.swTextbox19.Size = new System.Drawing.Size(43, 20);
             this.swTextbox19.TabIndex = 30;
+            // 
+            // swTextbox18
+            // 
+            this.swTextbox18.controlID = "swc_UserPlanet";
+            this.swTextbox18.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox18.foranea = true;
+            this.swTextbox18.Location = new System.Drawing.Point(603, 146);
+            this.swTextbox18.mensaje = null;
+            this.swTextbox18.Name = "swTextbox18";
+            this.swTextbox18.nomCamp = "idPlanet";
+            this.swTextbox18.nomComboBox = null;
+            this.swTextbox18.Size = new System.Drawing.Size(44, 20);
+            this.swTextbox18.TabIndex = 29;
+            // 
+            // swTextbox17
+            // 
+            this.swTextbox17.controlID = "swc_UserCategory";
+            this.swTextbox17.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox17.foranea = true;
+            this.swTextbox17.Location = new System.Drawing.Point(603, 117);
+            this.swTextbox17.mensaje = null;
+            this.swTextbox17.Name = "swTextbox17";
+            this.swTextbox17.nomCamp = "idUserCategory";
+            this.swTextbox17.nomComboBox = null;
+            this.swTextbox17.Size = new System.Drawing.Size(44, 20);
+            this.swTextbox17.TabIndex = 28;
+            // 
+            // txt_idUserRank
+            // 
+            this.txt_idUserRank.controlID = "swc_UserRank";
+            this.txt_idUserRank.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.txt_idUserRank.foranea = true;
+            this.txt_idUserRank.Location = new System.Drawing.Point(603, 84);
+            this.txt_idUserRank.mensaje = null;
+            this.txt_idUserRank.Name = "txt_idUserRank";
+            this.txt_idUserRank.nomCamp = "iduserrank";
+            this.txt_idUserRank.nomComboBox = null;
+            this.txt_idUserRank.Size = new System.Drawing.Size(44, 20);
+            this.txt_idUserRank.TabIndex = 27;
+            // 
+            // swTextbox15
+            // 
+            this.swTextbox15.controlID = null;
+            this.swTextbox15.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox15.foranea = false;
+            this.swTextbox15.Location = new System.Drawing.Point(476, 14);
+            this.swTextbox15.mensaje = null;
+            this.swTextbox15.Name = "swTextbox15";
+            this.swTextbox15.nomCamp = "Login";
+            this.swTextbox15.nomComboBox = null;
+            this.swTextbox15.Size = new System.Drawing.Size(102, 20);
+            this.swTextbox15.TabIndex = 26;
+            // 
+            // txt_password
+            // 
+            this.txt_password.controlID = null;
+            this.txt_password.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.txt_password.foranea = false;
+            this.txt_password.Location = new System.Drawing.Point(284, 53);
+            this.txt_password.mensaje = null;
+            this.txt_password.Name = "txt_password";
+            this.txt_password.nomCamp = "Password";
+            this.txt_password.nomComboBox = null;
+            this.txt_password.Size = new System.Drawing.Size(102, 20);
+            this.txt_password.TabIndex = 25;
+            // 
+            // swTextbox13
+            // 
+            this.swTextbox13.controlID = null;
+            this.swTextbox13.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox13.foranea = false;
+            this.swTextbox13.Location = new System.Drawing.Point(284, 17);
+            this.swTextbox13.mensaje = null;
+            this.swTextbox13.Name = "swTextbox13";
+            this.swTextbox13.nomCamp = "Photo";
+            this.swTextbox13.nomComboBox = null;
+            this.swTextbox13.Size = new System.Drawing.Size(102, 20);
+            this.swTextbox13.TabIndex = 24;
+            // 
+            // swTextbox12
+            // 
+            this.swTextbox12.controlID = null;
+            this.swTextbox12.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox12.foranea = false;
+            this.swTextbox12.Location = new System.Drawing.Point(97, 53);
+            this.swTextbox12.mensaje = null;
+            this.swTextbox12.Name = "swTextbox12";
+            this.swTextbox12.nomCamp = "Username";
+            this.swTextbox12.nomComboBox = null;
+            this.swTextbox12.Size = new System.Drawing.Size(102, 20);
+            this.swTextbox12.TabIndex = 23;
+            // 
+            // txt_codeUser
+            // 
+            this.txt_codeUser.controlID = null;
+            this.txt_codeUser.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.txt_codeUser.foranea = false;
+            this.txt_codeUser.Location = new System.Drawing.Point(97, 18);
+            this.txt_codeUser.mensaje = null;
+            this.txt_codeUser.Name = "txt_codeUser";
+            this.txt_codeUser.nomCamp = "CodeUser";
+            this.txt_codeUser.nomComboBox = null;
+            this.txt_codeUser.Size = new System.Drawing.Size(102, 20);
+            this.txt_codeUser.TabIndex = 22;
             // 
             // Form1
             // 

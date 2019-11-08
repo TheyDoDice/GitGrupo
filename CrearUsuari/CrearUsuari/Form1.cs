@@ -54,18 +54,41 @@ namespace CrearUsuari
                     {
                         if (subControl is SWTextbox1 swt)
                         {
+                            swt.Text = "error";
                             swt.DataBindings.Clear();
                             swt.DataBindings.Add("Text", datable, swt.nomCamp);
                             swt.Validated += (s, ev) => ((SWTextbox1) s).DataBindings[0].BindingManagerBase.EndCurrentEdit();
-                            
+                            swt.TextChanged += (s, ev) => atualizaLaForanea(swt);
+                            atualizaLaForanea(swt);
                         }
                     }
                 }
             }
         }
-        
 
-        
+        private void atualizaLaForanea(SWTextbox1 swt)
+        {
+            if (swt.foranea)
+            {
+                foreach (var c in this.Controls)
+                {
+                    if (c is GroupBox gb_2)
+                    {
+                        foreach (Control item in gb_2.Controls)
+                        {
+                            if (item is SWCodi swc)
+                            {
+                                if (swc.Name == swt.controlID)
+                                {
+                                    swc.ValidaId(swt.Text);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
         {
             if (dadesUsuariCorrectes())
