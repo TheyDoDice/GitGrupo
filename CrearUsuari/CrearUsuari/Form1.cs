@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using BBDD;
 using Encriptar;
 using WindowsFormsControlLibrary;
+using SWTextbox;
 
 namespace CrearUsuari
 {
@@ -35,9 +36,6 @@ namespace CrearUsuari
             datable = dataSet.Tables[0];
             dataGridView1.DataSource = datable;
             
-
-            dataGridView1.Columns["idUser"].Visible = false;
-            
             Regex rg = new Regex("^id");
             
             foreach (DataGridViewColumn item in dataGridView1.Columns)
@@ -47,34 +45,54 @@ namespace CrearUsuari
                     dataGridView1.Columns[item.Name].Visible = false;
                 }
             }
-        }
 
+            foreach (var control in this.Controls)
+            {
+                if (control is GroupBox gb)
+                {
+                    foreach (var subControl in gb.Controls)
+                    {
+                        if (subControl is SWTextbox1 swt)
+                        {
+                            swt.DataBindings.Clear();
+                            swt.DataBindings.Add("Text", datable, swt.nomCamp);
+                            swt.Validated += (s, ev) => ((SWTextbox1) s).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+
+        
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
         {
             if (dadesUsuariCorrectes())
             {
                 string contra = txt_password.Text;
-
                 Hash encript = new Hash();
-                
                 byte[] salt = encript.GenerateSalt();
-                
                 byte[] hash = encript.ComputeHash(txt_password.Text, salt);
 
                 DataRow datarow = datable.NewRow();
-            
-                datarow["CodeUser"] = txt_codeUser.Text;
-                datarow["UserName"] = txt_userName.Text;
-                datarow["Photo"]    = txt_photo.Text; ;
-                datarow["Login"]    = txt_login.Text;
-                datarow["Password"] = Convert.ToBase64String(hash);
-                datarow["Salt"]     = Convert.ToBase64String(salt);
-                datarow["idUserRank"] = swc_UserRank.CodiID;
-                datarow["idUserCategory"] = swc_UserCategory.CodiID;
-                datarow["idPlanet"] = swc_UserPlanet.CodiID;
-                datarow["idSpecie"] = swc_UserSpecie.CodiID;
+
+                foreach (var control in this.Controls)
+                {
+                    if (control is GroupBox gb)
+                    {
+                        foreach (var subControl in gb.Controls)
+                        {
+                            if (subControl is SWTextbox1 swc)
+                            {
+                                datarow[swc.nomCamp] = swc.Text;
+
+                            }
+
+                        }
+                    }
+                }
                 
-                datable.Rows.Add(datarow);
                 dBUtils.Actualitzar(consulta, "users", dataSet);
             }
             else
@@ -86,10 +104,11 @@ namespace CrearUsuari
 
         private bool dadesUsuariCorrectes()
         {
-            return txt_codeUser.Text != "" && txt_userName.Text != "" && txt_photo.Text != "" &&
-                   txt_login.Text != "" && txt_password.Text != "" && swc_UserRank.CodiID != null &&
-                   swc_UserCategory.CodiID != null && swc_UserPlanet.CodiID != null &&
-                   swc_UserSpecie.CodiID != null;
+            return true;
+            //return txt_codeUser.Text != "" && txt_userName.Text != "" && txt_photo.Text != "" &&
+            //       txt_login.Text != "" && txt_password.Text != "" && swc_UserRank.CodiID != null &&
+            //       swc_UserCategory.CodiID != null && swc_UserPlanet.CodiID != null &&
+            //       swc_UserSpecie.CodiID != null;
         }
     }
 }

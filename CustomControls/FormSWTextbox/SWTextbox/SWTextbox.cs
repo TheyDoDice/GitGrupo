@@ -11,74 +11,37 @@ namespace SWTextbox
 {
     public class SWTextbox1 : System.Windows.Forms.TextBox
     {
-        private string _nomCamp;
-
-
-     
-
-
-        //Propietat per decidir quin tipus de dada contindra el textbox
-        public enum tipDades { Numero, Text, Codi, data};
-
-
-        public tipDades DadaTipus { get; set; }
-
-        /*private tipDades _dadaTipus;
-        
-        public tipDades DadaTipus
-        {
-            get { return _dadaTipus; }
-            set { _dadaTipus = value; }
-        }*/
-        
-            private string _mensaje;
-        public string mensaje
-        {
-            get { return _mensaje; }
-            set { _mensaje = value; }
-        }
-
-        
-
-        public string nomCamp
-        {
-            get { return _nomCamp; }
-            set { _nomCamp = value; }
-        }
-
-        private bool _foranea;
-
-        public bool foranea
-        {
-            get { return _foranea; }
-            set { _foranea = value; }
-        }
-
-
-        private string _nomComboBox;
-
-        public string nomComboBox
-        {
-            get { return _nomComboBox; }
-            set { _nomComboBox = value; }
-        }
-
-      
-
         public SWTextbox1()
         {
             InitializeComponent();
-            
-          
+
             this.SuspendLayout();
-            // 
-            // SWTextbox1
-            // 
             this.MouseEnter += new System.EventHandler(this.SWTextbox1_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.SWTextbox1_MouseLeave);
             this.ResumeLayout(false);
 
         }
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.Leave += new System.EventHandler(this.SWTextbox1_Leave);
+            this.MouseLeave += new System.EventHandler(this.SWTextbox1_MouseLeave_1);
+            this.Validated += new System.EventHandler(this.SWTextbox1_Validated);
+            this.ResumeLayout(false);
+
+        }
+
+        public enum tipDades { Numero, Text, Codi, data};
+
+        public tipDades DadaTipus { get; set; }
+
+
+        public string mensaje { get; set; }
+        public string nomCamp { get; set; }
+        public bool foranea { get; set; }
+        public string nomComboBox { get; set; }
+        public string controlID { get; set; }
+
 
 
         private void SWTextbox1_MouseEnter(object sender, EventArgs e)
@@ -89,19 +52,6 @@ namespace SWTextbox
         private void SWTextbox1_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // SWTextbox1
-            // 
-            this.Leave += new System.EventHandler(this.SWTextbox1_Leave);
-            this.MouseLeave += new System.EventHandler(this.SWTextbox1_MouseLeave_1);
-            this.Validated += new System.EventHandler(this.SWTextbox1_Validated);
-            this.ResumeLayout(false);
-
         }
 
         private void SWTextbox1_Validated(object sender, EventArgs e)
@@ -135,10 +85,8 @@ namespace SWTextbox
 
         private void SWTextbox1_MouseLeave_1(object sender, EventArgs e)
         {
-           
-
                 
-            }
+        }
 
         private void SWTextbox1_Leave(object sender, EventArgs e)
         {
