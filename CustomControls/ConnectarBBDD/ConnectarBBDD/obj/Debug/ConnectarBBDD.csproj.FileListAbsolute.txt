@@ -1,0 +1,83 @@
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe.config
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.pdb
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojAssemblyReference.cache
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Form1.resources
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Properties.Resources.resources
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.GenerateResource.cache
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CoreCompileInputs.cache
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
+G:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe.config
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.pdb
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\mscorlib.dll
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\es\mscorlib.resources.dll
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\fr\mscorlib.resources.dll
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\it\mscorlib.resources.dll
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\pt-PT\mscorlib.resources.dll
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\normidna.nlp
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfc.nlp
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfd.nlp
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfkc.nlp
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfkd.nlp
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojResolveAssemblyReference.cache
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Form1.resources
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Properties.Resources.resources
+E:\S2AM\M 20-DUAL\EJERCICIOS\PROJECTE BANC D'ALIMENTS\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.GenerateResource.Cache
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojAssemblyReference.cache
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Form1.resources
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Properties.Resources.resources
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.GenerateResource.cache
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CoreCompileInputs.cache
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe.config
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.pdb
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.dll
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.pdb
+C:\Users\admin\Downloads\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CopyComplete
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe.config
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojResolveAssemblyReference.cache
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Form1.resources
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Properties.Resources.resources
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.GenerateResource.Cache
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.pdb
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.dll
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\mscorlib.dll
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.pdb
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\es\mscorlib.resources.dll
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\fr\mscorlib.resources.dll
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\it\mscorlib.resources.dll
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\pt-PT\mscorlib.resources.dll
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\normidna.nlp
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfc.nlp
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfd.nlp
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfkc.nlp
+E:\S2AM\M20\ConnectarBBDD\ConnectarBBDD\ConnectarBBDD\bin\Debug\normnfkd.nlp
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe.config
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.pdb
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.dll
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWComboFK.dll
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.pdb
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWComboFK.pdb
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojAssemblyReference.cache
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.frm_principal.resources
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Properties.Resources.resources
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.GenerateResource.cache
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CoreCompileInputs.cache
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CopyComplete
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\BBDD.dll
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\BBDD.pdb
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWTextbox.dll
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWTextbox.pdb
+G:\S2AM\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.Form1.resources

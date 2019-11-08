@@ -1,0 +1,11 @@
+G:\S2AM\ConnectarBBDD\SWComboFK\bin\Debug\SWComboFK.dll
+G:\S2AM\ConnectarBBDD\SWComboFK\bin\Debug\SWComboFK.pdb
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.SWComboFK.resources
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.csproj.GenerateResource.cache
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.csproj.CoreCompileInputs.cache
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.dll
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.pdb
+G:\S2AM\ConnectarBBDD\SWComboFK\bin\Debug\BBDD.dll
+G:\S2AM\ConnectarBBDD\SWComboFK\bin\Debug\BBDD.pdb
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.csproj.CopyComplete
+G:\S2AM\ConnectarBBDD\SWComboFK\obj\Debug\SWComboFK.csprojAssemblyReference.cache
