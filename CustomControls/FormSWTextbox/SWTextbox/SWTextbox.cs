@@ -15,18 +15,18 @@ namespace SWTextbox
         {
             InitializeComponent();
 
-            this.SuspendLayout();
-            this.MouseEnter += new System.EventHandler(this.SWTextbox1_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.SWTextbox1_MouseLeave);
-            this.ResumeLayout(false);
+
 
         }
         private void InitializeComponent()
         {
             this.SuspendLayout();
+            // 
+            // SWTextbox1
+            // 
+            this.Enter += new System.EventHandler(this.SWTextbox1_Enter);
             this.Leave += new System.EventHandler(this.SWTextbox1_Leave);
-            this.MouseLeave += new System.EventHandler(this.SWTextbox1_MouseLeave_1);
-            this.Validated += new System.EventHandler(this.SWTextbox1_Validated);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.ValidarTipusDada);
             this.ResumeLayout(false);
 
         }
@@ -39,6 +39,7 @@ namespace SWTextbox
         public string mensaje { get; set; }
         public string nomCamp { get; set; }
         public bool foranea { get; set; }
+        public bool requerit { get; set; }
         public string nomComboBox { get; set; }
         public string controlID { get; set; }
 
@@ -54,43 +55,9 @@ namespace SWTextbox
             this.BackColor = Color.White;
         }
 
-        private void SWTextbox1_Validated(object sender, EventArgs e)
+        private void ValidarTipusDada(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //if (!this.Text.All(char.IsDigit))
-            //{
-
-        
-            //}
-            //else if (this.Text.ToUpper() != this.Text.ToLower())
-            //{
-              //  if (this.Text.Any(char.IsDigit))
-                //{
-
-                    /*if (this.DadaTipus != tipDades.Codi)
-                    {
-                        this.Text = "Es necessitan un codi";
-                    }
-                //}
-                //else
-                //{
-
-                    if (this.DadaTipus != tipDades.Text)
-                    {
-                        this.Text = "Es necessita un text";
-                    }*/
-               //}
-            //}
-          
-        }
-
-        private void SWTextbox1_MouseLeave_1(object sender, EventArgs e)
-        {
-                
-        }
-
-        private void SWTextbox1_Leave(object sender, EventArgs e)
-        {
-            if (this.Text != "")
+            if (this.Text.Length != 0)
             {
 
                 if (this.DadaTipus == tipDades.Numero)
@@ -98,7 +65,9 @@ namespace SWTextbox
                     Regex regex = new Regex("^[0-9]+$");
                     if (!regex.IsMatch(this.Text))
                     {
-                        MessageBox.Show("Inserte solo números.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //MessageBox.Show("Inserte solo números.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Text = "";
+                        e.Cancel = true;
                     }
 
                 }
@@ -107,7 +76,9 @@ namespace SWTextbox
                     Regex regex = new Regex(@"^(\d{1,2})/(\d{1,2})/(\d{4})$");
                     if (!regex.IsMatch(this.Text))
                     {
-                        MessageBox.Show("Fehca incorrecta, use el formato DD/MM/YYYY", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Text = "";
+                        e.Cancel = true;
+                        //MessageBox.Show("Fehca incorrecta, use el formato DD/MM/YYYY", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (this.DadaTipus == tipDades.Codi)
@@ -116,11 +87,30 @@ namespace SWTextbox
 
                     if (!regex.IsMatch(this.Text))
                     {
-                        MessageBox.Show("Código incorrecto, use el formato ABCD-1234/1A", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Text = "";
+                        e.Cancel = true;
+                        //MessageBox.Show("Código incorrecto, use el formato ABCD-1234/1A", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+
+            if (this.Text.Length == 0 && requerit == true)
+            {
+                e.Cancel = true;
+            }
+
         }
+
+        private void SWTextbox1_Enter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Green;
+        }
+
+        private void SWTextbox1_Leave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+        }
+
     }
     }
 
