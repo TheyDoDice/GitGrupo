@@ -54,5 +54,10 @@ namespace ConnectarBBDD
             dBUtils.TancarConnexioSQL();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dBUtils.ActualitzarTaulaSQL(consulta, "prova", dadesConsulta);
+        }
     }
 }

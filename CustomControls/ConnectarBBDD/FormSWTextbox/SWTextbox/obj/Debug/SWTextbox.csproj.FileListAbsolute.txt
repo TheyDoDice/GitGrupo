@@ -31,3 +31,16 @@ C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\FormSWText
 C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\BBDD.dll
 C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\SWComboFK.pdb
 C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.csproj.CopyComplete
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\SWTextbox.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\SWTextbox.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\SWComboFK.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\BBDD.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\SWComboFK.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.SWTextbox1.resources
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.csproj.CopyComplete
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\FormSWTextbox\SWTextbox\bin\Debug\BBDD.pdb

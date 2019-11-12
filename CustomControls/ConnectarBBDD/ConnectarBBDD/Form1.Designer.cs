@@ -60,6 +60,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -113,10 +114,13 @@
             // swTextbox14
             // 
             this.swTextbox14.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox14.foranea = true;
             this.swTextbox14.Location = new System.Drawing.Point(297, 182);
             this.swTextbox14.mensaje = null;
             this.swTextbox14.Name = "swTextbox14";
             this.swTextbox14.nomCamp = "idRegion";
+            this.swTextbox14.nomComboBox = "swComboFK2";
+            this.swTextbox14.requerit = false;
             this.swTextbox14.Size = new System.Drawing.Size(21, 20);
             this.swTextbox14.TabIndex = 6;
             this.swTextbox14.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
@@ -124,11 +128,14 @@
             // swTextbox13
             // 
             this.swTextbox13.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swTextbox13.foranea = false;
             this.swTextbox13.Location = new System.Drawing.Point(155, 104);
             this.swTextbox13.mensaje = null;
             this.swTextbox13.Multiline = true;
             this.swTextbox13.Name = "swTextbox13";
             this.swTextbox13.nomCamp = "Remarks";
+            this.swTextbox13.nomComboBox = null;
+            this.swTextbox13.requerit = false;
             this.swTextbox13.Size = new System.Drawing.Size(376, 59);
             this.swTextbox13.TabIndex = 4;
             this.swTextbox13.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
@@ -136,10 +143,13 @@
             // swTextbox12
             // 
             this.swTextbox12.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox12.foranea = false;
             this.swTextbox12.Location = new System.Drawing.Point(155, 78);
             this.swTextbox12.mensaje = null;
             this.swTextbox12.Name = "swTextbox12";
             this.swTextbox12.nomCamp = "DescSector";
+            this.swTextbox12.nomComboBox = null;
+            this.swTextbox12.requerit = false;
             this.swTextbox12.Size = new System.Drawing.Size(100, 20);
             this.swTextbox12.TabIndex = 3;
             this.swTextbox12.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWCodi;
@@ -147,10 +157,13 @@
             // swTextbox11
             // 
             this.swTextbox11.DadaTipus = SWTextbox.SWTextbox1.tipDades.Codi;
+            this.swTextbox11.foranea = false;
             this.swTextbox11.Location = new System.Drawing.Point(155, 52);
             this.swTextbox11.mensaje = null;
             this.swTextbox11.Name = "swTextbox11";
             this.swTextbox11.nomCamp = "CodeSector";
+            this.swTextbox11.nomComboBox = null;
+            this.swTextbox11.requerit = false;
             this.swTextbox11.Size = new System.Drawing.Size(100, 20);
             this.swTextbox11.TabIndex = 2;
             this.swTextbox11.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWCodi;

@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSWComboFK", "SWComboF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWTextbox", "FormSWTextbox\SWTextbox\SWTextbox.csproj", "{4CE3C6EC-2778-4C23-B6FA-012E08446730}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseBA", "BaseBA\BaseBA.csproj", "{81A07463-2A5A-464A-8889-CFA996AE53A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{4CE3C6EC-2778-4C23-B6FA-012E08446730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE3C6EC-2778-4C23-B6FA-012E08446730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE3C6EC-2778-4C23-B6FA-012E08446730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A07463-2A5A-464A-8889-CFA996AE53A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A07463-2A5A-464A-8889-CFA996AE53A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A07463-2A5A-464A-8889-CFA996AE53A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A07463-2A5A-464A-8889-CFA996AE53A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

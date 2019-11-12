@@ -11,6 +11,7 @@ namespace CustomSWComboFK
         private string _ControlID;
         private string _nomtaula;
         private bool ple = false;
+        private bool primera_vegada = true;
 
         public string ControlID
         {
@@ -63,18 +64,23 @@ namespace CustomSWComboFK
                         {
                             if (ctr1.Name == _ControlID)
                             {
-                                ctr1.Text = this.SelectedValue.ToString();
-                                //ctr1.Text = this.SelectedIndex.ToString();
-
+                                if (primera_vegada == false)
+                                {
+                                    ctr1.Text = this.SelectedValue.ToString();
+                                }
                             }
                         }
                     }
                     else if (ctr.Name == _ControlID)
                     {
-                        ctr.Text = this.SelectedValue.ToString();
-                        //ctr.Text = this.SelectedIndex.ToString();
+                        if (primera_vegada == false)
+                        {
+                            ctr.Text = this.SelectedValue.ToString();
+                        }
                     }
                 }
+
+                primera_vegada = false;
             }
         }
 

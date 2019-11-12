@@ -31,3 +31,8 @@ C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\
 C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.dll
 C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.pdb
 C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\bin\Debug\AccesDDBB.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\bin\Debug\AccesDDBB.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.pdb

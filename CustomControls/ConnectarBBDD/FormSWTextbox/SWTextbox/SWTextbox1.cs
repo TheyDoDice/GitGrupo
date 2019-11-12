@@ -96,7 +96,10 @@ namespace SWTextbox
         {
             if (TipusControl == tipControlRef.SWComboBox)
             {
-                UpdateComboBox();
+                if (foranea)
+                {
+                    UpdateComboBox();
+                }
             }
         }
 
@@ -114,17 +117,23 @@ namespace SWTextbox
                         {
                             if (ctr1.GetType() == typeof(SWComboFK))
                             {
-                                SWComboFK cc = (SWComboFK)ctr1;
-                                cc.SelectedValue = Int32.Parse(this.Text);
-                                cc.ConnectDatabase();
+                                if (ctr1.Name == nomComboBox)
+                                {
+                                    SWComboFK cc = (SWComboFK)ctr1;
+                                    cc.ConnectDatabase();
+                                    cc.SelectedValue = Int32.Parse(this.Text);
+                                }
                             }
                         }
                     }
                     else if (ctr.GetType() == typeof(SWComboFK))
                     {
-                        SWComboFK cb = (SWComboFK)ctr;
-                        cb.SelectedValue = Int32.Parse(this.Text);
-                        cb.ConnectDatabase();
+                        if (ctr.Name == nomComboBox)
+                        {
+                            SWComboFK cb = (SWComboFK)ctr;
+                            cb.ConnectDatabase();
+                            cb.SelectedValue = Int32.Parse(this.Text);
+                        }
                     }
                 }
             }
