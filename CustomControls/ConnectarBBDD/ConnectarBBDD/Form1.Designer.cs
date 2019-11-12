@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.swComboFK2 = new SWComboFK.SWComboFK();
+            this.swComboFK2 = new CustomSWComboFK.SWComboFK();
             this.swTextbox14 = new SWTextbox.SWTextbox1();
             this.swTextbox13 = new SWTextbox.SWTextbox1();
             this.swTextbox12 = new SWTextbox.SWTextbox1();
@@ -119,6 +119,7 @@
             this.swTextbox14.nomCamp = "idRegion";
             this.swTextbox14.Size = new System.Drawing.Size(21, 20);
             this.swTextbox14.TabIndex = 6;
+            this.swTextbox14.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
             // 
             // swTextbox13
             // 
@@ -130,6 +131,7 @@
             this.swTextbox13.nomCamp = "Remarks";
             this.swTextbox13.Size = new System.Drawing.Size(376, 59);
             this.swTextbox13.TabIndex = 4;
+            this.swTextbox13.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
             // 
             // swTextbox12
             // 
@@ -140,6 +142,7 @@
             this.swTextbox12.nomCamp = "DescSector";
             this.swTextbox12.Size = new System.Drawing.Size(100, 20);
             this.swTextbox12.TabIndex = 3;
+            this.swTextbox12.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWCodi;
             // 
             // swTextbox11
             // 
@@ -150,6 +153,7 @@
             this.swTextbox11.nomCamp = "CodeSector";
             this.swTextbox11.Size = new System.Drawing.Size(100, 20);
             this.swTextbox11.TabIndex = 2;
+            this.swTextbox11.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWCodi;
             // 
             // Form1
             // 
@@ -188,6 +192,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private SWComboFK.SWComboFK swComboFK2;
+        private CustomSWComboFK.SWComboFK swComboFK2;
     }
 }

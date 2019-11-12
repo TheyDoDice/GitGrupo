@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using BBDD;
 
-namespace SWComboFK
+namespace CustomSWComboFK
 {
     public partial class SWComboFK : System.Windows.Forms.ComboBox
     {
@@ -34,8 +34,6 @@ namespace SWComboFK
                 }
         }
 
-
-
         public SWComboFK()
         {
             InitializeComponent();
@@ -49,9 +47,6 @@ namespace SWComboFK
             this.SelectedValueChanged += new System.EventHandler(this.PassaValor);
             this.Enter += new System.EventHandler(this.SWComboFK_Enter);
             this.ResumeLayout(false);
-
-
-           
         }
 
         private void PassaValor(object sender, EventArgs e)
@@ -83,10 +78,9 @@ namespace SWComboFK
             }
         }
 
-       
-        private void SWComboFK_Enter(object sender, EventArgs e)
+        public void ConnectDatabase()
         {
-            if (ple==false)
+            if (ple == false)
             {
                 string query;
                 query = "SELECT * From " + NomTaula;
@@ -99,9 +93,13 @@ namespace SWComboFK
 
                 this.DataSource = dades.Tables["Users"];
                 ple = true;
-                
+
             }
-            
+        }
+       
+        private void SWComboFK_Enter(object sender, EventArgs e)
+        {
+            ConnectDatabase();            
         }
     }
 }

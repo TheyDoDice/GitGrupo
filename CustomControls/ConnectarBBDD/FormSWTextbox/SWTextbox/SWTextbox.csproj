@@ -43,20 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SWTextbox.cs">
+    <Compile Include="SWTextbox1.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SWTextbox.resx">
-      <DependentUpon>SWTextbox.cs</DependentUpon>
+    <EmbeddedResource Include="SWTextbox1.resx">
+      <DependentUpon>SWTextbox1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SWComboFK\SWComboFK.csproj">
+    <ProjectReference Include="..\..\SWComboFK\CustomSWComboFK.csproj">
       <Project>{2ab02dab-23b5-4f21-9d5f-945560af18f6}</Project>
-      <Name>SWComboFK</Name>
+      <Name>CustomSWComboFK</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

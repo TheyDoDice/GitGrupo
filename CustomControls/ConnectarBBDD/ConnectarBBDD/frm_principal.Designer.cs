@@ -47,7 +47,7 @@ namespace ConnectarBBDD
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.swComboFK2 = new SWComboFK.SWComboFK();
+            this.swComboFK2 = new CustomSWComboFK.SWComboFK();
             this.lbl_SWComboFK = new System.Windows.Forms.Label();
             this.btn_actualitzar_taula = new System.Windows.Forms.Button();
             this.btn_delete_user = new System.Windows.Forms.Button();
@@ -452,8 +452,8 @@ namespace ConnectarBBDD
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private SWComboFK.SWComboFK swComboFK1;
-        private SWComboFK.SWComboFK swComboFK2;
+        private CustomSWComboFK.SWComboFK swComboFK1;
+        private CustomSWComboFK.SWComboFK swComboFK2;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

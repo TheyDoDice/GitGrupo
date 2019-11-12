@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SWComboFK;
+using CustomSWComboFK;
 using SWTextbox;
 using AccesDDBB;
 

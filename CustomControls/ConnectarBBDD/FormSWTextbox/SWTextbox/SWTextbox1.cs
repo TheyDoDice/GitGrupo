@@ -6,41 +6,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Text.RegularExpressions;
-using SWComboFK;
+using CustomSWComboFK;
 
 namespace SWTextbox
 {
-    public class SWTextbox1 : System.Windows.Forms.TextBox
+    public class SWTextbox1 : TextBox
     {
-        private string _nomCamp;
         //Propietat per decidir quin tipus de dada contindra el textbox
-        public enum tipDades { Numero, Text, Codi, data};
+        public enum tipDades { Numero, Text, Codi, data };
+        public tipDades DadaTipus { get; set; }        
+        public string mensaje { get; set; }
 
-
-        public tipDades DadaTipus { get; set; }
-
-        /*private tipDades _dadaTipus;
-        
-        public tipDades DadaTipus
-        {
-            get { return _dadaTipus; }
-            set { _dadaTipus = value; }
-        }*/
-        
-            private string _mensaje;
-        public string mensaje
-        {
-            get { return _mensaje; }
-            set { _mensaje = value; }
-        }
-
-        
-
-        public string nomCamp
-        {
-            get { return _nomCamp; }
-            set { _nomCamp = value; }
-        }
+        public enum tipControlRef { SWComboBox, SWCodi }
+        public tipControlRef TipusControl { get; set; }        
+        public string nomCamp { get; set; }        
+        public bool foranea { get; set; }        
+        public bool requerit { get; set; }        
+        public string nomComboBox { get; set; }
 
 
         public SWTextbox1()
@@ -55,7 +37,6 @@ namespace SWTextbox
             this.ResumeLayout(false);
 
         }
-
 
         private void SWTextbox1_MouseEnter(object sender, EventArgs e)
         {
@@ -91,7 +72,7 @@ namespace SWTextbox
 
                 }
             }
-            else if(this.DadaTipus == tipDades.data)
+            else if (this.DadaTipus == tipDades.data)
             {
                 comprovador = new Regex(@"^(\d{1,2})/(\d{1,2})/(\d{4})$");
                 if (!(comprovador.IsMatch(this.Text)))
@@ -100,7 +81,7 @@ namespace SWTextbox
 
                 }
             }
-            else if(this.DadaTipus == tipDades.Codi)
+            else if (this.DadaTipus == tipDades.Codi)
             {
                 comprovador = new Regex(@"^([A-Z]{4})-(\d{4})/(\d{1})([A-Z]{1}$)");
                 if (!(comprovador.IsMatch(this.Text)))
@@ -113,6 +94,14 @@ namespace SWTextbox
 
         private void SWTextbox1_TextChanged(object sender, EventArgs e)
         {
+            if (TipusControl == tipControlRef.SWComboBox)
+            {
+                UpdateComboBox();
+            }
+        }
+
+        private void UpdateComboBox()
+        {
             Form myForm = this.FindForm();
 
             if (myForm != null)
@@ -123,17 +112,19 @@ namespace SWTextbox
                     {
                         foreach (Control ctr1 in ctr.Controls)
                         {
-                            if (ctr1.GetType() == typeof(SWComboFK.SWComboFK))
+                            if (ctr1.GetType() == typeof(SWComboFK))
                             {
-                                SWComboFK.SWComboFK cc = (SWComboFK.SWComboFK)ctr1;
-                                cc.SelectedValue = this.Text;
+                                SWComboFK cc = (SWComboFK)ctr1;
+                                cc.SelectedValue = Int32.Parse(this.Text);
+                                cc.ConnectDatabase();
                             }
                         }
                     }
-                    else if (ctr.GetType() == typeof(SWComboFK.SWComboFK))
+                    else if (ctr.GetType() == typeof(SWComboFK))
                     {
-                        SWComboFK.SWComboFK cb = (SWComboFK.SWComboFK)ctr;
-                        cb.SelectedValue = this.Text;
+                        SWComboFK cb = (SWComboFK)ctr;
+                        cb.SelectedValue = Int32.Parse(this.Text);
+                        cb.ConnectDatabase();
                     }
                 }
             }
