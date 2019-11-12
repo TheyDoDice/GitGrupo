@@ -22,6 +22,7 @@ namespace CrearUsuari
         public string consulta = "select * from Users";
         public DataSet dataSet;
         public DataTable datable;
+        private bool nuevaFila = false;
 
         public Form1()
         {
@@ -55,12 +56,22 @@ namespace CrearUsuari
                     swt.TextChanged += (s, ev) => atualizaLaForanea(swt);
                     atualizaLaForanea(swt);
                     swt.Validated += bindingOnValidated;
-                } 
+                }
             }
         }
         private void bindingOnValidated (object sender, EventArgs e)
         {
-            ((SWTextbox1)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+            if (!nuevaFila)
+            {
+                ((SWTextbox1)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+            }
+        }
+        private void bindingOnValidated(SWTextbox1 swt)
+        {
+            if (!nuevaFila)
+            {
+                swt.DataBindings[0].BindingManagerBase.EndCurrentEdit();
+            }
         }
 
         private void atualizaLaForanea(SWTextbox1 swt)
@@ -74,13 +85,13 @@ namespace CrearUsuari
                         if (swc.Name == swt.controlID)
                         {
                             swc.ValidaId(swt.Text);
+                            swc.Validated += (s, ev) => bindingOnValidated(swt);
                         }
                     }   
                 }
             }
         }
 
-        private bool nuevaFila = false;
 
         private void btn_actualizarDataset_Click(object sender, EventArgs e)
         {
@@ -101,13 +112,13 @@ namespace CrearUsuari
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
         {
             nuevaFila = true;
+
             foreach (var control in this.Controls)
             {
                 if (control is SWTextbox1 swt)
                 {
                     swt.DataBindings.Clear();
                     swt.Text = "";
-                    swt.Validated -= bindingOnValidated;
                 }
             }
             
@@ -134,14 +145,12 @@ namespace CrearUsuari
                     {
                         datarow[swt.nomCamp] = swt.Text;
                     }
-
+                    //RESET DATABINDINGS
                     swt.DataBindings.Clear();
                     swt.DataBindings.Add("Text", datable, swt.nomCamp);
-                    swt.Validated += bindingOnValidated;
                 }
             }
             datable.Rows.Add(datarow);
-            
             nuevaFila = false;
         }
 
@@ -154,9 +163,7 @@ namespace CrearUsuari
                 {
                     res = swt.Text != "";
                     if (!res)
-                    {
                         break;
-                    }
                 }
             }
             return res;

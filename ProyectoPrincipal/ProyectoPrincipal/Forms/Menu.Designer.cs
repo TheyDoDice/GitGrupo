@@ -46,6 +46,7 @@
             this.subLeft = new System.Windows.Forms.Panel();
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
+            this.panelFormPrincipal = new System.Windows.Forms.Panel();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
@@ -236,12 +237,20 @@
             this.subBot.Size = new System.Drawing.Size(846, 2);
             this.subBot.TabIndex = 10;
             // 
+            // panelFormPrincipal
+            // 
+            this.panelFormPrincipal.Location = new System.Drawing.Point(416, 72);
+            this.panelFormPrincipal.Name = "panelFormPrincipal";
+            this.panelFormPrincipal.Size = new System.Drawing.Size(558, 446);
+            this.panelFormPrincipal.TabIndex = 11;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.Controls.Add(this.panelFormPrincipal);
             this.Controls.Add(this.subBot);
             this.Controls.Add(this.barraInferior);
             this.Controls.Add(this.subLeft);
@@ -291,5 +300,6 @@
         private System.Windows.Forms.Panel barraInferior;
         private System.Windows.Forms.Panel subBot;
         private System.Windows.Forms.Label lbl_user;
+        private System.Windows.Forms.Panel panelFormPrincipal;
     }
 }

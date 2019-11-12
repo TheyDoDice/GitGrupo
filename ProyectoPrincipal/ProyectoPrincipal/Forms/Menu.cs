@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrearUsuari;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -79,6 +80,13 @@ namespace ProyectoPrincipal.Forms
             lbl_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             lbl_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
             lbl_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
+            
+
+            Form1 myForm = new Form1();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            this.panelFormPrincipal.Controls.Add(myForm);
+            myForm.Show();
         }
 
         private Image TakeImg(string mode, string name)
