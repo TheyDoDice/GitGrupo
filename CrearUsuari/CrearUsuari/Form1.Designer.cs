@@ -30,7 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lbl_password = new System.Windows.Forms.Label();
-            this.btn_insertar_usuario = new System.Windows.Forms.Button();
+            this.btn_insertarUsuario = new System.Windows.Forms.Button();
             this.lb_codeUser = new System.Windows.Forms.Label();
             this.lbl_UserName = new System.Windows.Forms.Label();
             this.lbl_login = new System.Windows.Forms.Label();
@@ -52,11 +52,13 @@
             this.swc_UserPlanet = new WindowsFormsControlLibrary.SWCodi();
             this.swc_UserCategory = new WindowsFormsControlLibrary.SWCodi();
             this.swc_UserRank = new WindowsFormsControlLibrary.SWCodi();
+            this.btn_actualizarDataset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -76,15 +78,15 @@
             this.lbl_password.TabIndex = 4;
             this.lbl_password.Text = "Password:";
             // 
-            // btn_insertar_usuario
+            // btn_insertarUsuario
             // 
-            this.btn_insertar_usuario.Location = new System.Drawing.Point(15, 230);
-            this.btn_insertar_usuario.Name = "btn_insertar_usuario";
-            this.btn_insertar_usuario.Size = new System.Drawing.Size(117, 23);
-            this.btn_insertar_usuario.TabIndex = 14;
-            this.btn_insertar_usuario.Text = "Insertar Usuari";
-            this.btn_insertar_usuario.UseVisualStyleBackColor = true;
-            this.btn_insertar_usuario.Click += new System.EventHandler(this.btn_insertar_usuario_Click);
+            this.btn_insertarUsuario.Location = new System.Drawing.Point(143, 230);
+            this.btn_insertarUsuario.Name = "btn_insertarUsuario";
+            this.btn_insertarUsuario.Size = new System.Drawing.Size(117, 23);
+            this.btn_insertarUsuario.TabIndex = 14;
+            this.btn_insertarUsuario.Text = "Insertar Usuari";
+            this.btn_insertarUsuario.UseVisualStyleBackColor = true;
+            this.btn_insertarUsuario.Click += new System.EventHandler(this.btn_insertar_usuario_Click);
             // 
             // lb_codeUser
             // 
@@ -217,7 +219,7 @@
             // swt_login
             // 
             this.swt_login.controlID = null;
-            this.swt_login.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_login.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
             this.swt_login.foranea = false;
             this.swt_login.Location = new System.Drawing.Point(471, 15);
             this.swt_login.mensaje = null;
@@ -231,7 +233,7 @@
             // swt_password
             // 
             this.swt_password.controlID = null;
-            this.swt_password.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_password.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
             this.swt_password.foranea = false;
             this.swt_password.Location = new System.Drawing.Point(279, 54);
             this.swt_password.mensaje = null;
@@ -245,7 +247,7 @@
             // swt_photo
             // 
             this.swt_photo.controlID = null;
-            this.swt_photo.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_photo.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
             this.swt_photo.foranea = false;
             this.swt_photo.Location = new System.Drawing.Point(279, 18);
             this.swt_photo.mensaje = null;
@@ -259,7 +261,7 @@
             // swt_userName
             // 
             this.swt_userName.controlID = null;
-            this.swt_userName.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_userName.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
             this.swt_userName.foranea = false;
             this.swt_userName.Location = new System.Drawing.Point(94, 54);
             this.swt_userName.mensaje = null;
@@ -273,7 +275,7 @@
             // swt_codeUser
             // 
             this.swt_codeUser.controlID = null;
-            this.swt_codeUser.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_codeUser.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
             this.swt_codeUser.foranea = false;
             this.swt_codeUser.Location = new System.Drawing.Point(94, 19);
             this.swt_codeUser.mensaje = null;
@@ -288,7 +290,7 @@
             // 
             this.swc_UserSpecie.ClasseCS = null;
             this.swc_UserSpecie.CodiID = null;
-            this.swc_UserSpecie.ControlID = "swTextbox19";
+            this.swc_UserSpecie.ControlID = "swt_idSpecie";
             this.swc_UserSpecie.FormCS = null;
             this.swc_UserSpecie.Location = new System.Drawing.Point(91, 178);
             this.swc_UserSpecie.Name = "swc_UserSpecie";
@@ -304,7 +306,7 @@
             // 
             this.swc_UserPlanet.ClasseCS = null;
             this.swc_UserPlanet.CodiID = null;
-            this.swc_UserPlanet.ControlID = "swTextbox18";
+            this.swc_UserPlanet.ControlID = "swt_idPlanet";
             this.swc_UserPlanet.FormCS = null;
             this.swc_UserPlanet.Location = new System.Drawing.Point(91, 144);
             this.swc_UserPlanet.Name = "swc_UserPlanet";
@@ -320,7 +322,7 @@
             // 
             this.swc_UserCategory.ClasseCS = null;
             this.swc_UserCategory.CodiID = null;
-            this.swc_UserCategory.ControlID = "swTextbox17";
+            this.swc_UserCategory.ControlID = "swt_idUserCategory";
             this.swc_UserCategory.FormCS = null;
             this.swc_UserCategory.Location = new System.Drawing.Point(91, 113);
             this.swc_UserCategory.Name = "swc_UserCategory";
@@ -336,7 +338,7 @@
             // 
             this.swc_UserRank.ClasseCS = null;
             this.swc_UserRank.CodiID = null;
-            this.swc_UserRank.ControlID = "txt_idUserRank";
+            this.swc_UserRank.ControlID = "swt_idUserRank";
             this.swc_UserRank.FormCS = null;
             this.swc_UserRank.Location = new System.Drawing.Point(91, 80);
             this.swc_UserRank.Name = "swc_UserRank";
@@ -348,11 +350,22 @@
             this.swc_UserRank.Size = new System.Drawing.Size(487, 30);
             this.swc_UserRank.TabIndex = 6;
             // 
+            // btn_actualizarDataset
+            // 
+            this.btn_actualizarDataset.Location = new System.Drawing.Point(17, 230);
+            this.btn_actualizarDataset.Name = "btn_actualizarDataset";
+            this.btn_actualizarDataset.Size = new System.Drawing.Size(117, 23);
+            this.btn_actualizarDataset.TabIndex = 21;
+            this.btn_actualizarDataset.Text = "Actualizar";
+            this.btn_actualizarDataset.UseVisualStyleBackColor = true;
+            this.btn_actualizarDataset.Click += new System.EventHandler(this.btn_actualizarDataset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 446);
+            this.Controls.Add(this.btn_actualizarDataset);
             this.Controls.Add(this.swt_idSpecie);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.swt_idPlanet);
@@ -360,7 +373,7 @@
             this.Controls.Add(this.swt_login);
             this.Controls.Add(this.swt_idUserRank);
             this.Controls.Add(this.lbl_password);
-            this.Controls.Add(this.btn_insertar_usuario);
+            this.Controls.Add(this.btn_insertarUsuario);
             this.Controls.Add(this.swt_password);
             this.Controls.Add(this.lb_codeUser);
             this.Controls.Add(this.swt_photo);
@@ -389,7 +402,7 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lbl_password;
-        private System.Windows.Forms.Button btn_insertar_usuario;
+        private System.Windows.Forms.Button btn_insertarUsuario;
         private System.Windows.Forms.Label lb_codeUser;
         private System.Windows.Forms.Label lbl_UserName;
         private System.Windows.Forms.Label lbl_login;
@@ -411,6 +424,7 @@
         private SWTextbox.SWTextbox1 swt_photo;
         private SWTextbox.SWTextbox1 swt_userName;
         private SWTextbox.SWTextbox1 swt_codeUser;
+        private System.Windows.Forms.Button btn_actualizarDataset;
     }
 }
 

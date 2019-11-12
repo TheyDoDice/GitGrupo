@@ -52,11 +52,15 @@ namespace CrearUsuari
                 {
                     swt.DataBindings.Clear();
                     swt.DataBindings.Add("Text", datable, swt.nomCamp);
-                    swt.Validated += (s, ev) => ((SWTextbox1) s).DataBindings[0].BindingManagerBase.EndCurrentEdit();
                     swt.TextChanged += (s, ev) => atualizaLaForanea(swt);
                     atualizaLaForanea(swt);
+                    swt.Validated += bindingOnValidated;
                 } 
             }
+        }
+        private void bindingOnValidated (object sender, EventArgs e)
+        {
+            ((SWTextbox1)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
 
         private void atualizaLaForanea(SWTextbox1 swt)
@@ -72,43 +76,73 @@ namespace CrearUsuari
                             swc.ValidaId(swt.Text);
                         }
                     }   
-                    
                 }
             }
         }
 
-        private void btn_insertar_usuario_Click(object sender, EventArgs e)
+        private bool nuevaFila = false;
+
+        private void btn_actualizarDataset_Click(object sender, EventArgs e)
         {
             if (dadesUsuariCorrectes())
             {
-                DataRow datarow = datable.NewRow();
-
-                foreach (var control in this.Controls)
+                if (nuevaFila)
                 {
-                    if (control is SWTextbox1 swc)
-                    {
-                        if (swc.nomCamp == "Password")
-                        {
-                            string contra = swc.Text;
-                            Hash encript = new Hash();
-                            byte[] byteArraySalt = encript.GenerateSalt();
-                            byte[] byteArrayhash = encript.ComputeHash(contra, byteArraySalt);
-                            datarow["Salt"] = Convert.ToBase64String(byteArraySalt);
-                            datarow[swc.nomCamp] = Convert.ToBase64String(byteArrayhash);
-                        } else
-                        {
-                            datarow[swc.nomCamp] = swc.Text;
-                        }
-                    }    
+                    insertarNuevaFila();
                 }
-                datable.Rows.Add(datarow);
                 bbdd.Actualitzar(consulta, "users", dataSet);
             }
             else
             {
                 MessageBox.Show("Falten dades.");
             }
+        }
+
+        private void btn_insertar_usuario_Click(object sender, EventArgs e)
+        {
+            nuevaFila = true;
+            foreach (var control in this.Controls)
+            {
+                if (control is SWTextbox1 swt)
+                {
+                    swt.DataBindings.Clear();
+                    swt.Text = "";
+                    swt.Validated -= bindingOnValidated;
+                }
+            }
             
+        }
+
+        private void insertarNuevaFila()
+        {
+            DataRow datarow = datable.NewRow();
+
+            foreach (var control in this.Controls)
+            {
+                if (control is SWTextbox1 swt)
+                {
+                    if (swt.nomCamp == "Password")
+                    {
+                        string contra = swt.Text;
+                        Hash encript = new Hash();
+                        byte[] byteArraySalt = encript.GenerateSalt();
+                        byte[] byteArrayhash = encript.ComputeHash(contra, byteArraySalt);
+                        datarow["Salt"] = Convert.ToBase64String(byteArraySalt);
+                        datarow[swt.nomCamp] = Convert.ToBase64String(byteArrayhash);
+                    }
+                    else
+                    {
+                        datarow[swt.nomCamp] = swt.Text;
+                    }
+
+                    swt.DataBindings.Clear();
+                    swt.DataBindings.Add("Text", datable, swt.nomCamp);
+                    swt.Validated += bindingOnValidated;
+                }
+            }
+            datable.Rows.Add(datarow);
+            
+            nuevaFila = false;
         }
 
         private bool dadesUsuariCorrectes()
@@ -119,6 +153,10 @@ namespace CrearUsuari
                 if (control is SWTextbox1 swt)
                 {
                     res = swt.Text != "";
+                    if (!res)
+                    {
+                        break;
+                    }
                 }
             }
             return res;

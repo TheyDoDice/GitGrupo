@@ -104,74 +104,14 @@ namespace WindowsFormsControlLibrary
 
             Form myform = this.FindForm();
 
-            foreach (var control in myform.Controls)
+            foreach (Control control in myform.Controls)
             {
-                if (control is GroupBox gb)
+                if (control.Name == ControlID)
                 {
-                    foreach (Control subControl in gb.Controls)
-                    {
-                        if (subControl.Name == ControlID)
-                        {
-                            subControl.Text = CodiID;
-                        }
-                    }
+                    control.Text = CodiID;
                 }
+                
             }
         }
-        /*
-        public bool Requerit
-        {
-            get { return _Requerit; }
-            set { _Requerit = value; }
-        }
-
-        public string FormCS
-        {
-            get { return _FormCS; }
-            set { _FormCS = value; }
-        }
-
-        public string ClasseCS
-        {   
-            get { return _ClasseCs; }
-            set { _ClasseCs = value; }
-        }
-
-        public string NomID
-        {
-            get { return _NomID; }
-            set { _NomID = value; }
-        }
-
-        public string NomCodi
-        {
-            get { return _NomCodi; }
-            set { _NomCodi = value; }
-        }
-
-        public string NomDesc
-        {
-            get { return _NomDesc; }
-            set { _NomDesc = value; }
-        }
-
-        public string NomTaula
-        {
-            get { return _NomTaula; }
-            set { _NomTaula = value; }
-        }
-
-        public string ControlID
-        {
-            get { return _ControlID; }
-            set { _ControlID = value; }
-        }
-
-        public string CodiID
-        {
-            get { return _CodiID; }
-            set { _CodiID = value; }
-        }
-        */
     }
 }
