@@ -18,7 +18,7 @@ namespace CrearUsuari
     public partial class Form1 : Form
     {
 
-        Dades dBUtils = new SQL();
+        Dades bbdd = new SQL();
         public string consulta = "select * from Users";
         public DataSet dataSet;
         public DataTable datable;
@@ -30,9 +30,9 @@ namespace CrearUsuari
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dBUtils.Connectar();
+            bbdd.Connectar();
 
-            dataSet = dBUtils.PortarPerConsulta(consulta);
+            dataSet = bbdd.PortarPerConsulta(consulta);
             datable = dataSet.Tables[0];
             dataGridView1.DataSource = datable;
             
@@ -48,21 +48,14 @@ namespace CrearUsuari
 
             foreach (var control in this.Controls)
             {
-                if (control is GroupBox gb)
+                if (control is SWTextbox1 swt)
                 {
-                    foreach (var subControl in gb.Controls)
-                    {
-                        if (subControl is SWTextbox1 swt)
-                        {
-                            swt.Text = "error";
-                            swt.DataBindings.Clear();
-                            swt.DataBindings.Add("Text", datable, swt.nomCamp);
-                            swt.Validated += (s, ev) => ((SWTextbox1) s).DataBindings[0].BindingManagerBase.EndCurrentEdit();
-                            swt.TextChanged += (s, ev) => atualizaLaForanea(swt);
-                            atualizaLaForanea(swt);
-                        }
-                    }
-                }
+                    swt.DataBindings.Clear();
+                    swt.DataBindings.Add("Text", datable, swt.nomCamp);
+                    swt.Validated += (s, ev) => ((SWTextbox1) s).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+                    swt.TextChanged += (s, ev) => atualizaLaForanea(swt);
+                    atualizaLaForanea(swt);
+                } 
             }
         }
 
@@ -72,19 +65,14 @@ namespace CrearUsuari
             {
                 foreach (var c in this.Controls)
                 {
-                    if (c is GroupBox gb_2)
+                    if (c is SWCodi swc)
                     {
-                        foreach (Control item in gb_2.Controls)
+                        if (swc.Name == swt.controlID)
                         {
-                            if (item is SWCodi swc)
-                            {
-                                if (swc.Name == swt.controlID)
-                                {
-                                    swc.ValidaId(swt.Text);
-                                }
-                            }
+                            swc.ValidaId(swt.Text);
                         }
-                    }
+                    }   
+                    
                 }
             }
         }
@@ -93,32 +81,28 @@ namespace CrearUsuari
         {
             if (dadesUsuariCorrectes())
             {
-                string contra = txt_password.Text;
-                Hash encript = new Hash();
-                byte[] salt = encript.GenerateSalt();
-                byte[] hash = encript.ComputeHash(txt_password.Text, salt);
-
                 DataRow datarow = datable.NewRow();
 
                 foreach (var control in this.Controls)
                 {
-                    if (control is GroupBox gb)
+                    if (control is SWTextbox1 swc)
                     {
-                        foreach (var subControl in gb.Controls)
+                        if (swc.nomCamp == "Password")
                         {
-                            if (subControl is SWTextbox1 swc)
-                            {
-
-                                datarow[swc.nomCamp] = swc.Text;
-
-                            }
-
+                            string contra = swc.Text;
+                            Hash encript = new Hash();
+                            byte[] byteArraySalt = encript.GenerateSalt();
+                            byte[] byteArrayhash = encript.ComputeHash(contra, byteArraySalt);
+                            datarow["Salt"] = Convert.ToBase64String(byteArraySalt);
+                            datarow[swc.nomCamp] = Convert.ToBase64String(byteArrayhash);
+                        } else
+                        {
+                            datarow[swc.nomCamp] = swc.Text;
                         }
-                    }
+                    }    
                 }
-                
-                
-                dBUtils.Actualitzar(consulta, "users", dataSet);
+                datable.Rows.Add(datarow);
+                bbdd.Actualitzar(consulta, "users", dataSet);
             }
             else
             {
@@ -129,11 +113,15 @@ namespace CrearUsuari
 
         private bool dadesUsuariCorrectes()
         {
-            return true;
-            //return txt_codeUser.Text != "" && txt_userName.Text != "" && txt_photo.Text != "" &&
-            //       txt_login.Text != "" && txt_password.Text != "" && swc_UserRank.CodiID != null &&
-            //       swc_UserCategory.CodiID != null && swc_UserPlanet.CodiID != null &&
-            //       swc_UserSpecie.CodiID != null;
+            bool res = true;
+            foreach (var control in this.Controls)
+            {
+                if (control is SWTextbox1 swt)
+                {
+                    res = swt.Text != "";
+                }
+            }
+            return res;
         }
     }
 }
