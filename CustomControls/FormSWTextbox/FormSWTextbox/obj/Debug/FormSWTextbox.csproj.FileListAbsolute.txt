@@ -1,0 +1,26 @@
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\bin\Debug\FormSWTextbox.exe.config
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\bin\Debug\FormSWTextbox.exe
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\bin\Debug\FormSWTextbox.pdb
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\bin\Debug\SWTextbox.dll
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\bin\Debug\SWTextbox.pdb
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csprojAssemblyReference.cache
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.Form1.resources
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.Properties.Resources.resources
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csproj.GenerateResource.cache
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csproj.CoreCompileInputs.cache
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csproj.CopyComplete
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.exe
+G:\S2AM\PROJECTE 1\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\bin\Debug\FormSWTextbox.exe.config
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\bin\Debug\FormSWTextbox.exe
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\bin\Debug\FormSWTextbox.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\bin\Debug\SWTextbox.dll
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\bin\Debug\SWTextbox.pdb
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.Form1.resources
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.Properties.Resources.resources
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.csproj.CopyComplete
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.exe
+C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\FormSWTextbox\obj\Debug\FormSWTextbox.pdb

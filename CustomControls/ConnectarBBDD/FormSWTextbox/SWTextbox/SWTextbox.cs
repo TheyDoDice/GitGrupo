@@ -5,17 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Text.RegularExpressions;
+using SWComboFK;
 
 namespace SWTextbox
 {
     public class SWTextbox1 : System.Windows.Forms.TextBox
     {
         private string _nomCamp;
-
-
-     
-
-
         //Propietat per decidir quin tipus de dada contindra el textbox
         public enum tipDades { Numero, Text, Codi, data};
 
@@ -76,41 +73,69 @@ namespace SWTextbox
             // 
             // SWTextbox1
             // 
+            this.TextChanged += new System.EventHandler(this.SWTextbox1_TextChanged);
             this.Validated += new System.EventHandler(this.SWTextbox1_Validated);
             this.ResumeLayout(false);
 
-
         }
-
         private void SWTextbox1_Validated(object sender, EventArgs e)
         {
-            if (this.Text.All(char.IsDigit))
+            Regex comprovador;
+
+            if (this.DadaTipus == tipDades.Numero)
             {
-                mensaje = "soy una numero?";
-                if (this.DadaTipus != tipDades.Numero)
+                comprovador = new Regex(@"^[0-9]+$");
+                if (!(comprovador.IsMatch(this.Text)))
                 {
-                    //this.Text = "";
+                    MessageBox.Show("Inserte solo números.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
-            else if (this.Text.ToUpper() != this.Text.ToLower())
+            else if(this.DadaTipus == tipDades.data)
             {
-                if (this.Text.Any(char.IsDigit))
+                comprovador = new Regex(@"^(\d{1,2})/(\d{1,2})/(\d{4})$");
+                if (!(comprovador.IsMatch(this.Text)))
                 {
-                    mensaje = "soy una codigo?";
-                    if (this.DadaTipus != tipDades.Codi)
+                    MessageBox.Show("Fehca incorrecta, use el formato DD/MM/YYYY", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            else if(this.DadaTipus == tipDades.Codi)
+            {
+                comprovador = new Regex(@"^([A-Z]{4})-(\d{4})/(\d{1})([A-Z]{1}$)");
+                if (!(comprovador.IsMatch(this.Text)))
+                {
+                    MessageBox.Show("Código incorrecto, use el formato ABCD-1234/1A", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+
+        private void SWTextbox1_TextChanged(object sender, EventArgs e)
+        {
+            Form myForm = this.FindForm();
+
+            if (myForm != null)
+            {
+                foreach (Control ctr in myForm.Controls)
+                {
+                    if (ctr.GetType() == typeof(GroupBox))
                     {
-                        //this.Text = "";
+                        foreach (Control ctr1 in ctr.Controls)
+                        {
+                            if (ctr1.GetType() == typeof(SWComboFK.SWComboFK))
+                            {
+                                SWComboFK.SWComboFK cc = (SWComboFK.SWComboFK)ctr1;
+                                cc.SelectedValue = this.Text;
+                            }
+                        }
+                    }
+                    else if (ctr.GetType() == typeof(SWComboFK.SWComboFK))
+                    {
+                        SWComboFK.SWComboFK cb = (SWComboFK.SWComboFK)ctr;
+                        cb.SelectedValue = this.Text;
                     }
                 }
-                else
-                {
-                    mensaje = "soy una texto?";
-                    if (this.DadaTipus != tipDades.Text)
-                    {
-                        //this.Text = "";
-                    }
-                }
-               
             }
         }
     }

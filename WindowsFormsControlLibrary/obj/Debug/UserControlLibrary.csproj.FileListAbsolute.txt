@@ -24,3 +24,4 @@ C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\WindowsForm
 C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\WindowsFormsControlLibrary.pdb
 C:\Users\admin\Desktop\GitGrupo\Proyectos\WindowsFormsControlLibrary.dll
 C:\Users\admin\Desktop\GitGrupo\Proyectos\WindowsFormsControlLibrary.pdb
+C:\Users\admin\Desktop\GitGrupo\WindowsFormsControlLibrary\obj\Debug\UserControlLibrary.csprojAssemblyReference.cache

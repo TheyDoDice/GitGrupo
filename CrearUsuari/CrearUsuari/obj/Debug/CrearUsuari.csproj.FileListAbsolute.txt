@@ -28,3 +28,5 @@ C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\WindowsFormsCo
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\obj\Debug\CrearUsuari.csprojAssemblyReference.cache
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\Encriptar.dll
 C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\Encriptar.pdb
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\SWTextbox.dll
+C:\Users\admin\Desktop\GitGrupo\CrearUsuari\CrearUsuari\bin\Debug\SWTextbox.pdb

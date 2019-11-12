@@ -34,11 +34,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.swComboFK2 = new SWComboFK.SWComboFK();
             this.swTextbox14 = new SWTextbox.SWTextbox1();
             this.swTextbox13 = new SWTextbox.SWTextbox1();
             this.swTextbox12 = new SWTextbox.SWTextbox1();
             this.swTextbox11 = new SWTextbox.SWTextbox1();
-            this.swComboFK2 = new SWComboFK.SWComboFK();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +97,19 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Regió";
             // 
+            // swComboFK2
+            // 
+            this.swComboFK2.ControlID = "swTextbox14";
+            this.swComboFK2.DisplayMember = "DescRegion";
+            this.swComboFK2.FormattingEnabled = true;
+            this.swComboFK2.Location = new System.Drawing.Point(155, 181);
+            this.swComboFK2.Name = "swComboFK2";
+            this.swComboFK2.NomTaula = "Regions";
+            this.swComboFK2.Size = new System.Drawing.Size(131, 21);
+            this.swComboFK2.TabIndex = 18;
+            this.swComboFK2.ValorId = "idRegion";
+            this.swComboFK2.ValueMember = "idRegion";
+            // 
             // swTextbox14
             // 
             this.swTextbox14.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
@@ -109,7 +122,7 @@
             // 
             // swTextbox13
             // 
-            this.swTextbox13.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox13.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
             this.swTextbox13.Location = new System.Drawing.Point(155, 104);
             this.swTextbox13.mensaje = null;
             this.swTextbox13.Multiline = true;
@@ -130,27 +143,13 @@
             // 
             // swTextbox11
             // 
-            this.swTextbox11.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox11.DadaTipus = SWTextbox.SWTextbox1.tipDades.Codi;
             this.swTextbox11.Location = new System.Drawing.Point(155, 52);
             this.swTextbox11.mensaje = null;
             this.swTextbox11.Name = "swTextbox11";
             this.swTextbox11.nomCamp = "CodeSector";
             this.swTextbox11.Size = new System.Drawing.Size(100, 20);
             this.swTextbox11.TabIndex = 2;
-            // 
-            // swComboFK2
-            // 
-            this.swComboFK2.ControlID = "swTextbox14";
-            this.swComboFK2.DisplayMember = "DescRegion";
-            this.swComboFK2.FormattingEnabled = true;
-            this.swComboFK2.Location = new System.Drawing.Point(155, 181);
-            this.swComboFK2.Name = "swComboFK2";
-            this.swComboFK2.NomTaula = "Regions";
-            this.swComboFK2.Size = new System.Drawing.Size(131, 21);
-            this.swComboFK2.TabIndex = 18;
-            this.swComboFK2.Text = "Selecciona una opción";
-            this.swComboFK2.ValorId = "idRegion";
-            this.swComboFK2.ValueMember = "idRegion";
             // 
             // Form1
             // 
