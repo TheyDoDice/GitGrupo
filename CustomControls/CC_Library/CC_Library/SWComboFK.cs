@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using BBDD;
 
-namespace CustomSWComboFK
+namespace CC_Library
 {
     public partial class SWComboFK : System.Windows.Forms.ComboBox
     {

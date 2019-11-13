@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BBDD;
 
-namespace WindowsFormsControlLibrary
+namespace CC_Library
 {
     public partial class HelpForm : Form
     {

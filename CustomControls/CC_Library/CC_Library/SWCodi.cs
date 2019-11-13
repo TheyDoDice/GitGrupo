@@ -11,7 +11,7 @@ using BBDD;
 using System.Data.OleDb;
 using System.Reflection;
 
-namespace WindowsFormsControlLibrary
+namespace CC_Library
 {
     public partial class SWCodi: UserControl
     {

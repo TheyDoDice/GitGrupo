@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsControlLibrary
+﻿namespace CC_Library
 {
     partial class SWCodi
     {

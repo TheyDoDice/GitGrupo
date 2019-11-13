@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Text.RegularExpressions;
-using CustomSWComboFK;
 
-namespace SWTextbox
+namespace CC_Library
 {
-    public class SWTextbox1 : TextBox
+    public class SWTextbox : TextBox
     {
         //Propietat per decidir quin tipus de dada contindra el textbox
         public enum tipDades { Numero, Text, Codi, data };
@@ -23,9 +22,10 @@ namespace SWTextbox
         public bool foranea { get; set; }        
         public bool requerit { get; set; }        
         public string nomComboBox { get; set; }
+        public string ControlID { get; set; }
 
 
-        public SWTextbox1()
+        public SWTextbox()
         {
             InitializeComponent();
             this.SuspendLayout();
