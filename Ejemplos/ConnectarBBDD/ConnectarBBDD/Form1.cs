@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomSWComboFK;
 using SWTextbox;
-using AccesDDBB;
+using BBDD;
 
 namespace ConnectarBBDD
 {
     public partial class Form1 : Form
     {
-        DBUtils dBUtils = new DBUtils();
+        Dades bbdd = new SQL();
 
         //Variable consulta
         public string consulta = "select * from Sectors";
@@ -32,7 +32,7 @@ namespace ConnectarBBDD
         {
 
             //Fer la select de la taula usuaris
-            dadesConsulta = dBUtils.ConsultaSQL(consulta, "prova");
+            dadesConsulta = bbdd.PortarPerConsulta(consulta, "prova");
 
             //Mostrar les dades en un data grid view
             dataGridView1.DataSource = dadesConsulta.Tables["prova"];
@@ -49,15 +49,11 @@ namespace ConnectarBBDD
 
             }
 
-
-            //Tancar la connexió amb la base de dades. 
-            dBUtils.TancarConnexioSQL();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dBUtils.ActualitzarTaulaSQL(consulta, "prova", dadesConsulta);
+            bbdd.Actualitzar(consulta, "prova", dadesConsulta);
         }
     }
 }

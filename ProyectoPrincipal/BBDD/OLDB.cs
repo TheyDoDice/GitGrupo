@@ -5,23 +5,25 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+
 
 namespace BBDD
 {
-    class OLDB : Dades
+    public class OLDB : Dades
     {
         OleDbConnection connection;
         OleDbDataAdapter adapter;
         OleDbCommandBuilder construct;
 
         //CONNECTIONSTRING
-        public override string connectionString
+        /*public override string connectionString
         {
             get
             {
                 return "Data Source=theydodice.database.windows.net;Initial Catalog=securecore;Persist Security Info=True;User ID=theydodice;Password=123456aA";
             }
-        }
+        }*/
 
         //CREDENCIALS USUARI
         public override DataSet userCredentials(string user)
@@ -34,7 +36,8 @@ namespace BBDD
         //CONNECTAR
         public override void Connectar()
         {
-            connection = new OleDbConnection(connectionString);
+            connection = new OleDbConnection();
+            connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             connection.Open();
             connection.InitializeLifetimeService();
 

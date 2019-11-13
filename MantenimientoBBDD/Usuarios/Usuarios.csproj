@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{81A07463-2A5A-464A-8889-CFA996AE53A9}</ProjectGuid>
+    <ProjectGuid>{A22258A7-8891-4137-80DB-66AA873495F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BaseBA</RootNamespace>
-    <AssemblyName>BaseBA</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Usuarios</RootNamespace>
+    <AssemblyName>Usuarios</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Proyectos\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,13 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BBDD">
-      <HintPath>..\..\..\Proyectos\BBDD.dll</HintPath>
+      <HintPath>..\..\Proyectos\BBDD.dll</HintPath>
     </Reference>
-    <Reference Include="SWComboFK">
-      <HintPath>..\..\..\Proyectos\SWComboFK.dll</HintPath>
+    <Reference Include="Encriptar">
+      <HintPath>..\..\Proyectos\Encriptar.dll</HintPath>
     </Reference>
     <Reference Include="SWTextbox">
-      <HintPath>..\..\..\Proyectos\SWTextbox.dll</HintPath>
+      <HintPath>..\..\Proyectos\SWTextbox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,27 +50,29 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsFormsControlLibrary">
+      <HintPath>..\..\Proyectos\WindowsFormsControlLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="frmBaseBA.cs">
+    <Compile Include="MantenimientoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBaseBA.Designer.cs">
-      <DependentUpon>frmBaseBA.cs</DependentUpon>
+    <Compile Include="MantenimientoUsuarios.Designer.cs">
+      <DependentUpon>MantenimientoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBaseBA.resx">
-      <DependentUpon>frmBaseBA.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\MantenimientoBBDD\MantenimientoBBDD.csproj">
+      <Project>{de1b4dd9-e1a3-46a7-933c-2ecdea002981}</Project>
+      <Name>MantenimientoBBDD</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConnectarBBDD\ConnectarBBDD.csproj">
-      <Project>{5578ab19-2811-4142-9363-b2607480cb14}</Project>
-      <Name>ConnectarBBDD</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="MantenimientoUsuarios.resx">
+      <DependentUpon>MantenimientoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

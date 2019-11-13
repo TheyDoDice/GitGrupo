@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace BBDD
 {
@@ -14,15 +15,14 @@ namespace BBDD
         SqlDataAdapter adapter;
         SqlCommandBuilder construct;
 
-
         //CONNECTIONSTRING
-        public override string connectionString
+       /* public override string connectionString
         {
             get
             {
                 return "Data Source=theydodice.database.windows.net;Initial Catalog=securecore;Persist Security Info=True;User ID=theydodice;Password=123456aA";
             }
-        }
+        }*/
 
         //CREDENCIALS USUARI
         public override DataSet userCredentials(string user)
@@ -35,7 +35,8 @@ namespace BBDD
         //CONNECTAR
         public override void Connectar()
         {
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection();
+            connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             connection.Open();
             connection.InitializeLifetimeService();
 

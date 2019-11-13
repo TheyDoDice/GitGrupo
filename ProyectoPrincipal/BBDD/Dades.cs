@@ -14,7 +14,7 @@ namespace BBDD
         protected DataSet dataSet;
 
         //CONNECTIONSTRING
-        public abstract string connectionString { get; }
+        // public abstract string connectionString { get; }
 
         //CREDENCIALS USUARI
         public abstract DataSet userCredentials(string user);

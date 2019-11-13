@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using AccesDDBB;
+using BBDD;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace ConnectarBBDD
         }
 
         //Cridem a la llibreria.
-        DBUtils dBUtils = new DBUtils();
+        Dades bbdd = new SQL();
 
         //Variable consulta
         public string consulta = "select * from Users";
@@ -26,30 +26,12 @@ namespace ConnectarBBDD
 
         private void bttn_mostrardades_sql_Click(object sender, EventArgs e)
         {
-            //Declarem les variables
-            bool conectat;
+            //Fer la select de la taula usuaris
+            dadesConsulta = bbdd.PortarPerConsulta(consulta, "prova");
 
-            //Obrim la connexió.
-            dBUtils.ObrirConnexioSQL();
+            //Mostrar les dades en un data grid view
+            dataGridView1.DataSource = dadesConsulta.Tables["prova"];
 
-            //Comprobar si s'ha pogut  connectar
-            conectat = dBUtils.ComprovarConnexioSQL();
-            if (conectat)
-            {
-                //Fer la select de la taula usuaris
-                dadesConsulta = dBUtils.ConsultaSQL(consulta, "prova");
-
-                //Mostrar les dades en un data grid view
-                dataGridView1.DataSource = dadesConsulta.Tables["prova"];
-
-                //Tancar la connexió amb la base de dades. 
-                dBUtils.TancarConnexioSQL();
-
-            }
-            else
-            {
-                MessageBox.Show("No s'ha pogut establir la connexió amb la base de dades.", "Error de connexió", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btn_insertar_usuario_Click(object sender, EventArgs e)
@@ -59,10 +41,10 @@ namespace ConnectarBBDD
             bool insert;
             bool check_credencials;
 
-            check_credencials = comprobar_credenciales();
-            if (check_credencials)
+           // check_credencials = comprobar_credenciales();
+           /*// if (check_credencials)
             {
-                //Obrim la connexió.
+             /*   //Obrim la connexió.
                 dBUtils.ObrirConnexioSQL();
 
                 //Comprobar si s'ha pogut  connectar
@@ -106,12 +88,12 @@ namespace ConnectarBBDD
 
             //Tanquem la connexió
             dBUtils.TancarConnexioSQL();
-        }
+        }*/
 
         /*===============================================================================================
 	        Funcion Actualizar (antiguo botón)
         =================================================================================================*/
-        private void actualitzar_taula()
+        /*private void actualitzar_taula()
         {
             //Declarar variables
             bool conectat;
@@ -139,12 +121,12 @@ namespace ConnectarBBDD
             {
                 MessageBox.Show("No s' ha pogut establir una connexió amb la base de dades", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
 
         /*===============================================================================================
             Funcion Comprovar credenciales
         =================================================================================================*/
-        private bool comprobar_credenciales()
+       /* private bool comprobar_credenciales()
         {
             bool usuari_correcte;
             bool contrasenya_correcte;
@@ -199,7 +181,7 @@ namespace ConnectarBBDD
             }
             else if (pregunta == DialogResult.No)
             {
-            }
+            }*/
         }
     }
 }

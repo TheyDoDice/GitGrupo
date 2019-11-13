@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrearUsuari;
+using Usuarios;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -82,7 +83,7 @@ namespace ProyectoPrincipal.Forms
             lbl_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
             
 
-            Form1 myForm = new Form1();
+            MantenimientoUsuarios myForm = new MantenimientoUsuarios();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             this.panelFormPrincipal.Controls.Add(myForm);

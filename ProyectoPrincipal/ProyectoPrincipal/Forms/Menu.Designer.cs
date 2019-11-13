@@ -239,9 +239,10 @@
             // 
             // panelFormPrincipal
             // 
-            this.panelFormPrincipal.Location = new System.Drawing.Point(416, 72);
+            this.panelFormPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormPrincipal.Location = new System.Drawing.Point(353, 38);
             this.panelFormPrincipal.Name = "panelFormPrincipal";
-            this.panelFormPrincipal.Size = new System.Drawing.Size(558, 446);
+            this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
             // Menu
