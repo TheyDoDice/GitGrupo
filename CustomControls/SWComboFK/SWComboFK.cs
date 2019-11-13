@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using BBDD;
 
-namespace SWComboFK
+namespace CustomSWComboFK
 {
     public partial class SWComboFK : System.Windows.Forms.ComboBox
     {
         private string _ControlID;
+        private string _nomtaula;
+        private bool ple = false;
+        private bool primera_vegada = true;
 
         public string ControlID
         {
@@ -13,13 +19,34 @@ namespace SWComboFK
             set { _ControlID = value; }
         }
 
+        public string NomTaula
+        {
+            get { return _nomtaula; }
+            set { _nomtaula = value; }
+        }
+
+        private string _ValorId;
+
+        public string ValorId
+        {
+            get { return _ValorId; }
+            set { _ValorId = value;
+                this.ValueMember = value;
+                }
+        }
+
         public SWComboFK()
         {
+            InitializeComponent();
+        }
+        public void InitializeComponent()
+        {  
             this.SuspendLayout();
             // 
             // SWComboFK
             // 
             this.SelectedValueChanged += new System.EventHandler(this.PassaValor);
+            this.Enter += new System.EventHandler(this.SWComboFK_Enter);
             this.ResumeLayout(false);
         }
 
@@ -27,23 +54,58 @@ namespace SWComboFK
         { 
             Form myForm = this.FindForm();
 
-            foreach (Control ctr in myForm.Controls)
+            if (myForm != null)
             {
-                if (ctr.GetType()==typeof(GroupBox))
+                foreach (Control ctr in myForm.Controls)
                 {
-                    foreach (Control ctr1 in ctr.Controls)
+                    if (ctr.GetType() == typeof(GroupBox))
                     {
-                        if (ctr1.Name == _ControlID)
+                        foreach (Control ctr1 in ctr.Controls)
                         {
-                            ctr1.Text = this.SelectedIndex.ToString();
+                            if (ctr1.Name == _ControlID)
+                            {
+                                if (primera_vegada == false)
+                                {
+                                    ctr1.Text = this.SelectedValue.ToString();
+                                }
+                            }
+                        }
+                    }
+                    else if (ctr.Name == _ControlID)
+                    {
+                        if (primera_vegada == false)
+                        {
+                            ctr.Text = this.SelectedValue.ToString();
                         }
                     }
                 }
-                else if (ctr.Name == _ControlID)
-                {
-                    ctr.Text = this.SelectedIndex.ToString();
-                }
+
+                primera_vegada = false;
             }
+        }
+
+        public void ConnectDatabase()
+        {
+            if (ple == false)
+            {
+                string query;
+                query = "SELECT * From " + NomTaula;
+                string.Concat(NomTaula);
+
+                DataSet dades;
+                SQL BBDD = new SQL();
+
+                dades = BBDD.PortarPerConsulta(query, "Users");
+
+                this.DataSource = dades.Tables["Users"];
+                ple = true;
+
+            }
+        }
+       
+        private void SWComboFK_Enter(object sender, EventArgs e)
+        {
+            ConnectDatabase();            
         }
     }
 }
