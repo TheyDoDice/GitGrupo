@@ -1,5 +1,6 @@
 ﻿namespace ConnectarBBDD
 {
+    using CC_Library;
     partial class Form1
     {
         /// <summary>
@@ -34,11 +35,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.swComboFK2 = new CustomSWComboFK.SWComboFK();
-            this.swTextbox14 = new SWTextbox.SWTextbox1();
-            this.swTextbox13 = new SWTextbox.SWTextbox1();
-            this.swTextbox12 = new SWTextbox.SWTextbox1();
-            this.swTextbox11 = new SWTextbox.SWTextbox1();
+            this.swComboFK2 = new SWComboFK();
+            this.swTextbox14 = new SWTextbox();
+            this.swTextbox13 = new SWTextbox();
+            this.swTextbox12 = new SWTextbox();
+            this.swTextbox11 = new SWTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             // 
             // swTextbox14
             // 
-            this.swTextbox14.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox14.DadaTipus = SWTextbox.tipDades.Numero;
             this.swTextbox14.foranea = true;
             this.swTextbox14.Location = new System.Drawing.Point(297, 182);
             this.swTextbox14.mensaje = null;
@@ -123,11 +124,11 @@
             this.swTextbox14.requerit = false;
             this.swTextbox14.Size = new System.Drawing.Size(21, 20);
             this.swTextbox14.TabIndex = 6;
-            this.swTextbox14.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swTextbox14.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // swTextbox13
             // 
-            this.swTextbox13.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swTextbox13.DadaTipus = SWTextbox.tipDades.Text;
             this.swTextbox13.foranea = false;
             this.swTextbox13.Location = new System.Drawing.Point(155, 104);
             this.swTextbox13.mensaje = null;
@@ -138,11 +139,11 @@
             this.swTextbox13.requerit = false;
             this.swTextbox13.Size = new System.Drawing.Size(376, 59);
             this.swTextbox13.TabIndex = 4;
-            this.swTextbox13.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swTextbox13.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // swTextbox12
             // 
-            this.swTextbox12.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox12.DadaTipus = SWTextbox.tipDades.Numero;
             this.swTextbox12.foranea = false;
             this.swTextbox12.Location = new System.Drawing.Point(155, 78);
             this.swTextbox12.mensaje = null;
@@ -152,11 +153,11 @@
             this.swTextbox12.requerit = false;
             this.swTextbox12.Size = new System.Drawing.Size(100, 20);
             this.swTextbox12.TabIndex = 3;
-            this.swTextbox12.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWCodi;
+            this.swTextbox12.TipusControl = SWTextbox.tipControlRef.SWCodi;
             // 
             // swTextbox11
             // 
-            this.swTextbox11.DadaTipus = SWTextbox.SWTextbox1.tipDades.Codi;
+            this.swTextbox11.DadaTipus = SWTextbox.tipDades.Codi;
             this.swTextbox11.foranea = false;
             this.swTextbox11.Location = new System.Drawing.Point(155, 52);
             this.swTextbox11.mensaje = null;
@@ -166,7 +167,7 @@
             this.swTextbox11.requerit = false;
             this.swTextbox11.Size = new System.Drawing.Size(100, 20);
             this.swTextbox11.TabIndex = 2;
-            this.swTextbox11.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWCodi;
+            this.swTextbox11.TipusControl = SWTextbox.tipControlRef.SWCodi;
             // 
             // Form1
             // 
@@ -197,14 +198,14 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private SWTextbox.SWTextbox1 swTextbox11;
-        private SWTextbox.SWTextbox1 swTextbox12;
-        private SWTextbox.SWTextbox1 swTextbox13;
-        private SWTextbox.SWTextbox1 swTextbox14;
+        private SWTextbox swTextbox11;
+        private SWTextbox swTextbox12;
+        private SWTextbox swTextbox13;
+        private SWTextbox swTextbox14;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private CustomSWComboFK.SWComboFK swComboFK2;
+        private SWComboFK swComboFK2;
     }
 }

@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CustomSWComboFK;
-using SWTextbox;
+using CC_Library;
 using BBDD;
 
 namespace BaseBA
@@ -43,9 +42,9 @@ namespace BaseBA
 
             foreach (Control ctr in this.Controls)
             {
-                if (ctr.GetType() == typeof(SWTextbox1))
+                if (ctr.GetType() == typeof(CC_Library.SWTextbox))
                 {
-                    SWTextbox1 cc = (SWTextbox1)ctr;
+                    SWTextbox cc = (SWTextbox)ctr;
 
                     cc.DataBindings.Clear();
                     cc.DataBindings.Add("Text", dadesConsulta.Tables["prova"], cc.nomCamp);

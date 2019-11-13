@@ -1,4 +1,5 @@
-﻿namespace ConnectarBBDD
+﻿using CC_Library;
+namespace ConnectarBBDD
 {
     partial class Form2
     {
@@ -30,7 +31,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.swTextbox11 = new SWTextbox.SWTextbox1();
+            this.swTextbox11 = new SWTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             // swTextbox11
             // 
-            this.swTextbox11.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swTextbox11.DadaTipus = SWTextbox.tipDades.Numero;
             this.swTextbox11.foranea = false;
             this.swTextbox11.Location = new System.Drawing.Point(12, 187);
             this.swTextbox11.mensaje = null;
@@ -65,7 +66,7 @@
             this.swTextbox11.requerit = false;
             this.swTextbox11.Size = new System.Drawing.Size(100, 20);
             this.swTextbox11.TabIndex = 4;
-            this.swTextbox11.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swTextbox11.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // Form2
             // 
@@ -88,6 +89,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private SWTextbox.SWTextbox1 swTextbox11;
+        private SWTextbox swTextbox11;
     }
 }

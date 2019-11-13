@@ -34,11 +34,8 @@
     <Reference Include="BBDD">
       <HintPath>..\..\..\Proyectos\BBDD.dll</HintPath>
     </Reference>
-    <Reference Include="SWComboFK">
-      <HintPath>..\..\..\Proyectos\SWComboFK.dll</HintPath>
-    </Reference>
-    <Reference Include="SWTextbox">
-      <HintPath>..\..\..\Proyectos\SWTextbox.dll</HintPath>
+    <Reference Include="CC_Library">
+      <HintPath>..\..\..\Proyectos\CC_Library.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

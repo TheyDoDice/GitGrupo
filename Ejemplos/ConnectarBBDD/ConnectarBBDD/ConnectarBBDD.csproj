@@ -38,13 +38,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Proyectos\BBDD.dll</HintPath>
     </Reference>
-    <Reference Include="SWComboFK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Proyectos\SWComboFK.dll</HintPath>
-    </Reference>
-    <Reference Include="SWTextbox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Proyectos\SWTextbox.dll</HintPath>
+    <Reference Include="CC_Library">
+      <HintPath>..\..\..\Proyectos\CC_Library.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

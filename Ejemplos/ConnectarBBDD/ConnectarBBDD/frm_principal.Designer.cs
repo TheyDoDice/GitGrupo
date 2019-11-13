@@ -1,5 +1,5 @@
 ﻿using System;
-
+using CC_Library;
 namespace ConnectarBBDD
 {
     partial class frm_principal
@@ -47,7 +47,7 @@ namespace ConnectarBBDD
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.swComboFK2 = new CustomSWComboFK.SWComboFK();
+            this.swComboFK2 = new SWComboFK();
             this.lbl_SWComboFK = new System.Windows.Forms.Label();
             this.btn_actualitzar_taula = new System.Windows.Forms.Button();
             this.btn_delete_user = new System.Windows.Forms.Button();
@@ -452,8 +452,8 @@ namespace ConnectarBBDD
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private CustomSWComboFK.SWComboFK swComboFK1;
-        private CustomSWComboFK.SWComboFK swComboFK2;
+        private SWComboFK swComboFK1;
+        private SWComboFK swComboFK2;
         private System.Windows.Forms.TextBox textBox1;
     }
 }
