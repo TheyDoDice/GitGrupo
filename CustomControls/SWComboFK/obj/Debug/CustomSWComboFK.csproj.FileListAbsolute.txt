@@ -26,3 +26,5 @@ C:\Users\admin\Desktop\GitGrupo\CustomControls\SWComboFK\obj\Debug\CustomSWCombo
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWComboFK\obj\Debug\CustomSWComboFK.csproj.CopyComplete
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWComboFK\obj\Debug\SWComboFK.dll
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWComboFK\obj\Debug\SWComboFK.pdb
+C:\Users\admin\Desktop\GitGrupo\Proyectos\SWComboFK.dll
+C:\Users\admin\Desktop\GitGrupo\Proyectos\SWComboFK.pdb

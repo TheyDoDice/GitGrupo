@@ -59,7 +59,6 @@ C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\SWTextbox\obj\Debug
 C:\Users\admin\Desktop\GitGrupo\CustomControls\Proyectos\SWTextbox.dll
 C:\Users\admin\Desktop\GitGrupo\CustomControls\Proyectos\SWTextbox.pdb
 C:\Users\admin\Desktop\GitGrupo\CustomControls\FormSWTextbox\SWTextbox\obj\Debug\SWTextbox.csprojAssemblyReference.cache
-C:\Users\admin\Desktop\GitGrupo\CustomControls\SWTextbox\obj\Debug\SWTextbox.csprojAssemblyReference.cache
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWTextbox\obj\Debug\SWTextbox.SWTextbox1.resources
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWTextbox\obj\Debug\SWTextbox.csproj.GenerateResource.cache
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWTextbox\obj\Debug\SWTextbox.csproj.CoreCompileInputs.cache
@@ -68,3 +67,5 @@ C:\Users\admin\Desktop\GitGrupo\CustomControls\SWTextbox\obj\Debug\SWTextbox.pdb
 C:\Users\admin\Desktop\GitGrupo\CustomControls\Librerias\SWTextbox.dll
 C:\Users\admin\Desktop\GitGrupo\CustomControls\Librerias\SWTextbox.pdb
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWTextbox\obj\Debug\SWTextbox.csproj.CopyComplete
+C:\Users\admin\Desktop\GitGrupo\Proyectos\SWTextbox.dll
+C:\Users\admin\Desktop\GitGrupo\Proyectos\SWTextbox.pdb
