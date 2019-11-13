@@ -278,7 +278,7 @@ namespace ConnectarBBDD
             this.btn_delete_user.TabIndex = 14;
             this.btn_delete_user.Text = "Borrar Usuari";
             this.btn_delete_user.UseVisualStyleBackColor = true;
-            this.btn_delete_user.Click += new System.EventHandler(this.btn_delete_user_Click);
+         //   this.btn_delete_user.Click += new System.EventHandler(this.btn_delete_user_Click);
             // 
             // groupBox3
             // 
@@ -382,7 +382,7 @@ namespace ConnectarBBDD
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+           // this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frm_principal
             // 

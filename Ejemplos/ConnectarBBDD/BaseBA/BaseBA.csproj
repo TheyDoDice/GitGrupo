@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BBDD">
+      <HintPath>..\..\..\Proyectos\BBDD.dll</HintPath>
+    </Reference>
+    <Reference Include="SWComboFK">
+      <HintPath>..\..\..\Proyectos\SWComboFK.dll</HintPath>
+    </Reference>
+    <Reference Include="SWTextbox">
+      <HintPath>..\..\..\Proyectos\SWTextbox.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -58,10 +67,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AccesDDBB\AccesDDBB.csproj">
-      <Project>{cdc93a02-665c-4c6d-aa09-6f5674b96bd8}</Project>
-      <Name>AccesDDBB</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ConnectarBBDD\ConnectarBBDD.csproj">
       <Project>{5578ab19-2811-4142-9363-b2607480cb14}</Project>
       <Name>ConnectarBBDD</Name>

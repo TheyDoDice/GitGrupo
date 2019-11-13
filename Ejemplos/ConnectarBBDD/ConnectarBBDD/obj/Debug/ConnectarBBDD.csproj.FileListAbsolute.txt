@@ -124,11 +124,7 @@ C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\ConnectarBBDD\bin\D
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe.config
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.exe
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\ConnectarBBDD.pdb
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.dll
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWComboFK.dll
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWTextbox.dll
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\BBDD.dll
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\AccesDDBB.pdb
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWComboFK.pdb
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWTextbox.pdb
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\BBDD.pdb
@@ -142,3 +138,5 @@ C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\C
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csproj.CopyComplete
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.exe
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWComboFK.dll
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\SWTextbox.dll
