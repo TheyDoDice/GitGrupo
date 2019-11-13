@@ -66,14 +66,6 @@
       <Project>{5578ab19-2811-4142-9363-b2607480cb14}</Project>
       <Name>ConnectarBBDD</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FormSWTextbox\SWTextbox\SWTextbox.csproj">
-      <Project>{4ce3c6ec-2778-4c23-b6fa-012e08446730}</Project>
-      <Name>SWTextbox</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SWComboFK\CustomSWComboFK.csproj">
-      <Project>{2ab02dab-23b5-4f21-9d5f-945560af18f6}</Project>
-      <Name>CustomSWComboFK</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

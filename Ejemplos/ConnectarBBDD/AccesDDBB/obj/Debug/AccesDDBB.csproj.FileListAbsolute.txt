@@ -36,3 +36,10 @@ C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\bin\Debug
 C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.dll
 C:\Users\admin\Desktop\GitGrupo\CustomControls\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.pdb
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\Librerias\AccesDDBB.dll
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\Librerias\AccesDDBB.pdb
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.dll
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\AccesDDBB\obj\Debug\AccesDDBB.pdb
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\Librerias\AccesDDBB.dll
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\Librerias\AccesDDBB.pdb

@@ -34,6 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SWComboFK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CustomControls\Librerias\SWComboFK.dll</HintPath>
+    </Reference>
+    <Reference Include="SWTextbox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CustomControls\Librerias\SWTextbox.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -103,14 +111,6 @@
     <ProjectReference Include="..\AccesDDBB\AccesDDBB.csproj">
       <Project>{cdc93a02-665c-4c6d-aa09-6f5674b96bd8}</Project>
       <Name>AccesDDBB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FormSWTextbox\SWTextbox\SWTextbox.csproj">
-      <Project>{4CE3C6EC-2778-4C23-B6FA-012E08446730}</Project>
-      <Name>SWTextbox</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SWComboFK\CustomSWComboFK.csproj">
-      <Project>{2ab02dab-23b5-4f21-9d5f-945560af18f6}</Project>
-      <Name>CustomSWComboFK</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
