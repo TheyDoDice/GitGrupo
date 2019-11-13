@@ -35,3 +35,13 @@ C:\Users\admin\Desktop\GitGrupo\CustomControls\SWCodi\obj\Debug\UserControlLibra
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWCodi\obj\Debug\UserControlLibrary.csproj.CopyComplete
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWCodi\obj\Debug\WindowsFormsControlLibrary.dll
 C:\Users\admin\Desktop\GitGrupo\CustomControls\SWCodi\obj\Debug\WindowsFormsControlLibrary.pdb
+C:\Users\admin\Documents\GitHub\GitGrupo\Proyectos\WindowsFormsControlLibrary.dll
+C:\Users\admin\Documents\GitHub\GitGrupo\Proyectos\WindowsFormsControlLibrary.pdb
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\UserControlLibrary.csprojAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\WindowsFormsControlLibrary.HelpForm.resources
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\WindowsFormsControlLibrary.SWCodi.resources
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\UserControlLibrary.csproj.GenerateResource.cache
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\UserControlLibrary.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\UserControlLibrary.csproj.CopyComplete
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\WindowsFormsControlLibrary.dll
+C:\Users\admin\Documents\GitHub\GitGrupo\CustomControls\SWCodi\obj\Debug\WindowsFormsControlLibrary.pdb
