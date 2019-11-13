@@ -1,4 +1,5 @@
-﻿namespace Usuarios
+﻿using CC_Library;
+namespace Usuarios
 {
     partial class MantenimientoUsuarios
     {
@@ -28,34 +29,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.swt_idSpecie = new SWTextbox.SWTextbox1();
-            this.swt_idPlanet = new SWTextbox.SWTextbox1();
-            this.swt_idUserCategory = new SWTextbox.SWTextbox1();
-            this.swt_login = new SWTextbox.SWTextbox1();
-            this.swt_idUserRank = new SWTextbox.SWTextbox1();
+            this.swt_idSpecie = new SWTextbox();
+            this.swt_idPlanet = new SWTextbox();
+            this.swt_idUserCategory = new SWTextbox();
+            this.swt_login = new SWTextbox();
+            this.swt_idUserRank = new SWTextbox();
             this.lbl_password = new System.Windows.Forms.Label();
-            this.swt_password = new SWTextbox.SWTextbox1();
+            this.swt_password = new SWTextbox();
             this.lb_codeUser = new System.Windows.Forms.Label();
-            this.swt_photo = new SWTextbox.SWTextbox1();
+            this.swt_photo = new SWTextbox();
             this.lbl_UserName = new System.Windows.Forms.Label();
-            this.swt_userName = new SWTextbox.SWTextbox1();
+            this.swt_userName = new SWTextbox();
             this.lbl_login = new System.Windows.Forms.Label();
-            this.swt_codeUser = new SWTextbox.SWTextbox1();
+            this.swt_codeUser = new SWTextbox();
             this.lbl_photo = new System.Windows.Forms.Label();
-            this.swc_UserSpecie = new WindowsFormsControlLibrary.SWCodi();
+            this.swc_UserSpecie = new SWCodi();
             this.lbl_UserRank = new System.Windows.Forms.Label();
             this.lbl_UserSpecie = new System.Windows.Forms.Label();
-            this.swc_UserRank = new WindowsFormsControlLibrary.SWCodi();
-            this.swc_UserPlanet = new WindowsFormsControlLibrary.SWCodi();
+            this.swc_UserRank = new SWCodi();
+            this.swc_UserPlanet = new SWCodi();
             this.lbl_UserCategory = new System.Windows.Forms.Label();
             this.lbl_UserPlanet = new System.Windows.Forms.Label();
-            this.swc_UserCategory = new WindowsFormsControlLibrary.SWCodi();
+            this.swc_UserCategory = new SWCodi();
             this.SuspendLayout();
             // 
             // swt_idSpecie
             // 
-            this.swt_idSpecie.controlID = "swc_UserSpecie";
-            this.swt_idSpecie.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_idSpecie.ControlID = "swc_UserSpecie";
+            this.swt_idSpecie.DadaTipus = SWTextbox.tipDades.Numero;
             this.swt_idSpecie.foranea = true;
             this.swt_idSpecie.Location = new System.Drawing.Point(609, 177);
             this.swt_idSpecie.mensaje = null;
@@ -65,12 +66,12 @@
             this.swt_idSpecie.requerit = false;
             this.swt_idSpecie.Size = new System.Drawing.Size(43, 20);
             this.swt_idSpecie.TabIndex = 42;
-            this.swt_idSpecie.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_idSpecie.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // swt_idPlanet
             // 
-            this.swt_idPlanet.controlID = "swc_UserPlanet";
-            this.swt_idPlanet.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_idPlanet.ControlID = "swc_UserPlanet";
+            this.swt_idPlanet.DadaTipus = SWTextbox.tipDades.Numero;
             this.swt_idPlanet.foranea = true;
             this.swt_idPlanet.Location = new System.Drawing.Point(608, 146);
             this.swt_idPlanet.mensaje = null;
@@ -80,12 +81,12 @@
             this.swt_idPlanet.requerit = false;
             this.swt_idPlanet.Size = new System.Drawing.Size(44, 20);
             this.swt_idPlanet.TabIndex = 39;
-            this.swt_idPlanet.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_idPlanet.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // swt_idUserCategory
             // 
-            this.swt_idUserCategory.controlID = "swc_UserCategory";
-            this.swt_idUserCategory.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_idUserCategory.ControlID = "swc_UserCategory";
+            this.swt_idUserCategory.DadaTipus = SWTextbox.tipDades.Numero;
             this.swt_idUserCategory.foranea = true;
             this.swt_idUserCategory.Location = new System.Drawing.Point(608, 117);
             this.swt_idUserCategory.mensaje = null;
@@ -95,12 +96,12 @@
             this.swt_idUserCategory.requerit = false;
             this.swt_idUserCategory.Size = new System.Drawing.Size(44, 20);
             this.swt_idUserCategory.TabIndex = 36;
-            this.swt_idUserCategory.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_idUserCategory.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // swt_login
             // 
-            this.swt_login.controlID = null;
-            this.swt_login.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swt_login.ControlID = null;
+            this.swt_login.DadaTipus = SWTextbox.tipDades.Text;
             this.swt_login.foranea = false;
             this.swt_login.Location = new System.Drawing.Point(481, 14);
             this.swt_login.mensaje = null;
@@ -110,12 +111,12 @@
             this.swt_login.requerit = false;
             this.swt_login.Size = new System.Drawing.Size(102, 20);
             this.swt_login.TabIndex = 28;
-            this.swt_login.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_login.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // swt_idUserRank
             // 
-            this.swt_idUserRank.controlID = "swc_UserRank";
-            this.swt_idUserRank.DadaTipus = SWTextbox.SWTextbox1.tipDades.Numero;
+            this.swt_idUserRank.ControlID = "swc_UserRank";
+            this.swt_idUserRank.DadaTipus = SWTextbox.tipDades.Numero;
             this.swt_idUserRank.foranea = true;
             this.swt_idUserRank.Location = new System.Drawing.Point(608, 84);
             this.swt_idUserRank.mensaje = null;
@@ -125,7 +126,7 @@
             this.swt_idUserRank.requerit = false;
             this.swt_idUserRank.Size = new System.Drawing.Size(44, 20);
             this.swt_idUserRank.TabIndex = 33;
-            this.swt_idUserRank.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_idUserRank.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // lbl_password
             // 
@@ -138,8 +139,8 @@
             // 
             // swt_password
             // 
-            this.swt_password.controlID = null;
-            this.swt_password.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swt_password.ControlID = null;
+            this.swt_password.DadaTipus = SWTextbox.tipDades.Text;
             this.swt_password.foranea = false;
             this.swt_password.Location = new System.Drawing.Point(289, 53);
             this.swt_password.mensaje = null;
@@ -149,7 +150,7 @@
             this.swt_password.requerit = false;
             this.swt_password.Size = new System.Drawing.Size(102, 20);
             this.swt_password.TabIndex = 31;
-            this.swt_password.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_password.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // lb_codeUser
             // 
@@ -162,8 +163,8 @@
             // 
             // swt_photo
             // 
-            this.swt_photo.controlID = null;
-            this.swt_photo.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swt_photo.ControlID = null;
+            this.swt_photo.DadaTipus = SWTextbox.tipDades.Text;
             this.swt_photo.foranea = false;
             this.swt_photo.Location = new System.Drawing.Point(289, 17);
             this.swt_photo.mensaje = null;
@@ -173,7 +174,7 @@
             this.swt_photo.requerit = false;
             this.swt_photo.Size = new System.Drawing.Size(102, 20);
             this.swt_photo.TabIndex = 27;
-            this.swt_photo.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_photo.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // lbl_UserName
             // 
@@ -186,8 +187,8 @@
             // 
             // swt_userName
             // 
-            this.swt_userName.controlID = null;
-            this.swt_userName.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swt_userName.ControlID = null;
+            this.swt_userName.DadaTipus = SWTextbox.tipDades.Text;
             this.swt_userName.foranea = false;
             this.swt_userName.Location = new System.Drawing.Point(104, 53);
             this.swt_userName.mensaje = null;
@@ -197,7 +198,7 @@
             this.swt_userName.requerit = false;
             this.swt_userName.Size = new System.Drawing.Size(102, 20);
             this.swt_userName.TabIndex = 29;
-            this.swt_userName.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_userName.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // lbl_login
             // 
@@ -210,8 +211,8 @@
             // 
             // swt_codeUser
             // 
-            this.swt_codeUser.controlID = null;
-            this.swt_codeUser.DadaTipus = SWTextbox.SWTextbox1.tipDades.Text;
+            this.swt_codeUser.ControlID = null;
+            this.swt_codeUser.DadaTipus = SWTextbox.tipDades.Text;
             this.swt_codeUser.foranea = false;
             this.swt_codeUser.Location = new System.Drawing.Point(104, 18);
             this.swt_codeUser.mensaje = null;
@@ -221,7 +222,7 @@
             this.swt_codeUser.requerit = false;
             this.swt_codeUser.Size = new System.Drawing.Size(102, 20);
             this.swt_codeUser.TabIndex = 25;
-            this.swt_codeUser.TipusControl = SWTextbox.SWTextbox1.tipControlRef.SWComboBox;
+            this.swt_codeUser.TipusControl = SWTextbox.tipControlRef.SWComboBox;
             // 
             // lbl_photo
             // 
@@ -389,27 +390,27 @@
 
         #endregion
 
-        private SWTextbox.SWTextbox1 swt_idSpecie;
-        private SWTextbox.SWTextbox1 swt_idPlanet;
-        private SWTextbox.SWTextbox1 swt_idUserCategory;
-        private SWTextbox.SWTextbox1 swt_login;
-        private SWTextbox.SWTextbox1 swt_idUserRank;
+        private SWTextbox swt_idSpecie;
+        private SWTextbox swt_idPlanet;
+        private SWTextbox swt_idUserCategory;
+        private SWTextbox swt_login;
+        private SWTextbox swt_idUserRank;
         private System.Windows.Forms.Label lbl_password;
-        private SWTextbox.SWTextbox1 swt_password;
+        private SWTextbox swt_password;
         private System.Windows.Forms.Label lb_codeUser;
-        private SWTextbox.SWTextbox1 swt_photo;
+        private SWTextbox swt_photo;
         private System.Windows.Forms.Label lbl_UserName;
-        private SWTextbox.SWTextbox1 swt_userName;
+        private SWTextbox swt_userName;
         private System.Windows.Forms.Label lbl_login;
-        private SWTextbox.SWTextbox1 swt_codeUser;
+        private SWTextbox swt_codeUser;
         private System.Windows.Forms.Label lbl_photo;
-        private WindowsFormsControlLibrary.SWCodi swc_UserSpecie;
+        private SWCodi swc_UserSpecie;
         private System.Windows.Forms.Label lbl_UserRank;
         private System.Windows.Forms.Label lbl_UserSpecie;
-        private WindowsFormsControlLibrary.SWCodi swc_UserRank;
-        private WindowsFormsControlLibrary.SWCodi swc_UserPlanet;
+        private SWCodi swc_UserRank;
+        private SWCodi swc_UserPlanet;
         private System.Windows.Forms.Label lbl_UserCategory;
         private System.Windows.Forms.Label lbl_UserPlanet;
-        private WindowsFormsControlLibrary.SWCodi swc_UserCategory;
+        private SWCodi swc_UserCategory;
     }
 }

@@ -15,15 +15,6 @@ namespace BBDD
         SqlDataAdapter adapter;
         SqlCommandBuilder construct;
 
-        //CONNECTIONSTRING
-       /* public override string connectionString
-        {
-            get
-            {
-                return "Data Source=theydodice.database.windows.net;Initial Catalog=securecore;Persist Security Info=True;User ID=theydodice;Password=123456aA";
-            }
-        }*/
-
         //CREDENCIALS USUARI
         public override DataSet userCredentials(string user)
         {

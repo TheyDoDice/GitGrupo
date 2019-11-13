@@ -92,21 +92,31 @@ namespace ProyectoPrincipal.Forms
 
         private bool correctUser(string user, string password)
         {
-            BBDD.Dades basedades = new BBDD.SQL();
-            DataSet dataSet = basedades.userCredentials(user);
-            try
+
+            if (!user.ToCharArray().Contains(';'))
             {
-                byte[] passwordBase = Convert.FromBase64String(dataSet.Tables[0].Rows[0]["Password"].ToString());
-                byte[] saltBase = Convert.FromBase64String(dataSet.Tables[0].Rows[0]["Salt"].ToString());
+                BBDD.Dades basedades = new BBDD.SQL();
+                DataSet dataSet = basedades.userCredentials(user);
+                try
+                {
+                    byte[] passwordBase = Convert.FromBase64String(dataSet.Tables[0].Rows[0]["Password"].ToString());
+                    byte[] saltBase = Convert.FromBase64String(dataSet.Tables[0].Rows[0]["Salt"].ToString());
 
-                Hash encript = new Hash();
+                    Hash encript = new Hash();
 
-                return encript.VerifyPassword(password, saltBase, passwordBase);
+                    return encript.VerifyPassword(password, saltBase, passwordBase);
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch
+            else
             {
+                MessageBox.Show("dondevasrufian");
                 return false;
             }
+            
         }
         private Image TakeImg(string mode, string name)
         {

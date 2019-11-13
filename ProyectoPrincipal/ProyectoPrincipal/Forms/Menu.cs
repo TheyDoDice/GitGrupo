@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CrearUsuari;
 using Usuarios;
 
 namespace ProyectoPrincipal.Forms

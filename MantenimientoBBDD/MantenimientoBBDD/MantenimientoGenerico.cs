@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BBDD;
 using Encriptar;
-using SWTextbox;
-using WindowsFormsControlLibrary;
+using CC_Library;
 
 namespace MantenimientoBBDD
 {
@@ -54,7 +53,7 @@ namespace MantenimientoBBDD
 
             foreach (var control in this.Controls)
             {
-                if (control is SWTextbox1 swt)
+                if (control is SWTextbox swt)
                 {
                     swt.DataBindings.Clear();
                     swt.DataBindings.Add("Text", datable, swt.nomCamp);
@@ -69,10 +68,10 @@ namespace MantenimientoBBDD
         {
             if (!nuevaFila)
             {
-                ((SWTextbox1)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+                ((SWTextbox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
             }
         }
-        private void bindingOnValidated(SWTextbox1 swt)
+        private void bindingOnValidated(SWTextbox swt)
         {
             if (!nuevaFila)
             {
@@ -80,7 +79,7 @@ namespace MantenimientoBBDD
             }
         }
 
-        private void atualizaLaForanea(SWTextbox1 swt)
+        private void atualizaLaForanea(SWTextbox swt)
         {
             if (swt.foranea)
             {
@@ -88,7 +87,7 @@ namespace MantenimientoBBDD
                 {
                     if (c is SWCodi swc)
                     {
-                        if (swc.Name == swt.controlID)
+                        if (swc.Name == swt.ControlID)
                         {
                             swc.ValidaId(swt.Text);
                             swc.Validated += (s, ev) => bindingOnValidated(swt);
@@ -104,7 +103,7 @@ namespace MantenimientoBBDD
 
             foreach (var control in this.Controls)
             {
-                if (control is SWTextbox1 swt)
+                if (control is SWTextbox swt)
                 {
                     swt.DataBindings.Clear();
                     swt.Text = "";
@@ -136,7 +135,7 @@ namespace MantenimientoBBDD
 
             foreach (var control in this.Controls)
             {
-                if (control is SWTextbox1 swt)
+                if (control is SWTextbox swt)
                 {
                     if (swt.nomCamp == "Password")
                     {
@@ -165,7 +164,7 @@ namespace MantenimientoBBDD
             bool res = true;
             foreach (var control in this.Controls)
             {
-                if (control is SWTextbox1 swt)
+                if (control is SWTextbox swt)
                 {
                     res = swt.Text != "";
                     if (!res)
