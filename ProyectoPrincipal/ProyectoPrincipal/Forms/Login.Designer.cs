@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.bordeSuperior = new System.Windows.Forms.Panel();
             this.bordeInferior = new System.Windows.Forms.Panel();
             this.bordeIzquierda = new System.Windows.Forms.Panel();
@@ -224,6 +225,7 @@
             this.Controls.Add(this.bordeSuperior);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

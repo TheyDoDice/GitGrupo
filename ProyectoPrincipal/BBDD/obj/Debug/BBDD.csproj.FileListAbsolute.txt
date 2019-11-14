@@ -9,4 +9,3 @@ C:\Users\admin\Desktop\GitGrupo\Proyectos\BBDD.pdb
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.dll
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.pdb
-C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.csprojAssemblyReference.cache

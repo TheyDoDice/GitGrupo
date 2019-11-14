@@ -113,7 +113,7 @@ namespace ProyectoPrincipal.Forms
             }
             else
             {
-                MessageBox.Show("dondevasrufian");
+                MessageBox.Show("");
                 return false;
             }
             

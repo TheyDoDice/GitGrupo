@@ -54,3 +54,4 @@ C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\Pr
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.csproj.CopyComplete
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.exe
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.pdb
+C:\Users\admin\Desktop\GitGrupo\Proyectos\Img\dark_logo.ico
