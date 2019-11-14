@@ -62,6 +62,12 @@
     <Compile Include="SWComboFK.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SWMenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SWMenuItem.Designer.cs">
+      <DependentUpon>SWMenuItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="SWTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SWComboFK.resx">
       <DependentUpon>SWComboFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SWMenuItem.resx">
+      <DependentUpon>SWMenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SWTextbox.resx">
       <DependentUpon>SWTextbox.cs</DependentUpon>
