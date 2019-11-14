@@ -29,29 +29,128 @@ namespace Usuarios
         /// </summary>
         private void InitializeComponent()
         {
+            this.lbl_password = new System.Windows.Forms.Label();
+            this.lb_codeUser = new System.Windows.Forms.Label();
+            this.lbl_UserName = new System.Windows.Forms.Label();
+            this.lbl_login = new System.Windows.Forms.Label();
+            this.lbl_photo = new System.Windows.Forms.Label();
+            this.lbl_UserRank = new System.Windows.Forms.Label();
+            this.lbl_UserSpecie = new System.Windows.Forms.Label();
+            this.lbl_UserCategory = new System.Windows.Forms.Label();
+            this.lbl_UserPlanet = new System.Windows.Forms.Label();
             this.swt_idSpecie = new CC_Library.SWTextbox();
             this.swt_idPlanet = new CC_Library.SWTextbox();
             this.swt_idUserCategory = new CC_Library.SWTextbox();
             this.swt_login = new CC_Library.SWTextbox();
             this.swt_idUserRank = new CC_Library.SWTextbox();
-            this.lbl_password = new System.Windows.Forms.Label();
             this.swt_password = new CC_Library.SWTextbox();
-            this.lb_codeUser = new System.Windows.Forms.Label();
             this.swt_photo = new CC_Library.SWTextbox();
-            this.lbl_UserName = new System.Windows.Forms.Label();
             this.swt_userName = new CC_Library.SWTextbox();
-            this.lbl_login = new System.Windows.Forms.Label();
             this.swt_codeUser = new CC_Library.SWTextbox();
-            this.lbl_photo = new System.Windows.Forms.Label();
             this.swc_UserSpecie = new CC_Library.SWCodi();
-            this.lbl_UserRank = new System.Windows.Forms.Label();
-            this.lbl_UserSpecie = new System.Windows.Forms.Label();
             this.swc_UserRank = new CC_Library.SWCodi();
             this.swc_UserPlanet = new CC_Library.SWCodi();
-            this.lbl_UserCategory = new System.Windows.Forms.Label();
-            this.lbl_UserPlanet = new System.Windows.Forms.Label();
             this.swc_UserCategory = new CC_Library.SWCodi();
             this.SuspendLayout();
+            // 
+            // lbl_password
+            // 
+            this.lbl_password.AutoSize = true;
+            this.lbl_password.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_password.ForeColor = System.Drawing.Color.White;
+            this.lbl_password.Location = new System.Drawing.Point(372, 87);
+            this.lbl_password.Name = "lbl_password";
+            this.lbl_password.Size = new System.Drawing.Size(97, 24);
+            this.lbl_password.TabIndex = 30;
+            this.lbl_password.Text = "Password:";
+            // 
+            // lb_codeUser
+            // 
+            this.lb_codeUser.AutoSize = true;
+            this.lb_codeUser.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lb_codeUser.ForeColor = System.Drawing.Color.White;
+            this.lb_codeUser.Location = new System.Drawing.Point(22, 34);
+            this.lb_codeUser.Name = "lb_codeUser";
+            this.lb_codeUser.Size = new System.Drawing.Size(102, 24);
+            this.lb_codeUser.TabIndex = 26;
+            this.lb_codeUser.Text = "Code User:";
+            // 
+            // lbl_UserName
+            // 
+            this.lbl_UserName.AutoSize = true;
+            this.lbl_UserName.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_UserName.ForeColor = System.Drawing.Color.White;
+            this.lbl_UserName.Location = new System.Drawing.Point(23, 93);
+            this.lbl_UserName.Name = "lbl_UserName";
+            this.lbl_UserName.Size = new System.Drawing.Size(108, 24);
+            this.lbl_UserName.TabIndex = 35;
+            this.lbl_UserName.Text = "User Name:";
+            // 
+            // lbl_login
+            // 
+            this.lbl_login.AutoSize = true;
+            this.lbl_login.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_login.ForeColor = System.Drawing.Color.White;
+            this.lbl_login.Location = new System.Drawing.Point(690, 27);
+            this.lbl_login.Name = "lbl_login";
+            this.lbl_login.Size = new System.Drawing.Size(60, 24);
+            this.lbl_login.TabIndex = 38;
+            this.lbl_login.Text = "Login:";
+            // 
+            // lbl_photo
+            // 
+            this.lbl_photo.AutoSize = true;
+            this.lbl_photo.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_photo.ForeColor = System.Drawing.Color.White;
+            this.lbl_photo.Location = new System.Drawing.Point(371, 28);
+            this.lbl_photo.Name = "lbl_photo";
+            this.lbl_photo.Size = new System.Drawing.Size(67, 24);
+            this.lbl_photo.TabIndex = 41;
+            this.lbl_photo.Text = "Photo:";
+            // 
+            // lbl_UserRank
+            // 
+            this.lbl_UserRank.AutoSize = true;
+            this.lbl_UserRank.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_UserRank.ForeColor = System.Drawing.Color.White;
+            this.lbl_UserRank.Location = new System.Drawing.Point(23, 156);
+            this.lbl_UserRank.Name = "lbl_UserRank";
+            this.lbl_UserRank.Size = new System.Drawing.Size(101, 24);
+            this.lbl_UserRank.TabIndex = 43;
+            this.lbl_UserRank.Text = "User Rank:";
+            // 
+            // lbl_UserSpecie
+            // 
+            this.lbl_UserSpecie.AutoSize = true;
+            this.lbl_UserSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_UserSpecie.ForeColor = System.Drawing.Color.White;
+            this.lbl_UserSpecie.Location = new System.Drawing.Point(27, 277);
+            this.lbl_UserSpecie.Name = "lbl_UserSpecie";
+            this.lbl_UserSpecie.Size = new System.Drawing.Size(69, 24);
+            this.lbl_UserSpecie.TabIndex = 46;
+            this.lbl_UserSpecie.Text = "Specie:";
+            // 
+            // lbl_UserCategory
+            // 
+            this.lbl_UserCategory.AutoSize = true;
+            this.lbl_UserCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_UserCategory.ForeColor = System.Drawing.Color.White;
+            this.lbl_UserCategory.Location = new System.Drawing.Point(23, 192);
+            this.lbl_UserCategory.Name = "lbl_UserCategory";
+            this.lbl_UserCategory.Size = new System.Drawing.Size(133, 24);
+            this.lbl_UserCategory.TabIndex = 44;
+            this.lbl_UserCategory.Text = "User Category:";
+            // 
+            // lbl_UserPlanet
+            // 
+            this.lbl_UserPlanet.AutoSize = true;
+            this.lbl_UserPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lbl_UserPlanet.ForeColor = System.Drawing.Color.White;
+            this.lbl_UserPlanet.Location = new System.Drawing.Point(26, 233);
+            this.lbl_UserPlanet.Name = "lbl_UserPlanet";
+            this.lbl_UserPlanet.Size = new System.Drawing.Size(70, 24);
+            this.lbl_UserPlanet.TabIndex = 45;
+            this.lbl_UserPlanet.Text = "Planet:";
             // 
             // swt_idSpecie
             // 
@@ -60,7 +159,7 @@ namespace Usuarios
             this.swt_idSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idSpecie.foranea = true;
             this.swt_idSpecie.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idSpecie.Location = new System.Drawing.Point(676, 274);
+            this.swt_idSpecie.Location = new System.Drawing.Point(652, 275);
             this.swt_idSpecie.mensaje = null;
             this.swt_idSpecie.Name = "swt_idSpecie";
             this.swt_idSpecie.nomCamp = "idSpecie";
@@ -77,7 +176,7 @@ namespace Usuarios
             this.swt_idPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idPlanet.foranea = true;
             this.swt_idPlanet.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idPlanet.Location = new System.Drawing.Point(675, 233);
+            this.swt_idPlanet.Location = new System.Drawing.Point(652, 234);
             this.swt_idPlanet.mensaje = null;
             this.swt_idPlanet.Name = "swt_idPlanet";
             this.swt_idPlanet.nomCamp = "idPlanet";
@@ -94,7 +193,7 @@ namespace Usuarios
             this.swt_idUserCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idUserCategory.foranea = true;
             this.swt_idUserCategory.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idUserCategory.Location = new System.Drawing.Point(674, 192);
+            this.swt_idUserCategory.Location = new System.Drawing.Point(652, 193);
             this.swt_idUserCategory.mensaje = null;
             this.swt_idUserCategory.Name = "swt_idUserCategory";
             this.swt_idUserCategory.nomCamp = "idUserCategory";
@@ -128,7 +227,7 @@ namespace Usuarios
             this.swt_idUserRank.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idUserRank.foranea = true;
             this.swt_idUserRank.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idUserRank.Location = new System.Drawing.Point(674, 147);
+            this.swt_idUserRank.Location = new System.Drawing.Point(652, 148);
             this.swt_idUserRank.mensaje = null;
             this.swt_idUserRank.Name = "swt_idUserRank";
             this.swt_idUserRank.nomCamp = "iduserrank";
@@ -137,17 +236,6 @@ namespace Usuarios
             this.swt_idUserRank.Size = new System.Drawing.Size(43, 32);
             this.swt_idUserRank.TabIndex = 33;
             this.swt_idUserRank.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
-            // 
-            // lbl_password
-            // 
-            this.lbl_password.AutoSize = true;
-            this.lbl_password.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_password.ForeColor = System.Drawing.Color.White;
-            this.lbl_password.Location = new System.Drawing.Point(372, 87);
-            this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(97, 24);
-            this.lbl_password.TabIndex = 30;
-            this.lbl_password.Text = "Password:";
             // 
             // swt_password
             // 
@@ -166,17 +254,6 @@ namespace Usuarios
             this.swt_password.TabIndex = 31;
             this.swt_password.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
-            // lb_codeUser
-            // 
-            this.lb_codeUser.AutoSize = true;
-            this.lb_codeUser.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lb_codeUser.ForeColor = System.Drawing.Color.White;
-            this.lb_codeUser.Location = new System.Drawing.Point(22, 34);
-            this.lb_codeUser.Name = "lb_codeUser";
-            this.lb_codeUser.Size = new System.Drawing.Size(102, 24);
-            this.lb_codeUser.TabIndex = 26;
-            this.lb_codeUser.Text = "Code User:";
-            // 
             // swt_photo
             // 
             this.swt_photo.ControlID = null;
@@ -193,17 +270,6 @@ namespace Usuarios
             this.swt_photo.Size = new System.Drawing.Size(193, 32);
             this.swt_photo.TabIndex = 27;
             this.swt_photo.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
-            // 
-            // lbl_UserName
-            // 
-            this.lbl_UserName.AutoSize = true;
-            this.lbl_UserName.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_UserName.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserName.Location = new System.Drawing.Point(23, 93);
-            this.lbl_UserName.Name = "lbl_UserName";
-            this.lbl_UserName.Size = new System.Drawing.Size(108, 24);
-            this.lbl_UserName.TabIndex = 35;
-            this.lbl_UserName.Text = "User Name:";
             // 
             // swt_userName
             // 
@@ -222,17 +288,6 @@ namespace Usuarios
             this.swt_userName.TabIndex = 29;
             this.swt_userName.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
-            // lbl_login
-            // 
-            this.lbl_login.AutoSize = true;
-            this.lbl_login.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_login.ForeColor = System.Drawing.Color.White;
-            this.lbl_login.Location = new System.Drawing.Point(690, 27);
-            this.lbl_login.Name = "lbl_login";
-            this.lbl_login.Size = new System.Drawing.Size(60, 24);
-            this.lbl_login.TabIndex = 38;
-            this.lbl_login.Text = "Login:";
-            // 
             // swt_codeUser
             // 
             this.swt_codeUser.ControlID = null;
@@ -249,17 +304,6 @@ namespace Usuarios
             this.swt_codeUser.Size = new System.Drawing.Size(194, 32);
             this.swt_codeUser.TabIndex = 25;
             this.swt_codeUser.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
-            // 
-            // lbl_photo
-            // 
-            this.lbl_photo.AutoSize = true;
-            this.lbl_photo.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_photo.ForeColor = System.Drawing.Color.White;
-            this.lbl_photo.Location = new System.Drawing.Point(371, 28);
-            this.lbl_photo.Name = "lbl_photo";
-            this.lbl_photo.Size = new System.Drawing.Size(67, 24);
-            this.lbl_photo.TabIndex = 41;
-            this.lbl_photo.Text = "Photo:";
             // 
             // swc_UserSpecie
             // 
@@ -279,28 +323,6 @@ namespace Usuarios
             this.swc_UserSpecie.Requerit = false;
             this.swc_UserSpecie.Size = new System.Drawing.Size(487, 36);
             this.swc_UserSpecie.TabIndex = 40;
-            // 
-            // lbl_UserRank
-            // 
-            this.lbl_UserRank.AutoSize = true;
-            this.lbl_UserRank.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_UserRank.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserRank.Location = new System.Drawing.Point(23, 156);
-            this.lbl_UserRank.Name = "lbl_UserRank";
-            this.lbl_UserRank.Size = new System.Drawing.Size(101, 24);
-            this.lbl_UserRank.TabIndex = 43;
-            this.lbl_UserRank.Text = "User Rank:";
-            // 
-            // lbl_UserSpecie
-            // 
-            this.lbl_UserSpecie.AutoSize = true;
-            this.lbl_UserSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_UserSpecie.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserSpecie.Location = new System.Drawing.Point(27, 277);
-            this.lbl_UserSpecie.Name = "lbl_UserSpecie";
-            this.lbl_UserSpecie.Size = new System.Drawing.Size(69, 24);
-            this.lbl_UserSpecie.TabIndex = 46;
-            this.lbl_UserSpecie.Text = "Specie:";
             // 
             // swc_UserRank
             // 
@@ -340,28 +362,6 @@ namespace Usuarios
             this.swc_UserPlanet.Size = new System.Drawing.Size(487, 36);
             this.swc_UserPlanet.TabIndex = 37;
             // 
-            // lbl_UserCategory
-            // 
-            this.lbl_UserCategory.AutoSize = true;
-            this.lbl_UserCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_UserCategory.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserCategory.Location = new System.Drawing.Point(23, 192);
-            this.lbl_UserCategory.Name = "lbl_UserCategory";
-            this.lbl_UserCategory.Size = new System.Drawing.Size(133, 24);
-            this.lbl_UserCategory.TabIndex = 44;
-            this.lbl_UserCategory.Text = "User Category:";
-            // 
-            // lbl_UserPlanet
-            // 
-            this.lbl_UserPlanet.AutoSize = true;
-            this.lbl_UserPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.lbl_UserPlanet.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserPlanet.Location = new System.Drawing.Point(26, 233);
-            this.lbl_UserPlanet.Name = "lbl_UserPlanet";
-            this.lbl_UserPlanet.Size = new System.Drawing.Size(70, 24);
-            this.lbl_UserPlanet.TabIndex = 45;
-            this.lbl_UserPlanet.Text = "Planet:";
-            // 
             // swc_UserCategory
             // 
             this.swc_UserCategory.ClasseCS = null;
@@ -384,7 +384,7 @@ namespace Usuarios
             // MantenimientoUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(938, 759);
+            this.ClientSize = new System.Drawing.Size(938, 750);
             this.Controls.Add(this.swt_idSpecie);
             this.Controls.Add(this.swt_idPlanet);
             this.Controls.Add(this.swt_idUserCategory);
