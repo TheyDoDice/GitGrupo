@@ -16,6 +16,7 @@ namespace CC_Library
         public string NomDLL { get; set; }
         public string NomClase { get; set; }
         public string NomFormulari { get; set; }
+        public string PanelForm { get; set; }
 
         public SWMenuItem()
         {
@@ -33,7 +34,21 @@ namespace CC_Library
 
             dllBD = Activator.CreateInstance(tipus);
 
-            ((Form)dllBD).Show();
+            Form newForm = ((Form)dllBD);
+
+            Form myform = this.FindForm();
+
+            foreach (Control control in myform.Controls)
+            {
+                if (control.Name == PanelForm)
+                {
+                    newForm.TopLevel = false;
+                    newForm.Dock = DockStyle.Fill;
+                    newForm.AutoScroll = true;
+                    ((Panel)control).Controls.Add(newForm);
+                    newForm.Show();
+                }
+            }
         }
     }
 }
