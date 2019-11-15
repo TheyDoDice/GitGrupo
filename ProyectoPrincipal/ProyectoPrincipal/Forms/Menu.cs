@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CC_Library;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -34,10 +35,14 @@ namespace ProyectoPrincipal.Forms
         #endregion
 
         private string user;
+        private int userRank;
+        private DataSet menuOptions;
 
-        public Menu(string user)
+        public Menu(string user, int userRank, DataSet menuOptions)
         {
             this.user = user;
+            this.userRank = userRank;
+            this.menuOptions = menuOptions;
             InitializeComponent();
         }
 
@@ -79,6 +84,23 @@ namespace ProyectoPrincipal.Forms
             lbl_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             lbl_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
             lbl_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
+
+
+            foreach (DataRow item in menuOptions.Tables[0].Rows)
+            {
+                SWMenuItem OpcioMenu = new SWMenuItem();
+
+                OpcioMenu.Name = item[0].ToString();
+                OpcioMenu.NomClasse = item["NomClase"].ToString();
+                OpcioMenu.NomDLL = item["NomDLL"].ToString();
+                OpcioMenu.NameSpace = item["NameSpace"].ToString();
+                OpcioMenu.PanelForm = item["NomPanel"].ToString();
+                OpcioMenu.Dock = DockStyle.Top;
+
+                barraMenu.Controls.Add(OpcioMenu);
+                OpcioMenu.Show();
+            }
+
         }
 
         private Image TakeImg(string mode, string name)

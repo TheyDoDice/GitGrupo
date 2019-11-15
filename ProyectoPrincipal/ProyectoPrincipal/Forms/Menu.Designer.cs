@@ -39,8 +39,7 @@
             this.ptb_minimize = new System.Windows.Forms.PictureBox();
             this.ptb_close = new System.Windows.Forms.PictureBox();
             this.subTop = new System.Windows.Forms.Panel();
-            this.barraLateral = new System.Windows.Forms.Panel();
-            this.swMenuItem1 = new CC_Library.SWMenuItem();
+            this.barraMenu = new System.Windows.Forms.Panel();
             this.subUser = new System.Windows.Forms.Panel();
             this.panelUser = new System.Windows.Forms.Panel();
             this.lbl_user = new System.Windows.Forms.Label();
@@ -49,13 +48,12 @@
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
-            this.swMenuItem2 = new CC_Library.SWMenuItem();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
-            this.barraLateral.SuspendLayout();
+            this.barraMenu.SuspendLayout();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_user)).BeginInit();
             this.SuspendLayout();
@@ -162,29 +160,16 @@
             this.subTop.Size = new System.Drawing.Size(1198, 2);
             this.subTop.TabIndex = 6;
             // 
-            // barraLateral
+            // barraMenu
             // 
-            this.barraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.barraLateral.Controls.Add(this.swMenuItem2);
-            this.barraLateral.Controls.Add(this.swMenuItem1);
-            this.barraLateral.Controls.Add(this.subUser);
-            this.barraLateral.Controls.Add(this.panelUser);
-            this.barraLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barraLateral.Location = new System.Drawing.Point(1, 38);
-            this.barraLateral.Name = "barraLateral";
-            this.barraLateral.Size = new System.Drawing.Size(350, 561);
-            this.barraLateral.TabIndex = 7;
-            // 
-            // swMenuItem1
-            // 
-            this.swMenuItem1.Location = new System.Drawing.Point(11, 66);
-            this.swMenuItem1.Name = "swMenuItem1";
-            this.swMenuItem1.NomClase = "FormsMantemimiento";
-            this.swMenuItem1.NomDLL = "FormsMantemimiento.dll";
-            this.swMenuItem1.NomFormulari = "MantenimientoUsers";
-            this.swMenuItem1.PanelForm = "panelFormPrincipal";
-            this.swMenuItem1.Size = new System.Drawing.Size(206, 66);
-            this.swMenuItem1.TabIndex = 2;
+            this.barraMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.barraMenu.Controls.Add(this.subUser);
+            this.barraMenu.Controls.Add(this.panelUser);
+            this.barraMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barraMenu.Location = new System.Drawing.Point(1, 38);
+            this.barraMenu.Name = "barraMenu";
+            this.barraMenu.Size = new System.Drawing.Size(350, 561);
+            this.barraMenu.TabIndex = 7;
             // 
             // subUser
             // 
@@ -261,17 +246,6 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
-            // swMenuItem2
-            // 
-            this.swMenuItem2.Location = new System.Drawing.Point(11, 167);
-            this.swMenuItem2.Name = "swMenuItem2";
-            this.swMenuItem2.NomClase = "FormsMantemimiento";
-            this.swMenuItem2.NomDLL = "FormsMantemimiento.dll";
-            this.swMenuItem2.NomFormulari = "MantenimientoSpecies";
-            this.swMenuItem2.PanelForm = "panelFormPrincipal";
-            this.swMenuItem2.Size = new System.Drawing.Size(206, 66);
-            this.swMenuItem2.TabIndex = 3;
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,7 +256,7 @@
             this.Controls.Add(this.subBot);
             this.Controls.Add(this.barraInferior);
             this.Controls.Add(this.subLeft);
-            this.Controls.Add(this.barraLateral);
+            this.Controls.Add(this.barraMenu);
             this.Controls.Add(this.subTop);
             this.Controls.Add(this.barraSuperior);
             this.Controls.Add(this.bordeDerecha);
@@ -301,7 +275,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
-            this.barraLateral.ResumeLayout(false);
+            this.barraMenu.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_user)).EndInit();
@@ -321,7 +295,7 @@
         private System.Windows.Forms.PictureBox ptb_minimize;
         private System.Windows.Forms.PictureBox ptb_close;
         private System.Windows.Forms.Panel subTop;
-        private System.Windows.Forms.Panel barraLateral;
+        private System.Windows.Forms.Panel barraMenu;
         private System.Windows.Forms.Panel subUser;
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.PictureBox ptb_user;
@@ -330,7 +304,5 @@
         private System.Windows.Forms.Panel subBot;
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Panel panelFormPrincipal;
-        private CC_Library.SWMenuItem swMenuItem1;
-        private CC_Library.SWMenuItem swMenuItem2;
     }
 }

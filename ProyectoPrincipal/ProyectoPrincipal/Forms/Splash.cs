@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BBDD;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -14,23 +15,28 @@ namespace ProyectoPrincipal.Forms
     {
         private int counter = 5;
         private string user;
+        private int userRank;
+        private DataSet menuOptions;
         public Menu menu;
 
-        public Splash(string user)
+        public Splash(string user, int userRank, DataSet menu)
         {
             this.user = user;
+            this.userRank = userRank;
+            this.menuOptions = menu;
             InitializeComponent();
         }
 
         private void Splash_Load(object sender, EventArgs e)
         {
             lbl_splash.Text += user;
-            menu = new Menu(user);
+            menu = new Menu(user, userRank, menuOptions);
             menu.FormClosed += (se, ev) => this.Close();
             this.CenterToScreen();
 
             ptb_logo.Image = TakeImg("dark", "logo");
             ptb_meanwhile.Image = TakeImg("dark", "atat_1");
+            
         }
 
         private void timer_Tick(object sender, EventArgs e)

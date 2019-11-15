@@ -16,15 +16,6 @@ namespace BBDD
         OleDbDataAdapter adapter;
         OleDbCommandBuilder construct;
 
-        //CONNECTIONSTRING
-        /*public override string connectionString
-        {
-            get
-            {
-                return "Data Source=theydodice.database.windows.net;Initial Catalog=securecore;Persist Security Info=True;User ID=theydodice;Password=123456aA";
-            }
-        }*/
-
         //CREDENCIALS USUARI
         public override DataSet userCredentials(string user)
         {
@@ -168,10 +159,10 @@ namespace BBDD
             }
 
         }
-
+        //MENU
         public override DataSet CarregaMenu(int UserRank)
         {
-            string query = "Select * from MenuOptions where RangMax >= " + UserRank;
+            string query = "Select * from MenuOptions where RangMin <= " + UserRank;
             return PortarPerConsulta(query);
         }
     }

@@ -15,6 +15,10 @@ namespace ProyectoPrincipal.Forms
 {
     public partial class Login : Form
     {
+        BBDD.Dades basedades = new BBDD.SQL();
+        private int userRank;
+        private DataSet menu;
+
         private bool primerClickUser = true;
         private bool primerClickPass = true;
 
@@ -81,7 +85,7 @@ namespace ProyectoPrincipal.Forms
         {
             if (correctUser(txt_user.Text, txt_password.Text))
             {
-                Splash splash = new Splash(txt_user.Text);
+                Splash splash = new Splash(txt_user.Text, userRank, menu);
                 splash.FormClosed += (se, ev) => this.Close();
                 this.Hide();
                 splash.Show();
@@ -93,7 +97,6 @@ namespace ProyectoPrincipal.Forms
 
             if (!user.ToCharArray().Contains(';'))
             {
-                BBDD.Dades basedades = new BBDD.SQL();
                 DataSet dataSet = basedades.userCredentials(user);
                 try
                 {
@@ -102,7 +105,16 @@ namespace ProyectoPrincipal.Forms
 
                     Hash encript = new Hash();
 
-                    return encript.VerifyPassword(password, saltBase, passwordBase);
+                    if(encript.VerifyPassword(password, saltBase, passwordBase))
+                    {
+                        userRank = int.Parse(dataSet.Tables[0].Rows[0]["idUserRank"].ToString());
+                        menu = basedades.CarregaMenu(userRank);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 catch
                 {
