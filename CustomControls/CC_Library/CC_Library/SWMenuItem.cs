@@ -14,22 +14,39 @@ namespace CC_Library
     public partial class SWMenuItem : UserControl
     {
         public string NomDLL { get; set; }
-        public string NomClase { get; set; }
-        public string NomFormulari { get; set; }
+        public string NameSpace { get; set; }
+        public string NomClasse { get; set; }
 
         public SWMenuItem()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private string ComprobarNom(string NomDLL)
         {
-            Assembly ensamblat = Assembly.LoadFrom(@NomDLL);
+            int str_length = NomDLL.Trim().Length;
+
+            if (str_length > 4)
+            {
+                string nom = NomDLL.Trim().Substring(str_length - 4, 4);
+                if (!(nom == ".dll"))
+                {
+                    NomDLL = NomDLL + ".dll";
+                }
+            }
+
+            return NomDLL;
+        }
+
+        private void SWMenuItem_Click(object sender, EventArgs e)
+        {
+            string NomArxiu = ComprobarNom(NomDLL);
+            Assembly ensamblat = Assembly.LoadFrom(NomArxiu);
 
             Object dllBD;
             Type tipus;
 
-            tipus = ensamblat.GetType(NomClase + "." + NomFormulari);
+            tipus = ensamblat.GetType(NameSpace + "." + NomClasse);
 
             dllBD = Activator.CreateInstance(tipus);
 

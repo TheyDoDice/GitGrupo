@@ -35,11 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.swComboFK2 = new SWComboFK();
-            this.swTextbox14 = new SWTextbox();
-            this.swTextbox13 = new SWTextbox();
-            this.swTextbox12 = new SWTextbox();
-            this.swTextbox11 = new SWTextbox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.swComboFK2 = new CC_Library.SWComboFK();
+            this.swTextbox14 = new CC_Library.SWTextbox();
+            this.swTextbox13 = new CC_Library.SWTextbox();
+            this.swTextbox12 = new CC_Library.SWTextbox();
+            this.swTextbox11 = new CC_Library.SWTextbox();
+            this.swMenuItem1 = new CC_Library.SWMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,6 +101,16 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Regió";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(626, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // swComboFK2
             // 
             this.swComboFK2.ControlID = "swTextbox14";
@@ -114,7 +126,8 @@
             // 
             // swTextbox14
             // 
-            this.swTextbox14.DadaTipus = SWTextbox.tipDades.Numero;
+            this.swTextbox14.ControlID = null;
+            this.swTextbox14.DadaTipus = CC_Library.SWTextbox.tipDades.Numero;
             this.swTextbox14.foranea = true;
             this.swTextbox14.Location = new System.Drawing.Point(297, 182);
             this.swTextbox14.mensaje = null;
@@ -124,11 +137,12 @@
             this.swTextbox14.requerit = false;
             this.swTextbox14.Size = new System.Drawing.Size(21, 20);
             this.swTextbox14.TabIndex = 6;
-            this.swTextbox14.TipusControl = SWTextbox.tipControlRef.SWComboBox;
+            this.swTextbox14.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
             // swTextbox13
             // 
-            this.swTextbox13.DadaTipus = SWTextbox.tipDades.Text;
+            this.swTextbox13.ControlID = null;
+            this.swTextbox13.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
             this.swTextbox13.foranea = false;
             this.swTextbox13.Location = new System.Drawing.Point(155, 104);
             this.swTextbox13.mensaje = null;
@@ -139,11 +153,12 @@
             this.swTextbox13.requerit = false;
             this.swTextbox13.Size = new System.Drawing.Size(376, 59);
             this.swTextbox13.TabIndex = 4;
-            this.swTextbox13.TipusControl = SWTextbox.tipControlRef.SWComboBox;
+            this.swTextbox13.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
             // swTextbox12
             // 
-            this.swTextbox12.DadaTipus = SWTextbox.tipDades.Numero;
+            this.swTextbox12.ControlID = null;
+            this.swTextbox12.DadaTipus = CC_Library.SWTextbox.tipDades.Numero;
             this.swTextbox12.foranea = false;
             this.swTextbox12.Location = new System.Drawing.Point(155, 78);
             this.swTextbox12.mensaje = null;
@@ -153,11 +168,12 @@
             this.swTextbox12.requerit = false;
             this.swTextbox12.Size = new System.Drawing.Size(100, 20);
             this.swTextbox12.TabIndex = 3;
-            this.swTextbox12.TipusControl = SWTextbox.tipControlRef.SWCodi;
+            this.swTextbox12.TipusControl = CC_Library.SWTextbox.tipControlRef.SWCodi;
             // 
             // swTextbox11
             // 
-            this.swTextbox11.DadaTipus = SWTextbox.tipDades.Codi;
+            this.swTextbox11.ControlID = null;
+            this.swTextbox11.DadaTipus = CC_Library.SWTextbox.tipDades.Codi;
             this.swTextbox11.foranea = false;
             this.swTextbox11.Location = new System.Drawing.Point(155, 52);
             this.swTextbox11.mensaje = null;
@@ -167,13 +183,25 @@
             this.swTextbox11.requerit = false;
             this.swTextbox11.Size = new System.Drawing.Size(100, 20);
             this.swTextbox11.TabIndex = 2;
-            this.swTextbox11.TipusControl = SWTextbox.tipControlRef.SWCodi;
+            this.swTextbox11.TipusControl = CC_Library.SWTextbox.tipControlRef.SWCodi;
+            // 
+            // swMenuItem1
+            // 
+            this.swMenuItem1.Location = new System.Drawing.Point(526, 26);
+            this.swMenuItem1.Name = "swMenuItem1";
+            this.swMenuItem1.NameSpace = "Usuarios";
+            this.swMenuItem1.NomClasse = "MantenimientoUsuarios";
+            this.swMenuItem1.NomDLL = "Usuarios";
+            this.swMenuItem1.Size = new System.Drawing.Size(177, 46);
+            this.swMenuItem1.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.swMenuItem1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.swComboFK2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -207,5 +235,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private SWComboFK swComboFK2;
+        private System.Windows.Forms.Button button2;
+        private SWMenuItem swMenuItem1;
     }
 }

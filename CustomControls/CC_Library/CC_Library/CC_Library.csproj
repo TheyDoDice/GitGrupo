@@ -53,6 +53,11 @@
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SWCodi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,6 +81,10 @@
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SWCodi.resx">
       <DependentUpon>SWCodi.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +97,12 @@
     <EmbeddedResource Include="SWTextbox.resx">
       <DependentUpon>SWTextbox.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-cerrar-png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

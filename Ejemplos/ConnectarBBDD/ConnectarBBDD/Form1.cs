@@ -54,5 +54,17 @@ namespace ConnectarBBDD
         {
             bbdd.Actualitzar(consulta, "prova", dadesConsulta);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string NomDLL = "HolaJordi.dll";
+            string nom = NomDLL.Substring(NomDLL.Length - 4, 4);
+
+            if(nom==".dll")
+            {
+
+            }
+            
+        }
     }
 }

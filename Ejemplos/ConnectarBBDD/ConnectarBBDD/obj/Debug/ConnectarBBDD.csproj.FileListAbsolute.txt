@@ -137,3 +137,7 @@ C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\C
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.pdb
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\obj\Debug\ConnectarBBDD.csprojAssemblyReference.cache
 C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\CC_Library.dll
+C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\ConnectarBBDD\bin\Debug\CC_Library.pdb
+C:\Users\admin\Desktop\GitGrupo\Proyectos\ConnectarBBDD.exe.config
+C:\Users\admin\Desktop\GitGrupo\Proyectos\ConnectarBBDD.exe
+C:\Users\admin\Desktop\GitGrupo\Proyectos\ConnectarBBDD.pdb
