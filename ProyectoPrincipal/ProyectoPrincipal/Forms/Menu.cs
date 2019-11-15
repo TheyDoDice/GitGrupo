@@ -85,7 +85,6 @@ namespace ProyectoPrincipal.Forms
         {
             return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
         }
-
         
     }
 }

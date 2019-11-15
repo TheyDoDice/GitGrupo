@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MantenimientoSpecies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoSpecies.Designer.cs">
+      <DependentUpon>MantenimientoSpecies.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MantenimientoSpecies.resx">
+      <DependentUpon>MantenimientoSpecies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoUsers.resx">
       <DependentUpon>MantenimientoUsers.cs</DependentUpon>
     </EmbeddedResource>

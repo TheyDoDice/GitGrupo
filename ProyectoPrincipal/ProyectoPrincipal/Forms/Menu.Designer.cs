@@ -49,6 +49,7 @@
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
+            this.swMenuItem2 = new CC_Library.SWMenuItem();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
@@ -164,6 +165,7 @@
             // barraLateral
             // 
             this.barraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.barraLateral.Controls.Add(this.swMenuItem2);
             this.barraLateral.Controls.Add(this.swMenuItem1);
             this.barraLateral.Controls.Add(this.subUser);
             this.barraLateral.Controls.Add(this.panelUser);
@@ -259,6 +261,17 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
+            // swMenuItem2
+            // 
+            this.swMenuItem2.Location = new System.Drawing.Point(11, 167);
+            this.swMenuItem2.Name = "swMenuItem2";
+            this.swMenuItem2.NomClase = "FormsMantemimiento";
+            this.swMenuItem2.NomDLL = "FormsMantemimiento.dll";
+            this.swMenuItem2.NomFormulari = "MantenimientoSpecies";
+            this.swMenuItem2.PanelForm = "panelFormPrincipal";
+            this.swMenuItem2.Size = new System.Drawing.Size(206, 66);
+            this.swMenuItem2.TabIndex = 3;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,5 +331,6 @@
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Panel panelFormPrincipal;
         private CC_Library.SWMenuItem swMenuItem1;
+        private CC_Library.SWMenuItem swMenuItem2;
     }
 }
