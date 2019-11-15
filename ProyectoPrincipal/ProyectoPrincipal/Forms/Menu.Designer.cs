@@ -40,6 +40,7 @@
             this.ptb_close = new System.Windows.Forms.PictureBox();
             this.subTop = new System.Windows.Forms.Panel();
             this.barraLateral = new System.Windows.Forms.Panel();
+            this.swMenuItem1 = new CC_Library.SWMenuItem();
             this.subUser = new System.Windows.Forms.Panel();
             this.panelUser = new System.Windows.Forms.Panel();
             this.lbl_user = new System.Windows.Forms.Label();
@@ -48,7 +49,7 @@
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
-            this.swMenuItem1 = new CC_Library.SWMenuItem();
+            this.swMenuItem2 = new CC_Library.SWMenuItem();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
@@ -164,6 +165,7 @@
             // barraLateral
             // 
             this.barraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.barraLateral.Controls.Add(this.swMenuItem2);
             this.barraLateral.Controls.Add(this.swMenuItem1);
             this.barraLateral.Controls.Add(this.subUser);
             this.barraLateral.Controls.Add(this.panelUser);
@@ -172,6 +174,17 @@
             this.barraLateral.Name = "barraLateral";
             this.barraLateral.Size = new System.Drawing.Size(350, 561);
             this.barraLateral.TabIndex = 7;
+            // 
+            // swMenuItem1
+            // 
+            this.swMenuItem1.Location = new System.Drawing.Point(11, 66);
+            this.swMenuItem1.Name = "swMenuItem1";
+            this.swMenuItem1.NomClase = "FormsMantemimiento";
+            this.swMenuItem1.NomDLL = "FormsMantemimiento.dll";
+            this.swMenuItem1.NomFormulari = "MantenimientoUsers";
+            this.swMenuItem1.PanelForm = "panelFormPrincipal";
+            this.swMenuItem1.Size = new System.Drawing.Size(206, 66);
+            this.swMenuItem1.TabIndex = 2;
             // 
             // subUser
             // 
@@ -248,15 +261,16 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
-            // swMenuItem1
+            // swMenuItem2
             // 
-            this.swMenuItem1.Location = new System.Drawing.Point(11, 66);
-            this.swMenuItem1.Name = "swMenuItem1";
-            this.swMenuItem1.NomClase = "Usuarios";
-            this.swMenuItem1.NomDLL = "Usuarios.dll";
-            this.swMenuItem1.NomFormulari = "MantenimientoUsuarios";
-            this.swMenuItem1.Size = new System.Drawing.Size(206, 66);
-            this.swMenuItem1.TabIndex = 2;
+            this.swMenuItem2.Location = new System.Drawing.Point(11, 167);
+            this.swMenuItem2.Name = "swMenuItem2";
+            this.swMenuItem2.NomClase = "FormsMantemimiento";
+            this.swMenuItem2.NomDLL = "FormsMantemimiento.dll";
+            this.swMenuItem2.NomFormulari = "MantenimientoSpecies";
+            this.swMenuItem2.PanelForm = "panelFormPrincipal";
+            this.swMenuItem2.Size = new System.Drawing.Size(206, 66);
+            this.swMenuItem2.TabIndex = 3;
             // 
             // Menu
             // 
@@ -317,5 +331,6 @@
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Panel panelFormPrincipal;
         private CC_Library.SWMenuItem swMenuItem1;
+        private CC_Library.SWMenuItem swMenuItem2;
     }
 }

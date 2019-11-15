@@ -5,13 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using CC_Library;
 
-namespace Usuarios
+namespace FormsMantemimiento
 {
-    public partial class MantenimientoUsuarios : MantenimientoBBDD.MantenimientoGenerico
+    public partial class MantenimientoSpecies : MantenimientoBBDD.MantenimientoGenerico
     {
-        public MantenimientoUsuarios()
+        public MantenimientoSpecies()
         {
             InitializeComponent();
         }

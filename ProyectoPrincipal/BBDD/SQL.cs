@@ -157,5 +157,12 @@ namespace BBDD
             }
 
         }
+
+        public override DataSet CarregaMenu(int UserRank)
+        {
+            string query = "Select * from MenuOptions where RangMax >= " + UserRank;
+            return PortarPerConsulta(query);
+        }
+
     }
 }

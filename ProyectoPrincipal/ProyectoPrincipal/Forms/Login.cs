@@ -15,8 +15,6 @@ namespace ProyectoPrincipal.Forms
 {
     public partial class Login : Form
     {
-        private string username = "User";
-
         private bool primerClickUser = true;
         private bool primerClickPass = true;
 
@@ -83,7 +81,7 @@ namespace ProyectoPrincipal.Forms
         {
             if (correctUser(txt_user.Text, txt_password.Text))
             {
-                Splash splash = new Splash(username);
+                Splash splash = new Splash(txt_user.Text);
                 splash.FormClosed += (se, ev) => this.Close();
                 this.Hide();
                 splash.Show();

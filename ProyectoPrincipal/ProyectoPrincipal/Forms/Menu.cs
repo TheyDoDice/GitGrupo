@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Usuarios;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -80,20 +79,12 @@ namespace ProyectoPrincipal.Forms
             lbl_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             lbl_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
             lbl_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
-            
-
-            MantenimientoUsuarios myForm = new MantenimientoUsuarios();
-            myForm.TopLevel = false;
-            myForm.AutoScroll = true;
-            this.panelFormPrincipal.Controls.Add(myForm);
-            myForm.Show();
         }
 
         private Image TakeImg(string mode, string name)
         {
             return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
         }
-
         
     }
 }

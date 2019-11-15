@@ -34,5 +34,8 @@ namespace BBDD
 
         //EXECUTAR
         public abstract int Executa(string query);
+
+        //CARREGAR OPCIONS DE MENU
+        public abstract DataSet CarregaMenu(int UserRank);
     }
 }
