@@ -48,6 +48,7 @@
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
+            this.swMenuItem1 = new CC_Library.SWMenuItem();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
@@ -163,6 +164,7 @@
             // barraLateral
             // 
             this.barraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.barraLateral.Controls.Add(this.swMenuItem1);
             this.barraLateral.Controls.Add(this.subUser);
             this.barraLateral.Controls.Add(this.panelUser);
             this.barraLateral.Dock = System.Windows.Forms.DockStyle.Left;
@@ -246,6 +248,16 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
+            // swMenuItem1
+            // 
+            this.swMenuItem1.Location = new System.Drawing.Point(11, 66);
+            this.swMenuItem1.Name = "swMenuItem1";
+            this.swMenuItem1.NomClase = "Usuarios";
+            this.swMenuItem1.NomDLL = "Usuarios.dll";
+            this.swMenuItem1.NomFormulari = "MantenimientoUsuarios";
+            this.swMenuItem1.Size = new System.Drawing.Size(206, 66);
+            this.swMenuItem1.TabIndex = 2;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,5 +316,6 @@
         private System.Windows.Forms.Panel subBot;
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Panel panelFormPrincipal;
+        private CC_Library.SWMenuItem swMenuItem1;
     }
 }
