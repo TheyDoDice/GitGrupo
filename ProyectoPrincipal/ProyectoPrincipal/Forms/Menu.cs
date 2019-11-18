@@ -78,29 +78,38 @@ namespace ProyectoPrincipal.Forms
             ptb_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             ptb_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
             ptb_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
+            ptb_close.Click     += (se, ev) => { Restart(); };
 
             lbl_user.Text += user;
             lbl_user.MouseEnter += (se, ev) => lbl_user.ForeColor = Color.DimGray;
             lbl_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             lbl_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
             lbl_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
+            lbl_user.Click      += (se, ev) => { Restart(); };
 
 
             foreach (DataRow item in menuOptions.Tables[0].Rows)
             {
                 SWMenuItem OpcioMenu = new SWMenuItem();
 
-                OpcioMenu.Name = item[0].ToString();
+                OpcioMenu.Name      = item[0].ToString();
                 OpcioMenu.NomClasse = item["NomClase"].ToString();
-                OpcioMenu.NomDLL = item["NomDLL"].ToString();
+                OpcioMenu.NomDLL    = item["NomDLL"].ToString();
                 OpcioMenu.NameSpace = item["NameSpace"].ToString();
                 OpcioMenu.PanelForm = item["NomPanel"].ToString();
-                OpcioMenu.Dock = DockStyle.Top;
+                OpcioMenu.Dock      = DockStyle.Bottom;
 
                 barraMenu.Controls.Add(OpcioMenu);
                 OpcioMenu.Show();
             }
 
+        }
+
+        private void Restart()
+        {
+            this.Hide();
+            Application.Restart();
+            Environment.Exit(0);
         }
 
         private Image TakeImg(string mode, string name)

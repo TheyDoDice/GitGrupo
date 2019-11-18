@@ -29,10 +29,9 @@ namespace CC_Library
 
             if (str_length > 4)
             {
-                string nom = NomDLL.Trim().Substring(str_length - 4, 4);
-                if (!(nom == ".dll"))
+                if (NomDLL.Substring(str_length - 4) != ".dll")
                 {
-                    NomDLL = NomDLL + ".dll";
+                    NomDLL += ".dll";
                 }
             }
 
@@ -41,8 +40,8 @@ namespace CC_Library
 
         private void SWMenuItem_Click(object sender, EventArgs e)
         {
-            string NomArxiu = ComprobarNom(NomDLL);
-            Assembly ensamblat = Assembly.LoadFrom(NomArxiu);
+            string NouNomDll = ComprobarNom(NomDLL);
+            Assembly ensamblat = Assembly.LoadFrom(NouNomDll);
 
             Object dllBD;
             Type tipus;
