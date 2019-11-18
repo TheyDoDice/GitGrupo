@@ -78,7 +78,7 @@ namespace ProyectoPrincipal.Forms
             ptb_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             ptb_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
             ptb_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
-            ptb_close.Click     += (se, ev) => { Restart(); };
+            ptb_user.Click     += (se, ev) => { Restart(); };
 
             lbl_user.Text += user;
             lbl_user.MouseEnter += (se, ev) => lbl_user.ForeColor = Color.DimGray;
@@ -97,11 +97,13 @@ namespace ProyectoPrincipal.Forms
                 OpcioMenu.NomDLL    = item["NomDLL"].ToString();
                 OpcioMenu.NameSpace = item["NameSpace"].ToString();
                 OpcioMenu.PanelForm = item["NomPanel"].ToString();
-                OpcioMenu.Dock      = DockStyle.Bottom;
+                OpcioMenu.Dock      = DockStyle.Top;
 
                 barraMenu.Controls.Add(OpcioMenu);
                 OpcioMenu.Show();
             }
+            barraMenu.Controls.Add(subUser);
+            barraMenu.Controls.Add(panelUser);
 
         }
 

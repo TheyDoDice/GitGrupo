@@ -48,13 +48,11 @@
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
-            this.swMenuItem1 = new CC_Library.SWMenuItem();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
-            this.barraMenu.SuspendLayout();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_user)).BeginInit();
             this.SuspendLayout();
@@ -164,9 +162,6 @@
             // barraMenu
             // 
             this.barraMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.barraMenu.Controls.Add(this.swMenuItem1);
-            this.barraMenu.Controls.Add(this.subUser);
-            this.barraMenu.Controls.Add(this.panelUser);
             this.barraMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.barraMenu.Location = new System.Drawing.Point(1, 38);
             this.barraMenu.Name = "barraMenu";
@@ -248,17 +243,6 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
-            // swMenuItem1
-            // 
-            this.swMenuItem1.Location = new System.Drawing.Point(52, 187);
-            this.swMenuItem1.Name = "swMenuItem1";
-            this.swMenuItem1.NameSpace = "FormsMantemimiento";
-            this.swMenuItem1.NomClasse = "MantenimientoUsers";
-            this.swMenuItem1.NomDLL = "FormsMantemimiento.dll";
-            this.swMenuItem1.PanelForm = "panelFormPrincipal";
-            this.swMenuItem1.Size = new System.Drawing.Size(177, 46);
-            this.swMenuItem1.TabIndex = 2;
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +272,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
-            this.barraMenu.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_user)).EndInit();
@@ -317,6 +300,5 @@
         private System.Windows.Forms.Panel subBot;
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Panel panelFormPrincipal;
-        private CC_Library.SWMenuItem swMenuItem1;
     }
 }
