@@ -79,7 +79,8 @@ namespace ProyectoPrincipal.Forms
             txt_password.MouseEnter += (se, ev) => txt_password.BackColor = Colors.c_hoverControls;
             txt_password.Click += (se, ev) => txt_password.Text = primerClickPass ? "" : txt_password.Text;
             txt_password.Click += (se, ev) => primerClickPass = false;
-            txt_password.Click += (se, ev) => txt_password.PasswordChar = '■';
+            txt_password.Enter += (se, ev) => txt_password.Text = "";
+            txt_password.Enter += (se, ev) => txt_password.PasswordChar = '■';
         }
 
         private void btn_login_Click(object sender, EventArgs e)
