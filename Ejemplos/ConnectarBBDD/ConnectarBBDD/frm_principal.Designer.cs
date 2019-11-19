@@ -47,7 +47,7 @@ namespace ConnectarBBDD
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.swComboFK2 = new SWComboFK();
+            this.swComboFK2 = new CC_Library.SWComboFK();
             this.lbl_SWComboFK = new System.Windows.Forms.Label();
             this.btn_actualitzar_taula = new System.Windows.Forms.Button();
             this.btn_delete_user = new System.Windows.Forms.Button();
@@ -92,7 +92,7 @@ namespace ConnectarBBDD
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 48);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(842, 326);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 323);
             this.dataGridView1.TabIndex = 15;
             // 
             // lb_usuari
@@ -189,7 +189,7 @@ namespace ConnectarBBDD
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(439, 207);
+            this.groupBox1.Size = new System.Drawing.Size(439, 215);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -222,9 +222,9 @@ namespace ConnectarBBDD
             this.groupBox2.Controls.Add(this.btn_delete_user);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.bttn_mostrardades_sql);
-            this.groupBox2.Location = new System.Drawing.Point(12, 240);
+            this.groupBox2.Location = new System.Drawing.Point(12, 243);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(854, 380);
+            this.groupBox2.Size = new System.Drawing.Size(854, 377);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             // 
@@ -247,6 +247,7 @@ namespace ConnectarBBDD
             this.swComboFK2.Size = new System.Drawing.Size(131, 21);
             this.swComboFK2.TabIndex = 17;
             this.swComboFK2.Text = "Selecciona una opción";
+            this.swComboFK2.ValorId = null;
             this.swComboFK2.ValueMember = "idUser";
             // 
             // lbl_SWComboFK
@@ -261,7 +262,7 @@ namespace ConnectarBBDD
             // btn_actualitzar_taula
             // 
             this.btn_actualitzar_taula.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_actualitzar_taula.Location = new System.Drawing.Point(580, 19);
+            this.btn_actualitzar_taula.Location = new System.Drawing.Point(580, 18);
             this.btn_actualitzar_taula.Name = "btn_actualitzar_taula";
             this.btn_actualitzar_taula.Size = new System.Drawing.Size(135, 23);
             this.btn_actualitzar_taula.TabIndex = 13;
@@ -278,7 +279,6 @@ namespace ConnectarBBDD
             this.btn_delete_user.TabIndex = 14;
             this.btn_delete_user.Text = "Borrar Usuari";
             this.btn_delete_user.UseVisualStyleBackColor = true;
-         //   this.btn_delete_user.Click += new System.EventHandler(this.btn_delete_user_Click);
             // 
             // groupBox3
             // 
@@ -292,7 +292,7 @@ namespace ConnectarBBDD
             this.groupBox3.Controls.Add(this.lb_validacio_usuari);
             this.groupBox3.Location = new System.Drawing.Point(457, 27);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(409, 207);
+            this.groupBox3.Size = new System.Drawing.Size(409, 215);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
@@ -382,7 +382,6 @@ namespace ConnectarBBDD
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
-           // this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frm_principal
             // 
@@ -452,7 +451,6 @@ namespace ConnectarBBDD
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private SWComboFK swComboFK1;
         private SWComboFK swComboFK2;
         private System.Windows.Forms.TextBox textBox1;
     }
