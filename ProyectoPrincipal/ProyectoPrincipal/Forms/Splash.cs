@@ -15,11 +15,11 @@ namespace ProyectoPrincipal.Forms
     {
         private int counter = 5;
         private string user;
-        private int userRank;
+        private string userRank;
         private DataSet menuOptions;
         public Menu menu;
 
-        public Splash(string user, int userRank, DataSet menu)
+        public Splash(string user, string userRank, DataSet menu)
         {
             this.user = user;
             this.userRank = userRank;
