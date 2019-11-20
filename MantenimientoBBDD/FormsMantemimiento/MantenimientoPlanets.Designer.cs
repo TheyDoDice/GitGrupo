@@ -55,6 +55,7 @@
             this.swt_idSector = new CC_Library.SWTextbox();
             this.swt_idNatives = new CC_Library.SWTextbox();
             this.swt_idFiliation = new CC_Library.SWTextbox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lbl_portPlanet1
@@ -450,11 +451,19 @@
             this.swt_idFiliation.TabIndex = 123;
             this.swt_idFiliation.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(650, 158);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(63, 145);
+            this.panel1.TabIndex = 124;
+            // 
             // MantenimientoPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 760);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idFiliation);
             this.Controls.Add(this.swt_idNatives);
             this.Controls.Add(this.swt_idSector);
@@ -512,6 +521,7 @@
             this.Controls.SetChildIndex(this.swt_idSector, 0);
             this.Controls.SetChildIndex(this.swt_idNatives, 0);
             this.Controls.SetChildIndex(this.swt_idFiliation, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,5 +556,6 @@
         private CC_Library.SWTextbox swt_idSector;
         private CC_Library.SWTextbox swt_idNatives;
         private CC_Library.SWTextbox swt_idFiliation;
+        private System.Windows.Forms.Panel panel1;
     }
 }

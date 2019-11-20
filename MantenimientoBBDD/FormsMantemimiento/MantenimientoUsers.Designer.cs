@@ -50,6 +50,7 @@
             this.lbl_UserCategory = new System.Windows.Forms.Label();
             this.lbl_UserPlanet = new System.Windows.Forms.Label();
             this.swc_UserCategory = new CC_Library.SWCodi();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // swt_idSpecie
@@ -380,10 +381,18 @@
             this.swc_UserCategory.Size = new System.Drawing.Size(487, 36);
             this.swc_UserCategory.TabIndex = 56;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(653, 152);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(43, 169);
+            this.panel1.TabIndex = 125;
+            // 
             // MantenimientoUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(967, 783);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idSpecie);
             this.Controls.Add(this.swt_idPlanet);
             this.Controls.Add(this.swt_idUserCategory);
@@ -430,6 +439,7 @@
             this.Controls.SetChildIndex(this.swt_idUserCategory, 0);
             this.Controls.SetChildIndex(this.swt_idPlanet, 0);
             this.Controls.SetChildIndex(this.swt_idSpecie, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,5 +469,6 @@
         private System.Windows.Forms.Label lbl_UserCategory;
         private System.Windows.Forms.Label lbl_UserPlanet;
         private CC_Library.SWCodi swc_UserCategory;
+        private System.Windows.Forms.Panel panel1;
     }
 }
