@@ -9,3 +9,8 @@ C:\Users\admin\Desktop\GitGrupo\Proyectos\Encriptar.pdb
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.dll
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.pdb
+C:\Users\admin\Documents\GitHub\GitGrupo\Proyectos\Encriptar.dll
+C:\Users\admin\Documents\GitHub\GitGrupo\Proyectos\Encriptar.pdb
+C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.dll
+C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\Encriptar\obj\Debug\Encriptar.pdb
