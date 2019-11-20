@@ -135,7 +135,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_actualizarDataset;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        protected System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_insertar;
     }
 }

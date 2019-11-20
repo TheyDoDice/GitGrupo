@@ -15,6 +15,7 @@ namespace FormsMantemimiento
         public MantenimientoMenuOptions()
         {
             InitializeComponent();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 }

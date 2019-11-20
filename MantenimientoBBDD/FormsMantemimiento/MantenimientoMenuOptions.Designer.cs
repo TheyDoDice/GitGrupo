@@ -1,6 +1,6 @@
 ﻿namespace FormsMantemimiento
 {
-    partial class MantenimientoMenuOptions
+    partial class MantenimientoMenuOptions : MantenimientoBBDD.MantenimientoGenerico
     {
         /// <summary>
         /// Required designer variable.
