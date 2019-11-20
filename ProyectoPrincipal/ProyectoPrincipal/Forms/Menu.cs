@@ -35,10 +35,10 @@ namespace ProyectoPrincipal.Forms
         #endregion
 
         private string user;
-        private string userRank;
+        private int userRank;
         private DataSet menuOptions;
 
-        public Menu(string user, string userRank, DataSet menuOptions)
+        public Menu(string user, int userRank, DataSet menuOptions)
         {
             this.user = user;
             this.userRank = userRank;
@@ -80,7 +80,7 @@ namespace ProyectoPrincipal.Forms
             ptb_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
             ptb_user.Click     += (se, ev) => { Restart(); };
 
-            lbl_user.Text += userRank + ": "+ user;
+            lbl_user.Text += user;
             lbl_user.MouseEnter += (se, ev) => lbl_user.ForeColor = Color.DimGray;
             lbl_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             lbl_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
@@ -93,8 +93,6 @@ namespace ProyectoPrincipal.Forms
                 SWMenuItem OpcioMenu = new SWMenuItem();
 
                 OpcioMenu.Name      = item[0].ToString();
-                OpcioMenu.Texto     = item["Text"].ToString();
-                OpcioMenu.Picture   = item["Picture"].ToString();
                 OpcioMenu.NomClasse = item["NomClase"].ToString();
                 OpcioMenu.NomDLL    = item["NomDLL"].ToString();
                 OpcioMenu.NameSpace = item["NameSpace"].ToString();
