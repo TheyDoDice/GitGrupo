@@ -18,6 +18,15 @@ namespace CC_Library
         public string NomClasse { get; set; }
         public string PanelForm { get; set; }
 
+        public string Texto
+        {
+            get { return label.Text; }
+            set { label.Text = value; }
+        }
+        public string Picture { get; set; }
+
+
+
         public SWMenuItem()
         {
             InitializeComponent();
@@ -38,7 +47,7 @@ namespace CC_Library
             return NomDLL;
         }
 
-        private void SWMenuItem_Click(object sender, EventArgs e)
+        private void ObrirFrom()
         {
             string NouNomDll = ComprobarNom(NomDLL);
             Assembly ensamblat = Assembly.LoadFrom(NouNomDll);
@@ -58,12 +67,37 @@ namespace CC_Library
             {
                 if (control.Name == PanelForm)
                 {
+                    control.Controls.Clear();
                     newForm.TopLevel = false;
                     newForm.Dock = DockStyle.Fill;
                     newForm.AutoScroll = true;
                     ((Panel)control).Controls.Add(newForm);
                     newForm.Show();
                 }
+            }
+        }
+
+        private void SWMenuItem_Load(object sender, EventArgs e)
+        {
+            this.Click += (s, ev) => { ObrirFrom(); };
+            label.Click += (s, ev) => { ObrirFrom(); };
+            pictureBox.Click += (s, ev) => { ObrirFrom(); };
+
+            this.MouseEnter += (se, ev) => this.BackColor = Color.DimGray;
+            this.MouseLeave += (se, ev) => this.BackColor = Color.Transparent;
+            label.MouseEnter += (se, ev) => this.BackColor = Color.DimGray;
+            label.MouseLeave += (se, ev) => this.BackColor = Color.Transparent;
+            pictureBox.MouseEnter += (se, ev) => this.BackColor = Color.DimGray;
+            pictureBox.MouseLeave += (se, ev) => this.BackColor = Color.Transparent;
+
+            try
+            {
+                pictureBox.ImageLocation = Application.StartupPath + "\\Img\\" + Picture;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

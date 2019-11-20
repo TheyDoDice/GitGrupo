@@ -16,7 +16,8 @@ namespace ProyectoPrincipal.Forms
     public partial class Login : Form
     {
         BBDD.Dades basedades = new BBDD.SQL();
-        private int userRank;
+        private int userRankNumber;
+        private string userRank;
         private DataSet menu;
 
         private bool primerClickUser = true;
@@ -78,7 +79,8 @@ namespace ProyectoPrincipal.Forms
             txt_password.MouseEnter += (se, ev) => txt_password.BackColor = Colors.c_hoverControls;
             txt_password.Click += (se, ev) => txt_password.Text = primerClickPass ? "" : txt_password.Text;
             txt_password.Click += (se, ev) => primerClickPass = false;
-            txt_password.Click += (se, ev) => txt_password.PasswordChar = '■';
+            txt_password.Enter += (se, ev) => txt_password.Text = "";
+            txt_password.Enter += (se, ev) => txt_password.PasswordChar = '■';
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -107,8 +109,9 @@ namespace ProyectoPrincipal.Forms
 
                     if(encript.VerifyPassword(password, saltBase, passwordBase))
                     {
-                        userRank = int.Parse(dataSet.Tables[0].Rows[0]["idUserRank"].ToString());
-                        menu = basedades.CarregaMenu(userRank);
+                        userRankNumber = int.Parse(dataSet.Tables[0].Rows[0]["idUserRank"].ToString());
+                        menu = basedades.CarregaMenu(userRankNumber);
+                        userRank = basedades.PortarPerConsulta("select DescRank from UserRanks where idUserRank =" + userRankNumber).Tables[0].Rows[0]["DesCRank"].ToString();
                         return true;
                     }
                     else
