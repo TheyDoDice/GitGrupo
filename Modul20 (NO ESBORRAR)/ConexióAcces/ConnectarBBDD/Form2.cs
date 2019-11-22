@@ -12,23 +12,32 @@ using BBDD;
 
 namespace ConnectarBBDD
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        Dades bbdd = new OLDB();
+        private static string _NomTaula;
+
+        public string NomTaula
+        {
+            get { return _NomTaula; }
+            set { _NomTaula = value; }
+        }
+
+        Dades bbdd = new SQL();
 
         //Variable consulta
-        public string consulta = "select * from Sectors";
+        public string consulta = "select * from " + _NomTaula;
 
         //Declarem el data set
         public DataSet dadesConsulta;
 
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
+
             //Fer la select de la taula usuaris
             dadesConsulta = bbdd.PortarPerConsulta(consulta, "prova");
 
@@ -44,16 +53,8 @@ namespace ConnectarBBDD
                     cc.DataBindings.Clear();
                     cc.DataBindings.Add("Text", dadesConsulta.Tables["prova"], cc.nomCamp);
                 }
+
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            bbdd.Actualitzar(consulta, "prova", dadesConsulta);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
         }
     }
 }

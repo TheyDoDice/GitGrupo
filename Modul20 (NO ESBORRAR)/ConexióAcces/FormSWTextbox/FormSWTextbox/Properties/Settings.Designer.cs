@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BaseDeDadesBancAliments.Properties
+namespace FormSWTextbox.Properties
 {
 
 
