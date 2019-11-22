@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{8DD2BE04-C504-4715-99BF-A6DEF976E889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odisea en el espacio", "Odisea en el espacio\Odisea en el espacio.csproj", "{2FFE768A-EF72-422D-80A8-05BB8A9E7B64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LlibreriesMinijoc", "LlibreriesMinijoc\LlibreriesMinijoc.csproj", "{B43434A2-5F5A-4F89-BA00-B9BC2649BB58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriasDLL", "LibreriasDLL\LibreriasDLL.csproj", "{DF2A1679-B32E-4139-833B-8705ED5CD3BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DD2BE04-C504-4715-99BF-A6DEF976E889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD2BE04-C504-4715-99BF-A6DEF976E889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD2BE04-C504-4715-99BF-A6DEF976E889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD2BE04-C504-4715-99BF-A6DEF976E889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFE768A-EF72-422D-80A8-05BB8A9E7B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFE768A-EF72-422D-80A8-05BB8A9E7B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFE768A-EF72-422D-80A8-05BB8A9E7B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFE768A-EF72-422D-80A8-05BB8A9E7B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43434A2-5F5A-4F89-BA00-B9BC2649BB58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43434A2-5F5A-4F89-BA00-B9BC2649BB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43434A2-5F5A-4F89-BA00-B9BC2649BB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43434A2-5F5A-4F89-BA00-B9BC2649BB58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2A1679-B32E-4139-833B-8705ED5CD3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2A1679-B32E-4139-833B-8705ED5CD3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2A1679-B32E-4139-833B-8705ED5CD3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2A1679-B32E-4139-833B-8705ED5CD3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16C3420B-2938-4EA6-B22D-F921AA5C7374}
+	EndGlobalSection
+EndGlobal
