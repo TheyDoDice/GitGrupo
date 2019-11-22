@@ -25,6 +25,28 @@ namespace BBDD
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<DefinedRoutes> DefinedRoutes { get; set; }
+        public virtual DbSet<Factories> Factories { get; set; }
+        public virtual DbSet<Filiations> Filiations { get; set; }
+        public virtual DbSet<MenuOptions> MenuOptions { get; set; }
+        public virtual DbSet<MilitaryCamps> MilitaryCamps { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<OrdersDetail> OrdersDetail { get; set; }
+        public virtual DbSet<PlanetRoutes> PlanetRoutes { get; set; }
+        public virtual DbSet<Planets> Planets { get; set; }
+        public virtual DbSet<Priority> Priority { get; set; }
+        public virtual DbSet<References> References { get; set; }
+        public virtual DbSet<Regions> Regions { get; set; }
+        public virtual DbSet<Routes> Routes { get; set; }
+        public virtual DbSet<RouteTypes> RouteTypes { get; set; }
+        public virtual DbSet<Sectors> Sectors { get; set; }
+        public virtual DbSet<SpaceShipCategories> SpaceShipCategories { get; set; }
+        public virtual DbSet<SpaceShips> SpaceShips { get; set; }
+        public virtual DbSet<SpaceShipTypes> SpaceShipTypes { get; set; }
+        public virtual DbSet<Species> Species { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UserCategories> UserCategories { get; set; }
+        public virtual DbSet<UserRanks> UserRanks { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

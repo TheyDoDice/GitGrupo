@@ -14,9 +14,18 @@ namespace BBDD
     
     public partial class UserCategories
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UserCategories()
+        {
+            this.Users = new HashSet<Users>();
+        }
+    
         public int idUserCategory { get; set; }
         public string CodeCategory { get; set; }
         public string DescCategory { get; set; }
         public Nullable<int> AccessLevel { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }
