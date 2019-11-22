@@ -48,6 +48,7 @@ namespace Odisea_en_el_espacio
         {
             Image myimage = new Bitmap(Application.StartupPath + "\\Imagenes\\jump2.png");
             this.BackgroundImage = myimage;
+            this.CenterToScreen();
 
             foreach (Route route in nave.actualPlanet.Routes)
             {

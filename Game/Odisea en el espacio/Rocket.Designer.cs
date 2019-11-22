@@ -59,7 +59,7 @@
             this.lbl_warning.BackColor = System.Drawing.Color.Transparent;
             this.lbl_warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_warning.ForeColor = System.Drawing.Color.Red;
-            this.lbl_warning.Location = new System.Drawing.Point(432, 345);
+            this.lbl_warning.Location = new System.Drawing.Point(549, 483);
             this.lbl_warning.Name = "lbl_warning";
             this.lbl_warning.Size = new System.Drawing.Size(113, 25);
             this.lbl_warning.TabIndex = 31;
@@ -72,7 +72,7 @@
             this.lbl_planetname.BackColor = System.Drawing.Color.Transparent;
             this.lbl_planetname.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_planetname.ForeColor = System.Drawing.Color.Aqua;
-            this.lbl_planetname.Location = new System.Drawing.Point(88, 329);
+            this.lbl_planetname.Location = new System.Drawing.Point(196, 456);
             this.lbl_planetname.Name = "lbl_planetname";
             this.lbl_planetname.Size = new System.Drawing.Size(81, 29);
             this.lbl_planetname.TabIndex = 30;
@@ -84,7 +84,7 @@
             // 
             this.btn_run2.BackColor = System.Drawing.Color.DimGray;
             this.btn_run2.Enabled = false;
-            this.btn_run2.Location = new System.Drawing.Point(657, 421);
+            this.btn_run2.Location = new System.Drawing.Point(839, 595);
             this.btn_run2.Name = "btn_run2";
             this.btn_run2.Size = new System.Drawing.Size(22, 23);
             this.btn_run2.TabIndex = 29;
@@ -97,7 +97,7 @@
             this.lbl_coordZ.BackColor = System.Drawing.Color.Transparent;
             this.lbl_coordZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_coordZ.ForeColor = System.Drawing.Color.Aqua;
-            this.lbl_coordZ.Location = new System.Drawing.Point(721, 329);
+            this.lbl_coordZ.Location = new System.Drawing.Point(905, 454);
             this.lbl_coordZ.Name = "lbl_coordZ";
             this.lbl_coordZ.Size = new System.Drawing.Size(45, 13);
             this.lbl_coordZ.TabIndex = 28;
@@ -110,7 +110,7 @@
             this.lbl_coordY.BackColor = System.Drawing.Color.Transparent;
             this.lbl_coordY.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_coordY.ForeColor = System.Drawing.Color.Aqua;
-            this.lbl_coordY.Location = new System.Drawing.Point(721, 307);
+            this.lbl_coordY.Location = new System.Drawing.Point(905, 432);
             this.lbl_coordY.Name = "lbl_coordY";
             this.lbl_coordY.Size = new System.Drawing.Size(45, 13);
             this.lbl_coordY.TabIndex = 27;
@@ -123,7 +123,7 @@
             this.lbl_coordX.BackColor = System.Drawing.Color.Transparent;
             this.lbl_coordX.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_coordX.ForeColor = System.Drawing.Color.Aqua;
-            this.lbl_coordX.Location = new System.Drawing.Point(721, 285);
+            this.lbl_coordX.Location = new System.Drawing.Point(905, 410);
             this.lbl_coordX.Name = "lbl_coordX";
             this.lbl_coordX.Size = new System.Drawing.Size(45, 13);
             this.lbl_coordX.TabIndex = 26;
@@ -133,7 +133,7 @@
             // btn_run
             // 
             this.btn_run.BackColor = System.Drawing.Color.DimGray;
-            this.btn_run.Location = new System.Drawing.Point(608, 421);
+            this.btn_run.Location = new System.Drawing.Point(746, 595);
             this.btn_run.Name = "btn_run";
             this.btn_run.Size = new System.Drawing.Size(22, 23);
             this.btn_run.TabIndex = 25;
@@ -142,11 +142,12 @@
             // 
             // btn_Frenar
             // 
+            this.btn_Frenar.AutoSize = true;
             this.btn_Frenar.BackColor = System.Drawing.Color.DimGray;
             this.btn_Frenar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_Frenar.Enabled = false;
             this.btn_Frenar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Frenar.Location = new System.Drawing.Point(268, 415);
+            this.btn_Frenar.Location = new System.Drawing.Point(356, 595);
             this.btn_Frenar.Name = "btn_Frenar";
             this.btn_Frenar.Size = new System.Drawing.Size(97, 34);
             this.btn_Frenar.TabIndex = 24;
@@ -158,7 +159,7 @@
             // 
             this.pbx_bb8.BackColor = System.Drawing.Color.Transparent;
             this.pbx_bb8.InitialImage = null;
-            this.pbx_bb8.Location = new System.Drawing.Point(215, 3);
+            this.pbx_bb8.Location = new System.Drawing.Point(285, 23);
             this.pbx_bb8.Name = "pbx_bb8";
             this.pbx_bb8.Size = new System.Drawing.Size(75, 100);
             this.pbx_bb8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -170,7 +171,7 @@
             // 
             this.pbx_r2d2.BackColor = System.Drawing.Color.Transparent;
             this.pbx_r2d2.InitialImage = null;
-            this.pbx_r2d2.Location = new System.Drawing.Point(16, 3);
+            this.pbx_r2d2.Location = new System.Drawing.Point(28, 23);
             this.pbx_r2d2.Name = "pbx_r2d2";
             this.pbx_r2d2.Size = new System.Drawing.Size(75, 100);
             this.pbx_r2d2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -182,7 +183,7 @@
             // 
             this.pbx_c3po.BackColor = System.Drawing.Color.Transparent;
             this.pbx_c3po.InitialImage = null;
-            this.pbx_c3po.Location = new System.Drawing.Point(113, 3);
+            this.pbx_c3po.Location = new System.Drawing.Point(154, 23);
             this.pbx_c3po.Name = "pbx_c3po";
             this.pbx_c3po.Size = new System.Drawing.Size(75, 100);
             this.pbx_c3po.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -193,11 +194,12 @@
             // nau
             // 
             this.nau.BackColor = System.Drawing.Color.Transparent;
+            this.nau.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nau.Image = ((System.Drawing.Image)(resources.GetObject("nau.Image")));
             this.nau.InitialImage = null;
             this.nau.Location = new System.Drawing.Point(0, 0);
             this.nau.Name = "nau";
-            this.nau.Size = new System.Drawing.Size(1024, 599);
+            this.nau.Size = new System.Drawing.Size(1019, 704);
             this.nau.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.nau.TabIndex = 18;
             this.nau.TabStop = false;
@@ -215,10 +217,11 @@
             // gif
             // 
             this.gif.BackColor = System.Drawing.Color.Transparent;
+            this.gif.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gif.InitialImage = null;
-            this.gif.Location = new System.Drawing.Point(-12, -4);
+            this.gif.Location = new System.Drawing.Point(0, 0);
             this.gif.Name = "gif";
-            this.gif.Size = new System.Drawing.Size(1024, 573);
+            this.gif.Size = new System.Drawing.Size(1019, 704);
             this.gif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gif.TabIndex = 22;
             this.gif.TabStop = false;
@@ -233,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1019, 595);
+            this.ClientSize = new System.Drawing.Size(1019, 704);
             this.Controls.Add(this.lbl_warning);
             this.Controls.Add(this.lbl_planetname);
             this.Controls.Add(this.btn_run2);

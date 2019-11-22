@@ -46,6 +46,7 @@ namespace Odisea_en_el_espacio
         {
             Image myimage = new Bitmap(Application.StartupPath + "\\Imagenes\\jump1.png");
             this.BackgroundImage = myimage;
+            this.CenterToScreen();
 
             foreach (KeyValuePair<Planet, double> reg in Loader.GetClosestPlanets(nave.position, nave.DisponiblePlanets, nave.Planets))
             {

@@ -37,6 +37,7 @@ namespace Odisea_en_el_espacio
         {
             Loader ld = null;
             bool tancar = false;
+            this.WindowState = FormWindowState.Maximized;
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog()
             {
