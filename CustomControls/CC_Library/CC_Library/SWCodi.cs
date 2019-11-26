@@ -92,15 +92,30 @@ namespace CC_Library
         {
             ValidaCodi(textBoxCodi.Text);
 
-            Form myform = this.FindForm();
+            Form myForm = this.FindForm();
 
-            foreach (Control control in myform.Controls)
+            if (myForm != null)
             {
-                if (control.Name == ControlID)
+                foreach (Control ctr in myForm.Controls)
                 {
-                    control.Text = CodiID;
+                    if (ctr.GetType() == typeof(GroupBox))
+                    {
+                        foreach (Control ctr1 in ctr.Controls)
+                        {
+                            if (ctr1.Name == ControlID)
+                            {
+                                ctr1.Text = CodiID;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (ctr.Name == ControlID)
+                        {
+                            ctr.Text = CodiID;
+                        }
+                    }
                 }
-                
             }
         }
     }
