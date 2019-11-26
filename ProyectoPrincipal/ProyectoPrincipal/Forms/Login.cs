@@ -73,13 +73,13 @@ namespace ProyectoPrincipal.Forms
 
             txt_user.MouseLeave += (se, ev) => txt_user.BackColor = Colors.c_panels;
             txt_user.MouseEnter += (se, ev) => txt_user.BackColor = Colors.c_hoverControls;
-            txt_user.Click += (se, ev) => txt_user.Text = primerClickUser ? "" : txt_user.Text;
-            txt_user.Click += (se, ev) => primerClickUser = false;
+            //txt_user.Click += (se, ev) => txt_user.Text = primerClickUser ? "" : txt_user.Text;
+            //txt_user.Click += (se, ev) => primerClickUser = false;
             txt_password.MouseLeave += (se, ev) => txt_password.BackColor = Colors.c_panels;
             txt_password.MouseEnter += (se, ev) => txt_password.BackColor = Colors.c_hoverControls;
-            txt_password.Click += (se, ev) => txt_password.Text = primerClickPass ? "" : txt_password.Text;
-            txt_password.Click += (se, ev) => primerClickPass = false;
-            txt_password.Enter += (se, ev) => txt_password.Text = "";
+            //txt_password.Click += (se, ev) => txt_password.Text = primerClickPass ? "" : txt_password.Text;
+            //txt_password.Click += (se, ev) => primerClickPass = false;
+            //txt_password.Enter += (se, ev) => txt_password.Text = "";
             txt_password.Enter += (se, ev) => txt_password.PasswordChar = '■';
         }
 
@@ -138,7 +138,31 @@ namespace ProyectoPrincipal.Forms
 
         private void txt_user_Enter(object sender, EventArgs e)
         {
-            this.Text = "";
+            if (txt_user.Text == "User")
+            {
+                txt_user.Text = "";
+            }
+        }
+
+        private void txt_user_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_user.Text))
+            {
+                txt_user.Text = "User";
+            }  
+        }
+
+        private void txt_password_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_password_Enter(object sender, EventArgs e)
+        {
+            if (txt_password.Text == "Password")
+            {
+                txt_password.Text = "";
+            }
         }
     }
 }

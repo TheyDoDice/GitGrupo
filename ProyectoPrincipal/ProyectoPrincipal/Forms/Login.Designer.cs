@@ -160,6 +160,8 @@
             this.txt_user.Size = new System.Drawing.Size(175, 31);
             this.txt_user.TabIndex = 10;
             this.txt_user.Text = "User";
+            this.txt_user.Enter += new System.EventHandler(this.txt_user_Enter);
+            this.txt_user.Leave += new System.EventHandler(this.txt_user_Leave);
             // 
             // txt_password
             // 
@@ -171,6 +173,7 @@
             this.txt_password.Size = new System.Drawing.Size(175, 31);
             this.txt_password.TabIndex = 11;
             this.txt_password.Text = "Password";
+            this.txt_password.Enter += new System.EventHandler(this.txt_password_Enter);
             // 
             // btn_login
             // 
