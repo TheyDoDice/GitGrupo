@@ -32,14 +32,15 @@ namespace FormsMantemimiento
 
             Regex rg = new Regex("^id");
 
-            //foreach (DataGridViewColumn item in dataGridView1.Columns)
-            //{
-            //    if (rg.Match(item.Name).Success)
-            //    {
-            //        dataGridView1.Columns[item.Name].Visible = false;
-            //    }
-            //}
-            
+            foreach (DataGridViewColumn item in dataGridView1.Columns)
+            {
+                if (rg.Match(item.Name).Success)
+                {
+                    dataGridView1.Columns[item.Name].Visible = false;
+                    dataGridView1.Columns["Users"].Visible = false;
+                }
+            }
+
             foreach (var control in this.Controls)
             {
                 if (control is SWTextbox swt)
