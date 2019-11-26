@@ -135,5 +135,10 @@ namespace ProyectoPrincipal.Forms
         {
             return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
         }
+
+        private void txt_user_Enter(object sender, EventArgs e)
+        {
+            this.Text = "";
+        }
     }
 }
