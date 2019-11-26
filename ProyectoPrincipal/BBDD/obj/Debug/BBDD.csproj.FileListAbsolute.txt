@@ -16,4 +16,3 @@ C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.d
 C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.pdb
 C:\Users\admin\Documents\GitHub\GitGrupo\Proyectos\BBDD.dll.config
 C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.csproj.CopyComplete
-C:\Users\admin\Documents\GitHub\GitGrupo\ProyectoPrincipal\BBDD\obj\Debug\BBDD.csprojAssemblyReference.cache

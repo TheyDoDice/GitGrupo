@@ -31,9 +31,9 @@
             this.lb_codeSpecie = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.swt_codeSpecie = new CC_Library.SWTextbox();
-            this.swTextbox1 = new CC_Library.SWTextbox();
-            this.swTextbox2 = new CC_Library.SWTextbox();
+            this.swt_codeCategory = new CC_Library.SWTextbox();
+            this.swt_descCategory = new CC_Library.SWTextbox();
+            this.swt_accessLevel = new CC_Library.SWTextbox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_actualizarDataset = new System.Windows.Forms.Button();
             this.btn_insertar = new System.Windows.Forms.Button();
@@ -73,62 +73,64 @@
             this.label2.TabIndex = 73;
             this.label2.Text = "Access Level:";
             // 
-            // swt_codeSpecie
+            // swt_codeCategory
             // 
-            this.swt_codeSpecie.ControlID = null;
-            this.swt_codeSpecie.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
-            this.swt_codeSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.swt_codeSpecie.foranea = false;
-            this.swt_codeSpecie.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_codeSpecie.Location = new System.Drawing.Point(263, 57);
-            this.swt_codeSpecie.mensaje = null;
-            this.swt_codeSpecie.Name = "swt_codeSpecie";
-            this.swt_codeSpecie.nomCamp = "CodeCategory";
-            this.swt_codeSpecie.nomComboBox = null;
-            this.swt_codeSpecie.requerit = false;
-            this.swt_codeSpecie.Size = new System.Drawing.Size(194, 32);
-            this.swt_codeSpecie.TabIndex = 74;
-            this.swt_codeSpecie.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
+            this.swt_codeCategory.ControlID = null;
+            this.swt_codeCategory.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
+            this.swt_codeCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.swt_codeCategory.foranea = false;
+            this.swt_codeCategory.ForeColor = System.Drawing.Color.DimGray;
+            this.swt_codeCategory.Location = new System.Drawing.Point(263, 57);
+            this.swt_codeCategory.mensaje = null;
+            this.swt_codeCategory.Name = "swt_codeCategory";
+            this.swt_codeCategory.nomCamp = "CodeCategory";
+            this.swt_codeCategory.nomComboBox = null;
+            this.swt_codeCategory.requerit = false;
+            this.swt_codeCategory.Size = new System.Drawing.Size(194, 32);
+            this.swt_codeCategory.TabIndex = 74;
+            this.swt_codeCategory.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
-            // swTextbox1
+            // swt_descCategory
             // 
-            this.swTextbox1.ControlID = null;
-            this.swTextbox1.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
-            this.swTextbox1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.swTextbox1.foranea = false;
-            this.swTextbox1.ForeColor = System.Drawing.Color.DimGray;
-            this.swTextbox1.Location = new System.Drawing.Point(263, 112);
-            this.swTextbox1.mensaje = null;
-            this.swTextbox1.Name = "swTextbox1";
-            this.swTextbox1.nomCamp = "DescCategory";
-            this.swTextbox1.nomComboBox = null;
-            this.swTextbox1.requerit = false;
-            this.swTextbox1.Size = new System.Drawing.Size(194, 32);
-            this.swTextbox1.TabIndex = 75;
-            this.swTextbox1.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
+            this.swt_descCategory.ControlID = null;
+            this.swt_descCategory.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
+            this.swt_descCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.swt_descCategory.foranea = false;
+            this.swt_descCategory.ForeColor = System.Drawing.Color.DimGray;
+            this.swt_descCategory.Location = new System.Drawing.Point(263, 112);
+            this.swt_descCategory.mensaje = null;
+            this.swt_descCategory.Name = "swt_descCategory";
+            this.swt_descCategory.nomCamp = "DescCategory";
+            this.swt_descCategory.nomComboBox = null;
+            this.swt_descCategory.requerit = false;
+            this.swt_descCategory.Size = new System.Drawing.Size(194, 32);
+            this.swt_descCategory.TabIndex = 75;
+            this.swt_descCategory.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
-            // swTextbox2
+            // swt_accessLevel
             // 
-            this.swTextbox2.ControlID = null;
-            this.swTextbox2.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
-            this.swTextbox2.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.swTextbox2.foranea = false;
-            this.swTextbox2.ForeColor = System.Drawing.Color.DimGray;
-            this.swTextbox2.Location = new System.Drawing.Point(263, 169);
-            this.swTextbox2.mensaje = null;
-            this.swTextbox2.Name = "swTextbox2";
-            this.swTextbox2.nomCamp = "AccessLevel";
-            this.swTextbox2.nomComboBox = null;
-            this.swTextbox2.requerit = false;
-            this.swTextbox2.Size = new System.Drawing.Size(194, 32);
-            this.swTextbox2.TabIndex = 76;
-            this.swTextbox2.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
+            this.swt_accessLevel.ControlID = null;
+            this.swt_accessLevel.DadaTipus = CC_Library.SWTextbox.tipDades.Text;
+            this.swt_accessLevel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.swt_accessLevel.foranea = false;
+            this.swt_accessLevel.ForeColor = System.Drawing.Color.DimGray;
+            this.swt_accessLevel.Location = new System.Drawing.Point(263, 169);
+            this.swt_accessLevel.mensaje = null;
+            this.swt_accessLevel.Name = "swt_accessLevel";
+            this.swt_accessLevel.nomCamp = "AccessLevel";
+            this.swt_accessLevel.nomComboBox = null;
+            this.swt_accessLevel.requerit = false;
+            this.swt_accessLevel.Size = new System.Drawing.Size(194, 32);
+            this.swt_accessLevel.TabIndex = 76;
+            this.swt_accessLevel.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 318);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(840, 294);
             this.dataGridView1.TabIndex = 77;
             // 
@@ -171,9 +173,9 @@
             this.Controls.Add(this.btn_insertar);
             this.Controls.Add(this.btn_actualizarDataset);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.swTextbox2);
-            this.Controls.Add(this.swTextbox1);
-            this.Controls.Add(this.swt_codeSpecie);
+            this.Controls.Add(this.swt_accessLevel);
+            this.Controls.Add(this.swt_descCategory);
+            this.Controls.Add(this.swt_codeCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_codeSpecie);
@@ -191,9 +193,9 @@
         private System.Windows.Forms.Label lb_codeSpecie;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private CC_Library.SWTextbox swt_codeSpecie;
-        private CC_Library.SWTextbox swTextbox1;
-        private CC_Library.SWTextbox swTextbox2;
+        private CC_Library.SWTextbox swt_codeCategory;
+        private CC_Library.SWTextbox swt_descCategory;
+        private CC_Library.SWTextbox swt_accessLevel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_actualizarDataset;
         private System.Windows.Forms.Button btn_insertar;

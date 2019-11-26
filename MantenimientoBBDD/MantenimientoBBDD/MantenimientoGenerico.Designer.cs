@@ -125,6 +125,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_insertar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "MantenimientoGenerico";
             this.Load += new System.EventHandler(this.MantenimientoGenerico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
