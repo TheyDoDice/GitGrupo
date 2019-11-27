@@ -21,8 +21,8 @@ namespace FormsMantemimiento
         {
             if (e.KeyCode == Keys.F1)
             {
-                BuscaMantenimientoPlanets buscaManteniminetoPlanets = new BuscaMantenimientoPlanets();
-
+                Form buscaManteniminetoPlanets = new BuscaMantenimientoPlanets();
+                pnl_filtrar.Controls.Add(buscaManteniminetoPlanets);
                 buscaManteniminetoPlanets.Show();
             }
         }

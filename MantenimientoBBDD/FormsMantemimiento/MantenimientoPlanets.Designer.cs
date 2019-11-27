@@ -56,6 +56,7 @@
             this.swt_idNatives = new CC_Library.SWTextbox();
             this.swt_idFiliation = new CC_Library.SWTextbox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_filtrar = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lbl_portPlanet1
@@ -337,7 +338,7 @@
             this.swc_idSector.NomID = "idSector";
             this.swc_idSector.NomTaula = "Sectors";
             this.swc_idSector.Requerit = false;
-            this.swc_idSector.Size = new System.Drawing.Size(487, 36);
+            this.swc_idSector.Size = new System.Drawing.Size(259, 36);
             this.swc_idSector.TabIndex = 102;
             // 
             // swc_idFiliations
@@ -356,7 +357,7 @@
             this.swc_idFiliations.NomID = "idFiliation";
             this.swc_idFiliations.NomTaula = "Filiations";
             this.swc_idFiliations.Requerit = false;
-            this.swc_idFiliations.Size = new System.Drawing.Size(487, 36);
+            this.swc_idFiliations.Size = new System.Drawing.Size(259, 36);
             this.swc_idFiliations.TabIndex = 105;
             // 
             // lbl_idNatives
@@ -397,7 +398,7 @@
             this.swc_idNatives.NomID = "idSpecie";
             this.swc_idNatives.NomTaula = "Species";
             this.swc_idNatives.Requerit = false;
-            this.swc_idNatives.Size = new System.Drawing.Size(487, 36);
+            this.swc_idNatives.Size = new System.Drawing.Size(259, 36);
             this.swc_idNatives.TabIndex = 103;
             // 
             // swt_idSector
@@ -407,7 +408,7 @@
             this.swt_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idSector.foranea = true;
             this.swt_idSector.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idSector.Location = new System.Drawing.Point(660, 168);
+            this.swt_idSector.Location = new System.Drawing.Point(441, 168);
             this.swt_idSector.mensaje = null;
             this.swt_idSector.Name = "swt_idSector";
             this.swt_idSector.nomCamp = "idSector";
@@ -424,7 +425,7 @@
             this.swt_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idNatives.foranea = true;
             this.swt_idNatives.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idNatives.Location = new System.Drawing.Point(660, 212);
+            this.swt_idNatives.Location = new System.Drawing.Point(441, 212);
             this.swt_idNatives.mensaje = null;
             this.swt_idNatives.Name = "swt_idNatives";
             this.swt_idNatives.nomCamp = "idNatives";
@@ -441,7 +442,7 @@
             this.swt_idFiliation.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idFiliation.foranea = true;
             this.swt_idFiliation.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idFiliation.Location = new System.Drawing.Point(660, 253);
+            this.swt_idFiliation.Location = new System.Drawing.Point(441, 253);
             this.swt_idFiliation.mensaje = null;
             this.swt_idFiliation.Name = "swt_idFiliation";
             this.swt_idFiliation.nomCamp = "idFiliation";
@@ -453,16 +454,24 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(650, 158);
+            this.panel1.Location = new System.Drawing.Point(432, 163);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(63, 145);
             this.panel1.TabIndex = 124;
+            // 
+            // pnl_filtrar
+            // 
+            this.pnl_filtrar.Location = new System.Drawing.Point(450, 168);
+            this.pnl_filtrar.Name = "pnl_filtrar";
+            this.pnl_filtrar.Size = new System.Drawing.Size(481, 208);
+            this.pnl_filtrar.TabIndex = 125;
             // 
             // MantenimientoPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 760);
+            this.Controls.Add(this.pnl_filtrar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idFiliation);
             this.Controls.Add(this.swt_idNatives);
@@ -523,6 +532,7 @@
             this.Controls.SetChildIndex(this.swt_idNatives, 0);
             this.Controls.SetChildIndex(this.swt_idFiliation, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.pnl_filtrar, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,5 +568,6 @@
         private CC_Library.SWTextbox swt_idNatives;
         private CC_Library.SWTextbox swt_idFiliation;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_filtrar;
     }
 }

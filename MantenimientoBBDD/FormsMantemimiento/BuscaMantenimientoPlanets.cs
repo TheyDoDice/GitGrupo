@@ -29,24 +29,21 @@ namespace FormsMantemimiento
             InitializeComponent();
             db = new securecoreEntities();
         }
-
-        private Image TakeImg(string mode, string name)
+        private void BuscaMantenimientoPlanets_Load(object sender, EventArgs e)
         {
-            return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
-        }
-
-        private void CercaMantenimientoPlanets_Load(object sender, EventArgs e)
-        {
-
             //Botó tancar
-
             ptb_close.Image = TakeImg("dark", "close");
             ptb_close.MouseLeave += (se, ev) => ptb_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939"); ;
             ptb_close.MouseEnter += (se, ev) => ptb_close.BackColor = Color.LightCoral;
             ptb_close.Click += (se, ev) => this.Close();
         }
 
-        private void CercaMantenimientoPlanets_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        private Image TakeImg(string mode, string name)
+        {
+            return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
+        }
+
+        private void barraSuperior_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -55,7 +52,7 @@ namespace FormsMantemimiento
             }
         }
 
-        private void btn_cercar_Click(object sender, EventArgs e)
+        private void btn_cercar_Click_1(object sender, EventArgs e)
         {
             List<Planets> planets;
 
@@ -67,7 +64,7 @@ namespace FormsMantemimiento
             {
                 planets = db.Planets.ToList().Where(x => x.idSector == int.Parse(swt_idRegion.Text) && x.idNatives == int.Parse(swt_idSpecie.Text)).ToList();
             }
-           
+
             dataGridView_Planets.DataSource = planets;
 
             Regex rg = new Regex("^id");
@@ -82,6 +79,8 @@ namespace FormsMantemimiento
                 }
             }
         }
+
+        
     }
 }
 
