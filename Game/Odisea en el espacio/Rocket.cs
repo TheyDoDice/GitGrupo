@@ -38,29 +38,15 @@ namespace Odisea_en_el_espacio
             Loader ld = null;
             bool tancar = false;
             this.WindowState = FormWindowState.Maximized;
-
-            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+                      
+            try
             {
-                Filter = "XML files (*.xml)|*.xml",
-                Title = "Open planets.xml"
-            };
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog1.FileName;
-                try
-                {
-                    ld = new Loader(filePath);
-                    ld.LoadInfo();
-                }
-                catch (System.IO.FileNotFoundException exc)
-                {
-                    MessageBox.Show("S'ha perdut la connexió amb l'arxiu");
-                    tancar = true;
-                }
+                ld = new Loader(Application.StartupPath + "\\planets.xml");
+                ld.LoadInfo();
             }
-            else
+            catch (System.IO.FileNotFoundException exc)
             {
+                MessageBox.Show("S'ha perdut la connexió amb l'arxiu");
                 tancar = true;
             }
 

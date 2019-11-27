@@ -44,6 +44,7 @@
             this.btn_login = new System.Windows.Forms.Button();
             this.subMid = new System.Windows.Forms.Panel();
             this.ptb_decoration = new System.Windows.Forms.PictureBox();
+            this.lbl_error = new System.Windows.Forms.Label();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
@@ -160,8 +161,6 @@
             this.txt_user.Size = new System.Drawing.Size(175, 31);
             this.txt_user.TabIndex = 10;
             this.txt_user.Text = "User";
-            this.txt_user.Enter += new System.EventHandler(this.txt_user_Enter);
-            this.txt_user.Leave += new System.EventHandler(this.txt_user_Leave);
             // 
             // txt_password
             // 
@@ -173,7 +172,6 @@
             this.txt_password.Size = new System.Drawing.Size(175, 31);
             this.txt_password.TabIndex = 11;
             this.txt_password.Text = "Password";
-            this.txt_password.Enter += new System.EventHandler(this.txt_password_Enter);
             // 
             // btn_login
             // 
@@ -182,7 +180,7 @@
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.White;
-            this.btn_login.Location = new System.Drawing.Point(51, 304);
+            this.btn_login.Location = new System.Drawing.Point(51, 294);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(87, 32);
             this.btn_login.TabIndex = 12;
@@ -207,6 +205,18 @@
             this.ptb_decoration.TabIndex = 14;
             this.ptb_decoration.TabStop = false;
             // 
+            // lbl_error
+            // 
+            this.lbl_error.AutoSize = true;
+            this.lbl_error.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbl_error.Location = new System.Drawing.Point(46, 358);
+            this.lbl_error.Name = "lbl_error";
+            this.lbl_error.Size = new System.Drawing.Size(349, 29);
+            this.lbl_error.TabIndex = 15;
+            this.lbl_error.Text = "Usuario o contraseña incorrectas.";
+            this.lbl_error.Visible = false;
+            // 
             // Login
             // 
             this.AcceptButton = this.btn_login;
@@ -214,6 +224,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(693, 450);
+            this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.ptb_decoration);
             this.Controls.Add(this.subMid);
             this.Controls.Add(this.btn_login);
@@ -259,5 +270,6 @@
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Panel subMid;
         private System.Windows.Forms.PictureBox ptb_decoration;
+        private System.Windows.Forms.Label lbl_error;
     }
 }

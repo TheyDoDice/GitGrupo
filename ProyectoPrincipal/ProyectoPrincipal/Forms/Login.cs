@@ -63,24 +63,28 @@ namespace ProyectoPrincipal.Forms
             ptb_minimize.MouseLeave += (se, ev) => ptb_minimize.BackColor = Colors.c_panels;
             ptb_minimize.MouseEnter += (se, ev) => ptb_minimize.BackColor = Colors.c_hoverControls;
             ptb_minimize.Click += (se, ev) => this.WindowState = FormWindowState.Minimized;
-
+                
             #endregion
 
             ptb_decoration.Image = TakeImg("dark", "logo");
 
-            btn_login.MouseLeave += (se, ev) => btn_login.BackColor = Colors.c_panels;
-            btn_login.MouseEnter += (se, ev) => btn_login.BackColor = Colors.c_subPanels;
+            btn_login.Leave          += (se, ev) => btn_login.BackColor = Colors.c_panels;
+            btn_login.Enter          += (se, ev) => btn_login.BackColor = Colors.c_subPanels;
 
-            txt_user.MouseLeave += (se, ev) => txt_user.BackColor = Colors.c_panels;
-            txt_user.MouseEnter += (se, ev) => txt_user.BackColor = Colors.c_hoverControls;
-            //txt_user.Click += (se, ev) => txt_user.Text = primerClickUser ? "" : txt_user.Text;
-            //txt_user.Click += (se, ev) => primerClickUser = false;
-            txt_password.MouseLeave += (se, ev) => txt_password.BackColor = Colors.c_panels;
-            txt_password.MouseEnter += (se, ev) => txt_password.BackColor = Colors.c_hoverControls;
-            //txt_password.Click += (se, ev) => txt_password.Text = primerClickPass ? "" : txt_password.Text;
-            //txt_password.Click += (se, ev) => primerClickPass = false;
-            //txt_password.Enter += (se, ev) => txt_password.Text = "";
-            txt_password.Enter += (se, ev) => txt_password.PasswordChar = '■';
+            txt_user.Enter           += (se, ev) => txt_user.BackColor = Colors.c_hoverControls;
+            txt_user.Leave           += (se, ev) => txt_user.BackColor = Colors.c_panels;
+            txt_user.Enter           += (se, ev) => txt_user.Text = (txt_user.Text == "User" ? "" : txt_user.Text);
+            txt_user.Leave           += (se, ev) => txt_user.Text = (txt_user.Text.Trim() == "" ? "User" : txt_user.Text);
+
+            txt_password.Leave       += (se, ev) => txt_password.BackColor = Colors.c_panels;
+            txt_password.Enter       += (se, ev) => txt_password.BackColor = Colors.c_hoverControls;
+            txt_password.Enter       += (se, ev) => txt_password.PasswordChar = (txt_password.Text != "Password" ? '■' : '\0');
+            txt_password.Enter       += (se, ev) => txt_password.Text = (txt_password.Text == "Password" ? "" : txt_password.Text);
+            txt_password.Leave       += (se, ev) => txt_password.PasswordChar = (txt_password.Text.Trim() == "" ? '\0' : '■');
+            txt_password.Leave       += (se, ev) => txt_password.Text = (txt_password.Text.Trim() == "" ? "Password" : txt_password.Text);
+            txt_password.TextChanged += (se, ev) => txt_password.PasswordChar = (txt_password.Text != "Password" ? '■' : '\0');
+
+
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -116,53 +120,25 @@ namespace ProyectoPrincipal.Forms
                     }
                     else
                     {
+                        lbl_error.Visible = true;
                         return false;
                     }
                 }
                 catch
                 {
+                    lbl_error.Visible = true;
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("");
+                MessageBox.Show("No intentes liarla!");
                 return false;
             }
-            
         }
         private Image TakeImg(string mode, string name)
         {
             return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
-        }
-
-        private void txt_user_Enter(object sender, EventArgs e)
-        {
-            if (txt_user.Text == "User")
-            {
-                txt_user.Text = "";
-            }
-        }
-
-        private void txt_user_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txt_user.Text))
-            {
-                txt_user.Text = "User";
-            }  
-        }
-
-        private void txt_password_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_password_Enter(object sender, EventArgs e)
-        {
-            if (txt_password.Text == "Password")
-            {
-                txt_password.Text = "";
-            }
         }
     }
 }

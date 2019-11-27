@@ -84,9 +84,9 @@
             // 
             this.btn_run2.BackColor = System.Drawing.Color.DimGray;
             this.btn_run2.Enabled = false;
-            this.btn_run2.Location = new System.Drawing.Point(839, 595);
+            this.btn_run2.Location = new System.Drawing.Point(829, 584);
             this.btn_run2.Name = "btn_run2";
-            this.btn_run2.Size = new System.Drawing.Size(22, 23);
+            this.btn_run2.Size = new System.Drawing.Size(50, 50);
             this.btn_run2.TabIndex = 29;
             this.btn_run2.UseVisualStyleBackColor = false;
             this.btn_run2.Click += new System.EventHandler(this.btn_run2_Click);
@@ -133,9 +133,9 @@
             // btn_run
             // 
             this.btn_run.BackColor = System.Drawing.Color.DimGray;
-            this.btn_run.Location = new System.Drawing.Point(746, 595);
+            this.btn_run.Location = new System.Drawing.Point(732, 584);
             this.btn_run.Name = "btn_run";
-            this.btn_run.Size = new System.Drawing.Size(22, 23);
+            this.btn_run.Size = new System.Drawing.Size(50, 50);
             this.btn_run.TabIndex = 25;
             this.btn_run.UseVisualStyleBackColor = false;
             this.btn_run.Click += new System.EventHandler(this.btn_run_Click);
@@ -146,10 +146,11 @@
             this.btn_Frenar.BackColor = System.Drawing.Color.DimGray;
             this.btn_Frenar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_Frenar.Enabled = false;
-            this.btn_Frenar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Frenar.Location = new System.Drawing.Point(356, 595);
+            this.btn_Frenar.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold);
+            this.btn_Frenar.ForeColor = System.Drawing.Color.White;
+            this.btn_Frenar.Location = new System.Drawing.Point(346, 584);
             this.btn_Frenar.Name = "btn_Frenar";
-            this.btn_Frenar.Size = new System.Drawing.Size(97, 34);
+            this.btn_Frenar.Size = new System.Drawing.Size(151, 59);
             this.btn_Frenar.TabIndex = 24;
             this.btn_Frenar.Text = "SPEED UP";
             this.btn_Frenar.UseVisualStyleBackColor = false;
