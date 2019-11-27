@@ -461,6 +461,8 @@
             // 
             // pnl_filtrar
             // 
+            this.pnl_filtrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_filtrar.Location = new System.Drawing.Point(450, 168);
             this.pnl_filtrar.Name = "pnl_filtrar";
             this.pnl_filtrar.Size = new System.Drawing.Size(481, 208);

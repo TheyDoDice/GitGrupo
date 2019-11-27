@@ -15,27 +15,12 @@ namespace FormsMantemimiento
 {
     public partial class BuscaMantenimientoPlanets : Form
     {
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
         securecoreEntities db;
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
 
         public BuscaMantenimientoPlanets()
         {
             InitializeComponent();
             db = new securecoreEntities();
-        }
-        private void BuscaMantenimientoPlanets_Load(object sender, EventArgs e)
-        {
-            //Botó tancar
-            ptb_close.Image = TakeImg("dark", "close");
-            ptb_close.MouseLeave += (se, ev) => ptb_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939"); ;
-            ptb_close.MouseEnter += (se, ev) => ptb_close.BackColor = Color.LightCoral;
-            ptb_close.Click += (se, ev) => this.Close();
         }
 
         private Image TakeImg(string mode, string name)
@@ -43,44 +28,49 @@ namespace FormsMantemimiento
             return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
         }
 
-        private void barraSuperior_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
         private void btn_cercar_Click_1(object sender, EventArgs e)
         {
-            List<Planets> planets;
 
             if (swt_idRegion.Text == "" || swt_idSpecie.Text == "")
             {
-                planets = db.Planets.ToList();
+                dataGridView_Planets.DataSource = db.Planets.ToList();
             }
             else
             {
-                planets = db.Planets.ToList().Where(x => x.idSector == int.Parse(swt_idRegion.Text) && x.idNatives == int.Parse(swt_idSpecie.Text)).ToList();
-            }
-
-            dataGridView_Planets.DataSource = planets;
-
-            Regex rg = new Regex("^id");
-
-            foreach (DataGridViewColumn item in dataGridView_Planets.Columns)
-            {
-                if (rg.Match(item.Name).Success || item.Name.Equals("Filiations") || item.Name.Equals("MilitaryCamps") ||
-                    item.Name.Equals("OrdersDetail") || item.Name.Equals("PlanetRoutes") || item.Name.Equals("Sectors") ||
-                    item.Name.Equals("Species") || item.Name.Equals("Users"))
-                {
-                    dataGridView_Planets.Columns[item.Name].Visible = false;
-                }
+                dataGridView_Planets.DataSource = db.Planets.ToList().Where(x => x.idSector == int.Parse(swt_idRegion.Text) && x.idNatives == int.Parse(swt_idSpecie.Text)).ToList();
             }
         }
 
-        
+        private void BuscaMantenimientoPlanets_Load(object sender, EventArgs e)
+        {
+            dataGridView_Planets.DataSource = db.Planets.ToList();
+
+            Regex rg = new Regex("^id");
+
+            List<string> camposEscondidos = new List<string>
+            {
+                "MilitaryCamps",
+                "Filiations",
+                "OrdersDetail",
+                "PlanetRoutes",
+                "Sectors",
+                "Species",
+                "Users",
+                "PlanetPicture",
+                "IPPlanet",
+                "PortPlanet",
+                "PortPlanet1"
+            };
+
+            foreach (DataGridViewColumn item in dataGridView_Planets.Columns)
+            {
+                if (rg.Match(item.Name).Success || camposEscondidos.Contains(item.Name))
+                {
+                    dataGridView_Planets.Columns[item.Name].Visible = false;
+                }
+
+            }
+        }
     }
 }
 

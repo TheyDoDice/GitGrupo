@@ -12,6 +12,9 @@ namespace FormsMantemimiento
 {
     public partial class MantenimientoPlanets : MantenimientoBBDD.MantenimientoGenerico
     {
+        private bool abrirForm = true;
+        Form buscaManteniminetoPlanets = new BuscaMantenimientoPlanets();
+
         public MantenimientoPlanets()
         {
             InitializeComponent();
@@ -21,9 +24,21 @@ namespace FormsMantemimiento
         {
             if (e.KeyCode == Keys.F1)
             {
-                Form buscaManteniminetoPlanets = new BuscaMantenimientoPlanets();
-                pnl_filtrar.Controls.Add(buscaManteniminetoPlanets);
-                buscaManteniminetoPlanets.Show();
+                if (abrirForm)
+                {
+                    buscaManteniminetoPlanets.TopLevel = false;
+                    buscaManteniminetoPlanets.AutoScroll = true;
+                    pnl_filtrar.Controls.Add(buscaManteniminetoPlanets);
+                    buscaManteniminetoPlanets.Dock = DockStyle.Fill;
+                    buscaManteniminetoPlanets.Show();
+                    abrirForm = false;
+                }
+                else
+                {
+                    pnl_filtrar.Controls.Remove(buscaManteniminetoPlanets);
+                    abrirForm = true;
+                }
+                
             }
         }
     }
