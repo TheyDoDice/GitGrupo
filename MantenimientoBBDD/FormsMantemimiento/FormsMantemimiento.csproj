@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscaMantenimientoPlanets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscaMantenimientoPlanets.Designer.cs">
+      <DependentUpon>BuscaMantenimientoPlanets.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoMenuOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BuscaMantenimientoPlanets.resx">
+      <DependentUpon>BuscaMantenimientoPlanets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoMenuOptions.resx">
       <DependentUpon>MantenimientoMenuOptions.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,5 +16,15 @@ namespace FormsMantemimiento
         {
             InitializeComponent();
         }
+
+        private void MantenimientoPlanets_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                BuscaMantenimientoPlanets buscaManteniminetoPlanets = new BuscaMantenimientoPlanets();
+
+                buscaManteniminetoPlanets.Show();
+            }
+        }
     }
 }

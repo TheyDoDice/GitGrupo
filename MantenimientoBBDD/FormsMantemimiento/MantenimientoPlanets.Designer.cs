@@ -494,6 +494,7 @@
             this.Name = "MantenimientoPlanets";
             this.tabla = "Planets";
             this.Text = "MantenimientoPlanets";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MantenimientoPlanets_KeyDown);
             this.Controls.SetChildIndex(this.swc_idNatives, 0);
             this.Controls.SetChildIndex(this.lbl_PlanetFiliation, 0);
             this.Controls.SetChildIndex(this.lbl_idNatives, 0);
