@@ -14,5 +14,20 @@ namespace FormsMantemimiento
         {
             InitializeComponent();
         }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = (int)(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                CrystalReportUser cru = new CrystalReportUser(id);
+                cru.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("selecciona una fila completa");
+            }
+        }
     }
 }

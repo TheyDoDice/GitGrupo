@@ -51,6 +51,7 @@
             this.lbl_UserPlanet = new System.Windows.Forms.Label();
             this.swc_UserCategory = new CC_Library.SWCodi();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_imprimir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // swt_idSpecie
@@ -388,10 +389,26 @@
             this.panel1.Size = new System.Drawing.Size(43, 169);
             this.panel1.TabIndex = 125;
             // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_imprimir.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_imprimir.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.Location = new System.Drawing.Point(715, 154);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(117, 29);
+            this.btn_imprimir.TabIndex = 126;
+            this.btn_imprimir.Text = "Imprimir";
+            this.btn_imprimir.UseVisualStyleBackColor = false;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
             // MantenimientoUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(967, 783);
+            this.Controls.Add(this.btn_imprimir);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idSpecie);
             this.Controls.Add(this.swt_idPlanet);
@@ -440,6 +457,7 @@
             this.Controls.SetChildIndex(this.swt_idPlanet, 0);
             this.Controls.SetChildIndex(this.swt_idSpecie, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.btn_imprimir, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,5 +488,6 @@
         private System.Windows.Forms.Label lbl_UserPlanet;
         private CC_Library.SWCodi swc_UserCategory;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_imprimir;
     }
 }
