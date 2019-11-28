@@ -1,4 +1,0 @@
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\BaseBA\obj\Debug\BaseBA.csprojAssemblyReference.cache
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\BaseBA\obj\Debug\BaseBA.frmBaseBA.resources
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\BaseBA\obj\Debug\BaseBA.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\GitGrupo\Ejemplos\ConnectarBBDD\BaseBA\obj\Debug\BaseBA.csproj.CoreCompileInputs.cache
