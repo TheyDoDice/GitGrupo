@@ -243,7 +243,6 @@ namespace Odisea_en_el_espacio
                 CanOpenJumpr = false;
 
                 jump = new Jump(this);
-                //jump.MdiParent = this.MdiParent;
                 jump.Show();
             }
         }
@@ -256,7 +255,6 @@ namespace Odisea_en_el_espacio
                 CanOpenJump = false;
 
                 jumpr = new JumpRoute(this);
-                //jumpr.MdiParent = this.MdiParent;
                 jumpr.Show();
             }
         }
