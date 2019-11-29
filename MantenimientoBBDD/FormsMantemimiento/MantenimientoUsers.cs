@@ -21,7 +21,7 @@ namespace FormsMantemimiento
             {
                 int id = (int)(dataGridView1.SelectedRows[0].Cells[0].Value);
 
-                CrystalReportUser cru = new CrystalReportUser(id);
+                CrystalReportUser cru = new CrystalReportUser(id, swt_codeUser.Text);
                 cru.Show();
             }
             catch (Exception)
