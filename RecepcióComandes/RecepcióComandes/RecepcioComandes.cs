@@ -8,9 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Xml;
 using System.Xml.Linq;
-
+using System.Runtime;
 namespace RecepcióComandes
 {
     public partial class RecepcióDeComandes : Form
@@ -126,72 +125,79 @@ namespace RecepcióComandes
 
         public IEnumerable<FTPListDetail> GetDirectoryListing(string rootUri)
         {
-            var CurrentRemoteDirectory = rootUri;
-            var result = new StringBuilder();
-            var request = GetWebRequest(WebRequestMethods.Ftp.ListDirectoryDetails, CurrentRemoteDirectory);
-            using (var response = request.GetResponse())
+            try
             {
-                using (var reader = new StreamReader(response.GetResponseStream()))
+                var CurrentRemoteDirectory = rootUri;
+                var result = new StringBuilder();
+                var request = GetWebRequest(WebRequestMethods.Ftp.ListDirectoryDetails, CurrentRemoteDirectory);
+                using (var response = request.GetResponse())
                 {
-                    string line = reader.ReadLine();
-                    while (line != null)
+                    using (var reader = new StreamReader(response.GetResponseStream()))
                     {
-                        result.Append(line);
-                        result.Append("\n");
-                        line = reader.ReadLine();
-                    }
-                    if (string.IsNullOrEmpty(result.ToString()))
-                    {
-                        return new List<FTPListDetail>();
-                    }
-                    result.Remove(result.ToString().LastIndexOf("\n"), 1);
-                    var results = result.ToString().Split('\n');
-                    string regex =
-                        @"^" +               //# Start of line
-                        @"(?<dir>[\-ld])" +          //# File size          
-                        @"(?<permission>[\-rwx]{9})" +            //# Whitespace          \n
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<filecode>\d+)" +
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<owner>\w+)" +
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<group>\w+)" +
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<size>\d+)" +
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<month>\w{3})" +          //# Month (3 letters)   \n
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<day>\d{1,2})" +        //# Day (1 or 2 digits) \n
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<timeyear>[\d:]{4,5})" +     //# Time or year        \n
-                        @"\s+" +            //# Whitespace          \n
-                        @"(?<filename>(.*))" +            //# Filename            \n
-                        @"$";                //# End of line
-
-                    var myresult = new List<FTPListDetail>();
-                    foreach (var parsed in results)
-                    {
-                        var split = new Regex(regex)
-                            .Match(parsed);
-                        var dir = split.Groups["dir"].ToString();
-                        var permission = split.Groups["permission"].ToString();
-                        var filecode = split.Groups["filecode"].ToString();
-                        var owner = split.Groups["owner"].ToString();
-                        var group = split.Groups["group"].ToString();
-                        var filename = split.Groups["filename"].ToString();
-                        myresult.Add(new FTPListDetail()
+                        string line = reader.ReadLine();
+                        while (line != null)
                         {
-                            Dir = dir,
-                            Filecode = filecode,
-                            Group = group,
-                            FullPath = CurrentRemoteDirectory + "/" + filename,
-                            Name = filename,
-                            Owner = owner,
-                            Permission = permission,
-                        });
-                    };
-                    return myresult;
+                            result.Append(line);
+                            result.Append("\n");
+                            line = reader.ReadLine();
+                        }
+                        if (string.IsNullOrEmpty(result.ToString()))
+                        {
+                            return new List<FTPListDetail>();
+                        }
+                        result.Remove(result.ToString().LastIndexOf("\n"), 1);
+                        var results = result.ToString().Split('\n');
+                        string regex =
+                            @"^" +               //# Start of line
+                            @"(?<dir>[\-ld])" +          //# File size          
+                            @"(?<permission>[\-rwx]{9})" +            //# Whitespace          \n
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<filecode>\d+)" +
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<owner>\w+)" +
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<group>\w+)" +
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<size>\d+)" +
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<month>\w{3})" +          //# Month (3 letters)   \n
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<day>\d{1,2})" +        //# Day (1 or 2 digits) \n
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<timeyear>[\d:]{4,5})" +     //# Time or year        \n
+                            @"\s+" +            //# Whitespace          \n
+                            @"(?<filename>(.*))" +            //# Filename            \n
+                            @"$";                //# End of line
+
+                        var myresult = new List<FTPListDetail>();
+                        foreach (var parsed in results)
+                        {
+                            var split = new Regex(regex)
+                                .Match(parsed);
+                            var dir = split.Groups["dir"].ToString();
+                            var permission = split.Groups["permission"].ToString();
+                            var filecode = split.Groups["filecode"].ToString();
+                            var owner = split.Groups["owner"].ToString();
+                            var group = split.Groups["group"].ToString();
+                            var filename = split.Groups["filename"].ToString();
+                            myresult.Add(new FTPListDetail()
+                            {
+                                Dir = dir,
+                                Filecode = filecode,
+                                Group = group,
+                                FullPath = CurrentRemoteDirectory + "/" + filename,
+                                Name = filename,
+                                Owner = owner,
+                                Permission = permission,
+                            });
+                        };
+                        return myresult;
+                    }
                 }
+            }
+            catch
+            {
+                return new List<FTPListDetail>();
             }
         }
 
@@ -214,32 +220,146 @@ namespace RecepcióComandes
 
         #endregion
 
-        #region FUNCIONES SUBIR ARCHIVOS Y CREAR CARPETAS
+        #region MOSTRAR DIRECTORIOS FTP
+
+        private void ActualizarArbol(string NombrePrimerNodo)
+        {
+            VisorArchivos.BeginUpdate();
+            VisorArchivos.Nodes.Clear();
+            VisorArchivos.Nodes.Add(CreateDirectoryNode(CadenaConnexionFTP.ToString(), NombrePrimerNodo));
+            VisorArchivos.EndUpdate();
+        }
+
+        #endregion
+
+        #region FUNCIONES SUBIR/BORRAR ARCHIVOS Y CREAR CARPETAS
 
         //Función para crear una carpeta en el servidor FTP
-        private void CrearCarpeta(string ip_servidor, string nombre_carpeta, string usuario, string contraseña)
+        public void CrearCarpetaFTP()
         {
-            FtpWebRequest CrearCarpeta = (FtpWebRequest)WebRequest.Create(new Uri(string.Format(@"ftp://{0}/{1}/", ip_servidor, nombre_carpeta)));
-            CrearCarpeta.Credentials = new NetworkCredential(usuario, contraseña);
-            CrearCarpeta.Method = WebRequestMethods.Ftp.MakeDirectory;
-            FtpWebResponse ftpResponse = (FtpWebResponse)CrearCarpeta.GetResponse();
+            string NombreCampo;
+            NombreCampo = Microsoft.VisualBasic.Interaction.InputBox("Escriba el nombre de la carpeta.", "Crear carpeta", "Nueva carpeta");
+            if (NombreCampo == null||NombreCampo == "")
+            {
+                NombreCampo = "Nueva carpeta";
+            }
+
+            //Añadir nodo
+            VisorArchivos.SelectedNode.Nodes.Add(NombreCampo);
+
+            //CrearCarpeta en el servidor FTP
+            try
+            {
+                FtpWebRequest CrearCarpeta = (FtpWebRequest)WebRequest.Create("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName() + "/" + NombreCampo);
+                CrearCarpeta.Credentials = new NetworkCredential(txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
+                CrearCarpeta.Method = WebRequestMethods.Ftp.MakeDirectory;
+                FtpWebResponse ftpResponse = (FtpWebResponse)CrearCarpeta.GetResponse();
+            }
+            catch
+            { }
         }
 
         //Funcion para subir un archivo a una carpeta FTP
-        private void SubirArchivoCarpeta(string ip_servidor, string nombre_carpeta, string rutaAbsolutaArchivo, string nombreArchivo, string usuario, string contraseña)
+        private void SubirArchivoCarpeta(string ip_servidor, string rutaAbsolutaArchivo, string nombreArchivo, string usuario, string contraseña)
         {
-            FtpWebRequest SubirArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ip_servidor + "/" + nombre_carpeta + "/" + nombreArchivo);
-            SubirArchivo.Credentials = new NetworkCredential(usuario, contraseña);
-            SubirArchivo.Method = WebRequestMethods.Ftp.UploadFile;
-            FtpWebResponse ftpResponse = (FtpWebResponse)SubirArchivo.GetResponse();
-
-            using (Stream fileStream = File.OpenRead(rutaAbsolutaArchivo))
-            using (Stream ftpStream = SubirArchivo.GetRequestStream())
+            try
             {
-                fileStream.CopyTo(ftpStream);
+                FtpWebRequest SubirArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ip_servidor + GetCurrentNodeName() + "/" + nombreArchivo);
+                SubirArchivo.Credentials = new NetworkCredential(usuario, contraseña);
+                SubirArchivo.Method = WebRequestMethods.Ftp.UploadFile;
+                FtpWebResponse ftpResponse = (FtpWebResponse)SubirArchivo.GetResponse();
+
+                using (Stream fileStream = File.OpenRead(rutaAbsolutaArchivo))
+                using (Stream ftpStream = SubirArchivo.GetRequestStream())
+                {
+                    fileStream.CopyTo(ftpStream);
+                }
+            }
+            catch
+            { }
+        }
+
+        //Funcion para borrar archivos FTP
+        private void BorrarArchivos(string ip_servidor, string usuario, string contraseña)
+        {
+            string nombreArchivo;
+            nombreArchivo = GetCurrentNodeName();
+            if (!(nombreArchivo == null))
+            {
+                try
+                {
+                    FtpWebRequest BorrarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ip_servidor + GetCurrentNodeName());
+                    BorrarArchivo.Credentials = new NetworkCredential(usuario, contraseña);
+                    BorrarArchivo.Method = WebRequestMethods.Ftp.DeleteFile;
+                    FtpWebResponse ftpResponse = (FtpWebResponse)BorrarArchivo.GetResponse();
+                    VisorArchivos.SelectedNode.Remove();
+                }
+                catch
+                {
+                }
             }
         }
-#endregion
+
+        //Funcion para borrar Carpetas FTP
+        private void BorrarDirectorios(string ip_servidor, string usuario, string contraseña)
+        {
+            string NombreCarpeta;
+            NombreCarpeta = GetCurrentNodeName();
+            if (!(NombreCarpeta == null))
+            {
+                try
+                {
+                    FtpWebRequest BorrarDirectorio = (FtpWebRequest)WebRequest.Create("ftp://" + ip_servidor + GetCurrentNodeName());
+                    BorrarDirectorio.Credentials = new NetworkCredential(usuario, contraseña);
+                    BorrarDirectorio.Method = WebRequestMethods.Ftp.RemoveDirectory;
+                    FtpWebResponse ftpResponse = (FtpWebResponse)BorrarDirectorio.GetResponse();
+                    VisorArchivos.SelectedNode.Remove();
+                }
+                catch { }
+            }
+        }
+
+        //Explorador archivos para subir al servidor      
+        private void AbrirExploradorSubirArchivos()
+        {
+            string RutaArchivo;
+
+            //Abrir Explorador de Archivos
+            ExploradorArchivos.InitialDirectory = "C:\\";
+            ExploradorArchivos.Filter = "Archivos EDI (*.EDI)|*.EDI|All files (*.*)|*.*";
+            ExploradorArchivos.FilterIndex = 0;
+            ExploradorArchivos.RestoreDirectory = true;
+
+            if (ExploradorArchivos.ShowDialog() == DialogResult.OK)
+            {
+                //Guardar ruta del archivo seleccionado
+                RutaArchivo = ExploradorArchivos.FileName;
+
+                //SubirArchivo a esa carpeta
+                SubirArchivoCarpeta(txtb_Servidor.Text.Trim(), RutaArchivo, ExploradorArchivos.SafeFileName, txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
+
+                //Actualizar Arbol
+                ActualizarArbol(NombreArbol);
+            }
+        }
+
+        //Obtener la ruta completa del nodo seleccionado en el TreeView 
+        private string GetCurrentNodeName()
+        {
+            string name = null;
+
+            try
+            {
+                name = VisorArchivos.SelectedNode.FullPath;
+                name = name.Substring(1);
+            }
+            catch
+            {  }
+
+            return name;
+        }
+
+        #endregion
 
         private Image TakeImg(string mode, string name)
         {
@@ -262,6 +382,9 @@ namespace RecepcióComandes
         private OpenFileDialog ExploradorArchivos = new OpenFileDialog();
         private Uri CadenaConnexionFTP = new Uri("ftp://8.8.8.8/");
 
+        //Nombre primer nodo del arbol
+        private static string NombreArbol = "/";
+
         //Codigo que se ejecuta al inicio
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
@@ -283,7 +406,37 @@ namespace RecepcióComandes
 
             //Objeto conexión 
             CadenaConnexionFTP = new Uri("ftp://" + txtb_Servidor.Text + "/");
-    }
+
+
+            //Crear Menú Contextual.
+            ContextMenuStrip docMenu = new ContextMenuStrip();
+
+            //Items del menú.
+            ToolStripMenuItem AbrirNodo = new ToolStripMenuItem();
+            AbrirNodo.Text = "Abrir nodo";
+            ToolStripMenuItem BorrarArchivo = new ToolStripMenuItem();
+            BorrarArchivo.Text = "Borrar archivo";
+            ToolStripMenuItem BorrarCarpeta = new ToolStripMenuItem();
+            BorrarCarpeta.Text = "Borrar carpeta";
+            ToolStripMenuItem CrearCarpeta = new ToolStripMenuItem();
+            CrearCarpeta.Text = "Crear carpeta";
+            ToolStripMenuItem SubirArchivo = new ToolStripMenuItem();
+            SubirArchivo.Text = "Subir Archivo";
+
+            //Añadir items al menú
+            docMenu.Items.AddRange(new ToolStripMenuItem[]{ AbrirNodo, BorrarArchivo, BorrarCarpeta, CrearCarpeta, SubirArchivo});
+
+            //Asignar menú al control.
+            VisorArchivos.ContextMenuStrip = docMenu;
+
+            //Eventos
+            AbrirNodo.Click += (se, ev) => VisorArchivos.SelectedNode.Expand();
+            BorrarArchivo.Click += (se, ev) => BorrarArchivos(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text);
+            BorrarCarpeta.Click += (se, ev) => BorrarDirectorios(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text);
+            CrearCarpeta.Click += (se, ev) => CrearCarpetaFTP();
+            SubirArchivo.Click += (se, ev) => AbrirExploradorSubirArchivos();
+
+        }
 
         //Botón para cambiar la ruta donde se guardan los archivos descargados
         private void btn_CambiarCarpetaDescargas_Click(object sender, EventArgs e)
@@ -342,34 +495,7 @@ namespace RecepcióComandes
         //Botón para conectarse y comprobar si hay cambios en los archivos
         private void btn_Check_Click(object sender, EventArgs e)
         {
-            VisorArchivos.BeginUpdate();
-            VisorArchivos.Nodes.Clear();
-            VisorArchivos.Nodes.Add(CreateDirectoryNode(CadenaConnexionFTP.ToString(), "Directori Principal"));
-            VisorArchivos.EndUpdate();
-        }
-
-        //Explorador archivos para subir al servidor      
-        private void btn_AbrirArchivos_Click(object sender, EventArgs e)
-        {
-            string RutaArchivo;
-
-            //Abrir Explorador de Archivos
-            ExploradorArchivos.InitialDirectory = "C:\\";
-            ExploradorArchivos.Filter = "Archivos EDI (*.EDI)|*.EDI|All files (*.*)|*.*";
-            ExploradorArchivos.FilterIndex = 0;
-            ExploradorArchivos.RestoreDirectory = true;
-
-            if (ExploradorArchivos.ShowDialog() == DialogResult.OK)
-            {
-                //Guardar ruta del archivo seleccionado
-                RutaArchivo = ExploradorArchivos.FileName;
-
-                //CrearCarpeta
-                CrearCarpeta(txtb_Servidor.Text.Trim(), "testFolder", txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
-
-                //SubirArchivo a esa carpeta
-                SubirArchivoCarpeta(txtb_Servidor.Text.Trim(), "testFolder", RutaArchivo, ExploradorArchivos.SafeFileName, txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
-            }
+            ActualizarArbol(NombreArbol);
         }
     }
 }

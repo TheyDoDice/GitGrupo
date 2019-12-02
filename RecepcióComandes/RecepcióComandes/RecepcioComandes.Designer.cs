@@ -49,7 +49,6 @@
             this.lbl_RutaGuardar = new System.Windows.Forms.Label();
             this.btn_Check = new System.Windows.Forms.Button();
             this.btn_Processar = new System.Windows.Forms.Button();
-            this.btn_AbrirArchivos = new System.Windows.Forms.Button();
             this.btn_CambiarCarpetaDescargas = new System.Windows.Forms.Button();
             this.lbl_ServidorFTP = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -259,6 +258,7 @@
             this.VisorArchivos.LineColor = System.Drawing.Color.White;
             this.VisorArchivos.Location = new System.Drawing.Point(12, 137);
             this.VisorArchivos.Name = "VisorArchivos";
+            this.VisorArchivos.PathSeparator = "/";
             this.VisorArchivos.Size = new System.Drawing.Size(382, 496);
             this.VisorArchivos.TabIndex = 1;
             // 
@@ -293,7 +293,7 @@
             this.btn_Check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Check.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Check.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Check.Location = new System.Drawing.Point(541, 137);
+            this.btn_Check.Location = new System.Drawing.Point(417, 137);
             this.btn_Check.Name = "btn_Check";
             this.btn_Check.Size = new System.Drawing.Size(86, 30);
             this.btn_Check.TabIndex = 3;
@@ -307,26 +307,12 @@
             this.btn_Processar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Processar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Processar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Processar.Location = new System.Drawing.Point(633, 137);
+            this.btn_Processar.Location = new System.Drawing.Point(509, 137);
             this.btn_Processar.Name = "btn_Processar";
             this.btn_Processar.Size = new System.Drawing.Size(86, 30);
             this.btn_Processar.TabIndex = 4;
             this.btn_Processar.Text = "Procesar";
             this.btn_Processar.UseVisualStyleBackColor = false;
-            // 
-            // btn_AbrirArchivos
-            // 
-            this.btn_AbrirArchivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_AbrirArchivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AbrirArchivos.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AbrirArchivos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_AbrirArchivos.Location = new System.Drawing.Point(417, 137);
-            this.btn_AbrirArchivos.Name = "btn_AbrirArchivos";
-            this.btn_AbrirArchivos.Size = new System.Drawing.Size(118, 30);
-            this.btn_AbrirArchivos.TabIndex = 2;
-            this.btn_AbrirArchivos.Text = "Abrir Archivos";
-            this.btn_AbrirArchivos.UseVisualStyleBackColor = false;
-            this.btn_AbrirArchivos.Click += new System.EventHandler(this.btn_AbrirArchivos_Click);
             // 
             // btn_CambiarCarpetaDescargas
             // 
@@ -362,7 +348,6 @@
             this.ClientSize = new System.Drawing.Size(1152, 695);
             this.Controls.Add(this.lbl_ServidorFTP);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
-            this.Controls.Add(this.btn_AbrirArchivos);
             this.Controls.Add(this.btn_Processar);
             this.Controls.Add(this.barraSuperior);
             this.Controls.Add(this.btn_Check);
@@ -406,7 +391,6 @@
         private System.Windows.Forms.Label lbl_RutaGuardar;
         private System.Windows.Forms.Button btn_Check;
         private System.Windows.Forms.Button btn_Processar;
-        private System.Windows.Forms.Button btn_AbrirArchivos;
         private System.Windows.Forms.Button btn_CambiarCarpetaDescargas;
         private System.Windows.Forms.ComboBox cbx_Impresora;
         private System.Windows.Forms.Label lbl_impresora;
