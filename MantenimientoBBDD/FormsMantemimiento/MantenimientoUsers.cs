@@ -10,6 +10,8 @@ namespace FormsMantemimiento
 {
     public partial class MantenimientoUsers : MantenimientoBBDD.MantenimientoGenerico
     {
+        public static System.Drawing.Printing.PrinterSettings.StringCollection InstalledPrinters { get; }
+
         public MantenimientoUsers()
         {
             InitializeComponent();
@@ -21,8 +23,8 @@ namespace FormsMantemimiento
             {
                 int id = (int)(dataGridView1.SelectedRows[0].Cells[0].Value);
 
-                CrystalReportUser cru = new CrystalReportUser(id, swt_codeUser.Text);
-                cru.Show();
+                //CrystalReportUser cru = new CrystalReportUser(id, swt_codeUser.Text);
+                //cru.Show();
             }
             catch (Exception)
             {

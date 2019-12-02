@@ -90,17 +90,9 @@ namespace FormsMantemimiento.CrystalReport {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_barcode {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.Shared.IParameterField Parameter_id {
             get {
-                return this.DataDefinition.ParameterFields[1];
+                return this.DataDefinition.ParameterFields[0];
             }
         }
     }

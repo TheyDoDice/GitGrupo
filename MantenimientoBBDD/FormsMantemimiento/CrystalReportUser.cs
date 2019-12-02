@@ -26,13 +26,9 @@ namespace FormsMantemimiento
         {
             this.CenterToScreen();
 
-            //GeneratedBarcode barcode = BarcodeWriter.CreateBarcode(code, BarcodeWriterEncoding.Code128);
-            //barcode.SaveAsPng(@"\Img\barcode\"+code+".png");
-
             ReportDocument rpd = new ReportDocument();
             rpd.Load(Application.StartupPath + @"\CrystalReport\CRUsers.rpt");
             rpd.SetParameterValue("id", id);
-            rpd.SetParameterValue("barcode", "a");
             rpd.SetDatabaseLogon("TheyDoDice", "123456aA");
             crystalReportViewer.ReportSource = rpd;
         }
