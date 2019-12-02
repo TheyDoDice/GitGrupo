@@ -9,11 +9,14 @@ using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-using System.Runtime;
+using LibreriaFTP;
+
 namespace RecepcióComandes
 {
     public partial class RecepcióDeComandes : Form
     {
+        
+
         public RecepcióDeComandes()
         {
             InitializeComponent();
@@ -227,7 +230,9 @@ namespace RecepcióComandes
             VisorArchivos.BeginUpdate();
             VisorArchivos.Nodes.Clear();
             VisorArchivos.Nodes.Add(CreateDirectoryNode(CadenaConnexionFTP.ToString(), NombrePrimerNodo));
+           //VisorArchivos.Nodes.Add(ftp.CrearArbol(CadenaConnexionFTP.ToString(), NombrePrimerNodo, txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim()));
             VisorArchivos.EndUpdate();
+            VisorArchivos.ExpandAll();
         }
 
         #endregion
@@ -238,25 +243,23 @@ namespace RecepcióComandes
         public void CrearCarpetaFTP()
         {
             string NombreCampo;
-            NombreCampo = Microsoft.VisualBasic.Interaction.InputBox("Escriba el nombre de la carpeta.", "Crear carpeta", "Nueva carpeta");
-            if (NombreCampo == null||NombreCampo == "")
+            NombreCampo = Microsoft.VisualBasic.Interaction.InputBox("Escriba el nombre de la carpeta.", "Crear carpeta");
+            if (!(NombreCampo.Trim() == ""||VisorArchivos.SelectedNode.SelectedImageIndex == 1))
             {
-                NombreCampo = "Nueva carpeta";
-            }
+                //Añadir nodo
+                VisorArchivos.SelectedNode.Nodes.Add(NombreCampo);
 
-            //Añadir nodo
-            VisorArchivos.SelectedNode.Nodes.Add(NombreCampo);
-
-            //CrearCarpeta en el servidor FTP
-            try
-            {
-                FtpWebRequest CrearCarpeta = (FtpWebRequest)WebRequest.Create("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName() + "/" + NombreCampo);
-                CrearCarpeta.Credentials = new NetworkCredential(txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
-                CrearCarpeta.Method = WebRequestMethods.Ftp.MakeDirectory;
-                FtpWebResponse ftpResponse = (FtpWebResponse)CrearCarpeta.GetResponse();
+                //CrearCarpeta en el servidor FTP
+                try
+                {
+                    FtpWebRequest CrearCarpeta = (FtpWebRequest)WebRequest.Create("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName() + "/" + NombreCampo);
+                    CrearCarpeta.Credentials = new NetworkCredential(txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
+                    CrearCarpeta.Method = WebRequestMethods.Ftp.MakeDirectory;
+                    FtpWebResponse ftpResponse = (FtpWebResponse)CrearCarpeta.GetResponse();
+                }
+                catch
+                { }
             }
-            catch
-            { }
         }
 
         //Funcion para subir un archivo a una carpeta FTP
@@ -382,6 +385,8 @@ namespace RecepcióComandes
         private OpenFileDialog ExploradorArchivos = new OpenFileDialog();
         private Uri CadenaConnexionFTP = new Uri("ftp://8.8.8.8/");
 
+        LibreriaFTP.FTP ftp = new LibreriaFTP.FTP();
+
         //Nombre primer nodo del arbol
         private static string NombreArbol = "/";
 
@@ -406,7 +411,6 @@ namespace RecepcióComandes
 
             //Objeto conexión 
             CadenaConnexionFTP = new Uri("ftp://" + txtb_Servidor.Text + "/");
-
 
             //Crear Menú Contextual.
             ContextMenuStrip docMenu = new ContextMenuStrip();
@@ -435,7 +439,6 @@ namespace RecepcióComandes
             BorrarCarpeta.Click += (se, ev) => BorrarDirectorios(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text);
             CrearCarpeta.Click += (se, ev) => CrearCarpetaFTP();
             SubirArchivo.Click += (se, ev) => AbrirExploradorSubirArchivos();
-
         }
 
         //Botón para cambiar la ruta donde se guardan los archivos descargados
