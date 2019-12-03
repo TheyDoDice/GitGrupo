@@ -92,50 +92,27 @@ namespace RecepcióComandes
         private TreeNode CreateDirectoryNode(string path, string name)
         {
             var directoryNode = new TreeNode(name);
-            var directoryListing = GetDirectoryListing(path);
 
-            var directories = directoryListing.Where(d => d.IsDirectory);
-            var files = directoryListing.Where(d => !d.IsDirectory);
-
-            foreach (var dir in directories)
+            foreach (var dir in GetDirectoryListing(path).Where(d => d.IsDirectory))
             {
                 directoryNode.Nodes.Add(CreateDirectoryNode(dir.FullPath, dir.Name));
             }
-            foreach (var file in files)
+            foreach (var file in GetDirectoryListing(path).Where(d => !d.IsDirectory))
             {
                 directoryNode.Nodes.Add(new TreeNode(file.Name).ToString(), file.Name.ToString(), 1, 1);
             }
             return directoryNode;
         }
 
-        public class FTPListDetail
-        {
-            public bool IsDirectory
-            {
-                get
-                {
-                    return !string.IsNullOrWhiteSpace(Dir) && Dir.ToLower().Equals("d");
-                }
-            }
-            internal string Dir { get; set; }
-            public string Permission { get; set; }
-            public string Filecode { get; set; }
-            public string Owner { get; set; }
-            public string Group { get; set; }
-            public string Name { get; set; }
-            public string FullPath { get; set; }
-        }
-
-        public IEnumerable<FTPListDetail> GetDirectoryListing(string rootUri)
+        public List<FTPListDetail> GetDirectoryListing(string path)
         {
             try
             {
-                var CurrentRemoteDirectory = rootUri;
-                var result = new StringBuilder();
-                var request = GetWebRequest(WebRequestMethods.Ftp.ListDirectoryDetails, CurrentRemoteDirectory);
+                StringBuilder result = new StringBuilder();
+                FtpWebRequest request = GetWebRequest(WebRequestMethods.Ftp.ListDirectoryDetails, path);
                 using (var response = request.GetResponse())
                 {
-                    using (var reader = new StreamReader(response.GetResponseStream()))
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
                     {
                         string line = reader.ReadLine();
                         while (line != null)
@@ -151,26 +128,26 @@ namespace RecepcióComandes
                         result.Remove(result.ToString().LastIndexOf("\n"), 1);
                         var results = result.ToString().Split('\n');
                         string regex =
-                            @"^" +               //# Start of line
-                            @"(?<dir>[\-ld])" +          //# File size          
-                            @"(?<permission>[\-rwx]{9})" +            //# Whitespace          \n
-                            @"\s+" +            //# Whitespace          \n
+                            @"^" +                          //# Start of line
+                            @"(?<dir>[\-ld])" +             //# File size          
+                            @"(?<permission>[\-rwx]{9})" +  //# Whitespace          
+                            @"\s+" +                        //# Whitespace          
                             @"(?<filecode>\d+)" +
-                            @"\s+" +            //# Whitespace          \n
+                            @"\s+" +                        //# Whitespace          
                             @"(?<owner>\w+)" +
-                            @"\s+" +            //# Whitespace          \n
+                            @"\s+" +                        //# Whitespace          
                             @"(?<group>\w+)" +
-                            @"\s+" +            //# Whitespace          \n
+                            @"\s+" +                        //# Whitespace          
                             @"(?<size>\d+)" +
-                            @"\s+" +            //# Whitespace          \n
-                            @"(?<month>\w{3})" +          //# Month (3 letters)   \n
-                            @"\s+" +            //# Whitespace          \n
-                            @"(?<day>\d{1,2})" +        //# Day (1 or 2 digits) \n
-                            @"\s+" +            //# Whitespace          \n
-                            @"(?<timeyear>[\d:]{4,5})" +     //# Time or year        \n
-                            @"\s+" +            //# Whitespace          \n
-                            @"(?<filename>(.*))" +            //# Filename            \n
-                            @"$";                //# End of line
+                            @"\s+" +                        //# Whitespace          
+                            @"(?<month>\w{3})" +            //# Month (3 letters)   
+                            @"\s+" +                        //# Whitespace          
+                            @"(?<day>\d{1,2})" +            //# Day (1 or 2 digits) 
+                            @"\s+" +                        //# Whitespace          
+                            @"(?<timeyear>[\d:]{4,5})" +    //# Time or year        
+                            @"\s+" +                        //# Whitespace          
+                            @"(?<filename>(.*))" +          //# Filename            
+                            @"$";                           //# End of line
 
                         var myresult = new List<FTPListDetail>();
                         foreach (var parsed in results)
@@ -188,7 +165,7 @@ namespace RecepcióComandes
                                 Dir = dir,
                                 Filecode = filecode,
                                 Group = group,
-                                FullPath = CurrentRemoteDirectory + "/" + filename,
+                                FullPath = path + "/" + filename,
                                 Name = filename,
                                 Owner = owner,
                                 Permission = permission,
@@ -204,9 +181,9 @@ namespace RecepcióComandes
             }
         }
 
-        private FtpWebRequest GetWebRequest(string method, string uri)
+        private FtpWebRequest GetWebRequest(string method, string path)
         {
-            Uri serverUri = new Uri(uri);
+            Uri serverUri = new Uri(path);
             if (serverUri.Scheme != Uri.UriSchemeFtp)
             {
                 return null;
@@ -230,7 +207,6 @@ namespace RecepcióComandes
             VisorArchivos.BeginUpdate();
             VisorArchivos.Nodes.Clear();
             VisorArchivos.Nodes.Add(CreateDirectoryNode(CadenaConnexionFTP.ToString(), NombrePrimerNodo));
-           //VisorArchivos.Nodes.Add(ftp.CrearArbol(CadenaConnexionFTP.ToString(), NombrePrimerNodo, txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim()));
             VisorArchivos.EndUpdate();
             VisorArchivos.ExpandAll();
         }

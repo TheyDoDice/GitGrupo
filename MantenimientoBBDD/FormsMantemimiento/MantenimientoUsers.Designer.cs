@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoUsers));
             this.swt_idSpecie = new CC_Library.SWTextbox();
             this.swt_idPlanet = new CC_Library.SWTextbox();
             this.swt_idUserCategory = new CC_Library.SWTextbox();
@@ -52,6 +53,8 @@
             this.swc_UserCategory = new CC_Library.SWCodi();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_imprimir = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.SuspendLayout();
             // 
             // swt_idSpecie
@@ -398,11 +401,26 @@
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
             this.btn_imprimir.Location = new System.Drawing.Point(715, 154);
             this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(117, 29);
+            this.btn_imprimir.Size = new System.Drawing.Size(103, 29);
             this.btn_imprimir.TabIndex = 126;
             this.btn_imprimir.Text = "Imprimir";
             this.btn_imprimir.UseVisualStyleBackColor = false;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // MantenimientoUsers
             // 
@@ -434,6 +452,7 @@
             this.Controls.Add(this.swc_UserCategory);
             this.Name = "MantenimientoUsers";
             this.tabla = "Users";
+            this.Load += new System.EventHandler(this.MantenimientoUsers_Load);
             this.Controls.SetChildIndex(this.swc_UserCategory, 0);
             this.Controls.SetChildIndex(this.lbl_UserPlanet, 0);
             this.Controls.SetChildIndex(this.lbl_UserCategory, 0);
@@ -489,5 +508,7 @@
         private CC_Library.SWCodi swc_UserCategory;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_imprimir;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

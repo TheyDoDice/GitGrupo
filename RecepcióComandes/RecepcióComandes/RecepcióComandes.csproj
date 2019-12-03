@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FTPListDetail.cs" />
     <Compile Include="RecepcioComandes.cs">
       <SubType>Form</SubType>
     </Compile>
