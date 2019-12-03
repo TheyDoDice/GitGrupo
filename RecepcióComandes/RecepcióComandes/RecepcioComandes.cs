@@ -204,11 +204,26 @@ namespace RecepcióComandes
 
         private void ActualizarArbol(string NombrePrimerNodo)
         {
+            
+            int itemsAntiguos = VisorArchivos.GetNodeCount(true);
             VisorArchivos.BeginUpdate();
             VisorArchivos.Nodes.Clear();
             VisorArchivos.Nodes.Add(CreateDirectoryNode(CadenaConnexionFTP.ToString(), NombrePrimerNodo));
+            int itemsNuevos = VisorArchivos.GetNodeCount(true);
             VisorArchivos.EndUpdate();
             VisorArchivos.ExpandAll();
+            if (itemsAntiguos < itemsNuevos)
+            {
+                label1.Text = "Actualizando... [Items: " +(itemsNuevos - itemsAntiguos) + " nuevos]";
+            }
+            else if (itemsAntiguos > itemsNuevos)
+            {
+                label1.Text = "Actualizando... [Items: " + (itemsAntiguos - itemsNuevos) + " eliminados]";
+            }
+            else
+            {
+                label1.Text = "Actualizando...";
+            }
         }
 
         #endregion
@@ -259,7 +274,7 @@ namespace RecepcióComandes
         }
 
         //Funcion para borrar archivos FTP
-        private void BorrarArchivos(string ip_servidor, string usuario, string contraseña)
+        private void BorrarArchivosDir(string ip_servidor, string usuario, string contraseña, bool archivos)
         {
             string nombreArchivo;
             nombreArchivo = GetCurrentNodeName();
@@ -269,32 +284,20 @@ namespace RecepcióComandes
                 {
                     FtpWebRequest BorrarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ip_servidor + GetCurrentNodeName());
                     BorrarArchivo.Credentials = new NetworkCredential(usuario, contraseña);
-                    BorrarArchivo.Method = WebRequestMethods.Ftp.DeleteFile;
+                    if (archivos)
+                    {
+                        BorrarArchivo.Method = WebRequestMethods.Ftp.DeleteFile;
+                    }
+                    else
+                    {
+                        BorrarArchivo.Method = WebRequestMethods.Ftp.RemoveDirectory;
+                    }
                     FtpWebResponse ftpResponse = (FtpWebResponse)BorrarArchivo.GetResponse();
                     VisorArchivos.SelectedNode.Remove();
                 }
                 catch
                 {
                 }
-            }
-        }
-
-        //Funcion para borrar Carpetas FTP
-        private void BorrarDirectorios(string ip_servidor, string usuario, string contraseña)
-        {
-            string NombreCarpeta;
-            NombreCarpeta = GetCurrentNodeName();
-            if (!(NombreCarpeta == null))
-            {
-                try
-                {
-                    FtpWebRequest BorrarDirectorio = (FtpWebRequest)WebRequest.Create("ftp://" + ip_servidor + GetCurrentNodeName());
-                    BorrarDirectorio.Credentials = new NetworkCredential(usuario, contraseña);
-                    BorrarDirectorio.Method = WebRequestMethods.Ftp.RemoveDirectory;
-                    FtpWebResponse ftpResponse = (FtpWebResponse)BorrarDirectorio.GetResponse();
-                    VisorArchivos.SelectedNode.Remove();
-                }
-                catch { }
             }
         }
 
@@ -332,8 +335,7 @@ namespace RecepcióComandes
                 name = VisorArchivos.SelectedNode.FullPath;
                 name = name.Substring(1);
             }
-            catch
-            {  }
+            catch { }
 
             return name;
         }
@@ -388,33 +390,33 @@ namespace RecepcióComandes
             //Objeto conexión 
             CadenaConnexionFTP = new Uri("ftp://" + txtb_Servidor.Text + "/");
 
-            //Crear Menú Contextual.
-            ContextMenuStrip docMenu = new ContextMenuStrip();
-
             //Items del menú.
-            ToolStripMenuItem AbrirNodo = new ToolStripMenuItem();
-            AbrirNodo.Text = "Abrir nodo";
-            ToolStripMenuItem BorrarArchivo = new ToolStripMenuItem();
-            BorrarArchivo.Text = "Borrar archivo";
-            ToolStripMenuItem BorrarCarpeta = new ToolStripMenuItem();
-            BorrarCarpeta.Text = "Borrar carpeta";
-            ToolStripMenuItem CrearCarpeta = new ToolStripMenuItem();
-            CrearCarpeta.Text = "Crear carpeta";
-            ToolStripMenuItem SubirArchivo = new ToolStripMenuItem();
-            SubirArchivo.Text = "Subir Archivo";
+            ToolStripMenuItem AbrirNodo = new ToolStripMenuItem("Abrir nodo");
+            ToolStripMenuItem BorrarArchivo = new ToolStripMenuItem("Borrar archivo");
+            ToolStripMenuItem BorrarCarpeta = new ToolStripMenuItem("Borrar carpeta");
+            ToolStripMenuItem CrearCarpeta = new ToolStripMenuItem("Crear carpeta");
+            ToolStripMenuItem SubirArchivo = new ToolStripMenuItem("Subir Archivo");
 
-            //Añadir items al menú
-            docMenu.Items.AddRange(new ToolStripMenuItem[]{ AbrirNodo, BorrarArchivo, BorrarCarpeta, CrearCarpeta, SubirArchivo});
 
-            //Asignar menú al control.
+            ContextMenuStrip docMenu = new ContextMenuStrip();
+            docMenu.Items.AddRange(
+                new ToolStripMenuItem[]{
+                    AbrirNodo,
+                    BorrarArchivo,
+                    BorrarCarpeta,
+                    CrearCarpeta,
+                    SubirArchivo
+                }
+            );
+
             VisorArchivos.ContextMenuStrip = docMenu;
 
             //Eventos
-            AbrirNodo.Click += (se, ev) => VisorArchivos.SelectedNode.Expand();
-            BorrarArchivo.Click += (se, ev) => BorrarArchivos(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text);
-            BorrarCarpeta.Click += (se, ev) => BorrarDirectorios(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text);
-            CrearCarpeta.Click += (se, ev) => CrearCarpetaFTP();
-            SubirArchivo.Click += (se, ev) => AbrirExploradorSubirArchivos();
+            AbrirNodo.Click     += (se, ev) => VisorArchivos.SelectedNode.Expand();
+            BorrarArchivo.Click += (se, ev) => BorrarArchivosDir(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text, true);
+            BorrarCarpeta.Click += (se, ev) => BorrarArchivosDir(txtb_Servidor.Text, txtb_Usuario.Text, txtb_Contraseña.Text, false);
+            CrearCarpeta.Click  += (se, ev) => CrearCarpetaFTP();
+            SubirArchivo.Click  += (se, ev) => AbrirExploradorSubirArchivos();
         }
 
         //Botón para cambiar la ruta donde se guardan los archivos descargados
