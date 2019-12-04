@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearTreeNode.cs" />
     <Compile Include="FTPListDetail.cs" />
+    <Compile Include="gestionServidorFTP.cs" />
     <Compile Include="RecepcioComandes.cs">
       <SubType>Form</SubType>
     </Compile>
