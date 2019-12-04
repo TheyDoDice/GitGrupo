@@ -387,8 +387,7 @@ namespace RecepcióComandes
 
                 foreach (string line in lines)
                 {
-                    string[] tokens =
-                      line.Split(new[] { ' ' }, 9, StringSplitOptions.RemoveEmptyEntries);
+                    string[] tokens = line.Split(new[] { ' ' }, 9, StringSplitOptions.RemoveEmptyEntries);
                     string name = tokens[8];
                     string permissions = tokens[0];
 
@@ -416,17 +415,10 @@ namespace RecepcióComandes
             }
             catch
             {
-                try
-                {
-                    FtpWebRequest BorrarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName());
-                    BorrarArchivo.Credentials = new NetworkCredential(txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
-                    BorrarArchivo.Method = WebRequestMethods.Ftp.DeleteFile;
-                    FtpWebResponse ftpResponse = (FtpWebResponse)BorrarArchivo.GetResponse();
-                }
-                catch
-                {
-
-                }
+                FtpWebRequest BorrarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName());
+                BorrarArchivo.Credentials = new NetworkCredential(txtb_Usuario.Text.Trim(), txtb_Contraseña.Text.Trim());
+                BorrarArchivo.Method = WebRequestMethods.Ftp.DeleteFile;
+                FtpWebResponse ftpResponse = (FtpWebResponse)BorrarArchivo.GetResponse();
             }
         }
 
