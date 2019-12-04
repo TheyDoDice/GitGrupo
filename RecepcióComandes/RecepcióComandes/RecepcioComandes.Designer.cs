@@ -97,7 +97,7 @@
             this.groupBox1.Controls.Add(this.txtb_Servidor);
             this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1116, 58);
+            this.groupBox1.Size = new System.Drawing.Size(1144, 58);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -105,11 +105,12 @@
             // 
             this.cbx_Impresora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
             this.cbx_Impresora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_Impresora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.cbx_Impresora.ForeColor = System.Drawing.SystemColors.Window;
             this.cbx_Impresora.FormattingEnabled = true;
-            this.cbx_Impresora.Location = new System.Drawing.Point(876, 20);
+            this.cbx_Impresora.Location = new System.Drawing.Point(876, 17);
             this.cbx_Impresora.Name = "cbx_Impresora";
-            this.cbx_Impresora.Size = new System.Drawing.Size(100, 21);
+            this.cbx_Impresora.Size = new System.Drawing.Size(154, 26);
             this.cbx_Impresora.TabIndex = 5;
             // 
             // btn_Guardar
@@ -119,7 +120,7 @@
             this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Guardar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Guardar.Location = new System.Drawing.Point(1020, 17);
+            this.btn_Guardar.Location = new System.Drawing.Point(1052, 13);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(86, 30);
             this.btn_Guardar.TabIndex = 6;
@@ -211,14 +212,14 @@
             this.barraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraSuperior.Location = new System.Drawing.Point(0, 0);
             this.barraSuperior.Name = "barraSuperior";
-            this.barraSuperior.Size = new System.Drawing.Size(1152, 35);
+            this.barraSuperior.Size = new System.Drawing.Size(1180, 35);
             this.barraSuperior.TabIndex = 7;
             // 
             // ptb_maximize
             // 
             this.ptb_maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptb_maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_maximize.Location = new System.Drawing.Point(1083, 0);
+            this.ptb_maximize.Location = new System.Drawing.Point(1111, 0);
             this.ptb_maximize.Name = "ptb_maximize";
             this.ptb_maximize.Padding = new System.Windows.Forms.Padding(9, 10, 9, 8);
             this.ptb_maximize.Size = new System.Drawing.Size(35, 35);
@@ -230,7 +231,7 @@
             // 
             this.ptb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptb_minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_minimize.Location = new System.Drawing.Point(1048, 0);
+            this.ptb_minimize.Location = new System.Drawing.Point(1076, 0);
             this.ptb_minimize.Name = "ptb_minimize";
             this.ptb_minimize.Size = new System.Drawing.Size(35, 35);
             this.ptb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,7 +242,7 @@
             // 
             this.ptb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_close.Location = new System.Drawing.Point(1118, 0);
+            this.ptb_close.Location = new System.Drawing.Point(1146, 0);
             this.ptb_close.Name = "ptb_close";
             this.ptb_close.Size = new System.Drawing.Size(35, 35);
             this.ptb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -273,7 +274,7 @@
             this.txtb_RutaCarpetaDescargas.Location = new System.Drawing.Point(12, 657);
             this.txtb_RutaCarpetaDescargas.Name = "txtb_RutaCarpetaDescargas";
             this.txtb_RutaCarpetaDescargas.ReadOnly = true;
-            this.txtb_RutaCarpetaDescargas.Size = new System.Drawing.Size(1075, 26);
+            this.txtb_RutaCarpetaDescargas.Size = new System.Drawing.Size(1103, 26);
             this.txtb_RutaCarpetaDescargas.TabIndex = 5;
             // 
             // lbl_RutaGuardar
@@ -322,7 +323,7 @@
             this.btn_CambiarCarpetaDescargas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarCarpetaDescargas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_CambiarCarpetaDescargas.Location = new System.Drawing.Point(1093, 657);
+            this.btn_CambiarCarpetaDescargas.Location = new System.Drawing.Point(1121, 657);
             this.btn_CambiarCarpetaDescargas.Name = "btn_CambiarCarpetaDescargas";
             this.btn_CambiarCarpetaDescargas.Size = new System.Drawing.Size(35, 26);
             this.btn_CambiarCarpetaDescargas.TabIndex = 6;
@@ -357,7 +358,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(1152, 695);
+            this.ClientSize = new System.Drawing.Size(1180, 695);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_ServidorFTP);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);

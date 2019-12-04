@@ -22,10 +22,5 @@ namespace RecepcióComandes
         public string Group { get; set; }
         public string Name { get; set; }
         public string FullPath { get; set; }
-
-        public static void metode_1()
-        {
-
-        }
     }
 }

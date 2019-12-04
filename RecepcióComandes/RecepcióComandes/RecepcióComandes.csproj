@@ -81,11 +81,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LibreriaFTP\LibreriaFTP.csproj">
-      <Project>{e4c1d2be-8364-487d-98ee-9417b22b1d72}</Project>
-      <Name>LibreriaFTP</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
