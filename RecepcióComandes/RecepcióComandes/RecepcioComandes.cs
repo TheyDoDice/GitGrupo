@@ -237,7 +237,6 @@ namespace RecepcióComandes
             VisorArchivos.BeginUpdate();
             VisorArchivos.Nodes.Clear();
             VisorArchivos.Nodes.Add(CreateDirectoryNode(CadenaConnexionFTP.ToString(), NombrePrimerNodo));
-            int itemsNuevos = VisorArchivos.GetNodeCount(true);
             VisorArchivos.EndUpdate();
             VisorArchivos.ExpandAll();
             if (itemsAntiguos < itemsNuevos)
@@ -359,7 +358,8 @@ namespace RecepcióComandes
                 name = VisorArchivos.SelectedNode.FullPath;
                 name = name.Substring(1);
             }
-            catch { }
+            catch
+            {  }
 
             return name;
         }
