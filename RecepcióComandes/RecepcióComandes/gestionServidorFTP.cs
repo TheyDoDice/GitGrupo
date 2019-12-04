@@ -28,16 +28,18 @@ namespace RecepcióComandes
             return name;
         }
         //Función para descargar archivos
-        public static void DescargarArchivo(string ipServidor, string userName, string password, TreeView VisorArchivos)
+        public static void DescargarArchivo(string ipServidor, string userName, string password, string RutaLocal, TreeView VisorArchivos)
         {
             try
             {
                 FtpWebRequest DescargarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + GetCurrentNodeName(VisorArchivos));
                 DescargarArchivo.Credentials = new NetworkCredential(userName, password);
                 DescargarArchivo.Method = WebRequestMethods.Ftp.DownloadFile;
-                FtpWebResponse ftpResponse = (FtpWebResponse)DescargarArchivo.GetResponse();
-                //Stream ftpResponseStream = ftpResponse.GetResponseStream();
-                ftpResponse.Close();
+                using (Stream ftpStream = DescargarArchivo.GetResponse().GetResponseStream())
+                using (Stream fileStream = File.Create(RutaLocal + "\\" + VisorArchivos.SelectedNode.Name.ToString().Substring(10)))
+                {
+                    ftpStream.CopyTo(fileStream);
+                }
             }
             catch
             { }

@@ -158,7 +158,7 @@ namespace RecepcióComandes
                 gestionServidorFTP.BorrarDirArchivo("ftp://" + ipServidor + gestionServidorFTP.GetCurrentNodeName(VisorArchivos) + "/", ipServidor, userName, password, VisorArchivos);
                 ActualizarArbol("/");
             };
-            Descargar.Click += (se, ev) => gestionServidorFTP.DescargarArchivo(ipServidor, userName, password, VisorArchivos);
+            Descargar.Click += (se, ev) => gestionServidorFTP.DescargarArchivo(ipServidor, userName, password, CarpetaDescargas, VisorArchivos);
 
             VisorArchivos.MouseDown += (se, ev) => VisorArchivos.SelectedNode = VisorArchivos.GetNodeAt(ev.X, ev.Y);
             
