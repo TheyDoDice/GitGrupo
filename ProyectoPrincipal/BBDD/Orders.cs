@@ -17,6 +17,7 @@ namespace BBDD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Orders()
         {
+            this.OrderInfo = new HashSet<OrderInfo>();
             this.OrdersDetail = new HashSet<OrdersDetail>();
         }
     
@@ -27,6 +28,8 @@ namespace BBDD
         public short IdFactory { get; set; }
     
         public virtual Factories Factories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderInfo> OrderInfo { get; set; }
         public virtual Priority Priority { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrdersDetail> OrdersDetail { get; set; }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7aebcf61fbc47678f7f77b771870ada" Name="Diagram1">
+        <EntityTypeShape EntityType="securecoreModel.Agencies" Width="1.5" PointX="6" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.DefinedRoutes" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Factories" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Filiations" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.MenuOptions" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.MilitaryCamps" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.OperationalAreas" Width="1.5" PointX="6" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.OrderInfo" Width="1.5" PointX="8.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Orders" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.OrdersDetail" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.PlanetRoutes" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Planets" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Priority" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.References" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Regions" Width="1.5" PointX="1.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Routes" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.RouteTypes" Width="1.5" PointX="3.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Sectors" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.SpaceShipCategories" Width="1.5" PointX="3.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.SpaceShips" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.SpaceShipTypes" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Species" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.UserCategories" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.UserRanks" Width="1.5" PointX="6" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="securecoreModel.Users" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="securecoreModel.FK_OrderInfo_Agencies" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_DefinedRoutes_Routes" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Orders_Factories" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Planets_Filiations" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_SpaceShipTypes_Filiations" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_MilitaryCamps_Planets" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_OrderInfo_OperationalAreas" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_OrderInfo_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Orders_Priority" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_OrdersDetail_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_OrdersDetail_Planets" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_OrdersDetail_References" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_PlanetRoutes_Planets" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_PlanetRoutes_Routes" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Planets_Sectors" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Planets_Species" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Users_Planets" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Sectors_Regions" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Routes_RouteTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_SpaceShipTypes_SpaceShipCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_SpaceShips_SpaceShipTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Users_Species" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Users_UserCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="securecoreModel.FK_Users_UserRanks" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
