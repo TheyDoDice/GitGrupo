@@ -19,7 +19,7 @@ namespace BBDD
         public string NomClase { get; set; }
         public string NomDLL { get; set; }
         public string NomPanel { get; set; }
-        public int RangMin { get; set; }
+        public string RangMin { get; set; }
         public string Text { get; set; }
         public string Picture { get; set; }
     }
