@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +60,7 @@ namespace RecepcióComandes
                     }else if (etiqueta == idAtricle)
                     {
                         detail = new OrdersDetail();
-                        detail.idPlanet = getPlanet(lineInfo[1]);
+                        //detail.idPlanet = getPlanet(lineInfo[1]);
                     }
 
 
@@ -78,16 +80,36 @@ namespace RecepcióComandes
             return 0;
         }
 
-        private short getCampo(string code, Object tabla)
-        {
-            Type type = tabla.GetType();
-            string tableName = type.Name;
-            PropertyInfo tableProp = typeof(secureCoreEntities).GetProperty(tableName);
-            Type tableType = tableProp.PropertyType;
+        //private short getCampo(string code, string tabla)
+        //{
+        //    Type type = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(t => t.Name == tabla);
+        //    Type[] typeParameters = type.GetGenericArguments(); 
+        //    foreach(var type in typeParameters)
+        //    {
+                
+        //    }
+                
 
-            object entity = db.Set(tabla.GetType())
 
-        }
+            //Type type = tabla.GetType();
+            //string tableName = type.Name;
+            //PropertyInfo tableProp = typeof(secureCoreEntities).GetProperty(tableName);
+            //Type tableType = tableProp.PropertyType;
+
+            //ParameterExpression p = Expression.Parameter(tabla.GetType());
+            //Expression property = Expression.Property(p, "code"+tableName);
+            //Expression c = Expression.Constant(code);
+            //Expression body = Expression.Equal(property, c);
+            //Expression exp = Expression.Lambda(body, new ParameterExpression[] { p });
+
+            //MethodInfo singleMethod = typeof(Queryable).GetMethods()
+            //    .Single(m => m.Name == "Single" && m.GetParameters().Count() == 2)
+            //    .MakeGenericMethod(domainObject.GetType());
+
+            //DbSet dbSet = context.Set(domainObject.GetType());
+            //object entity = singleMethod.Invoke(null, new object[] { dbSet, exp });
+
+        //}
 
         private short getOperationalArea(string _codeOperationalArea)
         {

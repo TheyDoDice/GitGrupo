@@ -315,6 +315,7 @@
             this.btn_Processar.TabIndex = 4;
             this.btn_Processar.Text = "Procesar";
             this.btn_Processar.UseVisualStyleBackColor = false;
+            this.btn_Processar.Click += new System.EventHandler(this.btn_Processar_Click);
             // 
             // btn_CambiarCarpetaDescargas
             // 

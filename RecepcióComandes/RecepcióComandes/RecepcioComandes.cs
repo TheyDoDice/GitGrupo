@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Drawing.Printing;
+using BBDD;
+using System.Reflection;
 
 namespace RecepcióComandes
 {
@@ -114,13 +116,13 @@ namespace RecepcióComandes
             VisorArchivos.ContextMenuStrip = docMenu;
 
             //Eventos
-            AbrirNodo.Click         += (se, ev) => VisorArchivos.SelectedNode.Expand();
-            CerrarNodo.Click        += (se, ev) => VisorArchivos.SelectedNode.Collapse();
-            CrearCarpeta.Click      += (se, ev) => { CrearCarpetaFTP(); ActualizarArbol(NombreArbol); };
-            SubirArchivo.Click      += (se, ev) => { AbrirExploradorSubirArchivos(); ActualizarArbol(NombreArbol); };
-            Borrar.Click            += (se, ev) => { BorrarDirArchivo("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName() + "/"); ActualizarArbol(NombreArbol); };
+            AbrirNodo.Click += (se, ev) => VisorArchivos.SelectedNode.Expand();
+            CerrarNodo.Click += (se, ev) => VisorArchivos.SelectedNode.Collapse();
+            CrearCarpeta.Click += (se, ev) => { CrearCarpetaFTP(); ActualizarArbol(NombreArbol); };
+            SubirArchivo.Click += (se, ev) => { AbrirExploradorSubirArchivos(); ActualizarArbol(NombreArbol); };
+            Borrar.Click += (se, ev) => { BorrarDirArchivo("ftp://" + txtb_Servidor.Text.Trim() + GetCurrentNodeName() + "/"); ActualizarArbol(NombreArbol); };
             VisorArchivos.MouseDown += (se, ev) => VisorArchivos.SelectedNode = VisorArchivos.GetNodeAt(ev.X, ev.Y);
-            Descargar.Click         += (se, ev) => DescargarArchivo();
+            Descargar.Click += (se, ev) => DescargarArchivo();
         }
 
         private TreeNode CreateDirectoryNode(string path, string name)
@@ -183,7 +185,7 @@ namespace RecepcióComandes
                             @"(?<filename>(.*))" +          //# Filename            
                             @"$";                           //# End of line
 
-                        List <FTPListDetail> myresult = new List<FTPListDetail>();
+                        List<FTPListDetail> myresult = new List<FTPListDetail>();
                         foreach (var parsed in results)
                         {
                             Match split = new Regex(regex).Match(parsed);
@@ -287,7 +289,7 @@ namespace RecepcióComandes
         {
             string NombreCampo;
             NombreCampo = Microsoft.VisualBasic.Interaction.InputBox("Escriba el nombre de la carpeta.", "Crear carpeta");
-            if (!(NombreCampo.Trim() == ""||VisorArchivos.SelectedNode.SelectedImageIndex == 1))
+            if (!(NombreCampo.Trim() == "" || VisorArchivos.SelectedNode.SelectedImageIndex == 1))
             {
                 //Añadir nodo
                 VisorArchivos.SelectedNode.Nodes.Add(NombreCampo);
@@ -471,15 +473,15 @@ namespace RecepcióComandes
             //Leer datos XML y ponerlos en los Textbox
             foreach (XElement node in Credenciales.Descendants("Credencials"))
             {
-                txtb_Servidor.Text              = node.Element("IP").Value;
-                txtb_Puerto.Text                = node.Element("Port").Value;
-                txtb_Usuario.Text               = node.Element("User").Value;
-                txtb_Contraseña.Text            = node.Element("Password").Value;
-                txtb_RutaCarpetaDescargas.Text  = node.Element("CarpetaBaixada").Value;
-                cbx_Impresora.Text     = node.Element("Impressora").Value;
+                txtb_Servidor.Text = node.Element("IP").Value;
+                txtb_Puerto.Text = node.Element("Port").Value;
+                txtb_Usuario.Text = node.Element("User").Value;
+                txtb_Contraseña.Text = node.Element("Password").Value;
+                txtb_RutaCarpetaDescargas.Text = node.Element("CarpetaBaixada").Value;
+                cbx_Impresora.Text = node.Element("Impressora").Value;
             }
 
-          
+
 
             //Objeto conexión 
             CadenaConnexionFTP = new Uri("ftp://" + txtb_Servidor.Text + "/");
@@ -549,5 +551,23 @@ namespace RecepcióComandes
                 Credenciales.Save(RutaArchivoXML);
             }
         }
+
+        private void btn_Processar_Click(object sender, EventArgs e)
+        {
+            short i = getCampo("", "BBDD.Priority");
+        }
+
+        private short getCampo(string code, string tabla)
+        {
+            Assembly a = typeof(Priority).Assembly;
+            Type type = a.GetTypes().First(t => t.ToString() == tabla);
+            Type[] typeParameters = type.GetGenericArguments();
+            foreach (Type t in typeParameters)
+            {
+                MessageBox.Show(t.ToString());
+            }
+            return 0;
+        }
+
     }
 }
