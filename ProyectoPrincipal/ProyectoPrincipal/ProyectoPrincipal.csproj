@@ -43,10 +43,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Proyectos\CC_Library.dll</HintPath>
     </Reference>
-    <Reference Include="GenerarOrder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Proyectos\GenerarOrder.dll</HintPath>
-    </Reference>
     <Reference Include="MantenimientoBBDD, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Proyectos\MantenimientoBBDD.dll</HintPath>

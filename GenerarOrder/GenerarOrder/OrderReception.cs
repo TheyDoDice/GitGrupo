@@ -20,7 +20,7 @@ namespace GenerarOrder
         const string quantitat = "QTYLIN";
         const string dataEntrega = "DTMLIN";
 
-        public void GenerarComanda(string archivo)
+        public bool GenerarComanda(string archivo)
         {
             Orders order = new Orders();
             OrderInfo info = new OrderInfo();
@@ -32,16 +32,15 @@ namespace GenerarOrder
             {
                 while ((line = file.ReadLine()) != null)
                 {
-
+                    
                     string[] lineInfo = line.Split('|');
                     string etiqueta = lineInfo[0];
-
-                    string code1 = lineInfo[1], code2 = lineInfo[2], code3 = lineInfo[3];
+                    string code1 = lineInfo[1], code2 = "", code3 = "";
 
                     if (etiqueta == dadesGenerals)
                     {
                         code2 = lineInfo[2];
-                        order.codeOrder = code1;
+                        order.codeOrder = lineInfo[1];
                         order.Priority = db.Priority.Where(o => o.CodePriority == code2).FirstOrDefault();
                     }
                     else if (etiqueta == dates)
@@ -89,7 +88,20 @@ namespace GenerarOrder
                         db.SaveChanges();
                     }
                 }
+                if(order != null && info != null && detail != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
