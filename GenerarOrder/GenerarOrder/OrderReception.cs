@@ -20,132 +20,77 @@ namespace GenerarOrder
         const string quantitat = "QTYLIN";
         const string dataEntrega = "DTMLIN";
 
-        private void GenerarComanda()
+        public void GenerarComanda(string archivo)
         {
             Orders order = new Orders();
-            OrderInfo orderInfo = new OrderInfo();
-            OrdersDetail detail;
+            OrderInfo info = new OrderInfo();
+            OrdersDetail detail = new OrdersDetail();
 
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\admin\Desktop\new1.edi");
+            System.IO.StreamReader file = new System.IO.StreamReader(archivo);
             string line = file.ReadLine();
             if (line == orderString)
             {
-
                 while ((line = file.ReadLine()) != null)
                 {
+
                     string[] lineInfo = line.Split('|');
                     string etiqueta = lineInfo[0];
 
+                    string code1 = lineInfo[1], code2 = lineInfo[2], code3 = lineInfo[3];
+
                     if (etiqueta == dadesGenerals)
                     {
-                        order.codeOrder = lineInfo[1];
-                        order.IdPriority = getPriority(lineInfo[2]);
+                        code2 = lineInfo[2];
+                        order.codeOrder = code1;
+                        order.Priority = db.Priority.Where(o => o.CodePriority == code2).FirstOrDefault();
                     }
                     else if (etiqueta == dates)
                     {
-                        order.dateOrder = DateTime.ParseExact(lineInfo[1], "yyyyMMdd", CultureInfo.InvariantCulture);
+                        order.dateOrder = DateTime.ParseExact(code1, "yyyyMMdd", CultureInfo.InvariantCulture);
                     }
                     else if (etiqueta == emisor)
                     {
-                        orderInfo.idOperationalArea = getOperationalArea(lineInfo[1]);
-                        orderInfo.idAgency = getAgency(lineInfo[2]);
+                        code2 = lineInfo[2];
+                        info.OperationalAreas = db.OperationalAreas.Where(o => o.CodeOperationalArea == code1).FirstOrDefault();
+                        info.Agencies = db.Agencies.Where(o => o.CodeAgency == code2).FirstOrDefault();
                     }
                     else if (etiqueta == receptor)
                     {
-                        order.IdFactory = getFactory(lineInfo[1]);
+                        order.Factories = db.Factories.Where(o => o.codeFactory == code1).FirstOrDefault();
                         db.Orders.Add(order);
+                        db.SaveChanges();
+
+                        info.Orders = db.Orders.ToList().LastOrDefault();
+                        db.OrderInfo.Add(info);
+
+                        db.SaveChanges();
                     }
                     else if (etiqueta == idAtricle)
                     {
                         detail = new OrdersDetail();
-                        //detail.idPlanet = getPlanet(lineInfo[1]);
+                        detail.Orders = db.Orders.ToList().LastOrDefault();
+
+                        code2 = lineInfo[2];
+                        code3 = lineInfo[3];
+
+                        detail.Planets = db.Planets.Where(o => o.CodePlanet == code1).FirstOrDefault();
+                        detail.References = db.References.Where(o => o.codeReference == code2).FirstOrDefault();
+
                     }
-
-
+                    else if (etiqueta == quantitat)
+                    {
+                        code2 = lineInfo[2];
+                        detail.Quantity = short.Parse(code2);
+                    }
+                    else if (etiqueta == dataEntrega)
+                    {
+                        detail.DeliveryDate = DateTime.ParseExact(code1, "yyyyMMdd", CultureInfo.InvariantCulture);
+                        db.OrdersDetail.Add(detail);
+                        db.SaveChanges();
+                    }
                 }
             }
         }
-
-        private short getPriority(string _codePriority)
-        {
-            foreach (Priority priority in db.Priority)
-            {
-                if (_codePriority == priority.CodePriority)
-                {
-                    return priority.idPriority;
-                }
-            }
-            return 0;
-        }
-
-        //private short getCampo(string code, string tabla)
-        //{
-        //    Type type = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(t => t.Name == tabla);
-        //    Type[] typeParameters = type.GetGenericArguments(); 
-        //    foreach(var type in typeParameters)
-        //    {
-
-        //    }
-
-
-
-        //Type type = tabla.GetType();
-        //string tableName = type.Name;
-        //PropertyInfo tableProp = typeof(secureCoreEntities).GetProperty(tableName);
-        //Type tableType = tableProp.PropertyType;
-
-        //ParameterExpression p = Expression.Parameter(tabla.GetType());
-        //Expression property = Expression.Property(p, "code"+tableName);
-        //Expression c = Expression.Constant(code);
-        //Expression body = Expression.Equal(property, c);
-        //Expression exp = Expression.Lambda(body, new ParameterExpression[] { p });
-
-        //MethodInfo singleMethod = typeof(Queryable).GetMethods()
-        //    .Single(m => m.Name == "Single" && m.GetParameters().Count() == 2)
-        //    .MakeGenericMethod(domainObject.GetType());
-
-        //DbSet dbSet = context.Set(domainObject.GetType());
-        //object entity = singleMethod.Invoke(null, new object[] { dbSet, exp });
-
-        //}
-
-        private short getOperationalArea(string _codeOperationalArea)
-        {
-            foreach (OperationalAreas area in db.OperationalAreas)
-            {
-                if (_codeOperationalArea == area.CodeOperationalArea)
-                {
-                    return area.idOperationalArea;
-                }
-            }
-            return 0;
-        }
-
-        private short getAgency(string _codeAgency)
-        {
-            foreach (Agencies agency in db.Agencies)
-            {
-                if (_codeAgency == agency.CodeAgency)
-                {
-                    return agency.idAgency;
-                }
-            }
-            return 0;
-        }
-
-        private short getFactory(string _codeFactory)
-        {
-            foreach (Factories factory in db.Factories)
-            {
-                if (_codeFactory == factory.codeFactory)
-                {
-                    return factory.idFactory;
-                }
-            }
-            return 0;
-        }
-
-
     }
 }
 

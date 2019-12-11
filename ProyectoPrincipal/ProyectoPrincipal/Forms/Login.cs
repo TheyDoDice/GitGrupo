@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Encriptar;
+using GenerarOrder;
 
 namespace ProyectoPrincipal.Forms
 {
@@ -49,7 +50,8 @@ namespace ProyectoPrincipal.Forms
         private void Login_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-
+            OrderReception orderReception = new OrderReception();
+            orderReception.GenerarComanda(@"C:\Users\admin\Downloads\FOBEDI_2.edi");
             #region BARRA SUPERIOR
 
             barraSuperior.MouseDown += MovePanel;
