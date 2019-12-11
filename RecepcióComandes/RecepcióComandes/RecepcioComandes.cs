@@ -13,6 +13,7 @@ namespace RecepcióComandes
 {
     public partial class RecepcióDeComandes : Form
     {
+        //Hola
         //ORDENAR VARIABLES
         private static string RutaArchivoXML = Application.StartupPath + "\\credenciales.xml";
         private static string CarpetaDescargas = Application.StartupPath + "\\Descargas";
