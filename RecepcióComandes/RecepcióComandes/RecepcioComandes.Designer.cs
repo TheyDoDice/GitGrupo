@@ -51,7 +51,6 @@
             this.btn_Processar = new System.Windows.Forms.Button();
             this.btn_CambiarCarpetaDescargas = new System.Windows.Forms.Button();
             this.lbl_ServidorFTP = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
@@ -301,6 +300,7 @@
             this.btn_Check.TabIndex = 3;
             this.btn_Check.Text = "Check";
             this.btn_Check.UseVisualStyleBackColor = false;
+            this.btn_Check.Click += new System.EventHandler(this.btn_Check_Click);
             // 
             // btn_Processar
             // 
@@ -314,7 +314,7 @@
             this.btn_Processar.TabIndex = 4;
             this.btn_Processar.Text = "Procesar";
             this.btn_Processar.UseVisualStyleBackColor = false;
-            this.btn_Processar.Click += new System.EventHandler(this.btn_Processar_Click);
+            this.btn_Processar.Visible = false;
             // 
             // btn_CambiarCarpetaDescargas
             // 
@@ -342,24 +342,12 @@
             this.lbl_ServidorFTP.TabIndex = 11;
             this.lbl_ServidorFTP.Text = "Archivos y directorios:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(637, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "asdasd";
-            // 
             // RecepcióDeComandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(1180, 695);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_ServidorFTP);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
             this.Controls.Add(this.btn_Processar);
@@ -409,7 +397,6 @@
         private System.Windows.Forms.ComboBox cbx_Impresora;
         private System.Windows.Forms.Label lbl_impresora;
         private System.Windows.Forms.Label lbl_ServidorFTP;
-        private System.Windows.Forms.Label label1;
     }
 }
 
