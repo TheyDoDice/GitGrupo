@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcióComandes", "RecepcióComandes\RecepcióComandes.csproj", "{021A7189-5D5F-403A-928E-CB00E38FCCC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolaGestionFTP", "ConsolaGestionFTP\ConsolaGestionFTP.csproj", "{9BF97129-4305-4B25-81F2-4D1FE83721ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{021A7189-5D5F-403A-928E-CB00E38FCCC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{021A7189-5D5F-403A-928E-CB00E38FCCC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{021A7189-5D5F-403A-928E-CB00E38FCCC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

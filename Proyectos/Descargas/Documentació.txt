@@ -1,0 +1,3 @@
+===================04/12/2019===============
+Modularizar el código del programa FTP.
+Arreglar la función de descargar.
