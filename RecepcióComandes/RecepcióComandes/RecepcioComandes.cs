@@ -13,7 +13,6 @@ namespace RecepcióComandes
 {
     public partial class RecepcióDeComandes : Form
     {
-        //Hola
         //ORDENAR VARIABLES
         private static string RutaArchivoXML = Application.StartupPath + "\\credenciales.xml";
         private static string CarpetaDescargas = Application.StartupPath + "\\Descargas";
@@ -242,7 +241,7 @@ namespace RecepcióComandes
 
         private void btn_Check_Click(object sender, EventArgs e)
         {
-            Process proc = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas);
+            Process proc = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
         }
     }
 }

@@ -8,11 +8,6 @@ namespace ConsolaGestionFTP
 {
     class Program
     {
-        //Descarga de la raiz del servidor FTP y lo mueve a la carpeta /tractats.
-        //se guarda en la carpeta elegida para guardar descargas, con el FileSystemWatcher Clase se mira si se 
-        //ha modificado la carpeta procesa los archivos y lo vuelve a subir a la raiz del servidor FTP.
-        //Para subir no se usa la consola, lo hace el mismo programa.
-
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -24,23 +19,26 @@ namespace ConsolaGestionFTP
         {
             try
             {
-                string[] test = new string[]
+               /* string[] test = new string[]
                 {
                     "172.17.6.0",
                     "g02",
                     "12345aA",
-                    "C:\\Users\\admin\\Desktop\\GitGrupo\\Proyectos\\Descargas"
-                };
+                    "C:\\Users\\admin\\Desktop\\GitGrupo\\Proyectos\\Descargas",
+                    "/Hola/",
+                    "/Tractats/"
+                };*/
 
                 List<string> FileList = new List<string>();
                 Console.WriteLine("Datos del servidor:\n");
-                Console.WriteLine("Servidor: {0}\nUsuario: {1}\nContraseña: {2}\n", test[0], test[1], OcultarContraseña(test[2], '*'));
+                Console.WriteLine("Servidor: {0}\nUsuario: {1}\nContraseña: {2}\nCarpeta Descargas: {3}\nRuta Descargas: {4}", arguments[0], arguments[1], OcultarContraseña(arguments[2], '*'), arguments[3], arguments[4]);
                 Console.WriteLine("\nBuscando archivos en el servidor...");
-                FileList = ListarArchivos(test[0], test[1], test[2], "/");
+                FileList = ListarArchivos(arguments[0], arguments[1], arguments[2], arguments[4]);
                 foreach (string item in FileList)
                 {
-                    DescargarArchivo(test[0], test[1], test[2], test[3], item);
-                    Console.Write("Descargando {0} en la carpeta {1}\n", item.Substring(item.IndexOf("/") + 1), test[3]);
+                    DescargarArchivo(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], item);
+                    FtpRename(arguments[1], arguments[2], "ftp://" + arguments[0] + arguments[4] + item, arguments[5], item);
+                    Console.Write("Descargando {0} en la carpeta {1}\n", item.Substring(item.IndexOf("/") + 1), arguments[3]);
                 }
                 CerrarConsola();
             }
@@ -71,47 +69,62 @@ namespace ConsolaGestionFTP
         //Listar archvios del servidor FTP
         public static List<string> ListarArchivos (string ipServidor, string userName, string password, string directorio)
         {
+            List<string> ListaTemporal = new List<string>();
             List<string> listaArchivos = new List<string>();
-            FtpWebRequest ListarDirectorio = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + directorio);
+            FtpWebRequest ListarDirectorio = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + directorio );
             ListarDirectorio.Credentials = new NetworkCredential(userName, password);
-            ListarDirectorio.Method = WebRequestMethods.Ftp.ListDirectory;
-            FtpWebResponse response = (FtpWebResponse)ListarDirectorio.GetResponse();
-
-            Stream responseStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(responseStream);
-            while (!reader.EndOfStream)
+            ListarDirectorio.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+            WebResponse listResponse = ListarDirectorio.GetResponse();
+            Stream listStream = listResponse.GetResponseStream();
+            using (StreamReader listReader = new StreamReader(listStream))
             {
-                listaArchivos.Add(reader.ReadLine());
+                while (!listReader.EndOfStream)
+                {
+                    string line = listReader.ReadLine();
+                    ListaTemporal.Add(line);
+                }
+            }
+
+            foreach (string line in ListaTemporal)
+            {
+                string[] tokens =
+                    line.Split(new[] { ' ' }, 9, StringSplitOptions.RemoveEmptyEntries);
+                string name = tokens[8];
+                string permissions = tokens[0];
+
+                if (permissions[0] == 'd')
+                {
+                   // Console.WriteLine($"Directory {name}");
+                    ListarArchivos(ipServidor,userName,password, "/" + name);
+                }
+                else
+                {
+                    Console.WriteLine($"File {name}");
+                    listaArchivos.Add(name);
+                }
             }
 
             return listaArchivos;
         }
 
         //Función para descargar archivos
-        public static void DescargarArchivo(string ipServidor, string userName, string password, string RutaLocal, string rutaArchivo)
+        public static void DescargarArchivo(string ipServidor, string userName, string password, string RutaLocal, string rutaArchivo, string nombreArchivo)
         {
             try
             {
-                FtpWebRequest DescargarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + "/" + rutaArchivo);
+                FtpWebRequest DescargarArchivo = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + rutaArchivo + nombreArchivo);
                 DescargarArchivo.Credentials = new NetworkCredential(userName, password);
                 DescargarArchivo.Method = WebRequestMethods.Ftp.DownloadFile;
                 using (Stream ftpStream = DescargarArchivo.GetResponse().GetResponseStream())
                 try
                 {
-                    using (Stream fileStream = File.Create(RutaLocal + "\\" + rutaArchivo.Substring(rutaArchivo.IndexOf("/"))))
+                    using (Stream fileStream = File.Create(RutaLocal + "\\" + nombreArchivo))
                     {
                         ftpStream.CopyTo(fileStream);
                     }
                 }
                 catch
-                {
-                    using (Stream fileStream = File.Create(RutaLocal + "\\" + rutaArchivo))
-                    {
-                        ftpStream.CopyTo(fileStream);
-                    }
-                }
-
-                //FtpRename(userName, password, "ftp://" + ipServidor + "/" + rutaArchivo, "Tractats", rutaArchivo.Substring(rutaArchivo.IndexOf("/")));
+                {}
             }
             catch
             { }
@@ -126,7 +139,7 @@ namespace ConsolaGestionFTP
                 FtpWebRequest reqFTP = (FtpWebRequest)FtpWebRequest.Create(origen);
                 reqFTP.Credentials = new NetworkCredential(userName, password);
                 reqFTP.Method = WebRequestMethods.Ftp.Rename;
-                reqFTP.RenameTo = ".../" + carpeta_destino + "/" + nombre_archivo;
+                reqFTP.RenameTo = carpeta_destino + nombre_archivo;
                 FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
                 reqFTP.GetResponse().Close();
             }
