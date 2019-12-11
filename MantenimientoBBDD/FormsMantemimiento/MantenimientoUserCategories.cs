@@ -16,7 +16,7 @@ namespace FormsMantemimiento
 {
     public partial class MantenimientoUserCategories : Form
     {
-        secureCoreEntities db = new secureCoreEntities();
+        SecureContext db = new SecureContext();
         private bool nuevaFila = false;
 
         public MantenimientoUserCategories()

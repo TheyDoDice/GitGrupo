@@ -13,10 +13,10 @@ namespace BBDD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class secureCoreEntities : DbContext
+    public partial class SecureContext : DbContext
     {
-        public secureCoreEntities()
-            : base("name=secureCoreEntities")
+        public SecureContext()
+            : base("name=SecureContext")
         {
         }
     

@@ -1272,7 +1272,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="secureCoreEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SecureContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agencies" EntityType="Self.Agencies" />
           <EntitySet Name="DefinedRoutes" EntityType="Self.DefinedRoutes" />
           <EntitySet Name="Factories" EntityType="Self.Factories" />
@@ -1401,7 +1401,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="securecoreModelStoreContainer" CdmEntityContainer="secureCoreEntities">
+        <EntityContainerMapping StorageEntityContainer="securecoreModelStoreContainer" CdmEntityContainer="SecureContext">
           <EntitySetMapping Name="Agencies">
             <EntityTypeMapping TypeName="securecoreModel.Agencies">
               <MappingFragment StoreEntitySet="Agencies">

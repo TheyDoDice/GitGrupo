@@ -15,12 +15,12 @@ namespace FormsMantemimiento
 {
     public partial class BuscaMantenimientoPlanets : Form
     {
-        secureCoreEntities db;
+        SecureContext db;
 
         public BuscaMantenimientoPlanets()
         {
             InitializeComponent();
-            db = new secureCoreEntities();
+            db = new SecureContext();
         }
 
         private Image TakeImg(string mode, string name)

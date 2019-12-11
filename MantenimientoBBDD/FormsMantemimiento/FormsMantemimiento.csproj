@@ -77,12 +77,6 @@
     <Compile Include="BuscaMantenimientoPlanets.Designer.cs">
       <DependentUpon>BuscaMantenimientoPlanets.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReportUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CrystalReportUser.Designer.cs">
-      <DependentUpon>CrystalReportUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="CrystalReport\CRUsers.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,9 +125,6 @@
   <ItemGroup>
     <EmbeddedResource Include="BuscaMantenimientoPlanets.resx">
       <DependentUpon>BuscaMantenimientoPlanets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReportUser.resx">
-      <DependentUpon>CrystalReportUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\CRUsers.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
