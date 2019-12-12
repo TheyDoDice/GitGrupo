@@ -85,15 +85,16 @@ namespace GenerarOrder
                     }
                     else if (etiqueta == quantitat)
                     {
+                        int quantity;
                         if (code1 == "61")
                         {
-                            code2 = "-" + lineInfo[2];
+                            quantity = int.Parse(lineInfo[2]) * -1;
                         }
                         else
                         {
-                            code2 = lineInfo[2];
+                            quantity = int.Parse(lineInfo[2]);
                         }
-                        detail.Quantity = short.Parse(code2);
+                        detail.Quantity = short.Parse(quantity.ToString());
                     }
                     else if (etiqueta == dataEntrega)
                     {
