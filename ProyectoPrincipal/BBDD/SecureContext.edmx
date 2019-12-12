@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="securecoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SecureCoreContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agencies">
           <Key>
             <PropertyRef Name="idAgency" />
@@ -69,15 +69,6 @@
           <Property Name="CodeOperationalArea" Type="nvarchar" MaxLength="12" />
           <Property Name="DescOperationalArea" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="OrderInfo">
-          <Key>
-            <PropertyRef Name="idOrderInfo" />
-          </Key>
-          <Property Name="idOrderInfo" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idOrder" Type="smallint" Nullable="false" />
-          <Property Name="idAgency" Type="smallint" Nullable="false" />
-          <Property Name="idOperationalArea" Type="smallint" Nullable="false" />
-        </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="idOrder" />
@@ -87,6 +78,8 @@
           <Property Name="dateOrder" Type="smalldatetime" />
           <Property Name="IdPriority" Type="smallint" Nullable="false" />
           <Property Name="IdFactory" Type="smallint" Nullable="false" />
+          <Property Name="idAgency" Type="smallint" Nullable="false" />
+          <Property Name="idOperationalArea" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="OrdersDetail">
           <Key>
@@ -253,14 +246,14 @@
           <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CodeUser" Type="nvarchar" MaxLength="12" />
           <Property Name="UserName" Type="nvarchar" MaxLength="100" />
-          <Property Name="Login" Type="nvarchar" MaxLength="12" />
-          <Property Name="Password" Type="varchar" MaxLength="200" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="idUserRank" Type="int" />
           <Property Name="idUserCategory" Type="int" />
           <Property Name="Photo" Type="nvarchar" MaxLength="50" />
           <Property Name="idPlanet" Type="int" />
           <Property Name="idSpecie" Type="int" />
-          <Property Name="Salt" Type="varchar" MaxLength="200" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_DefinedRoutes_Routes">
           <End Role="Routes" Type="Self.Routes" Multiplicity="0..1" />
@@ -286,39 +279,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderInfo_Agencies">
+        <Association Name="FK_Orders_Agencies">
           <End Role="Agencies" Type="Self.Agencies" Multiplicity="1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Agencies">
               <PropertyRef Name="idAgency" />
             </Principal>
-            <Dependent Role="OrderInfo">
+            <Dependent Role="Orders">
               <PropertyRef Name="idAgency" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderInfo_OperationalAreas">
-          <End Role="OperationalAreas" Type="Self.OperationalAreas" Multiplicity="1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OperationalAreas">
-              <PropertyRef Name="idOperationalArea" />
-            </Principal>
-            <Dependent Role="OrderInfo">
-              <PropertyRef Name="idOperationalArea" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderInfo_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="idOrder" />
-            </Principal>
-            <Dependent Role="OrderInfo">
-              <PropertyRef Name="idOrder" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -331,6 +300,18 @@
             </Principal>
             <Dependent Role="Orders">
               <PropertyRef Name="IdFactory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_OperationalAreas">
+          <End Role="OperationalAreas" Type="Self.OperationalAreas" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperationalAreas">
+              <PropertyRef Name="idOperationalArea" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="idOperationalArea" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -550,7 +531,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="securecoreModelStoreContainer">
+        <EntityContainer Name="SecureCoreContextStoreContainer">
           <EntitySet Name="Agencies" EntityType="Self.Agencies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DefinedRoutes" EntityType="Self.DefinedRoutes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Factories" EntityType="Self.Factories" Schema="dbo" store:Type="Tables" />
@@ -558,7 +539,6 @@
           <EntitySet Name="MenuOptions" EntityType="Self.MenuOptions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MilitaryCamps" EntityType="Self.MilitaryCamps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OperationalAreas" EntityType="Self.OperationalAreas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlanetRoutes" EntityType="Self.PlanetRoutes" Schema="dbo" store:Type="Tables" />
@@ -585,20 +565,16 @@
             <End Role="Planets" EntitySet="Planets" />
             <End Role="MilitaryCamps" EntitySet="MilitaryCamps" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_Agencies" Association="Self.FK_OrderInfo_Agencies">
+          <AssociationSet Name="FK_Orders_Agencies" Association="Self.FK_Orders_Agencies">
             <End Role="Agencies" EntitySet="Agencies" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_OperationalAreas" Association="Self.FK_OrderInfo_OperationalAreas">
-            <End Role="OperationalAreas" EntitySet="OperationalAreas" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_Orders" Association="Self.FK_OrderInfo_Orders">
             <End Role="Orders" EntitySet="Orders" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
           </AssociationSet>
           <AssociationSet Name="FK_Orders_Factories" Association="Self.FK_Orders_Factories">
             <End Role="Factories" EntitySet="Factories" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_OperationalAreas" Association="Self.FK_Orders_OperationalAreas">
+            <End Role="OperationalAreas" EntitySet="OperationalAreas" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Orders_Priority" Association="Self.FK_Orders_Priority">
@@ -678,7 +654,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="securecoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SecureCoreContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Agencies">
           <Key>
             <PropertyRef Name="idAgency" />
@@ -686,7 +662,7 @@
           <Property Name="idAgency" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodeAgency" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="DescAgency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderInfo" Relationship="Self.FK_OrderInfo_Agencies" FromRole="Agencies" ToRole="OrderInfo" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Agencies" FromRole="Agencies" ToRole="Orders" />
         </EntityType>
         <EntityType Name="DefinedRoutes">
           <Key>
@@ -748,19 +724,7 @@
           <Property Name="idOperationalArea" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodeOperationalArea" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="DescOperationalArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderInfo" Relationship="Self.FK_OrderInfo_OperationalAreas" FromRole="OperationalAreas" ToRole="OrderInfo" />
-        </EntityType>
-        <EntityType Name="OrderInfo">
-          <Key>
-            <PropertyRef Name="idOrderInfo" />
-          </Key>
-          <Property Name="idOrderInfo" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idOrder" Type="Int16" Nullable="false" />
-          <Property Name="idAgency" Type="Int16" Nullable="false" />
-          <Property Name="idOperationalArea" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Agencies" Relationship="Self.FK_OrderInfo_Agencies" FromRole="OrderInfo" ToRole="Agencies" />
-          <NavigationProperty Name="OperationalAreas" Relationship="Self.FK_OrderInfo_OperationalAreas" FromRole="OrderInfo" ToRole="OperationalAreas" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_OrderInfo_Orders" FromRole="OrderInfo" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_OperationalAreas" FromRole="OperationalAreas" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -771,8 +735,11 @@
           <Property Name="dateOrder" Type="DateTime" Precision="0" />
           <Property Name="IdPriority" Type="Int16" Nullable="false" />
           <Property Name="IdFactory" Type="Int16" Nullable="false" />
+          <Property Name="idAgency" Type="Int16" Nullable="false" />
+          <Property Name="idOperationalArea" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Agencies" Relationship="Self.FK_Orders_Agencies" FromRole="Orders" ToRole="Agencies" />
           <NavigationProperty Name="Factories" Relationship="Self.FK_Orders_Factories" FromRole="Orders" ToRole="Factories" />
-          <NavigationProperty Name="OrderInfo" Relationship="Self.FK_OrderInfo_Orders" FromRole="Orders" ToRole="OrderInfo" />
+          <NavigationProperty Name="OperationalAreas" Relationship="Self.FK_Orders_OperationalAreas" FromRole="Orders" ToRole="OperationalAreas" />
           <NavigationProperty Name="Priority" Relationship="Self.FK_Orders_Priority" FromRole="Orders" ToRole="Priority" />
           <NavigationProperty Name="OrdersDetail" Relationship="Self.FK_OrdersDetail_Orders" FromRole="Orders" ToRole="OrdersDetail" />
         </EntityType>
@@ -971,27 +938,27 @@
           <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodeUser" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idUserRank" Type="Int32" />
           <Property Name="idUserCategory" Type="Int32" />
           <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="idPlanet" Type="Int32" />
           <Property Name="idSpecie" Type="Int32" />
-          <Property Name="Salt" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Planets" Relationship="Self.FK_Users_Planets" FromRole="Users" ToRole="Planets" />
           <NavigationProperty Name="Species" Relationship="Self.FK_Users_Species" FromRole="Users" ToRole="Species" />
           <NavigationProperty Name="UserCategories" Relationship="Self.FK_Users_UserCategories" FromRole="Users" ToRole="UserCategories" />
           <NavigationProperty Name="UserRanks" Relationship="Self.FK_Users_UserRanks" FromRole="Users" ToRole="UserRanks" />
         </EntityType>
-        <Association Name="FK_OrderInfo_Agencies">
+        <Association Name="FK_Orders_Agencies">
           <End Role="Agencies" Type="Self.Agencies" Multiplicity="1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Agencies">
               <PropertyRef Name="idAgency" />
             </Principal>
-            <Dependent Role="OrderInfo">
+            <Dependent Role="Orders">
               <PropertyRef Name="idAgency" />
             </Dependent>
           </ReferentialConstraint>
@@ -1056,27 +1023,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderInfo_OperationalAreas">
+        <Association Name="FK_Orders_OperationalAreas">
           <End Role="OperationalAreas" Type="Self.OperationalAreas" Multiplicity="1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OperationalAreas">
               <PropertyRef Name="idOperationalArea" />
             </Principal>
-            <Dependent Role="OrderInfo">
+            <Dependent Role="Orders">
               <PropertyRef Name="idOperationalArea" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderInfo_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="idOrder" />
-            </Principal>
-            <Dependent Role="OrderInfo">
-              <PropertyRef Name="idOrder" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1280,7 +1235,6 @@
           <EntitySet Name="MenuOptions" EntityType="Self.MenuOptions" />
           <EntitySet Name="MilitaryCamps" EntityType="Self.MilitaryCamps" />
           <EntitySet Name="OperationalAreas" EntityType="Self.OperationalAreas" />
-          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" />
           <EntitySet Name="Orders" EntityType="Self.Orders" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" />
           <EntitySet Name="PlanetRoutes" EntityType="Self.PlanetRoutes" />
@@ -1299,9 +1253,9 @@
           <EntitySet Name="UserCategories" EntityType="Self.UserCategories" />
           <EntitySet Name="UserRanks" EntityType="Self.UserRanks" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK_OrderInfo_Agencies" Association="Self.FK_OrderInfo_Agencies">
+          <AssociationSet Name="FK_Orders_Agencies" Association="Self.FK_Orders_Agencies">
             <End Role="Agencies" EntitySet="Agencies" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_DefinedRoutes_Routes" Association="Self.FK_DefinedRoutes_Routes">
             <End Role="Routes" EntitySet="Routes" />
@@ -1323,13 +1277,9 @@
             <End Role="Planets" EntitySet="Planets" />
             <End Role="MilitaryCamps" EntitySet="MilitaryCamps" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_OperationalAreas" Association="Self.FK_OrderInfo_OperationalAreas">
+          <AssociationSet Name="FK_Orders_OperationalAreas" Association="Self.FK_Orders_OperationalAreas">
             <End Role="OperationalAreas" EntitySet="OperationalAreas" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_Orders" Association="Self.FK_OrderInfo_Orders">
             <End Role="Orders" EntitySet="Orders" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
           </AssociationSet>
           <AssociationSet Name="FK_Orders_Priority" Association="Self.FK_Orders_Priority">
             <End Role="Priority" EntitySet="Priority" />
@@ -1401,9 +1351,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="securecoreModelStoreContainer" CdmEntityContainer="SecureContext">
+        <EntityContainerMapping StorageEntityContainer="SecureCoreContextStoreContainer" CdmEntityContainer="SecureContext">
           <EntitySetMapping Name="Agencies">
-            <EntityTypeMapping TypeName="securecoreModel.Agencies">
+            <EntityTypeMapping TypeName="SecureCoreContext.Agencies">
               <MappingFragment StoreEntitySet="Agencies">
                 <ScalarProperty Name="idAgency" ColumnName="idAgency" />
                 <ScalarProperty Name="CodeAgency" ColumnName="CodeAgency" />
@@ -1412,7 +1362,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DefinedRoutes">
-            <EntityTypeMapping TypeName="securecoreModel.DefinedRoutes">
+            <EntityTypeMapping TypeName="SecureCoreContext.DefinedRoutes">
               <MappingFragment StoreEntitySet="DefinedRoutes">
                 <ScalarProperty Name="idDefinedRoute" ColumnName="idDefinedRoute" />
                 <ScalarProperty Name="idPlanetOri" ColumnName="idPlanetOri" />
@@ -1423,7 +1373,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Factories">
-            <EntityTypeMapping TypeName="securecoreModel.Factories">
+            <EntityTypeMapping TypeName="SecureCoreContext.Factories">
               <MappingFragment StoreEntitySet="Factories">
                 <ScalarProperty Name="idFactory" ColumnName="idFactory" />
                 <ScalarProperty Name="codeFactory" ColumnName="codeFactory" />
@@ -1432,7 +1382,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Filiations">
-            <EntityTypeMapping TypeName="securecoreModel.Filiations">
+            <EntityTypeMapping TypeName="SecureCoreContext.Filiations">
               <MappingFragment StoreEntitySet="Filiations">
                 <ScalarProperty Name="idFiliation" ColumnName="idFiliation" />
                 <ScalarProperty Name="CodeFiliation" ColumnName="CodeFiliation" />
@@ -1441,7 +1391,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MenuOptions">
-            <EntityTypeMapping TypeName="securecoreModel.MenuOptions">
+            <EntityTypeMapping TypeName="SecureCoreContext.MenuOptions">
               <MappingFragment StoreEntitySet="MenuOptions">
                 <ScalarProperty Name="idOption" ColumnName="idOption" />
                 <ScalarProperty Name="NameSpace" ColumnName="NameSpace" />
@@ -1455,7 +1405,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MilitaryCamps">
-            <EntityTypeMapping TypeName="securecoreModel.MilitaryCamps">
+            <EntityTypeMapping TypeName="SecureCoreContext.MilitaryCamps">
               <MappingFragment StoreEntitySet="MilitaryCamps">
                 <ScalarProperty Name="idMilitaryCamp" ColumnName="idMilitaryCamp" />
                 <ScalarProperty Name="CodeCamp" ColumnName="CodeCamp" />
@@ -1465,7 +1415,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OperationalAreas">
-            <EntityTypeMapping TypeName="securecoreModel.OperationalAreas">
+            <EntityTypeMapping TypeName="SecureCoreContext.OperationalAreas">
               <MappingFragment StoreEntitySet="OperationalAreas">
                 <ScalarProperty Name="idOperationalArea" ColumnName="idOperationalArea" />
                 <ScalarProperty Name="CodeOperationalArea" ColumnName="CodeOperationalArea" />
@@ -1473,29 +1423,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderInfo">
-            <EntityTypeMapping TypeName="securecoreModel.OrderInfo">
-              <MappingFragment StoreEntitySet="OrderInfo">
-                <ScalarProperty Name="idOrderInfo" ColumnName="idOrderInfo" />
-                <ScalarProperty Name="idOrder" ColumnName="idOrder" />
-                <ScalarProperty Name="idAgency" ColumnName="idAgency" />
-                <ScalarProperty Name="idOperationalArea" ColumnName="idOperationalArea" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="securecoreModel.Orders">
+            <EntityTypeMapping TypeName="SecureCoreContext.Orders">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="idOrder" ColumnName="idOrder" />
                 <ScalarProperty Name="codeOrder" ColumnName="codeOrder" />
                 <ScalarProperty Name="dateOrder" ColumnName="dateOrder" />
                 <ScalarProperty Name="IdPriority" ColumnName="IdPriority" />
                 <ScalarProperty Name="IdFactory" ColumnName="IdFactory" />
+                <ScalarProperty Name="idAgency" ColumnName="idAgency" />
+                <ScalarProperty Name="idOperationalArea" ColumnName="idOperationalArea" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrdersDetail">
-            <EntityTypeMapping TypeName="securecoreModel.OrdersDetail">
+            <EntityTypeMapping TypeName="SecureCoreContext.OrdersDetail">
               <MappingFragment StoreEntitySet="OrdersDetail">
                 <ScalarProperty Name="idOrderDetail" ColumnName="idOrderDetail" />
                 <ScalarProperty Name="idOrder" ColumnName="idOrder" />
@@ -1507,7 +1449,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PlanetRoutes">
-            <EntityTypeMapping TypeName="securecoreModel.PlanetRoutes">
+            <EntityTypeMapping TypeName="SecureCoreContext.PlanetRoutes">
               <MappingFragment StoreEntitySet="PlanetRoutes">
                 <ScalarProperty Name="idPlanetRoute" ColumnName="idPlanetRoute" />
                 <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
@@ -1516,7 +1458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Planets">
-            <EntityTypeMapping TypeName="securecoreModel.Planets">
+            <EntityTypeMapping TypeName="SecureCoreContext.Planets">
               <MappingFragment StoreEntitySet="Planets">
                 <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
                 <ScalarProperty Name="CodePlanet" ColumnName="CodePlanet" />
@@ -1535,7 +1477,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Priority">
-            <EntityTypeMapping TypeName="securecoreModel.Priority">
+            <EntityTypeMapping TypeName="SecureCoreContext.Priority">
               <MappingFragment StoreEntitySet="Priority">
                 <ScalarProperty Name="idPriority" ColumnName="idPriority" />
                 <ScalarProperty Name="CodePriority" ColumnName="CodePriority" />
@@ -1544,7 +1486,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="References">
-            <EntityTypeMapping TypeName="securecoreModel.References">
+            <EntityTypeMapping TypeName="SecureCoreContext.References">
               <MappingFragment StoreEntitySet="References">
                 <ScalarProperty Name="idReference" ColumnName="idReference" />
                 <ScalarProperty Name="codeReference" ColumnName="codeReference" />
@@ -1555,7 +1497,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Regions">
-            <EntityTypeMapping TypeName="securecoreModel.Regions">
+            <EntityTypeMapping TypeName="SecureCoreContext.Regions">
               <MappingFragment StoreEntitySet="Regions">
                 <ScalarProperty Name="idRegion" ColumnName="idRegion" />
                 <ScalarProperty Name="CodeRegion" ColumnName="CodeRegion" />
@@ -1565,7 +1507,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Routes">
-            <EntityTypeMapping TypeName="securecoreModel.Routes">
+            <EntityTypeMapping TypeName="SecureCoreContext.Routes">
               <MappingFragment StoreEntitySet="Routes">
                 <ScalarProperty Name="idRoute" ColumnName="idRoute" />
                 <ScalarProperty Name="CodeRoute" ColumnName="CodeRoute" />
@@ -1577,7 +1519,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RouteTypes">
-            <EntityTypeMapping TypeName="securecoreModel.RouteTypes">
+            <EntityTypeMapping TypeName="SecureCoreContext.RouteTypes">
               <MappingFragment StoreEntitySet="RouteTypes">
                 <ScalarProperty Name="idRouteType" ColumnName="idRouteType" />
                 <ScalarProperty Name="CodeRouteType" ColumnName="CodeRouteType" />
@@ -1587,7 +1529,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sectors">
-            <EntityTypeMapping TypeName="securecoreModel.Sectors">
+            <EntityTypeMapping TypeName="SecureCoreContext.Sectors">
               <MappingFragment StoreEntitySet="Sectors">
                 <ScalarProperty Name="idSector" ColumnName="idSector" />
                 <ScalarProperty Name="CodeSector" ColumnName="CodeSector" />
@@ -1598,7 +1540,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpaceShipCategories">
-            <EntityTypeMapping TypeName="securecoreModel.SpaceShipCategories">
+            <EntityTypeMapping TypeName="SecureCoreContext.SpaceShipCategories">
               <MappingFragment StoreEntitySet="SpaceShipCategories">
                 <ScalarProperty Name="idSpaceShipCategory" ColumnName="idSpaceShipCategory" />
                 <ScalarProperty Name="CodeSpaceShipCategory" ColumnName="CodeSpaceShipCategory" />
@@ -1607,7 +1549,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpaceShips">
-            <EntityTypeMapping TypeName="securecoreModel.SpaceShips">
+            <EntityTypeMapping TypeName="SecureCoreContext.SpaceShips">
               <MappingFragment StoreEntitySet="SpaceShips">
                 <ScalarProperty Name="idSpaceShip" ColumnName="idSpaceShip" />
                 <ScalarProperty Name="idSpaceShipType" ColumnName="idSpaceShipType" />
@@ -1619,7 +1561,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpaceShipTypes">
-            <EntityTypeMapping TypeName="securecoreModel.SpaceShipTypes">
+            <EntityTypeMapping TypeName="SecureCoreContext.SpaceShipTypes">
               <MappingFragment StoreEntitySet="SpaceShipTypes">
                 <ScalarProperty Name="idSpaceShipType" ColumnName="idSpaceShipType" />
                 <ScalarProperty Name="CodeSpaceShipType" ColumnName="CodeSpaceShipType" />
@@ -1630,7 +1572,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Species">
-            <EntityTypeMapping TypeName="securecoreModel.Species">
+            <EntityTypeMapping TypeName="SecureCoreContext.Species">
               <MappingFragment StoreEntitySet="Species">
                 <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
                 <ScalarProperty Name="CodeSpecie" ColumnName="CodeSpecie" />
@@ -1639,7 +1581,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="securecoreModel.sysdiagrams">
+            <EntityTypeMapping TypeName="SecureCoreContext.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1650,7 +1592,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserCategories">
-            <EntityTypeMapping TypeName="securecoreModel.UserCategories">
+            <EntityTypeMapping TypeName="SecureCoreContext.UserCategories">
               <MappingFragment StoreEntitySet="UserCategories">
                 <ScalarProperty Name="idUserCategory" ColumnName="idUserCategory" />
                 <ScalarProperty Name="CodeCategory" ColumnName="CodeCategory" />
@@ -1660,7 +1602,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserRanks">
-            <EntityTypeMapping TypeName="securecoreModel.UserRanks">
+            <EntityTypeMapping TypeName="SecureCoreContext.UserRanks">
               <MappingFragment StoreEntitySet="UserRanks">
                 <ScalarProperty Name="idUserRank" ColumnName="idUserRank" />
                 <ScalarProperty Name="CodeRank" ColumnName="CodeRank" />
@@ -1669,7 +1611,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="securecoreModel.Users">
+            <EntityTypeMapping TypeName="SecureCoreContext.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="CodeUser" ColumnName="CodeUser" />

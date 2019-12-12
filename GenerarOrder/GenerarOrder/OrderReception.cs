@@ -12,7 +12,6 @@ namespace GenerarOrder
     {
         SecureContext db = new SecureContext();
         Orders order = new Orders();
-        OrderInfo info = new OrderInfo();
         OrdersDetail detail = new OrdersDetail();
         const string orderString = "ORDERS_D_96A_UN_EAN008";
         const string dadesGenerals = "ORD";
@@ -57,18 +56,13 @@ namespace GenerarOrder
                     else if (etiqueta == emisor)
                     {
                         code2 = lineInfo[2];
-                        info.OperationalAreas = db.OperationalAreas.Where(o => o.CodeOperationalArea == code1).FirstOrDefault();
-                        info.Agencies = db.Agencies.Where(o => o.CodeAgency == code2).FirstOrDefault();
+                        order.OperationalAreas = db.OperationalAreas.Where(o => o.CodeOperationalArea == code1).FirstOrDefault();
+                        order.Agencies = db.Agencies.Where(o => o.CodeAgency == code2).FirstOrDefault();
                     }
                     else if (etiqueta == receptor)
                     {
                         order.Factories = db.Factories.Where(o => o.codeFactory == code1).FirstOrDefault();
                         db.Orders.Add(order);
-                        db.SaveChanges();
-
-                        info.Orders = db.Orders.ToList().LastOrDefault();
-                        db.OrderInfo.Add(info);
-
                         db.SaveChanges();
                     }
                     else if (etiqueta == idAtricle)
@@ -103,7 +97,7 @@ namespace GenerarOrder
                         db.SaveChanges();
                     }
                 }
-                if(order != null && info != null && detail != null)
+                if(order != null && detail != null)
                 {
                     file.Close();
                     return true;
@@ -117,7 +111,6 @@ namespace GenerarOrder
             {
                 return false;
             }
-
         }
     }
 }

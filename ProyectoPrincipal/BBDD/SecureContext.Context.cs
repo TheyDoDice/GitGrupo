@@ -32,7 +32,6 @@ namespace BBDD
         public virtual DbSet<MenuOptions> MenuOptions { get; set; }
         public virtual DbSet<MilitaryCamps> MilitaryCamps { get; set; }
         public virtual DbSet<OperationalAreas> OperationalAreas { get; set; }
-        public virtual DbSet<OrderInfo> OrderInfo { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<OrdersDetail> OrdersDetail { get; set; }
         public virtual DbSet<PlanetRoutes> PlanetRoutes { get; set; }

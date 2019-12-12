@@ -78,9 +78,6 @@
     <Compile Include="OperationalAreas.cs">
       <DependentUpon>SecureContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderInfo.cs">
-      <DependentUpon>SecureContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Orders.cs">
       <DependentUpon>SecureContext.tt</DependentUpon>
     </Compile>

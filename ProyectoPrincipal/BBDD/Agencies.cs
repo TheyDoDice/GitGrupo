@@ -17,7 +17,7 @@ namespace BBDD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Agencies()
         {
-            this.OrderInfo = new HashSet<OrderInfo>();
+            this.Orders = new HashSet<Orders>();
         }
     
         public short idAgency { get; set; }
@@ -25,6 +25,6 @@ namespace BBDD
         public string DescAgency { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderInfo> OrderInfo { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }
