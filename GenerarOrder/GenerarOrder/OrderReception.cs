@@ -11,6 +11,9 @@ namespace GenerarOrder
     public class OrderReception
     {
         SecureContext db = new SecureContext();
+        Orders order = new Orders();
+        OrderInfo info = new OrderInfo();
+        OrdersDetail detail = new OrdersDetail();
         const string orderString = "ORDERS_D_96A_UN_EAN008";
         const string dadesGenerals = "ORD";
         const string dates = "DTM";
@@ -22,10 +25,6 @@ namespace GenerarOrder
 
         public bool GenerarComanda(string archivo)
         {
-            Orders order = new Orders();
-            OrderInfo info = new OrderInfo();
-            OrdersDetail detail = new OrdersDetail();
-
             System.IO.StreamReader file = new System.IO.StreamReader(archivo);
             string line = file.ReadLine();
             if (line == orderString)
@@ -40,8 +39,15 @@ namespace GenerarOrder
                     if (etiqueta == dadesGenerals)
                     {
                         code2 = lineInfo[2];
-                        order.codeOrder = lineInfo[1];
-                        order.Priority = db.Priority.Where(o => o.CodePriority == code2).FirstOrDefault();
+                        if(!db.Orders.Any(o=>o.codeOrder == code1))
+                        {
+                            order.codeOrder = code1;
+                            order.Priority = db.Priority.Where(o => o.CodePriority == code2).FirstOrDefault();
+                        }
+                        else
+                        {
+                            return true;
+                        }
                     }
                     else if (etiqueta == dates)
                     {
@@ -101,7 +107,6 @@ namespace GenerarOrder
             {
                 return false;
             }
-            
         }
     }
 }
