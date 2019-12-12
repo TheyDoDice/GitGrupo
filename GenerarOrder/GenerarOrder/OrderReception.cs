@@ -46,6 +46,7 @@ namespace GenerarOrder
                         }
                         else
                         {
+                            file.Close();
                             return true;
                         }
                     }
@@ -96,6 +97,7 @@ namespace GenerarOrder
                 }
                 if(order != null && info != null && detail != null)
                 {
+                    file.Close();
                     return true;
                 }
                 else
@@ -107,6 +109,7 @@ namespace GenerarOrder
             {
                 return false;
             }
+
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Drawing.Printing;
 using System.Diagnostics;
 using System.IO;
 using System.Security.Permissions;
+using GenerarOrder;
 
 namespace RecepcióComandes
 {
@@ -102,17 +103,17 @@ namespace RecepcióComandes
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\carpeta.png"));
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\archivo.png"));
             VisorArchivos.ImageList = myImageList;
-            
+
             cbx_Impresora.DataSource = PrinterSettings.InstalledPrinters.Cast<string>().ToList();
-            
+
             foreach (XElement node in Credenciales.Descendants("Credencials"))
             {
-                txtb_Servidor.Text              = node.Element("IP").Value;
-                txtb_Puerto.Text                = node.Element("Port").Value;
-                txtb_Usuario.Text               = node.Element("User").Value;
-                txtb_Contraseña.Text            = node.Element("Password").Value;
-                txtb_RutaCarpetaDescargas.Text  = node.Element("CarpetaBaixada").Value;
-                cbx_Impresora.Text              = node.Element("Impressora").Value;
+                txtb_Servidor.Text = node.Element("IP").Value;
+                txtb_Puerto.Text = node.Element("Port").Value;
+                txtb_Usuario.Text = node.Element("User").Value;
+                txtb_Contraseña.Text = node.Element("Password").Value;
+                txtb_RutaCarpetaDescargas.Text = node.Element("CarpetaBaixada").Value;
+                cbx_Impresora.Text = node.Element("Impressora").Value;
             }
 
             CadenaConnexionFTP = new Uri("ftp://" + txtb_Servidor.Text + "/");
@@ -121,19 +122,26 @@ namespace RecepcióComandes
 
             ActualizarArbol("/");
 
-
             //Comprovar carpeta descargas con el File System Watcher.
             VisorProcesar.Path = txtb_RutaCarpetaDescargas.Text;
-            VisorProcesar.Changed += OnChanged;
+            VisorProcesar.Filter = "*.edi";
             VisorProcesar.Created += OnChanged;
-            VisorProcesar.Deleted += OnChanged;
-            VisorProcesar.Renamed += OnRenamed;
             VisorProcesar.EnableRaisingEvents = true;
-    }
+        }
+        OrderReception comanda = new OrderReception();
 
-        private static void OnChanged(object source, FileSystemEventArgs e) => MessageBox.Show($"File: {e.FullPath} {e.ChangeType}");
-
-        private static void OnRenamed(object source, RenamedEventArgs e) => MessageBox.Show($"File: {e.OldFullPath} renamed to {e.FullPath}");
+        private void OnChanged(object source, FileSystemEventArgs e)
+        {
+            if (comanda.GenerarComanda(e.FullPath))
+            {
+                try
+                {
+                    string NombreArchivo = e.FullPath.Split('\\').Last();
+                    File.Move(e.FullPath, CarpetaDescargas + "\\Tractats\\" + NombreArchivo);
+                }
+                catch { }
+            }
+        }
 
         private void InicializarMenuContextual()
         {
