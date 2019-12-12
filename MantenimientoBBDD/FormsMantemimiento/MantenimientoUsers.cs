@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -25,6 +25,7 @@ namespace FormsMantemimiento
             {
                 impresoras.Add(item.ToString());
             }
+            comboBox1.DataSource = impresoras;
         }
 
         
@@ -41,7 +42,10 @@ namespace FormsMantemimiento
                 rpd.SetParameterValue("id", id);
                 rpd.SetDatabaseLogon("TheyDoDice", "123456aA");
 
-                printPreviewDialog1.ShowDialog();
+                PrinterSettings print = new PrinterSettings();
+                print.PrinterName = comboBox1.Text;
+
+                rpd.PrintToPrinter(print, new PageSettings(), false);
 
             }
             catch (Exception)
@@ -50,9 +54,16 @@ namespace FormsMantemimiento
             }
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //e.Graphics.DrawImage(, 0 ,0);
+            if (!String.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+                btn_imprimir.Enabled = true;
+            }
+            else
+            {
+                btn_imprimir.Enabled = false;
+            }
         }
     }
 }
