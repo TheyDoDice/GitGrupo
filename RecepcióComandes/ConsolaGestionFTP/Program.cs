@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 namespace ConsolaGestionFTP
 {
@@ -10,29 +11,54 @@ namespace ConsolaGestionFTP
     {
         static void Main(string[] args)
         {
+            Console.Clear();
+            string comando;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Title = "FTP Files Downloader";
-            MostrarDatosServer(args);
+            Console.Clear();
+            Console.WriteLine("===============================Consola Para Descargar Archivos Del Servidor===============================");
+            comando = Console.ReadLine();
+            while (true)
+            {
+                if (comando == "Help")
+                {
+                    MostrarComandos();
+                }
+                else if (comando == "ShowDetails")
+                {
+                    MostrarDatosServer(args);
+                }
+                else if(comando == "Check")
+                {
+                    DescargarArchivos(args);
+                }
+                else if (comando == "cls")
+                {
+                    Console.Clear();
+                }
+                comando = Console.ReadLine();
+            }
+        }
+
+        private static void MostrarComandos()
+        {
+            Console.WriteLine("Escribe 'Check' para comprovar los archivos.");
+            Console.WriteLine("Escribe 'ShowDetails' para ver los detalles del servidor.");
+            Console.WriteLine("Escribe 'cls' para limpiar la pantalla.");
         }
 
         private static void MostrarDatosServer(string[] arguments)
         {
+
+            Console.WriteLine("Datos del servidor:\n");
+            Console.WriteLine("Servidor: {0}\nUsuario: {1}\nContraseña: {2}\nCarpeta Descargas: {3}\nRuta Descargas: {4}", arguments[0], arguments[1], OcultarContraseña(arguments[2], '*'), arguments[3], arguments[4]);
+        }
+
+        private static void DescargarArchivos(string[] arguments)
+        {
             try
             {
-               /* string[] test = new string[]
-                {
-                    "172.17.6.0",
-                    "g02",
-                    "12345aA",
-                    "C:\\Users\\admin\\Desktop\\GitGrupo\\Proyectos\\Descargas",
-                    "/Hola/",
-                    "/Tractats/"
-                };*/
-
                 List<string> FileList = new List<string>();
-                Console.WriteLine("Datos del servidor:\n");
-                Console.WriteLine("Servidor: {0}\nUsuario: {1}\nContraseña: {2}\nCarpeta Descargas: {3}\nRuta Descargas: {4}", arguments[0], arguments[1], OcultarContraseña(arguments[2], '*'), arguments[3], arguments[4]);
-                Console.WriteLine("\nBuscando archivos en el servidor...");
                 FileList = ListarArchivos(arguments[0], arguments[1], arguments[2], arguments[4]);
                 foreach (string item in FileList)
                 {
@@ -40,19 +66,11 @@ namespace ConsolaGestionFTP
                     FtpRename(arguments[1], arguments[2], "ftp://" + arguments[0] + arguments[4] + item, arguments[5], item);
                     Console.Write("Descargando {0} en la carpeta {1}\n", item.Substring(item.IndexOf("/") + 1), arguments[3]);
                 }
-                CerrarConsola();
             }
             catch
             {
                 Console.WriteLine("Error, faltan los datos de conexión");
-                CerrarConsola();
             }
-        }
-
-        private static void CerrarConsola()
-        {
-            Console.WriteLine("Presiona una tecla para cerrar la consola.");
-            Console.ReadKey();
         }
 
         private static string OcultarContraseña(string input, char target)
@@ -94,12 +112,11 @@ namespace ConsolaGestionFTP
 
                 if (permissions[0] == 'd')
                 {
-                   // Console.WriteLine($"Directory {name}");
                     ListarArchivos(ipServidor,userName,password, "/" + name);
                 }
                 else
                 {
-                    Console.WriteLine($"File {name}");
+                    Console.WriteLine($"Se ha encontrado el archivo: {name}");
                     listaArchivos.Add(name);
                 }
             }
@@ -120,6 +137,7 @@ namespace ConsolaGestionFTP
                 {
                     using (Stream fileStream = File.Create(RutaLocal + "\\" + nombreArchivo))
                     {
+                        Console.WriteLine("Se ha descargado el archivo {0}\n", nombreArchivo);
                         ftpStream.CopyTo(fileStream);
                     }
                 }
@@ -142,6 +160,7 @@ namespace ConsolaGestionFTP
                 reqFTP.RenameTo = carpeta_destino + nombre_archivo;
                 FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
                 reqFTP.GetResponse().Close();
+                Console.WriteLine("Se ha modificado la ruta del archivo: {0}", nombre_archivo);
             }
             catch { }
 

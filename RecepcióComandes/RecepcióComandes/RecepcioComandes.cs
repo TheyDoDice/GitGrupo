@@ -9,11 +9,18 @@ using System.Diagnostics;
 using System.IO;
 using System.Security.Permissions;
 using GenerarOrder;
+using System.Threading;
 
 namespace RecepcióComandes
 {
     public partial class RecepcióDeComandes : Form
     {
+        //Imports Consola
+        [DllImport("User32.dll")] static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+        [DllImport("User32.dll")] static extern bool MoveWindow(IntPtr hwnd, int x, int y, int cx, int cy, bool repaint);
+        [DllImport("User32.dll")] static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+
         //ORDENAR VARIABLES
         private static string RutaArchivoXML = Application.StartupPath + "\\credenciales.xml";
         private static string CarpetaDescargas = Application.StartupPath + "\\Descargas";
@@ -21,6 +28,8 @@ namespace RecepcióComandes
         private FolderBrowserDialog SelectorCarpetas = new FolderBrowserDialog();
         private OpenFileDialog ExploradorArchivos = new OpenFileDialog();
         FileSystemWatcher VisorProcesar = new FileSystemWatcher();
+        private Process Consola = new Process();
+        IntPtr App_Consola;
         private Uri CadenaConnexionFTP;
 
 
@@ -127,9 +136,11 @@ namespace RecepcióComandes
             VisorProcesar.Filter = "*.edi";
             VisorProcesar.Created += OnChanged;
             VisorProcesar.EnableRaisingEvents = true;
-        }
-        OrderReception comanda = new OrderReception();
 
+            IniciarConsola();
+        }
+
+        OrderReception comanda = new OrderReception();
         private void OnChanged(object source, FileSystemEventArgs e)
         {
             if (comanda.GenerarComanda(e.FullPath))
@@ -149,7 +160,6 @@ namespace RecepcióComandes
             ToolStripMenuItem CrearCarpeta = new ToolStripMenuItem("Crear carpeta");
             ToolStripMenuItem SubirArchivo = new ToolStripMenuItem("Subir archivo");
             ToolStripMenuItem Borrar = new ToolStripMenuItem("Borrar");
-            ToolStripMenuItem Descargar = new ToolStripMenuItem("Descargar archivo");
 
             ContextMenuStrip docMenu = new ContextMenuStrip();
             docMenu.Items.AddRange(
@@ -158,7 +168,6 @@ namespace RecepcióComandes
                     CrearCarpeta,
                     SubirArchivo,
                     Borrar,
-                    Descargar
                 }
             );
 
@@ -179,13 +188,12 @@ namespace RecepcióComandes
                 gestionServidorFTP.BorrarDirArchivo("ftp://" + ipServidor + gestionServidorFTP.GetCurrentNodeName(VisorArchivos) + "/", ipServidor, userName, password, VisorArchivos);
                 ActualizarArbol("/");
             };
-            Descargar.Click += (se, ev) => gestionServidorFTP.DescargarArchivo(ipServidor, userName, password, CarpetaDescargas, VisorArchivos);
 
             VisorArchivos.MouseDown += (se, ev) => VisorArchivos.SelectedNode = VisorArchivos.GetNodeAt(ev.X, ev.Y);
-            
+
             VisorArchivos.ContextMenuStrip = docMenu;
         }
-        
+
         //ACTUALIZAR ARBOL
         private void ActualizarArbol(string NombrePrimerNodo)
         {
@@ -210,16 +218,16 @@ namespace RecepcióComandes
 
             string serv, user, pass;
             int port = 21;
-            
+
             pass = txtb_Contraseña.Text.Trim();
             serv = txtb_Servidor.Text.Trim();
             user = txtb_Usuario.Text.Trim();
-            
+
             if (!string.IsNullOrEmpty(txtb_Puerto.Text.Trim()))
             {
                 port = int.Parse(txtb_Puerto.Text);
             }
-            
+
             foreach (XElement node in Credenciales.Descendants("Credencials"))
             {
                 node.SetElementValue("IP", serv);
@@ -231,9 +239,10 @@ namespace RecepcióComandes
             }
             Credenciales.Save(RutaArchivoXML);
         }
-        
+
+        //CARPETA DESCARGAS CONFIGURABLE
         private void btn_CambiarCarpetaDescargas_Click(object sender, EventArgs e)
-        { 
+        {
             DialogResult result = SelectorCarpetas.ShowDialog();
 
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(SelectorCarpetas.SelectedPath))
@@ -247,9 +256,31 @@ namespace RecepcióComandes
             }
         }
 
-        private void btn_Check_Click(object sender, EventArgs e)
+        //INICIAR LA CONSOLA Y PONERLA DENTRO DEL PANEL
+        private void IniciarConsola()
         {
-            Process proc = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
+            Consola = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
+            Thread.Sleep(100);
+            App_Consola = Consola.MainWindowHandle;
+            SetParent(App_Consola, pnl_consola.Handle);
+            SetWindowLong(App_Consola, -16, 0x10000000);
+            MoveWindow(App_Consola, 0, 0, pnl_consola.Width, pnl_consola.Height, true);
+            
+        }
+
+        private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Consola.Kill();
+            Consola.Close();
+            Application.Exit();
+        }
+
+        private void RecepcióDeComandes_Resize(object sender, EventArgs e)
+        {
+            if (this.App_Consola != IntPtr.Zero)
+            {
+                MoveWindow(App_Consola, 0, 0, pnl_consola.Width, pnl_consola.Height, true);
+            }
         }
     }
 }

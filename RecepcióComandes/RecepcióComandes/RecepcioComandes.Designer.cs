@@ -47,10 +47,10 @@
             this.VisorArchivos = new System.Windows.Forms.TreeView();
             this.txtb_RutaCarpetaDescargas = new System.Windows.Forms.TextBox();
             this.lbl_RutaGuardar = new System.Windows.Forms.Label();
-            this.btn_Check = new System.Windows.Forms.Button();
-            this.btn_Processar = new System.Windows.Forms.Button();
             this.btn_CambiarCarpetaDescargas = new System.Windows.Forms.Button();
             this.lbl_ServidorFTP = new System.Windows.Forms.Label();
+            this.pnl_consola = new System.Windows.Forms.Panel();
+            this.lbl_consola = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
@@ -288,34 +288,6 @@
             this.lbl_RutaGuardar.TabIndex = 6;
             this.lbl_RutaGuardar.Text = "Ruta donde se guardarán los archivos descargados:";
             // 
-            // btn_Check
-            // 
-            this.btn_Check.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_Check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Check.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Check.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Check.Location = new System.Drawing.Point(417, 137);
-            this.btn_Check.Name = "btn_Check";
-            this.btn_Check.Size = new System.Drawing.Size(86, 30);
-            this.btn_Check.TabIndex = 3;
-            this.btn_Check.Text = "Check";
-            this.btn_Check.UseVisualStyleBackColor = false;
-            this.btn_Check.Click += new System.EventHandler(this.btn_Check_Click);
-            // 
-            // btn_Processar
-            // 
-            this.btn_Processar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_Processar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Processar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Processar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Processar.Location = new System.Drawing.Point(509, 137);
-            this.btn_Processar.Name = "btn_Processar";
-            this.btn_Processar.Size = new System.Drawing.Size(86, 30);
-            this.btn_Processar.TabIndex = 4;
-            this.btn_Processar.Text = "Procesar";
-            this.btn_Processar.UseVisualStyleBackColor = false;
-            this.btn_Processar.Visible = false;
-            // 
             // btn_CambiarCarpetaDescargas
             // 
             this.btn_CambiarCarpetaDescargas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -342,17 +314,39 @@
             this.lbl_ServidorFTP.TabIndex = 11;
             this.lbl_ServidorFTP.Text = "Archivos y directorios:";
             // 
+            // pnl_consola
+            // 
+            this.pnl_consola.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.pnl_consola.Location = new System.Drawing.Point(417, 137);
+            this.pnl_consola.Name = "pnl_consola";
+            this.pnl_consola.Size = new System.Drawing.Size(739, 496);
+            this.pnl_consola.TabIndex = 12;
+            // 
+            // lbl_consola
+            // 
+            this.lbl_consola.AutoSize = true;
+            this.lbl_consola.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_consola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_consola.Location = new System.Drawing.Point(414, 116);
+            this.lbl_consola.Name = "lbl_consola";
+            this.lbl_consola.Size = new System.Drawing.Size(61, 18);
+            this.lbl_consola.TabIndex = 13;
+            this.lbl_consola.Text = "Consola:";
+            // 
             // RecepcióDeComandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(1180, 695);
+            this.Controls.Add(this.lbl_consola);
+            this.Controls.Add(this.pnl_consola);
             this.Controls.Add(this.lbl_ServidorFTP);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
-            this.Controls.Add(this.btn_Processar);
             this.Controls.Add(this.barraSuperior);
-            this.Controls.Add(this.btn_Check);
             this.Controls.Add(this.lbl_RutaGuardar);
             this.Controls.Add(this.txtb_RutaCarpetaDescargas);
             this.Controls.Add(this.VisorArchivos);
@@ -360,7 +354,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RecepcióDeComandes";
             this.Text = "Recepció de comandes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RecepcióDeComandes_FormClosed);
             this.Load += new System.EventHandler(this.RecepcióDeComandes_Load);
+            this.Resize += new System.EventHandler(this.RecepcióDeComandes_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.barraSuperior.ResumeLayout(false);
@@ -391,12 +387,12 @@
         private System.Windows.Forms.TreeView VisorArchivos;
         private System.Windows.Forms.TextBox txtb_RutaCarpetaDescargas;
         private System.Windows.Forms.Label lbl_RutaGuardar;
-        private System.Windows.Forms.Button btn_Check;
-        private System.Windows.Forms.Button btn_Processar;
         private System.Windows.Forms.Button btn_CambiarCarpetaDescargas;
         private System.Windows.Forms.ComboBox cbx_Impresora;
         private System.Windows.Forms.Label lbl_impresora;
         private System.Windows.Forms.Label lbl_ServidorFTP;
+        private System.Windows.Forms.Panel pnl_consola;
+        private System.Windows.Forms.Label lbl_consola;
     }
 }
 
