@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>218023.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GenerarOrder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -55,6 +58,12 @@
     <Compile Include="CrearTreeNode.cs" />
     <Compile Include="FTPListDetail.cs" />
     <Compile Include="gestionServidorFTP.cs" />
+    <Compile Include="PropiedadesConsola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropiedadesConsola.Designer.cs">
+      <DependentUpon>PropiedadesConsola.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecepcioComandes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PropiedadesConsola.resx">
+      <DependentUpon>PropiedadesConsola.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecepcioComandes.resx">
       <DependentUpon>RecepcioComandes.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +105,9 @@
       <Project>{9bf97129-4305-4b25-81f2-4d1fe83721ed}</Project>
       <Name>ConsolaGestionFTP</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="218023.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

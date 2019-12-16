@@ -3,62 +3,117 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Threading;
-
+using System.Net.NetworkInformation;
+using System.Xml.Linq;
 namespace ConsolaGestionFTP
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Clear();
             string comando;
-            Console.ForegroundColor = ConsoleColor.Green;
+
+            XDocument Credenciales = XDocument.Load("C:\\Users\\admin\\Desktop\\GitGrupo\\Proyectos\\ConfigConsola.xml");
+
             Console.Title = "FTP Files Downloader";
-            Console.Clear();
-            Console.WriteLine("===============================Consola Para Descargar Archivos Del Servidor===============================");
+            foreach (XElement node in Credenciales.Descendants("ConfigConsola"))
+            {
+               Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), node.Element("ColorTexto").Value);
+               Console.BackgroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), node.Element("ColorFondo").Value);
+            }
+
+            Console.WriteLine("Escribe 'Comandos' para ver los comandos disponibles");
             comando = Console.ReadLine();
             while (true)
             {
-                if (comando == "Help")
+                if (String.Equals(comando, "Comandos", StringComparison.OrdinalIgnoreCase))
                 {
                     MostrarComandos();
                 }
-                else if (comando == "ShowDetails")
+                else if (String.Equals(comando, "MostrarDatosServidor", StringComparison.OrdinalIgnoreCase))
                 {
                     MostrarDatosServer(args);
                 }
-                else if(comando == "Check")
+                else if(String.Equals(comando, "ComprobarArchivos", StringComparison.OrdinalIgnoreCase))
                 {
                     DescargarArchivos(args);
                 }
-                else if (comando == "cls")
+                else if (String.Equals(comando, "LimpiarPantalla", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Clear();
+                }
+                else if (String.Equals(comando, "PingAlServidor -detalles", StringComparison.OrdinalIgnoreCase))
+                {
+                    ping(args[0], 1, 7000);
+                }
+                else if (String.Equals(comando, "PingAlServidor", StringComparison.OrdinalIgnoreCase))
+                {
+                    ping(args[0], 0, 7000);
                 }
                 comando = Console.ReadLine();
             }
         }
 
-        private static void MostrarComandos()
-        {
-            Console.WriteLine("Escribe 'Check' para comprovar los archivos.");
-            Console.WriteLine("Escribe 'ShowDetails' para ver los detalles del servidor.");
-            Console.WriteLine("Escribe 'cls' para limpiar la pantalla.");
-        }
-
-        private static void MostrarDatosServer(string[] arguments)
-        {
-
-            Console.WriteLine("Datos del servidor:\n");
-            Console.WriteLine("Servidor: {0}\nUsuario: {1}\nContraseña: {2}\nCarpeta Descargas: {3}\nRuta Descargas: {4}", arguments[0], arguments[1], OcultarContraseña(arguments[2], '*'), arguments[3], arguments[4]);
-        }
-
-        private static void DescargarArchivos(string[] arguments)
+        private static void ping (string ip, int detalles, int tiempo_espera)
         {
             try
             {
-                List<string> FileList = new List<string>();
+                Ping pinger = new Ping();
+                PingOptions options = new PingOptions(128,true);
+
+                string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                byte[] buffer = Encoding.ASCII.GetBytes(data);
+                int timeout = tiempo_espera;
+
+                PingReply reply = pinger.Send(ip, timeout, buffer, options);
+                if (reply.Status == IPStatus.Success)
+                {
+                    if (detalles == 1)
+                    {
+                        Console.WriteLine("Dirección: {0}", reply.Address.ToString());
+                        Console.WriteLine("Viaje ida y vuelta: {0}", reply.RoundtripTime);
+                        Console.WriteLine("Tiempo de vida: {0}", reply.Options.Ttl);
+                        Console.WriteLine("No fragmentar: {0}", reply.Options.DontFragment);
+                        Console.WriteLine("Tamaño del búfer: {0}", reply.Buffer.Length);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ping a {0} correcto", ip);
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Ping a {0} fallido", ip);
+            }
+
+            Console.WriteLine("");
+        }
+
+        private static void MostrarComandos()
+        {
+            Console.WriteLine("'MostrarDatosServidor' para ver los detalles del servidor.");
+            Console.WriteLine("'ComprobarArchivos' para comprobar si hay archivos nuevos en el servidor.");
+            Console.WriteLine("'PingAlServidor -detalles' para hacer un ping al servidor y ver los detalles");
+            Console.WriteLine("'PingAlServidor' para hacer un ping al servidor sin ver los detalles");
+            Console.WriteLine("'LimpiarPantalla' para limpiar la pantalla.");
+            Console.WriteLine("");
+        }
+
+        //Datos conexión
+        private static void MostrarDatosServer(string[] arguments)
+        {
+            Console.WriteLine("Datos del servidor:\n");
+            Console.WriteLine("Servidor: {0}\nUsuario: {1}\nContraseña: {2}\nCarpeta Descargas: {3}\nRuta Descargas: {4}", arguments[0], arguments[1], OcultarContraseña(arguments[2], '*'), arguments[3], arguments[4]);
+            Console.WriteLine("");
+        }
+
+        //Función para descargar archivos
+        private static void DescargarArchivos(string[] arguments)
+        {
+            List<string> FileList = new List<string>();
+            try
+            {
                 FileList = ListarArchivos(arguments[0], arguments[1], arguments[2], arguments[4]);
                 foreach (string item in FileList)
                 {
@@ -71,8 +126,10 @@ namespace ConsolaGestionFTP
             {
                 Console.WriteLine("Error, faltan los datos de conexión");
             }
+            Console.WriteLine("");
         }
 
+        //Cambiar los caracteres de una contraseña
         private static string OcultarContraseña(string input, char target)
         {
             StringBuilder sb = new StringBuilder(input.Length);
@@ -89,7 +146,7 @@ namespace ConsolaGestionFTP
         {
             List<string> ListaTemporal = new List<string>();
             List<string> listaArchivos = new List<string>();
-            FtpWebRequest ListarDirectorio = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + directorio );
+            FtpWebRequest ListarDirectorio = (FtpWebRequest)WebRequest.Create("ftp://" + ipServidor + directorio);
             ListarDirectorio.Credentials = new NetworkCredential(userName, password);
             ListarDirectorio.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
             WebResponse listResponse = ListarDirectorio.GetResponse();
@@ -105,13 +162,13 @@ namespace ConsolaGestionFTP
 
             foreach (string line in ListaTemporal)
             {
-                string[] tokens =
-                    line.Split(new[] { ' ' }, 9, StringSplitOptions.RemoveEmptyEntries);
+                string[] tokens = line.Split(new[] { ' ' }, 9, StringSplitOptions.RemoveEmptyEntries);
                 string name = tokens[8];
                 string permissions = tokens[0];
 
                 if (permissions[0] == 'd')
                 {
+                    Console.WriteLine($"Se ha encontrado el directorio: {name}");
                     ListarArchivos(ipServidor,userName,password, "/" + name);
                 }
                 else
@@ -120,7 +177,7 @@ namespace ConsolaGestionFTP
                     listaArchivos.Add(name);
                 }
             }
-
+            Console.WriteLine("");
             return listaArchivos;
         }
 
@@ -163,7 +220,6 @@ namespace ConsolaGestionFTP
                 Console.WriteLine("Se ha modificado la ruta del archivo: {0}", nombre_archivo);
             }
             catch { }
-
         }
     }
 }
