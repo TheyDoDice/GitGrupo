@@ -9,20 +9,30 @@ using System.Diagnostics;
 using System.IO;
 using System.Security.Permissions;
 using GenerarOrder;
+using System.Threading;
 
 namespace RecepcióComandes
 {
     public partial class RecepcióDeComandes : Form
     {
+        //Imports Consola
+        [DllImport("User32.dll")] static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+        [DllImport("User32.dll")] static extern bool MoveWindow(IntPtr hwnd, int x, int y, int cx, int cy, bool repaint);
+        [DllImport("User32.dll")] static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+
         //ORDENAR VARIABLES
         private static string RutaArchivoXML = Application.StartupPath + "\\credenciales.xml";
         private static string CarpetaDescargas = Application.StartupPath + "\\Descargas";
         private XDocument Credenciales = XDocument.Load(RutaArchivoXML);
         private FolderBrowserDialog SelectorCarpetas = new FolderBrowserDialog();
         private OpenFileDialog ExploradorArchivos = new OpenFileDialog();
-        FileSystemWatcher VisorProcesar = new FileSystemWatcher();
+        private FileSystemWatcher VisorProcesar = new FileSystemWatcher();
+        OrderReception comanda = new OrderReception();
+        private Process Consola = new Process();
+        private IntPtr App_Consola;
         private Uri CadenaConnexionFTP;
-
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
 
         public RecepcióDeComandes()
         {
@@ -94,11 +104,8 @@ namespace RecepcióComandes
         }
         #endregion
 
-
-        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
-
             ImageList myImageList = new ImageList();
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\carpeta.png"));
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\archivo.png"));
@@ -111,7 +118,7 @@ namespace RecepcióComandes
                 txtb_Servidor.Text = node.Element("IP").Value;
                 txtb_Puerto.Text = node.Element("Port").Value;
                 txtb_Usuario.Text = node.Element("User").Value;
-                txtb_Contraseña.Text = node.Element("Password").Value;
+                txtb_Contraseña.Text = DesEncriptar(node.Element("Password").Value);
                 txtb_RutaCarpetaDescargas.Text = node.Element("CarpetaBaixada").Value;
                 cbx_Impresora.Text = node.Element("Impressora").Value;
             }
@@ -120,27 +127,33 @@ namespace RecepcióComandes
 
             InicializarMenuContextual();
 
-            ActualizarArbol("/");
-
             //Comprovar carpeta descargas con el File System Watcher.
             VisorProcesar.Path = txtb_RutaCarpetaDescargas.Text;
             VisorProcesar.Filter = "*.edi";
             VisorProcesar.Created += OnChanged;
             VisorProcesar.EnableRaisingEvents = true;
-        }
-        OrderReception comanda = new OrderReception();
 
+            lbl_fecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            IniciarConsola();
+            ActualizarArbol("/");
+        }
+        
         private void OnChanged(object source, FileSystemEventArgs e)
         {
-            if (comanda.GenerarComanda(e.FullPath))
+            try
             {
-                try
+                if (comanda.GenerarComanda(e.FullPath))
                 {
-                    string NombreArchivo = e.FullPath.Split('\\').Last();
-                    File.Move(e.FullPath, CarpetaDescargas + "\\Tractats\\" + NombreArchivo);
+                    try
+                    {
+                        string NombreArchivo = e.FullPath.Split('\\').Last();
+                        File.Move(e.FullPath, CarpetaDescargas + "\\Tractats\\" + NombreArchivo);
+                    }
+                    catch { }
                 }
-                catch { }
             }
+            catch { }
         }
 
         private void InicializarMenuContextual()
@@ -149,16 +162,15 @@ namespace RecepcióComandes
             ToolStripMenuItem CrearCarpeta = new ToolStripMenuItem("Crear carpeta");
             ToolStripMenuItem SubirArchivo = new ToolStripMenuItem("Subir archivo");
             ToolStripMenuItem Borrar = new ToolStripMenuItem("Borrar");
-            ToolStripMenuItem Descargar = new ToolStripMenuItem("Descargar archivo");
 
             ContextMenuStrip docMenu = new ContextMenuStrip();
             docMenu.Items.AddRange(
-                new ToolStripMenuItem[]{
+                new ToolStripMenuItem[]
+                {
                     Actualizar,
                     CrearCarpeta,
                     SubirArchivo,
                     Borrar,
-                    Descargar
                 }
             );
 
@@ -179,13 +191,12 @@ namespace RecepcióComandes
                 gestionServidorFTP.BorrarDirArchivo("ftp://" + ipServidor + gestionServidorFTP.GetCurrentNodeName(VisorArchivos) + "/", ipServidor, userName, password, VisorArchivos);
                 ActualizarArbol("/");
             };
-            Descargar.Click += (se, ev) => gestionServidorFTP.DescargarArchivo(ipServidor, userName, password, CarpetaDescargas, VisorArchivos);
 
             VisorArchivos.MouseDown += (se, ev) => VisorArchivos.SelectedNode = VisorArchivos.GetNodeAt(ev.X, ev.Y);
-            
+
             VisorArchivos.ContextMenuStrip = docMenu;
         }
-        
+
         //ACTUALIZAR ARBOL
         private void ActualizarArbol(string NombrePrimerNodo)
         {
@@ -210,16 +221,16 @@ namespace RecepcióComandes
 
             string serv, user, pass;
             int port = 21;
-            
-            pass = txtb_Contraseña.Text.Trim();
+
+            pass = Encriptar(txtb_Contraseña.Text.Trim());
             serv = txtb_Servidor.Text.Trim();
             user = txtb_Usuario.Text.Trim();
-            
+
             if (!string.IsNullOrEmpty(txtb_Puerto.Text.Trim()))
             {
                 port = int.Parse(txtb_Puerto.Text);
             }
-            
+
             foreach (XElement node in Credenciales.Descendants("Credencials"))
             {
                 node.SetElementValue("IP", serv);
@@ -231,9 +242,10 @@ namespace RecepcióComandes
             }
             Credenciales.Save(RutaArchivoXML);
         }
-        
+
+        //CARPETA DESCARGAS CONFIGURABLE
         private void btn_CambiarCarpetaDescargas_Click(object sender, EventArgs e)
-        { 
+        {
             DialogResult result = SelectorCarpetas.ShowDialog();
 
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(SelectorCarpetas.SelectedPath))
@@ -247,9 +259,71 @@ namespace RecepcióComandes
             }
         }
 
-        private void btn_Check_Click(object sender, EventArgs e)
+        //INICIAR LA CONSOLA Y PONERLA DENTRO DEL PANEL
+        private void IniciarConsola()
         {
-            Process proc = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
+            Consola = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
+            Thread.Sleep(120);
+            App_Consola = Consola.MainWindowHandle;
+            SetParent(App_Consola, pnl_consola.Handle);
+            SetWindowLong(App_Consola, -16, 0x10000000);
+            MoveWindow(App_Consola, 0, 0, pnl_consola.Width, pnl_consola.Height, true);
+            
+        }
+
+        private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Consola.Kill();
+            Consola.Close();
+            Application.Exit();
+        }
+
+        private void tmr_hora_Tick(object sender, EventArgs e)
+        {
+            lbl_hora.Text = DateTime.Now.ToString("HH:mm:ss");
+            
+        }
+
+        /// Esta función "encripta" la cadena que le envíamos en el parámentro de entrada.
+        public static string Encriptar(string _cadenaAencriptar)
+        {
+            string result = string.Empty;
+            byte[] encryted =
+            System.Text.Encoding.Unicode.GetBytes(_cadenaAencriptar);
+            result = Convert.ToBase64String(encryted);
+            return result;
+        }
+
+        /// Esta función "desencripta" la cadena que le envíamos en el parámentro de entrada.
+        public static string DesEncriptar(string _cadenaAdesencriptar)
+        {
+            try
+            {
+                string result = string.Empty;
+                byte[] decryted =
+                Convert.FromBase64String(_cadenaAdesencriptar);
+                System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
+                result = System.Text.Encoding.Unicode.GetString(decryted);
+                return result;
+            }
+            catch
+            {
+                return _cadenaAdesencriptar;
+            }
+        }
+
+        private void pnl_consola_Resize(object sender, EventArgs e)
+        {
+            if (this.App_Consola != IntPtr.Zero)
+            {
+                MoveWindow(App_Consola, 0, 0, pnl_consola.Width, pnl_consola.Height, true);
+            }
+        }
+
+        private void lbl_consola_Click(object sender, EventArgs e)
+        {
+            PropiedadesConsola frm_consola = new PropiedadesConsola();
+            frm_consola.ShowDialog(); 
         }
     }
 }

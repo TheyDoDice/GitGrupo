@@ -20,9 +20,6 @@ namespace ProyectoPrincipal.Forms
         private string userRank;
         private DataSet menu;
 
-        private bool primerClickUser = true;
-        private bool primerClickPass = true;
-
         #region MOVEPANEL
         private const int ButtonDown = 0xA1;
         private const int HtCaption = 0x2;

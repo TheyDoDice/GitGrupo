@@ -90,6 +90,12 @@
     <Compile Include="MantenimientoMenuOptions.Designer.cs">
       <DependentUpon>MantenimientoMenuOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoOrders.Designer.cs">
+      <DependentUpon>MantenimientoOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoPlanets.cs">
       <SubType>Form</SubType>
     </Compile>

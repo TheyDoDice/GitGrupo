@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_Servidor = new System.Windows.Forms.Label();
             this.txtb_Servidor = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbx_credenciales = new System.Windows.Forms.GroupBox();
             this.cbx_Impresora = new System.Windows.Forms.ComboBox();
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.lbl_impresora = new System.Windows.Forms.Label();
@@ -44,18 +45,28 @@
             this.ptb_maximize = new System.Windows.Forms.PictureBox();
             this.ptb_minimize = new System.Windows.Forms.PictureBox();
             this.ptb_close = new System.Windows.Forms.PictureBox();
-            this.VisorArchivos = new System.Windows.Forms.TreeView();
             this.txtb_RutaCarpetaDescargas = new System.Windows.Forms.TextBox();
             this.lbl_RutaGuardar = new System.Windows.Forms.Label();
-            this.btn_Check = new System.Windows.Forms.Button();
-            this.btn_Processar = new System.Windows.Forms.Button();
             this.btn_CambiarCarpetaDescargas = new System.Windows.Forms.Button();
             this.lbl_ServidorFTP = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.lbl_consola = new System.Windows.Forms.Label();
+            this.lbl_text_hora = new System.Windows.Forms.Label();
+            this.lbl_hora = new System.Windows.Forms.Label();
+            this.tmr_hora = new System.Windows.Forms.Timer(this.components);
+            this.lbl_text_fecha = new System.Windows.Forms.Label();
+            this.lbl_fecha = new System.Windows.Forms.Label();
+            this.VisorArchivos = new System.Windows.Forms.TreeView();
+            this.pnl_consola = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gbx_credenciales.SuspendLayout();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_Servidor
@@ -79,26 +90,26 @@
             this.txtb_Servidor.Size = new System.Drawing.Size(110, 26);
             this.txtb_Servidor.TabIndex = 1;
             // 
-            // groupBox1
+            // gbx_credenciales
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbx_credenciales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbx_Impresora);
-            this.groupBox1.Controls.Add(this.btn_Guardar);
-            this.groupBox1.Controls.Add(this.lbl_impresora);
-            this.groupBox1.Controls.Add(this.txtb_Puerto);
-            this.groupBox1.Controls.Add(this.lbl_puerto);
-            this.groupBox1.Controls.Add(this.txtb_Contraseña);
-            this.groupBox1.Controls.Add(this.lbl_Contraseña);
-            this.groupBox1.Controls.Add(this.txtb_Usuario);
-            this.groupBox1.Controls.Add(this.lbl_Usuario);
-            this.groupBox1.Controls.Add(this.lbl_Servidor);
-            this.groupBox1.Controls.Add(this.txtb_Servidor);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1144, 58);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this.gbx_credenciales.Controls.Add(this.cbx_Impresora);
+            this.gbx_credenciales.Controls.Add(this.btn_Guardar);
+            this.gbx_credenciales.Controls.Add(this.lbl_impresora);
+            this.gbx_credenciales.Controls.Add(this.txtb_Puerto);
+            this.gbx_credenciales.Controls.Add(this.lbl_puerto);
+            this.gbx_credenciales.Controls.Add(this.txtb_Contraseña);
+            this.gbx_credenciales.Controls.Add(this.lbl_Contraseña);
+            this.gbx_credenciales.Controls.Add(this.txtb_Usuario);
+            this.gbx_credenciales.Controls.Add(this.lbl_Usuario);
+            this.gbx_credenciales.Controls.Add(this.lbl_Servidor);
+            this.gbx_credenciales.Controls.Add(this.txtb_Servidor);
+            this.gbx_credenciales.Location = new System.Drawing.Point(12, 41);
+            this.gbx_credenciales.Name = "gbx_credenciales";
+            this.gbx_credenciales.Size = new System.Drawing.Size(1174, 58);
+            this.gbx_credenciales.TabIndex = 0;
+            this.gbx_credenciales.TabStop = false;
             // 
             // cbx_Impresora
             // 
@@ -109,7 +120,7 @@
             this.cbx_Impresora.FormattingEnabled = true;
             this.cbx_Impresora.Location = new System.Drawing.Point(876, 17);
             this.cbx_Impresora.Name = "cbx_Impresora";
-            this.cbx_Impresora.Size = new System.Drawing.Size(154, 26);
+            this.cbx_Impresora.Size = new System.Drawing.Size(184, 26);
             this.cbx_Impresora.TabIndex = 5;
             // 
             // btn_Guardar
@@ -119,7 +130,7 @@
             this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Guardar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Guardar.Location = new System.Drawing.Point(1052, 13);
+            this.btn_Guardar.Location = new System.Drawing.Point(1082, 13);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(86, 30);
             this.btn_Guardar.TabIndex = 6;
@@ -211,14 +222,14 @@
             this.barraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraSuperior.Location = new System.Drawing.Point(0, 0);
             this.barraSuperior.Name = "barraSuperior";
-            this.barraSuperior.Size = new System.Drawing.Size(1180, 35);
+            this.barraSuperior.Size = new System.Drawing.Size(1198, 35);
             this.barraSuperior.TabIndex = 7;
             // 
             // ptb_maximize
             // 
             this.ptb_maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptb_maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_maximize.Location = new System.Drawing.Point(1111, 0);
+            this.ptb_maximize.Location = new System.Drawing.Point(1129, 0);
             this.ptb_maximize.Name = "ptb_maximize";
             this.ptb_maximize.Padding = new System.Windows.Forms.Padding(9, 10, 9, 8);
             this.ptb_maximize.Size = new System.Drawing.Size(35, 35);
@@ -230,7 +241,7 @@
             // 
             this.ptb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptb_minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_minimize.Location = new System.Drawing.Point(1076, 0);
+            this.ptb_minimize.Location = new System.Drawing.Point(1094, 0);
             this.ptb_minimize.Name = "ptb_minimize";
             this.ptb_minimize.Size = new System.Drawing.Size(35, 35);
             this.ptb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,27 +252,12 @@
             // 
             this.ptb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_close.Location = new System.Drawing.Point(1146, 0);
+            this.ptb_close.Location = new System.Drawing.Point(1164, 0);
             this.ptb_close.Name = "ptb_close";
             this.ptb_close.Size = new System.Drawing.Size(35, 35);
             this.ptb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_close.TabIndex = 0;
             this.ptb_close.TabStop = false;
-            // 
-            // VisorArchivos
-            // 
-            this.VisorArchivos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.VisorArchivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            this.VisorArchivos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.VisorArchivos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VisorArchivos.ForeColor = System.Drawing.SystemColors.Window;
-            this.VisorArchivos.LineColor = System.Drawing.Color.White;
-            this.VisorArchivos.Location = new System.Drawing.Point(12, 137);
-            this.VisorArchivos.Name = "VisorArchivos";
-            this.VisorArchivos.PathSeparator = "/";
-            this.VisorArchivos.Size = new System.Drawing.Size(382, 496);
-            this.VisorArchivos.TabIndex = 1;
             // 
             // txtb_RutaCarpetaDescargas
             // 
@@ -270,10 +266,10 @@
             this.txtb_RutaCarpetaDescargas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.txtb_RutaCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.txtb_RutaCarpetaDescargas.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtb_RutaCarpetaDescargas.Location = new System.Drawing.Point(12, 657);
+            this.txtb_RutaCarpetaDescargas.Location = new System.Drawing.Point(12, 580);
             this.txtb_RutaCarpetaDescargas.Name = "txtb_RutaCarpetaDescargas";
             this.txtb_RutaCarpetaDescargas.ReadOnly = true;
-            this.txtb_RutaCarpetaDescargas.Size = new System.Drawing.Size(1103, 26);
+            this.txtb_RutaCarpetaDescargas.Size = new System.Drawing.Size(1133, 26);
             this.txtb_RutaCarpetaDescargas.TabIndex = 5;
             // 
             // lbl_RutaGuardar
@@ -282,39 +278,11 @@
             this.lbl_RutaGuardar.AutoSize = true;
             this.lbl_RutaGuardar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_RutaGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_RutaGuardar.Location = new System.Drawing.Point(9, 636);
+            this.lbl_RutaGuardar.Location = new System.Drawing.Point(9, 559);
             this.lbl_RutaGuardar.Name = "lbl_RutaGuardar";
             this.lbl_RutaGuardar.Size = new System.Drawing.Size(319, 18);
             this.lbl_RutaGuardar.TabIndex = 6;
             this.lbl_RutaGuardar.Text = "Ruta donde se guardarán los archivos descargados:";
-            // 
-            // btn_Check
-            // 
-            this.btn_Check.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_Check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Check.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Check.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Check.Location = new System.Drawing.Point(417, 137);
-            this.btn_Check.Name = "btn_Check";
-            this.btn_Check.Size = new System.Drawing.Size(86, 30);
-            this.btn_Check.TabIndex = 3;
-            this.btn_Check.Text = "Check";
-            this.btn_Check.UseVisualStyleBackColor = false;
-            this.btn_Check.Click += new System.EventHandler(this.btn_Check_Click);
-            // 
-            // btn_Processar
-            // 
-            this.btn_Processar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_Processar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Processar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Processar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Processar.Location = new System.Drawing.Point(509, 137);
-            this.btn_Processar.Name = "btn_Processar";
-            this.btn_Processar.Size = new System.Drawing.Size(86, 30);
-            this.btn_Processar.TabIndex = 4;
-            this.btn_Processar.Text = "Procesar";
-            this.btn_Processar.UseVisualStyleBackColor = false;
-            this.btn_Processar.Visible = false;
             // 
             // btn_CambiarCarpetaDescargas
             // 
@@ -323,7 +291,7 @@
             this.btn_CambiarCarpetaDescargas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarCarpetaDescargas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_CambiarCarpetaDescargas.Location = new System.Drawing.Point(1121, 657);
+            this.btn_CambiarCarpetaDescargas.Location = new System.Drawing.Point(1151, 580);
             this.btn_CambiarCarpetaDescargas.Name = "btn_CambiarCarpetaDescargas";
             this.btn_CambiarCarpetaDescargas.Size = new System.Drawing.Size(35, 26);
             this.btn_CambiarCarpetaDescargas.TabIndex = 6;
@@ -336,37 +304,161 @@
             this.lbl_ServidorFTP.AutoSize = true;
             this.lbl_ServidorFTP.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_ServidorFTP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_ServidorFTP.Location = new System.Drawing.Point(9, 116);
+            this.lbl_ServidorFTP.Location = new System.Drawing.Point(3, 0);
             this.lbl_ServidorFTP.Name = "lbl_ServidorFTP";
             this.lbl_ServidorFTP.Size = new System.Drawing.Size(145, 18);
             this.lbl_ServidorFTP.TabIndex = 11;
             this.lbl_ServidorFTP.Text = "Archivos y directorios:";
+            // 
+            // lbl_consola
+            // 
+            this.lbl_consola.AutoSize = true;
+            this.lbl_consola.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_consola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_consola.Location = new System.Drawing.Point(3, 0);
+            this.lbl_consola.Name = "lbl_consola";
+            this.lbl_consola.Size = new System.Drawing.Size(61, 18);
+            this.lbl_consola.TabIndex = 13;
+            this.lbl_consola.Text = "Consola:";
+            this.lbl_consola.Click += new System.EventHandler(this.lbl_consola_Click);
+            // 
+            // lbl_text_hora
+            // 
+            this.lbl_text_hora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_text_hora.AutoSize = true;
+            this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_text_hora.Location = new System.Drawing.Point(677, -1);
+            this.lbl_text_hora.Name = "lbl_text_hora";
+            this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
+            this.lbl_text_hora.TabIndex = 14;
+            this.lbl_text_hora.Text = "Hora:";
+            // 
+            // lbl_hora
+            // 
+            this.lbl_hora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_hora.AutoSize = true;
+            this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_hora.Location = new System.Drawing.Point(715, -1);
+            this.lbl_hora.Name = "lbl_hora";
+            this.lbl_hora.Size = new System.Drawing.Size(58, 18);
+            this.lbl_hora.TabIndex = 15;
+            this.lbl_hora.Text = "17:40:20";
+            // 
+            // tmr_hora
+            // 
+            this.tmr_hora.Enabled = true;
+            this.tmr_hora.Tick += new System.EventHandler(this.tmr_hora_Tick);
+            // 
+            // lbl_text_fecha
+            // 
+            this.lbl_text_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_text_fecha.AutoSize = true;
+            this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_text_fecha.Location = new System.Drawing.Point(550, -1);
+            this.lbl_text_fecha.Name = "lbl_text_fecha";
+            this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
+            this.lbl_text_fecha.TabIndex = 16;
+            this.lbl_text_fecha.Text = "Fecha:";
+            // 
+            // lbl_fecha
+            // 
+            this.lbl_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_fecha.AutoSize = true;
+            this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_fecha.Location = new System.Drawing.Point(595, -1);
+            this.lbl_fecha.Name = "lbl_fecha";
+            this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
+            this.lbl_fecha.TabIndex = 17;
+            this.lbl_fecha.Text = "13/12/2019";
+            // 
+            // VisorArchivos
+            // 
+            this.VisorArchivos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VisorArchivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.VisorArchivos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.VisorArchivos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VisorArchivos.ForeColor = System.Drawing.SystemColors.Window;
+            this.VisorArchivos.LineColor = System.Drawing.Color.White;
+            this.VisorArchivos.Location = new System.Drawing.Point(3, 21);
+            this.VisorArchivos.Name = "VisorArchivos";
+            this.VisorArchivos.PathSeparator = "/";
+            this.VisorArchivos.Size = new System.Drawing.Size(386, 429);
+            this.VisorArchivos.TabIndex = 1;
+            // 
+            // pnl_consola
+            // 
+            this.pnl_consola.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.pnl_consola.Location = new System.Drawing.Point(3, 20);
+            this.pnl_consola.Name = "pnl_consola";
+            this.pnl_consola.Size = new System.Drawing.Size(771, 431);
+            this.pnl_consola.TabIndex = 12;
+            this.pnl_consola.Resize += new System.EventHandler(this.pnl_consola_Resize);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(12, 105);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.VisorArchivos);
+            this.splitContainer1.Panel1.Controls.Add(this.lbl_ServidorFTP);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.pnl_consola);
+            this.splitContainer1.Panel2.Controls.Add(this.lbl_fecha);
+            this.splitContainer1.Panel2.Controls.Add(this.lbl_consola);
+            this.splitContainer1.Panel2.Controls.Add(this.lbl_text_fecha);
+            this.splitContainer1.Panel2.Controls.Add(this.lbl_hora);
+            this.splitContainer1.Panel2.Controls.Add(this.lbl_text_hora);
+            this.splitContainer1.Size = new System.Drawing.Size(1174, 451);
+            this.splitContainer1.SplitterDistance = 390;
+            this.splitContainer1.SplitterWidth = 8;
+            this.splitContainer1.TabIndex = 18;
             // 
             // RecepcióDeComandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(1180, 695);
-            this.Controls.Add(this.lbl_ServidorFTP);
+            this.ClientSize = new System.Drawing.Size(1198, 618);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
-            this.Controls.Add(this.btn_Processar);
             this.Controls.Add(this.barraSuperior);
-            this.Controls.Add(this.btn_Check);
             this.Controls.Add(this.lbl_RutaGuardar);
             this.Controls.Add(this.txtb_RutaCarpetaDescargas);
-            this.Controls.Add(this.VisorArchivos);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbx_credenciales);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RecepcióDeComandes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recepció de comandes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RecepcióDeComandes_FormClosed);
             this.Load += new System.EventHandler(this.RecepcióDeComandes_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbx_credenciales.ResumeLayout(false);
+            this.gbx_credenciales.PerformLayout();
             this.barraSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,7 +468,7 @@
 
         private System.Windows.Forms.Label lbl_Servidor;
         private System.Windows.Forms.TextBox txtb_Servidor;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbx_credenciales;
         private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.TextBox txtb_Puerto;
         private System.Windows.Forms.Label lbl_puerto;
@@ -388,15 +480,21 @@
         private System.Windows.Forms.PictureBox ptb_maximize;
         private System.Windows.Forms.PictureBox ptb_minimize;
         private System.Windows.Forms.PictureBox ptb_close;
-        private System.Windows.Forms.TreeView VisorArchivos;
         private System.Windows.Forms.TextBox txtb_RutaCarpetaDescargas;
         private System.Windows.Forms.Label lbl_RutaGuardar;
-        private System.Windows.Forms.Button btn_Check;
-        private System.Windows.Forms.Button btn_Processar;
         private System.Windows.Forms.Button btn_CambiarCarpetaDescargas;
         private System.Windows.Forms.ComboBox cbx_Impresora;
         private System.Windows.Forms.Label lbl_impresora;
         private System.Windows.Forms.Label lbl_ServidorFTP;
+        private System.Windows.Forms.Label lbl_consola;
+        private System.Windows.Forms.Label lbl_text_hora;
+        private System.Windows.Forms.Label lbl_hora;
+        private System.Windows.Forms.Timer tmr_hora;
+        private System.Windows.Forms.Label lbl_text_fecha;
+        private System.Windows.Forms.Label lbl_fecha;
+        private System.Windows.Forms.TreeView VisorArchivos;
+        private System.Windows.Forms.Panel pnl_consola;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 
