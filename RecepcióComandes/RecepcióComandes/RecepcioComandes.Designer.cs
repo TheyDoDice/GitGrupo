@@ -328,7 +328,7 @@
             this.lbl_text_hora.AutoSize = true;
             this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_hora.Location = new System.Drawing.Point(677, -1);
+            this.lbl_text_hora.Location = new System.Drawing.Point(673, -1);
             this.lbl_text_hora.Name = "lbl_text_hora";
             this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
             this.lbl_text_hora.TabIndex = 14;
@@ -340,7 +340,7 @@
             this.lbl_hora.AutoSize = true;
             this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_hora.Location = new System.Drawing.Point(715, -1);
+            this.lbl_hora.Location = new System.Drawing.Point(711, -1);
             this.lbl_hora.Name = "lbl_hora";
             this.lbl_hora.Size = new System.Drawing.Size(58, 18);
             this.lbl_hora.TabIndex = 15;
@@ -357,7 +357,7 @@
             this.lbl_text_fecha.AutoSize = true;
             this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_fecha.Location = new System.Drawing.Point(550, -1);
+            this.lbl_text_fecha.Location = new System.Drawing.Point(546, -1);
             this.lbl_text_fecha.Name = "lbl_text_fecha";
             this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
             this.lbl_text_fecha.TabIndex = 16;
@@ -369,7 +369,7 @@
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_fecha.Location = new System.Drawing.Point(595, -1);
+            this.lbl_fecha.Location = new System.Drawing.Point(591, -1);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
             this.lbl_fecha.TabIndex = 17;
@@ -384,6 +384,7 @@
             this.VisorArchivos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VisorArchivos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VisorArchivos.ForeColor = System.Drawing.SystemColors.Window;
+            this.VisorArchivos.FullRowSelect = true;
             this.VisorArchivos.LineColor = System.Drawing.Color.White;
             this.VisorArchivos.Location = new System.Drawing.Point(3, 21);
             this.VisorArchivos.Name = "VisorArchivos";
@@ -399,7 +400,7 @@
             this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.pnl_consola.Location = new System.Drawing.Point(3, 20);
             this.pnl_consola.Name = "pnl_consola";
-            this.pnl_consola.Size = new System.Drawing.Size(771, 431);
+            this.pnl_consola.Size = new System.Drawing.Size(767, 431);
             this.pnl_consola.TabIndex = 12;
             this.pnl_consola.Resize += new System.EventHandler(this.pnl_consola_Resize);
             // 
