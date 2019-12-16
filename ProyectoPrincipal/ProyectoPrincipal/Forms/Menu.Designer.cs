@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.bordeSuperior = new System.Windows.Forms.Panel();
             this.bordeInferior = new System.Windows.Forms.Panel();
@@ -42,18 +43,22 @@
             this.barraMenu = new System.Windows.Forms.Panel();
             this.subUser = new System.Windows.Forms.Panel();
             this.panelUser = new System.Windows.Forms.Panel();
+            this.ptb_scrollMenu = new System.Windows.Forms.PictureBox();
             this.lbl_user = new System.Windows.Forms.Label();
             this.ptb_user = new System.Windows.Forms.PictureBox();
             this.subLeft = new System.Windows.Forms.Panel();
             this.barraInferior = new System.Windows.Forms.Panel();
             this.subBot = new System.Windows.Forms.Panel();
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
+            this.timerHidePanel = new System.Windows.Forms.Timer(this.components);
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
+            this.barraMenu.SuspendLayout();
             this.panelUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_scrollMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_user)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +167,8 @@
             // barraMenu
             // 
             this.barraMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
+            this.barraMenu.Controls.Add(this.subUser);
+            this.barraMenu.Controls.Add(this.panelUser);
             this.barraMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.barraMenu.Location = new System.Drawing.Point(1, 38);
             this.barraMenu.Name = "barraMenu";
@@ -180,6 +187,7 @@
             // panelUser
             // 
             this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.panelUser.Controls.Add(this.ptb_scrollMenu);
             this.panelUser.Controls.Add(this.lbl_user);
             this.panelUser.Controls.Add(this.ptb_user);
             this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
@@ -188,12 +196,22 @@
             this.panelUser.Size = new System.Drawing.Size(350, 46);
             this.panelUser.TabIndex = 0;
             // 
+            // ptb_scrollMenu
+            // 
+            this.ptb_scrollMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.ptb_scrollMenu.Location = new System.Drawing.Point(18, 5);
+            this.ptb_scrollMenu.Name = "ptb_scrollMenu";
+            this.ptb_scrollMenu.Size = new System.Drawing.Size(35, 35);
+            this.ptb_scrollMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_scrollMenu.TabIndex = 14;
+            this.ptb_scrollMenu.TabStop = false;
+            // 
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold);
             this.lbl_user.ForeColor = System.Drawing.Color.White;
-            this.lbl_user.Location = new System.Drawing.Point(46, 5);
+            this.lbl_user.Location = new System.Drawing.Point(115, 6);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(0, 36);
             this.lbl_user.TabIndex = 13;
@@ -201,7 +219,7 @@
             // ptb_user
             // 
             this.ptb_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_user.Location = new System.Drawing.Point(5, 5);
+            this.ptb_user.Location = new System.Drawing.Point(74, 6);
             this.ptb_user.Name = "ptb_user";
             this.ptb_user.Size = new System.Drawing.Size(35, 35);
             this.ptb_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -243,6 +261,11 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(846, 524);
             this.panelFormPrincipal.TabIndex = 11;
             // 
+            // timerHidePanel
+            // 
+            this.timerHidePanel.Interval = 10;
+            this.timerHidePanel.Tick += new System.EventHandler(this.timerHidePanel_Tick);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,8 +295,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
+            this.barraMenu.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_scrollMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_user)).EndInit();
             this.ResumeLayout(false);
 
@@ -300,5 +325,7 @@
         private System.Windows.Forms.Panel subBot;
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Panel panelFormPrincipal;
+        private System.Windows.Forms.PictureBox ptb_scrollMenu;
+        private System.Windows.Forms.Timer timerHidePanel;
     }
 }

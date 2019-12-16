@@ -35,6 +35,8 @@ namespace ProyectoPrincipal.Forms
 
         #endregion
 
+        
+        private bool ocultar = true;
         private string user;
         private string userRank;
         private DataSet menuOptions;
@@ -49,6 +51,8 @@ namespace ProyectoPrincipal.Forms
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            barraMenu.Size = new System.Drawing.Size(70, 561);
+
             #region BARRA SUPERIOR
 
             ptb_logo.Image = TakeImg("dark", "logo");
@@ -73,6 +77,11 @@ namespace ProyectoPrincipal.Forms
             barraSuperior.MouseDown += (se, ev) => ptb_maximize.Image = this.WindowState != FormWindowState.Maximized ? TakeImg("dark", "maximize_2") : TakeImg("dark", "maximize_1");
 
             #endregion
+
+            ptb_scrollMenu.Image = TakeImg("dark", "scroll_2");
+            ptb_scrollMenu.MouseLeave += (se, ev) => ptb_scrollMenu.Image = ocultar ? TakeImg("dark", "scroll_2") : TakeImg("dark", "scroll_1");
+            ptb_scrollMenu.MouseEnter += (se, ev) => ptb_scrollMenu.Image = ocultar ? TakeImg("select", "scroll_2") : TakeImg("select", "scroll_1");
+            ptb_scrollMenu.Click += (se, ev) => { HidePanel(); };
 
             ptb_user.Image = TakeImg("dark", "user");
             ptb_user.MouseEnter += (se, ev) => lbl_user.ForeColor = Color.DimGray;
@@ -117,10 +126,26 @@ namespace ProyectoPrincipal.Forms
             Environment.Exit(0);
         }
 
+        private void HidePanel()
+        {
+            ptb_scrollMenu.Image = ocultar ? TakeImg("dark", "scroll_1") : TakeImg("dark", "scroll_2");
+            timerHidePanel.Start();
+        }
+
         private Image TakeImg(string mode, string name)
         {
             return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
         }
-        
+
+        private void timerHidePanel_Tick(object sender, EventArgs e)
+        {
+            barraMenu.Width = ocultar ? barraMenu.Width + 15 : barraMenu.Width - 15;
+
+            if (barraMenu.Width <= 70 || barraMenu.Width >= 330)
+            {
+                ocultar = !ocultar;
+                timerHidePanel.Stop();
+            }
+        }
     }
 }
