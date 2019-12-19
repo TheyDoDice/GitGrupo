@@ -41,10 +41,6 @@
             this.lbl_Contraseña = new System.Windows.Forms.Label();
             this.txtb_Usuario = new System.Windows.Forms.TextBox();
             this.lbl_Usuario = new System.Windows.Forms.Label();
-            this.barraSuperior = new System.Windows.Forms.Panel();
-            this.ptb_maximize = new System.Windows.Forms.PictureBox();
-            this.ptb_minimize = new System.Windows.Forms.PictureBox();
-            this.ptb_close = new System.Windows.Forms.PictureBox();
             this.txtb_RutaCarpetaDescargas = new System.Windows.Forms.TextBox();
             this.lbl_RutaGuardar = new System.Windows.Forms.Label();
             this.btn_CambiarCarpetaDescargas = new System.Windows.Forms.Button();
@@ -59,10 +55,6 @@
             this.pnl_consola = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbx_credenciales.SuspendLayout();
-            this.barraSuperior.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -213,52 +205,6 @@
             this.lbl_Usuario.TabIndex = 2;
             this.lbl_Usuario.Text = "Usuario:";
             // 
-            // barraSuperior
-            // 
-            this.barraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.barraSuperior.Controls.Add(this.ptb_maximize);
-            this.barraSuperior.Controls.Add(this.ptb_minimize);
-            this.barraSuperior.Controls.Add(this.ptb_close);
-            this.barraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barraSuperior.Location = new System.Drawing.Point(0, 0);
-            this.barraSuperior.Name = "barraSuperior";
-            this.barraSuperior.Size = new System.Drawing.Size(1198, 35);
-            this.barraSuperior.TabIndex = 7;
-            // 
-            // ptb_maximize
-            // 
-            this.ptb_maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptb_maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_maximize.Location = new System.Drawing.Point(1129, 0);
-            this.ptb_maximize.Name = "ptb_maximize";
-            this.ptb_maximize.Padding = new System.Windows.Forms.Padding(9, 10, 9, 8);
-            this.ptb_maximize.Size = new System.Drawing.Size(35, 35);
-            this.ptb_maximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_maximize.TabIndex = 11;
-            this.ptb_maximize.TabStop = false;
-            // 
-            // ptb_minimize
-            // 
-            this.ptb_minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptb_minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_minimize.Location = new System.Drawing.Point(1094, 0);
-            this.ptb_minimize.Name = "ptb_minimize";
-            this.ptb_minimize.Size = new System.Drawing.Size(35, 35);
-            this.ptb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_minimize.TabIndex = 0;
-            this.ptb_minimize.TabStop = false;
-            // 
-            // ptb_close
-            // 
-            this.ptb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.ptb_close.Location = new System.Drawing.Point(1164, 0);
-            this.ptb_close.Name = "ptb_close";
-            this.ptb_close.Size = new System.Drawing.Size(35, 35);
-            this.ptb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_close.TabIndex = 0;
-            this.ptb_close.TabStop = false;
-            // 
             // txtb_RutaCarpetaDescargas
             // 
             this.txtb_RutaCarpetaDescargas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -328,7 +274,7 @@
             this.lbl_text_hora.AutoSize = true;
             this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_hora.Location = new System.Drawing.Point(673, -1);
+            this.lbl_text_hora.Location = new System.Drawing.Point(669, -1);
             this.lbl_text_hora.Name = "lbl_text_hora";
             this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
             this.lbl_text_hora.TabIndex = 14;
@@ -340,7 +286,7 @@
             this.lbl_hora.AutoSize = true;
             this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_hora.Location = new System.Drawing.Point(711, -1);
+            this.lbl_hora.Location = new System.Drawing.Point(707, -1);
             this.lbl_hora.Name = "lbl_hora";
             this.lbl_hora.Size = new System.Drawing.Size(58, 18);
             this.lbl_hora.TabIndex = 15;
@@ -357,7 +303,7 @@
             this.lbl_text_fecha.AutoSize = true;
             this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_fecha.Location = new System.Drawing.Point(546, -1);
+            this.lbl_text_fecha.Location = new System.Drawing.Point(542, -1);
             this.lbl_text_fecha.Name = "lbl_text_fecha";
             this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
             this.lbl_text_fecha.TabIndex = 16;
@@ -369,7 +315,7 @@
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_fecha.Location = new System.Drawing.Point(591, -1);
+            this.lbl_fecha.Location = new System.Drawing.Point(587, -1);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
             this.lbl_fecha.TabIndex = 17;
@@ -400,7 +346,7 @@
             this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.pnl_consola.Location = new System.Drawing.Point(3, 20);
             this.pnl_consola.Name = "pnl_consola";
-            this.pnl_consola.Size = new System.Drawing.Size(767, 431);
+            this.pnl_consola.Size = new System.Drawing.Size(763, 431);
             this.pnl_consola.TabIndex = 12;
             this.pnl_consola.Resize += new System.EventHandler(this.pnl_consola_Resize);
             // 
@@ -438,7 +384,6 @@
             this.ClientSize = new System.Drawing.Size(1198, 618);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
-            this.Controls.Add(this.barraSuperior);
             this.Controls.Add(this.lbl_RutaGuardar);
             this.Controls.Add(this.txtb_RutaCarpetaDescargas);
             this.Controls.Add(this.gbx_credenciales);
@@ -446,14 +391,9 @@
             this.Name = "RecepcióDeComandes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recepció de comandes";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RecepcióDeComandes_FormClosed);
             this.Load += new System.EventHandler(this.RecepcióDeComandes_Load);
             this.gbx_credenciales.ResumeLayout(false);
             this.gbx_credenciales.PerformLayout();
-            this.barraSuperior.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_maximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -477,10 +417,6 @@
         private System.Windows.Forms.Label lbl_Contraseña;
         private System.Windows.Forms.TextBox txtb_Usuario;
         private System.Windows.Forms.Label lbl_Usuario;
-        private System.Windows.Forms.Panel barraSuperior;
-        private System.Windows.Forms.PictureBox ptb_maximize;
-        private System.Windows.Forms.PictureBox ptb_minimize;
-        private System.Windows.Forms.PictureBox ptb_close;
         private System.Windows.Forms.TextBox txtb_RutaCarpetaDescargas;
         private System.Windows.Forms.Label lbl_RutaGuardar;
         private System.Windows.Forms.Button btn_CambiarCarpetaDescargas;

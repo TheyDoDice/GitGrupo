@@ -38,28 +38,6 @@ namespace RecepcióComandes
         {
             InitializeComponent();
 
-            #region BARRA SUPERIOR
-            ptb_close.Image = TakeImg("dark", "close");
-            ptb_close.MouseLeave += (se, ev) => ptb_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
-            ptb_close.MouseEnter += (se, ev) => ptb_close.BackColor = Color.LightCoral;
-            ptb_close.Click += (se, ev) => this.Close();
-
-            ptb_minimize.Image = TakeImg("dark", "minimize");
-            ptb_minimize.MouseLeave += (se, ev) => ptb_minimize.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
-            ptb_minimize.MouseEnter += (se, ev) => ptb_minimize.BackColor = System.Drawing.ColorTranslator.FromHtml("#535353");
-            ptb_minimize.Click += (se, ev) => this.WindowState = FormWindowState.Minimized;
-
-            ptb_maximize.Image = TakeImg("dark", "maximize_1");
-            ptb_maximize.MouseLeave += (se, ev) => ptb_maximize.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
-            ptb_maximize.MouseEnter += (se, ev) => ptb_maximize.BackColor = System.Drawing.ColorTranslator.FromHtml("#535353");
-            ptb_maximize.Click += (se, ev) => this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-            ptb_maximize.Click += (se, ev) => ptb_maximize.Image = this.WindowState != FormWindowState.Maximized ? TakeImg("dark", "maximize_2") : TakeImg("dark", "maximize_1");
-
-            barraSuperior.MouseDown += MovePanel;
-            barraSuperior.MouseDown += (se, ev) => ptb_maximize.Image = this.WindowState != FormWindowState.Maximized ? TakeImg("dark", "maximize_2") : TakeImg("dark", "maximize_1");
-
-
-            #endregion
             #region FOCUS TEXTBOX
             txtb_Servidor.Leave += (se, ev) => txtb_Servidor.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
             txtb_Servidor.Enter += (se, ev) => txtb_Servidor.BackColor = System.Drawing.ColorTranslator.FromHtml("#535353");
@@ -81,28 +59,7 @@ namespace RecepcióComandes
 
             #endregion
         }
-
-        #region MOVEPANEL
-        private const int ButtonDown = 0xA1;
-        private const int HtCaption = 0x2;
-        [DllImport("User32.dll")]
-        private static extern bool ReleaseCapture();
-        [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
-        private void MovePanel(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, ButtonDown, HtCaption, 0);
-            }
-        }
-        private Image TakeImg(string mode, string name)
-        {
-            return Image.FromFile(Application.StartupPath + "\\Img\\" + mode + "_" + name + ".png");
-        }
-        #endregion
+        
 
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
@@ -112,6 +69,8 @@ namespace RecepcióComandes
             VisorArchivos.ImageList = myImageList;
 
             cbx_Impresora.DataSource = PrinterSettings.InstalledPrinters.Cast<string>().ToList();
+
+            //MessageBox.Show(String.Join(" -- ", Credenciales.Descendants("Credencials")));
 
             foreach (XElement node in Credenciales.Descendants("Credencials"))
             {
@@ -141,19 +100,15 @@ namespace RecepcióComandes
         
         private void OnChanged(object source, FileSystemEventArgs e)
         {
-            try
+            if (comanda.GenerarComanda(e.FullPath))
             {
-                if (comanda.GenerarComanda(e.FullPath))
+                try
                 {
-                    try
-                    {
-                        string NombreArchivo = e.FullPath.Split('\\').Last();
-                        File.Move(e.FullPath, CarpetaDescargas + "\\Tractats\\" + NombreArchivo);
-                    }
-                    catch { }
+                    string NombreArchivo = e.FullPath.Split('\\').Last();
+                    File.Move(e.FullPath, CarpetaDescargas + "\\Tractats\\" + NombreArchivo);
                 }
+                catch { }
             }
-            catch { }
         }
 
         private void InicializarMenuContextual()
@@ -271,12 +226,12 @@ namespace RecepcióComandes
             
         }
 
-        private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Consola.Kill();
-            Consola.Close();
-            Application.Exit();
-        }
+        //private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    Consola.Kill();
+        //    Consola.Close();
+        //    Application.Exit();
+        //}
 
         private void tmr_hora_Tick(object sender, EventArgs e)
         {

@@ -63,12 +63,20 @@ namespace GenerarOrder
                     {
                         order.Factories = db.Factories.Where(o => o.codeFactory == code1).FirstOrDefault();
                         db.Orders.Add(order);
-                        db.SaveChanges();
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                        order = db.Orders.ToList().Where(x => x==order).FirstOrDefault();
                     }
                     else if (etiqueta == idAtricle)
                     {
                         detail = new OrdersDetail();
-                        detail.Orders = db.Orders.ToList().LastOrDefault();
+                        detail.Orders = order;
 
                         code2 = lineInfo[2];
                         code3 = lineInfo[3];

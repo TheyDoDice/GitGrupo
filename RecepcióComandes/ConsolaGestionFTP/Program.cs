@@ -12,7 +12,6 @@ namespace ConsolaGestionFTP
         static void Main(string[] args)
         {
             string comando;
-
             XDocument Credenciales = XDocument.Load("C:\\Users\\admin\\Desktop\\GitGrupo\\Proyectos\\ConfigConsola.xml");
 
             Console.Title = "FTP Files Downloader";
