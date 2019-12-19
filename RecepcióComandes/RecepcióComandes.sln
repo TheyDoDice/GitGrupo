@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcióComandes", "Recepc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolaGestionFTP", "ConsolaGestionFTP\ConsolaGestionFTP.csproj", "{9BF97129-4305-4B25-81F2-4D1FE83721ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolaWatcher", "ConsolaWatcher\ConsolaWatcher.csproj", "{9C9637AD-8A2B-4624-ADCD-0D5BBF194967}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF97129-4305-4B25-81F2-4D1FE83721ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9637AD-8A2B-4624-ADCD-0D5BBF194967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9637AD-8A2B-4624-ADCD-0D5BBF194967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9637AD-8A2B-4624-ADCD-0D5BBF194967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9637AD-8A2B-4624-ADCD-0D5BBF194967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

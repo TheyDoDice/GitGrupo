@@ -263,7 +263,7 @@
             // 
             // timerHidePanel
             // 
-            this.timerHidePanel.Interval = 10;
+            this.timerHidePanel.Interval = 7;
             this.timerHidePanel.Tick += new System.EventHandler(this.timerHidePanel_Tick);
             // 
             // Menu
