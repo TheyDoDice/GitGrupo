@@ -41,7 +41,7 @@ namespace MantenimientoBBDD
             datable = dataSet.Tables[0];
             dataGridView1.DataSource = datable;
 
-            Regex rg = new Regex("^id");
+            Regex rg = new Regex("^Id|^id");
 
             foreach (DataGridViewColumn item in dataGridView1.Columns)
             {
