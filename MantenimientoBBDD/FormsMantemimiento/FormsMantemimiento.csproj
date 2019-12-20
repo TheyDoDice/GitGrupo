@@ -96,12 +96,6 @@
     <Compile Include="MantenimientoOrders.Designer.cs">
       <DependentUpon>MantenimientoOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="MantenimientoOrdersDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MantenimientoOrdersDetail.Designer.cs">
-      <DependentUpon>MantenimientoOrdersDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="MantenimientoPlanets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,12 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoMenuOptions.resx">
       <DependentUpon>MantenimientoMenuOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MantenimientoOrders.resx">
-      <DependentUpon>MantenimientoOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MantenimientoOrdersDetail.resx">
-      <DependentUpon>MantenimientoOrdersDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoPlanets.resx">
       <DependentUpon>MantenimientoPlanets.cs</DependentUpon>
