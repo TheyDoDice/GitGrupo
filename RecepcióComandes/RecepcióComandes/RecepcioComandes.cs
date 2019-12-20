@@ -20,7 +20,6 @@ namespace RecepcióComandes
         [DllImport("User32.dll")] static extern bool MoveWindow(IntPtr hwnd, int x, int y, int cx, int cy, bool repaint);
         [DllImport("User32.dll")] static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
-
         //ORDENAR VARIABLES
         private static string RutaArchivoXML = Application.StartupPath + "\\credenciales.xml";
         private static string CarpetaDescargas = Application.StartupPath + "\\Descargas";
@@ -59,7 +58,6 @@ namespace RecepcióComandes
 
             #endregion
         }
-        
 
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
@@ -70,8 +68,6 @@ namespace RecepcióComandes
 
             cbx_Impresora.DataSource = PrinterSettings.InstalledPrinters.Cast<string>().ToList();
 
-            //MessageBox.Show(String.Join(" -- ", Credenciales.Descendants("Credencials")));
-
             foreach (XElement node in Credenciales.Descendants("Credencials"))
             {
                 txtb_Servidor.Text = node.Element("IP").Value;
@@ -80,6 +76,19 @@ namespace RecepcióComandes
                 txtb_Contraseña.Text = DesEncriptar(node.Element("Password").Value);
                 txtb_RutaCarpetaDescargas.Text = node.Element("CarpetaBaixada").Value;
                 cbx_Impresora.Text = node.Element("Impressora").Value;
+            }
+
+            //Comprovar en caso de que la ruta en el XML sea incorrecta poner una por defecto.
+            if (!(Directory.Exists(txtb_RutaCarpetaDescargas.Text)))
+            {
+                string ruta = Application.StartupPath + "\\Descargas";
+
+                txtb_RutaCarpetaDescargas.Text = ruta;
+
+                foreach (XElement node in Credenciales.Descendants("Credencials"))
+                { 
+                    node.SetElementValue("CarpetaBaixada", ruta);
+                }
             }
 
             CadenaConnexionFTP = new Uri("ftp://" + txtb_Servidor.Text + "/");
@@ -226,13 +235,6 @@ namespace RecepcióComandes
             
         }
 
-        //private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    Consola.Kill();
-        //    Consola.Close();
-        //    Application.Exit();
-        //}
-
         private void tmr_hora_Tick(object sender, EventArgs e)
         {
             lbl_hora.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -279,6 +281,18 @@ namespace RecepcióComandes
         {
             PropiedadesConsola frm_consola = new PropiedadesConsola();
             frm_consola.ShowDialog(); 
+        }
+
+        private void RecepcióDeComandes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Consola.Kill();
+            Consola.Close();
+        }
+
+        private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Consola.Kill();
+            Consola.Close();
         }
     }
 }
