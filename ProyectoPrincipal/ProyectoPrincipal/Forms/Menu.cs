@@ -1,11 +1,16 @@
 ﻿using ProyectoPrincipal.Model;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CC_Library;
-using System.Diagnostics;
+
 
 namespace ProyectoPrincipal.Forms
 {
@@ -55,7 +60,7 @@ namespace ProyectoPrincipal.Forms
             ptb_close.Image = TakeImg("dark", "close");
             ptb_close.MouseLeave += (se, ev) => ptb_close.BackColor = Colors.c_panels;
             ptb_close.MouseEnter += (se, ev) => ptb_close.BackColor = Color.LightCoral;
-            ptb_close.Click += (se, ev) => CloseForm();
+            ptb_close.Click += (se, ev) => this.Close();
 
             ptb_minimize.Image = TakeImg("dark", "minimize");
             ptb_minimize.MouseLeave += (se, ev) => ptb_minimize.BackColor = Colors.c_panels;
@@ -141,17 +146,6 @@ namespace ProyectoPrincipal.Forms
                 ocultar = !ocultar;
                 timerHidePanel.Stop();
             }
-        }
-
-        private void CloseForm()
-        {
-            Process[] pname = Process.GetProcessesByName("ConsolaGestionFTP");
-            if (!(pname.Length == 0))
-            {
-                pname[0].Kill();
-            }
-
-            this.Close();
         }
     }
 }
