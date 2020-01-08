@@ -312,7 +312,6 @@
             this.Controls.Add(this.swt_codeOrder);
             this.Name = "MantenimientoOrders";
             this.tabla = "Orders";
-            this.Load += new System.EventHandler(this.MantenimientoOrders_Load);
             this.Controls.SetChildIndex(this.swt_codeOrder, 0);
             this.Controls.SetChildIndex(this.lb_codeOrder, 0);
             this.Controls.SetChildIndex(this.swt_dateOrder, 0);

@@ -12,7 +12,7 @@ namespace FormsMantemimiento
     {
         public MantenimientoOrdersDetail()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }

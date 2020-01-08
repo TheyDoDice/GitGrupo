@@ -55,10 +55,10 @@
             this.swt_idReference.Name = "swt_idReference";
             this.swt_idReference.nomCamp = "idReference";
             this.swt_idReference.nomComboBox = null;
-            this.swt_idReference.requerit = false;
+            this.swt_idReference.requerit = true;
             this.swt_idReference.Size = new System.Drawing.Size(34, 32);
             this.swt_idReference.TabIndex = 99;
-            this.swt_idReference.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
+            this.swt_idReference.TipusControl = CC_Library.SWTextbox.tipControlRef.SWCodi;
             // 
             // swc_idReference
             // 
@@ -74,8 +74,8 @@
             this.swc_idReference.NomCodi = "CodeReference";
             this.swc_idReference.NomDesc = "DescReference";
             this.swc_idReference.NomID = "idReference";
-            this.swc_idReference.NomTaula = "References";
-            this.swc_idReference.Requerit = false;
+            this.swc_idReference.NomTaula = "Referencess";
+            this.swc_idReference.Requerit = true;
             this.swc_idReference.Size = new System.Drawing.Size(487, 36);
             this.swc_idReference.TabIndex = 98;
             // 
