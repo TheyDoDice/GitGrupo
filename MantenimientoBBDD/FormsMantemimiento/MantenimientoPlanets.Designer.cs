@@ -472,7 +472,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 760);
+            this.ClientSize = new System.Drawing.Size(967, 379);
             this.Controls.Add(this.pnl_filtrar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idFiliation);

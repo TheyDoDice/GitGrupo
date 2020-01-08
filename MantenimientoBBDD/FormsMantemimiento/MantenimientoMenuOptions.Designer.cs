@@ -262,6 +262,7 @@
             this.Name = "MantenimientoMenuOptions";
             this.tabla = "MenuOptions";
             this.Text = "MantenimientoMenuOptions";
+            this.Load += new System.EventHandler(this.MantenimientoMenuOptions_Load);
             this.Controls.SetChildIndex(this.lb_nameSpace, 0);
             this.Controls.SetChildIndex(this.lb_nomClase, 0);
             this.Controls.SetChildIndex(this.lb_rangMin, 0);

@@ -14,5 +14,10 @@ namespace FormsMantemimiento
         {
             InitializeComponent();
         }
+
+        private void MantenimientoOrders_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -293,7 +293,7 @@
             // MantenimientoOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(967, 760);
+            this.ClientSize = new System.Drawing.Size(714, 379);
             this.Controls.Add(this.swTextbox3);
             this.Controls.Add(this.swc_idOperationalArea);
             this.Controls.Add(this.lbl_idOperationalArea);
@@ -312,6 +312,7 @@
             this.Controls.Add(this.swt_codeOrder);
             this.Name = "MantenimientoOrders";
             this.tabla = "Orders";
+            this.Load += new System.EventHandler(this.MantenimientoOrders_Load);
             this.Controls.SetChildIndex(this.swt_codeOrder, 0);
             this.Controls.SetChildIndex(this.lb_codeOrder, 0);
             this.Controls.SetChildIndex(this.swt_dateOrder, 0);

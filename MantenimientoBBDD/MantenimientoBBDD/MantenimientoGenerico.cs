@@ -33,7 +33,7 @@ namespace MantenimientoBBDD
         {
             if (DesignMode) return;
 
-            this.WindowState = FormWindowState.Maximized;
+            
 
             bbdd.Connectar();
 
