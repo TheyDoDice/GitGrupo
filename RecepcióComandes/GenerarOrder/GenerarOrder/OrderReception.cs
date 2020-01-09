@@ -10,9 +10,9 @@ namespace GenerarOrder
 {
     public class OrderReception
     {
-        SecureContext db = new SecureContext();
+        SContext db = new SContext();
         Orders order = new Orders();
-        OrdersDetail detail = new OrdersDetail();
+        OrdersDetail detail;
         const string orderString = "ORDERS_D_96A_UN_EAN008";
         const string dadesGenerals = "ORD";
         const string dates = "DTM";
@@ -63,27 +63,17 @@ namespace GenerarOrder
                     {
                         order.Factories = db.Factories.Where(o => o.codeFactory == code1).FirstOrDefault();
                         db.Orders.Add(order);
-                        try
-                        {
-                            db.SaveChanges();
-                        }
-                        catch (Exception)
-                        {
-                            throw;
-                        }
-                        order = db.Orders.ToList().Where(x => x==order).FirstOrDefault();
+                        
                     }
                     else if (etiqueta == idAtricle)
                     {
                         detail = new OrdersDetail();
-                        detail.Orders = order;
 
                         code2 = lineInfo[2];
                         code3 = lineInfo[3];
 
                         detail.Planets = db.Planets.Where(o => o.CodePlanet == code1).FirstOrDefault();
-                        detail.References = db.References.Where(o => o.codeReference == code2).FirstOrDefault();
-
+                        detail.Referencess = db.Referencess.Where(o => o.CodeReference == code2).FirstOrDefault();
                     }
                     else if (etiqueta == quantitat)
                     {
@@ -101,12 +91,20 @@ namespace GenerarOrder
                     else if (etiqueta == dataEntrega)
                     {
                         detail.DeliveryDate = DateTime.ParseExact(code1, "yyyyMMdd", CultureInfo.InvariantCulture);
-                        db.OrdersDetail.Add(detail);
+                        order.OrdersDetail.Add(detail);
                         db.SaveChanges();
                     }
                 }
-                if(order != null && detail != null)
+                if(order != null)
                 {
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
                     file.Close();
                     return true;
                 }

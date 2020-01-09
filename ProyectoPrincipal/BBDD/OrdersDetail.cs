@@ -17,12 +17,12 @@ namespace BBDD
         public short idOrderDetail { get; set; }
         public Nullable<short> idOrder { get; set; }
         public Nullable<int> idPlanet { get; set; }
-        public Nullable<short> idReference { get; set; }
+        public Nullable<int> idReference { get; set; }
         public Nullable<short> Quantity { get; set; }
         public Nullable<System.DateTime> DeliveryDate { get; set; }
     
         public virtual Orders Orders { get; set; }
         public virtual Planets Planets { get; set; }
-        public virtual References References { get; set; }
+        public virtual Referencess Referencess { get; set; }
     }
 }

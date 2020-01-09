@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SecureCoreContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="securecoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agencies">
           <Key>
             <PropertyRef Name="idAgency" />
@@ -88,7 +88,7 @@
           <Property Name="idOrderDetail" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idOrder" Type="smallint" />
           <Property Name="idPlanet" Type="int" />
-          <Property Name="idReference" Type="smallint" />
+          <Property Name="idReference" Type="int" />
           <Property Name="Quantity" Type="smallint" />
           <Property Name="DeliveryDate" Type="smalldatetime" />
         </EntityType>
@@ -126,13 +126,13 @@
           <Property Name="CodePriority" Type="nvarchar" MaxLength="12" />
           <Property Name="DescPriority" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="References">
+        <EntityType Name="Referencess">
           <Key>
             <PropertyRef Name="idReference" />
           </Key>
-          <Property Name="idReference" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="codeReference" Type="nvarchar" MaxLength="12" Nullable="false" />
-          <Property Name="descReference" Type="nvarchar" MaxLength="200" />
+          <Property Name="idReference" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeReference" Type="nvarchar" MaxLength="12" />
+          <Property Name="DescReference" Type="nvarchar" MaxLength="200" />
           <Property Name="Photo" Type="nvarchar" MaxLength="200" />
           <Property Name="VideoExplode" Type="nvarchar" MaxLength="200" />
         </EntityType>
@@ -352,10 +352,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrdersDetail_References">
-          <End Role="References" Type="Self.References" Multiplicity="0..1" />
+          <End Role="Referencess" Type="Self.Referencess" Multiplicity="0..1" />
           <End Role="OrdersDetail" Type="Self.OrdersDetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="References">
+            <Principal Role="Referencess">
               <PropertyRef Name="idReference" />
             </Principal>
             <Dependent Role="OrdersDetail">
@@ -531,7 +531,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SecureCoreContextStoreContainer">
+        <EntityContainer Name="securecoreModelStoreContainer">
           <EntitySet Name="Agencies" EntityType="Self.Agencies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DefinedRoutes" EntityType="Self.DefinedRoutes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Factories" EntityType="Self.Factories" Schema="dbo" store:Type="Tables" />
@@ -544,7 +544,7 @@
           <EntitySet Name="PlanetRoutes" EntityType="Self.PlanetRoutes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Planets" EntityType="Self.Planets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Priority" EntityType="Self.Priority" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="References" EntityType="Self.References" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referencess" EntityType="Self.Referencess" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RouteTypes" EntityType="Self.RouteTypes" Schema="dbo" store:Type="Tables" />
@@ -590,7 +590,7 @@
             <End Role="OrdersDetail" EntitySet="OrdersDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_OrdersDetail_References" Association="Self.FK_OrdersDetail_References">
-            <End Role="References" EntitySet="References" />
+            <End Role="Referencess" EntitySet="Referencess" />
             <End Role="OrdersDetail" EntitySet="OrdersDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_PlanetRoutes_Planets" Association="Self.FK_PlanetRoutes_Planets">
@@ -654,7 +654,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SecureCoreContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="securecoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Agencies">
           <Key>
             <PropertyRef Name="idAgency" />
@@ -750,12 +750,12 @@
           <Property Name="idOrderDetail" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idOrder" Type="Int16" />
           <Property Name="idPlanet" Type="Int32" />
-          <Property Name="idReference" Type="Int16" />
+          <Property Name="idReference" Type="Int32" />
           <Property Name="Quantity" Type="Int16" />
           <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_OrdersDetail_Orders" FromRole="OrdersDetail" ToRole="Orders" />
           <NavigationProperty Name="Planets" Relationship="Self.FK_OrdersDetail_Planets" FromRole="OrdersDetail" ToRole="Planets" />
-          <NavigationProperty Name="References" Relationship="Self.FK_OrdersDetail_References" FromRole="OrdersDetail" ToRole="References" />
+          <NavigationProperty Name="Referencess" Relationship="Self.FK_OrdersDetail_References" FromRole="OrdersDetail" ToRole="Referencess" />
         </EntityType>
         <EntityType Name="PlanetRoutes">
           <Key>
@@ -801,16 +801,16 @@
           <Property Name="DescPriority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Priority" FromRole="Priority" ToRole="Orders" />
         </EntityType>
-        <EntityType Name="References">
+        <EntityType Name="Referencess">
           <Key>
             <PropertyRef Name="idReference" />
           </Key>
-          <Property Name="idReference" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codeReference" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descReference" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="idReference" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeReference" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="DescReference" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="VideoExplode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrdersDetail" Relationship="Self.FK_OrdersDetail_References" FromRole="References" ToRole="OrdersDetail" />
+          <NavigationProperty Name="OrdersDetail" Relationship="Self.FK_OrdersDetail_References" FromRole="Referencess" ToRole="OrdersDetail" />
         </EntityType>
         <EntityType Name="Regions">
           <Key>
@@ -1072,10 +1072,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrdersDetail_References">
-          <End Role="References" Type="Self.References" Multiplicity="0..1" />
+          <End Role="Referencess" Type="Self.Referencess" Multiplicity="0..1" />
           <End Role="OrdersDetail" Type="Self.OrdersDetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="References">
+            <Principal Role="Referencess">
               <PropertyRef Name="idReference" />
             </Principal>
             <Dependent Role="OrdersDetail">
@@ -1227,7 +1227,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SecureContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agencies" EntityType="Self.Agencies" />
           <EntitySet Name="DefinedRoutes" EntityType="Self.DefinedRoutes" />
           <EntitySet Name="Factories" EntityType="Self.Factories" />
@@ -1240,7 +1240,7 @@
           <EntitySet Name="PlanetRoutes" EntityType="Self.PlanetRoutes" />
           <EntitySet Name="Planets" EntityType="Self.Planets" />
           <EntitySet Name="Priority" EntityType="Self.Priority" />
-          <EntitySet Name="References" EntityType="Self.References" />
+          <EntitySet Name="Referencess" EntityType="Self.Referencess" />
           <EntitySet Name="Regions" EntityType="Self.Regions" />
           <EntitySet Name="Routes" EntityType="Self.Routes" />
           <EntitySet Name="RouteTypes" EntityType="Self.RouteTypes" />
@@ -1294,7 +1294,7 @@
             <End Role="OrdersDetail" EntitySet="OrdersDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_OrdersDetail_References" Association="Self.FK_OrdersDetail_References">
-            <End Role="References" EntitySet="References" />
+            <End Role="Referencess" EntitySet="Referencess" />
             <End Role="OrdersDetail" EntitySet="OrdersDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_PlanetRoutes_Planets" Association="Self.FK_PlanetRoutes_Planets">
@@ -1351,9 +1351,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SecureCoreContextStoreContainer" CdmEntityContainer="SecureContext">
+        <EntityContainerMapping StorageEntityContainer="securecoreModelStoreContainer" CdmEntityContainer="SContext">
           <EntitySetMapping Name="Agencies">
-            <EntityTypeMapping TypeName="SecureCoreContext.Agencies">
+            <EntityTypeMapping TypeName="securecoreModel.Agencies">
               <MappingFragment StoreEntitySet="Agencies">
                 <ScalarProperty Name="idAgency" ColumnName="idAgency" />
                 <ScalarProperty Name="CodeAgency" ColumnName="CodeAgency" />
@@ -1362,7 +1362,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DefinedRoutes">
-            <EntityTypeMapping TypeName="SecureCoreContext.DefinedRoutes">
+            <EntityTypeMapping TypeName="securecoreModel.DefinedRoutes">
               <MappingFragment StoreEntitySet="DefinedRoutes">
                 <ScalarProperty Name="idDefinedRoute" ColumnName="idDefinedRoute" />
                 <ScalarProperty Name="idPlanetOri" ColumnName="idPlanetOri" />
@@ -1373,7 +1373,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Factories">
-            <EntityTypeMapping TypeName="SecureCoreContext.Factories">
+            <EntityTypeMapping TypeName="securecoreModel.Factories">
               <MappingFragment StoreEntitySet="Factories">
                 <ScalarProperty Name="idFactory" ColumnName="idFactory" />
                 <ScalarProperty Name="codeFactory" ColumnName="codeFactory" />
@@ -1382,7 +1382,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Filiations">
-            <EntityTypeMapping TypeName="SecureCoreContext.Filiations">
+            <EntityTypeMapping TypeName="securecoreModel.Filiations">
               <MappingFragment StoreEntitySet="Filiations">
                 <ScalarProperty Name="idFiliation" ColumnName="idFiliation" />
                 <ScalarProperty Name="CodeFiliation" ColumnName="CodeFiliation" />
@@ -1391,7 +1391,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MenuOptions">
-            <EntityTypeMapping TypeName="SecureCoreContext.MenuOptions">
+            <EntityTypeMapping TypeName="securecoreModel.MenuOptions">
               <MappingFragment StoreEntitySet="MenuOptions">
                 <ScalarProperty Name="idOption" ColumnName="idOption" />
                 <ScalarProperty Name="NameSpace" ColumnName="NameSpace" />
@@ -1405,7 +1405,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MilitaryCamps">
-            <EntityTypeMapping TypeName="SecureCoreContext.MilitaryCamps">
+            <EntityTypeMapping TypeName="securecoreModel.MilitaryCamps">
               <MappingFragment StoreEntitySet="MilitaryCamps">
                 <ScalarProperty Name="idMilitaryCamp" ColumnName="idMilitaryCamp" />
                 <ScalarProperty Name="CodeCamp" ColumnName="CodeCamp" />
@@ -1415,7 +1415,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OperationalAreas">
-            <EntityTypeMapping TypeName="SecureCoreContext.OperationalAreas">
+            <EntityTypeMapping TypeName="securecoreModel.OperationalAreas">
               <MappingFragment StoreEntitySet="OperationalAreas">
                 <ScalarProperty Name="idOperationalArea" ColumnName="idOperationalArea" />
                 <ScalarProperty Name="CodeOperationalArea" ColumnName="CodeOperationalArea" />
@@ -1424,7 +1424,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="SecureCoreContext.Orders">
+            <EntityTypeMapping TypeName="securecoreModel.Orders">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="idOrder" ColumnName="idOrder" />
                 <ScalarProperty Name="codeOrder" ColumnName="codeOrder" />
@@ -1437,7 +1437,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrdersDetail">
-            <EntityTypeMapping TypeName="SecureCoreContext.OrdersDetail">
+            <EntityTypeMapping TypeName="securecoreModel.OrdersDetail">
               <MappingFragment StoreEntitySet="OrdersDetail">
                 <ScalarProperty Name="idOrderDetail" ColumnName="idOrderDetail" />
                 <ScalarProperty Name="idOrder" ColumnName="idOrder" />
@@ -1449,7 +1449,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PlanetRoutes">
-            <EntityTypeMapping TypeName="SecureCoreContext.PlanetRoutes">
+            <EntityTypeMapping TypeName="securecoreModel.PlanetRoutes">
               <MappingFragment StoreEntitySet="PlanetRoutes">
                 <ScalarProperty Name="idPlanetRoute" ColumnName="idPlanetRoute" />
                 <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
@@ -1458,7 +1458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Planets">
-            <EntityTypeMapping TypeName="SecureCoreContext.Planets">
+            <EntityTypeMapping TypeName="securecoreModel.Planets">
               <MappingFragment StoreEntitySet="Planets">
                 <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
                 <ScalarProperty Name="CodePlanet" ColumnName="CodePlanet" />
@@ -1477,7 +1477,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Priority">
-            <EntityTypeMapping TypeName="SecureCoreContext.Priority">
+            <EntityTypeMapping TypeName="securecoreModel.Priority">
               <MappingFragment StoreEntitySet="Priority">
                 <ScalarProperty Name="idPriority" ColumnName="idPriority" />
                 <ScalarProperty Name="CodePriority" ColumnName="CodePriority" />
@@ -1485,19 +1485,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="References">
-            <EntityTypeMapping TypeName="SecureCoreContext.References">
-              <MappingFragment StoreEntitySet="References">
+          <EntitySetMapping Name="Referencess">
+            <EntityTypeMapping TypeName="securecoreModel.Referencess">
+              <MappingFragment StoreEntitySet="Referencess">
                 <ScalarProperty Name="idReference" ColumnName="idReference" />
-                <ScalarProperty Name="codeReference" ColumnName="codeReference" />
-                <ScalarProperty Name="descReference" ColumnName="descReference" />
+                <ScalarProperty Name="CodeReference" ColumnName="CodeReference" />
+                <ScalarProperty Name="DescReference" ColumnName="DescReference" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="VideoExplode" ColumnName="VideoExplode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Regions">
-            <EntityTypeMapping TypeName="SecureCoreContext.Regions">
+            <EntityTypeMapping TypeName="securecoreModel.Regions">
               <MappingFragment StoreEntitySet="Regions">
                 <ScalarProperty Name="idRegion" ColumnName="idRegion" />
                 <ScalarProperty Name="CodeRegion" ColumnName="CodeRegion" />
@@ -1507,7 +1507,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Routes">
-            <EntityTypeMapping TypeName="SecureCoreContext.Routes">
+            <EntityTypeMapping TypeName="securecoreModel.Routes">
               <MappingFragment StoreEntitySet="Routes">
                 <ScalarProperty Name="idRoute" ColumnName="idRoute" />
                 <ScalarProperty Name="CodeRoute" ColumnName="CodeRoute" />
@@ -1519,7 +1519,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RouteTypes">
-            <EntityTypeMapping TypeName="SecureCoreContext.RouteTypes">
+            <EntityTypeMapping TypeName="securecoreModel.RouteTypes">
               <MappingFragment StoreEntitySet="RouteTypes">
                 <ScalarProperty Name="idRouteType" ColumnName="idRouteType" />
                 <ScalarProperty Name="CodeRouteType" ColumnName="CodeRouteType" />
@@ -1529,7 +1529,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sectors">
-            <EntityTypeMapping TypeName="SecureCoreContext.Sectors">
+            <EntityTypeMapping TypeName="securecoreModel.Sectors">
               <MappingFragment StoreEntitySet="Sectors">
                 <ScalarProperty Name="idSector" ColumnName="idSector" />
                 <ScalarProperty Name="CodeSector" ColumnName="CodeSector" />
@@ -1540,7 +1540,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpaceShipCategories">
-            <EntityTypeMapping TypeName="SecureCoreContext.SpaceShipCategories">
+            <EntityTypeMapping TypeName="securecoreModel.SpaceShipCategories">
               <MappingFragment StoreEntitySet="SpaceShipCategories">
                 <ScalarProperty Name="idSpaceShipCategory" ColumnName="idSpaceShipCategory" />
                 <ScalarProperty Name="CodeSpaceShipCategory" ColumnName="CodeSpaceShipCategory" />
@@ -1549,7 +1549,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpaceShips">
-            <EntityTypeMapping TypeName="SecureCoreContext.SpaceShips">
+            <EntityTypeMapping TypeName="securecoreModel.SpaceShips">
               <MappingFragment StoreEntitySet="SpaceShips">
                 <ScalarProperty Name="idSpaceShip" ColumnName="idSpaceShip" />
                 <ScalarProperty Name="idSpaceShipType" ColumnName="idSpaceShipType" />
@@ -1561,7 +1561,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpaceShipTypes">
-            <EntityTypeMapping TypeName="SecureCoreContext.SpaceShipTypes">
+            <EntityTypeMapping TypeName="securecoreModel.SpaceShipTypes">
               <MappingFragment StoreEntitySet="SpaceShipTypes">
                 <ScalarProperty Name="idSpaceShipType" ColumnName="idSpaceShipType" />
                 <ScalarProperty Name="CodeSpaceShipType" ColumnName="CodeSpaceShipType" />
@@ -1572,7 +1572,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Species">
-            <EntityTypeMapping TypeName="SecureCoreContext.Species">
+            <EntityTypeMapping TypeName="securecoreModel.Species">
               <MappingFragment StoreEntitySet="Species">
                 <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
                 <ScalarProperty Name="CodeSpecie" ColumnName="CodeSpecie" />
@@ -1581,7 +1581,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SecureCoreContext.sysdiagrams">
+            <EntityTypeMapping TypeName="securecoreModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1592,7 +1592,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserCategories">
-            <EntityTypeMapping TypeName="SecureCoreContext.UserCategories">
+            <EntityTypeMapping TypeName="securecoreModel.UserCategories">
               <MappingFragment StoreEntitySet="UserCategories">
                 <ScalarProperty Name="idUserCategory" ColumnName="idUserCategory" />
                 <ScalarProperty Name="CodeCategory" ColumnName="CodeCategory" />
@@ -1602,7 +1602,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserRanks">
-            <EntityTypeMapping TypeName="SecureCoreContext.UserRanks">
+            <EntityTypeMapping TypeName="securecoreModel.UserRanks">
               <MappingFragment StoreEntitySet="UserRanks">
                 <ScalarProperty Name="idUserRank" ColumnName="idUserRank" />
                 <ScalarProperty Name="CodeRank" ColumnName="CodeRank" />
@@ -1611,7 +1611,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="SecureCoreContext.Users">
+            <EntityTypeMapping TypeName="securecoreModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="CodeUser" ColumnName="CodeUser" />

@@ -44,6 +44,8 @@
             this.swTextbox3 = new CC_Library.SWTextbox();
             this.swc_idOperationalArea = new CC_Library.SWCodi();
             this.lbl_idOperationalArea = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_codeOrder
@@ -290,10 +292,19 @@
             this.lbl_idOperationalArea.TabIndex = 84;
             this.lbl_idOperationalArea.Text = "OperationalArea:";
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(751, 87);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(343, 222);
+            this.dataGridView2.TabIndex = 87;
+            // 
             // MantenimientoOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(714, 379);
+            this.ClientSize = new System.Drawing.Size(1120, 778);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.swTextbox3);
             this.Controls.Add(this.swc_idOperationalArea);
             this.Controls.Add(this.lbl_idOperationalArea);
@@ -312,6 +323,7 @@
             this.Controls.Add(this.swt_codeOrder);
             this.Name = "MantenimientoOrders";
             this.tabla = "Orders";
+            this.Load += new System.EventHandler(this.MantenimientoOrders_Load);
             this.Controls.SetChildIndex(this.swt_codeOrder, 0);
             this.Controls.SetChildIndex(this.lb_codeOrder, 0);
             this.Controls.SetChildIndex(this.swt_dateOrder, 0);
@@ -328,6 +340,8 @@
             this.Controls.SetChildIndex(this.lbl_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swc_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swTextbox3, 0);
+            this.Controls.SetChildIndex(this.dataGridView2, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,5 +365,6 @@
         private CC_Library.SWTextbox swTextbox3;
         private CC_Library.SWCodi swc_idOperationalArea;
         private System.Windows.Forms.Label lbl_idOperationalArea;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

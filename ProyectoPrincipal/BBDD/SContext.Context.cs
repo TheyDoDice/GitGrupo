@@ -13,10 +13,10 @@ namespace BBDD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SecureContext : DbContext
+    public partial class SContext : DbContext
     {
-        public SecureContext()
-            : base("name=SecureContext")
+        public SContext()
+            : base("name=SContext")
         {
         }
     
@@ -37,7 +37,7 @@ namespace BBDD
         public virtual DbSet<PlanetRoutes> PlanetRoutes { get; set; }
         public virtual DbSet<Planets> Planets { get; set; }
         public virtual DbSet<Priority> Priority { get; set; }
-        public virtual DbSet<References> References { get; set; }
+        public virtual DbSet<Referencess> Referencess { get; set; }
         public virtual DbSet<Regions> Regions { get; set; }
         public virtual DbSet<Routes> Routes { get; set; }
         public virtual DbSet<RouteTypes> RouteTypes { get; set; }

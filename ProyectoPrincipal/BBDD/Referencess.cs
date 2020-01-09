@@ -12,17 +12,17 @@ namespace BBDD
     using System;
     using System.Collections.Generic;
     
-    public partial class References
+    public partial class Referencess
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public References()
+        public Referencess()
         {
             this.OrdersDetail = new HashSet<OrdersDetail>();
         }
     
-        public short idReference { get; set; }
-        public string codeReference { get; set; }
-        public string descReference { get; set; }
+        public int idReference { get; set; }
+        public string CodeReference { get; set; }
+        public string DescReference { get; set; }
         public string Photo { get; set; }
         public string VideoExplode { get; set; }
     
