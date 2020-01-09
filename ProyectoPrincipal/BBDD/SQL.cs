@@ -62,6 +62,33 @@ namespace BBDD
             return dataSet;
         }
 
+        public override DataSet PortarTaula(string nomTaula, DataSet dataSet)
+        {
+            SqlCommandBuilder construct;
+            string query = "Select * from " + nomTaula;
+
+            try
+            {
+                Connectar();
+                adapter = new SqlDataAdapter(query, connection);
+                construct = new SqlCommandBuilder(adapter);
+                adapter.Fill(dataSet, nomTaula);
+            }
+            catch
+            {
+                dataSet = null;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+            }
+            return dataSet;
+        }
+
         //PORTAR PER CONSULTA
         public override DataSet PortarPerConsulta(string query)
         {
