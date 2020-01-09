@@ -21,6 +21,8 @@ namespace BBDD
 
         //PORTAR PER TAULA
         public abstract DataSet PortarTaula(string nomTaula);
+        public abstract DataSet PortarTaula(string nomTaula, DataSet dataSet);
+
 
         //PORTAR PER CONSULTA
         public abstract DataSet PortarPerConsulta(string query);
