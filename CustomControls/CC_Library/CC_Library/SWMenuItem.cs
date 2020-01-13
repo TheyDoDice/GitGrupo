@@ -49,32 +49,40 @@ namespace CC_Library
 
         private void ObrirFrom()
         {
-            string NouNomDll = ComprobarNom(NomDLL);
-            Assembly ensamblat = Assembly.LoadFrom(NouNomDll);
-
-            Object dllBD;
-            Type tipus;
-
-            tipus = ensamblat.GetType(NameSpace + "." + NomClasse);
-
-            dllBD = Activator.CreateInstance(tipus);
-
-            Form newForm = ((Form)dllBD);
-
-            Form myform = this.FindForm();
-
-            foreach (Control control in myform.Controls)
+            try
             {
-                if (control.Name == PanelForm)
+                string NouNomDll = ComprobarNom(NomDLL);
+                Assembly ensamblat = Assembly.LoadFrom(NouNomDll);
+
+                Object dllBD;
+                Type tipus;
+
+                tipus = ensamblat.GetType(NameSpace + "." + NomClasse);
+
+                dllBD = Activator.CreateInstance(tipus);
+
+                Form newForm = ((Form)dllBD);
+
+                Form myform = this.FindForm();
+
+                foreach (Control control in myform.Controls)
                 {
-                    control.Controls.Clear();
-                    newForm.TopLevel = false;
-                    newForm.Dock = DockStyle.Fill;
-                    newForm.AutoScroll = true;
-                    ((Panel)control).Controls.Add(newForm);
-                    newForm.Show();
+                    if (control.Name == PanelForm)
+                    {
+                        control.Controls.Clear();
+                        newForm.TopLevel = false;
+                        newForm.Dock = DockStyle.Fill;
+                        newForm.AutoScroll = true;
+                        ((Panel)control).Controls.Add(newForm);
+                        newForm.Show();
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Dades incorrectes, revisa el paràmetres del menuItem.\n\n En cas de no poder accedir al manteniment de la taula demana ajuda a un rank superior.");
+            }
+            
         }
 
         private void SWMenuItem_Load(object sender, EventArgs e)

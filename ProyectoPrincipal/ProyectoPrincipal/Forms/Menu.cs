@@ -76,16 +76,16 @@ namespace ProyectoPrincipal.Forms
             ptb_scrollMenu.Image = TakeImg("dark", "scroll_2");
             ptb_scrollMenu.MouseLeave += (se, ev) => ptb_scrollMenu.Image = ocultar ? TakeImg("dark", "scroll_2") : TakeImg("dark", "scroll_1");
             ptb_scrollMenu.MouseEnter += (se, ev) => ptb_scrollMenu.Image = ocultar ? TakeImg("select", "scroll_2") : TakeImg("select", "scroll_1");
-            ptb_scrollMenu.Click += (se, ev) => { HidePanel(); };
+            ptb_scrollMenu.Click      += (se, ev) => { HidePanel(); };
 
             ptb_user.Image = TakeImg("dark", "user");
             ptb_user.MouseEnter += (se, ev) => lbl_user.ForeColor = Color.DimGray;
             ptb_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             ptb_user.MouseLeave += (se, ev) => ptb_user.Image = TakeImg("dark", "user");
             ptb_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
-            ptb_user.Click     += (se, ev) => { Restart(); };
+            ptb_user.Click      += (se, ev) => { Restart(); };
 
-            lbl_user.Text += userRank + ": "+ user;
+            lbl_user.Text       += userRank + ": " + user;
             lbl_user.MouseEnter += (se, ev) => lbl_user.ForeColor = Color.DimGray;
             lbl_user.MouseLeave += (se, ev) => lbl_user.ForeColor = Color.White;
             lbl_user.MouseEnter += (se, ev) => ptb_user.Image = TakeImg("select", "user");
@@ -111,7 +111,6 @@ namespace ProyectoPrincipal.Forms
             }
             barraMenu.Controls.Add(subUser);
             barraMenu.Controls.Add(panelUser);
-
         }
 
         private void Restart()
