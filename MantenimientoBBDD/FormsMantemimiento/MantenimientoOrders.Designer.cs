@@ -47,6 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btn_actualizarDataset
@@ -303,7 +304,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(743, 50);
+            this.panel1.Location = new System.Drawing.Point(743, 54);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(767, 505);
             this.panel1.TabIndex = 87;
@@ -313,11 +314,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(741, 13);
+            this.label1.Location = new System.Drawing.Point(741, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 24);
             this.label1.TabIndex = 88;
             this.label1.Text = "Details:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -328,10 +330,20 @@
             this.panel2.Size = new System.Drawing.Size(2, 553);
             this.panel2.TabIndex = 89;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.panel3.Location = new System.Drawing.Point(738, 42);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(2, 520);
+            this.panel3.TabIndex = 90;
+            // 
             // MantenimientoOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1552, 778);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -375,6 +387,7 @@
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.panel3, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,5 +414,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

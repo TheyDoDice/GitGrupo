@@ -21,6 +21,10 @@ namespace FormsMantemimiento
 
         private void MantenimientoOrders_Load(object sender, EventArgs e)
         {
+            label1.MouseEnter += (s, ev) => label1.ForeColor = Color.DarkGray;
+            label1.MouseLeave += (s, ev) => label1.ForeColor = Color.White;
+
+
             dataGridView1.CellClick += (s, ev) =>
             {
                 panel1.Controls.Clear();
@@ -35,6 +39,12 @@ namespace FormsMantemimiento
                 detalles.Show();
 
             };
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            panel3.Size = panel3.Size.Width == 2 ? new System.Drawing.Size(772, 520) : new System.Drawing.Size(2, 520);
+            panel2.Visible = panel2.Visible ? false : true;
         }
     }
 }
