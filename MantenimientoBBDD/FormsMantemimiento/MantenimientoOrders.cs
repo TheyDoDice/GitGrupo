@@ -11,11 +11,8 @@ namespace FormsMantemimiento
 {
     public partial class MantenimientoOrders : MantenimientoBBDD.MantenimientoGenerico
     {
-        private BindingSource masterBindingSource = new BindingSource();
-        private BindingSource detailsBindingSource = new BindingSource();
+        public string id = "nada";
         SQL database = new SQL();
-        DataSet dataOrders = new DataSet();
-        DataSet dataDetails = new DataSet();
 
         public MantenimientoOrders()
         {
@@ -24,9 +21,20 @@ namespace FormsMantemimiento
 
         private void MantenimientoOrders_Load(object sender, EventArgs e)
         {
-            dataOrders = database.PortarTaula("Orders");
-            dataDetails = database.PortarTaula("Details");
-            
+            dataGridView1.CellClick += (s, ev) =>
+            {
+                panel1.Controls.Clear();
+                id = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+                string consulta = "OrdersDetail where idOrder = " + id;
+
+                MantenimientoOrdersDetail detalles = new MantenimientoOrdersDetail();
+                detalles.tabla = consulta;
+                detalles.TopLevel = false;
+                detalles.Dock = DockStyle.Fill;
+                panel1.Controls.Add(detalles);
+                detalles.Show();
+
+            };
         }
     }
 }

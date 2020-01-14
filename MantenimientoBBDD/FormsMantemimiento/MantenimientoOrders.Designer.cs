@@ -44,9 +44,18 @@
             this.swTextbox3 = new CC_Library.SWTextbox();
             this.swc_idOperationalArea = new CC_Library.SWCodi();
             this.lbl_idOperationalArea = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // btn_actualizarDataset
+            // 
+            this.btn_actualizarDataset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
+            // btn_insertar
+            // 
+            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             // 
             // lb_codeOrder
             // 
@@ -292,19 +301,40 @@
             this.lbl_idOperationalArea.TabIndex = 84;
             this.lbl_idOperationalArea.Text = "OperationalArea:";
             // 
-            // dataGridView2
+            // panel1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(751, 87);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(343, 222);
-            this.dataGridView2.TabIndex = 87;
+            this.panel1.Location = new System.Drawing.Point(743, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(767, 505);
+            this.panel1.TabIndex = 87;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(741, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 24);
+            this.label1.TabIndex = 88;
+            this.label1.Text = "Details:";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(726, 13);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(2, 553);
+            this.panel2.TabIndex = 89;
             // 
             // MantenimientoOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1120, 778);
-            this.Controls.Add(this.dataGridView2);
+            this.ClientSize = new System.Drawing.Size(1552, 778);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.swTextbox3);
             this.Controls.Add(this.swc_idOperationalArea);
             this.Controls.Add(this.lbl_idOperationalArea);
@@ -324,6 +354,8 @@
             this.Name = "MantenimientoOrders";
             this.tabla = "Orders";
             this.Load += new System.EventHandler(this.MantenimientoOrders_Load);
+            this.Controls.SetChildIndex(this.btn_insertar, 0);
+            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swt_codeOrder, 0);
             this.Controls.SetChildIndex(this.lb_codeOrder, 0);
             this.Controls.SetChildIndex(this.swt_dateOrder, 0);
@@ -340,8 +372,9 @@
             this.Controls.SetChildIndex(this.lbl_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swc_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swTextbox3, 0);
-            this.Controls.SetChildIndex(this.dataGridView2, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.panel2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,6 +398,8 @@
         private CC_Library.SWTextbox swTextbox3;
         private CC_Library.SWCodi swc_idOperationalArea;
         private System.Windows.Forms.Label lbl_idOperationalArea;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

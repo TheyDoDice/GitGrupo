@@ -43,6 +43,16 @@
             this.swt_Quantity = new CC_Library.SWTextbox();
             this.SuspendLayout();
             // 
+            // btn_actualizarDataset
+            // 
+            this.btn_actualizarDataset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_actualizarDataset.Location = new System.Drawing.Point(12, 262);
+            // 
+            // btn_insertar
+            // 
+            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_insertar.Location = new System.Drawing.Point(149, 262);
+            // 
             // swt_idReference
             // 
             this.swt_idReference.ControlID = "swc_idReference";
@@ -50,7 +60,7 @@
             this.swt_idReference.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idReference.foranea = true;
             this.swt_idReference.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idReference.Location = new System.Drawing.Point(677, 217);
+            this.swt_idReference.Location = new System.Drawing.Point(656, 207);
             this.swt_idReference.mensaje = null;
             this.swt_idReference.Name = "swt_idReference";
             this.swt_idReference.nomCamp = "idReference";
@@ -68,7 +78,7 @@
             this.swc_idReference.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idReference.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idReference.FormCS = null;
-            this.swc_idReference.Location = new System.Drawing.Point(190, 212);
+            this.swc_idReference.Location = new System.Drawing.Point(169, 202);
             this.swc_idReference.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idReference.Name = "swc_idReference";
             this.swc_idReference.NomCodi = "CodeReference";
@@ -84,7 +94,7 @@
             this.lbl_idReference.AutoSize = true;
             this.lbl_idReference.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_idReference.ForeColor = System.Drawing.Color.White;
-            this.lbl_idReference.Location = new System.Drawing.Point(33, 223);
+            this.lbl_idReference.Location = new System.Drawing.Point(12, 213);
             this.lbl_idReference.Name = "lbl_idReference";
             this.lbl_idReference.Size = new System.Drawing.Size(99, 24);
             this.lbl_idReference.TabIndex = 97;
@@ -97,7 +107,7 @@
             this.swt_idPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idPlanet.foranea = true;
             this.swt_idPlanet.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idPlanet.Location = new System.Drawing.Point(677, 169);
+            this.swt_idPlanet.Location = new System.Drawing.Point(656, 159);
             this.swt_idPlanet.mensaje = null;
             this.swt_idPlanet.Name = "swt_idPlanet";
             this.swt_idPlanet.nomCamp = "idPlanet";
@@ -115,7 +125,7 @@
             this.swc_idPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idPlanet.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idPlanet.FormCS = null;
-            this.swc_idPlanet.Location = new System.Drawing.Point(190, 164);
+            this.swc_idPlanet.Location = new System.Drawing.Point(169, 154);
             this.swc_idPlanet.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idPlanet.Name = "swc_idPlanet";
             this.swc_idPlanet.NomCodi = "CodePlanet";
@@ -131,7 +141,7 @@
             this.lbl_idPlanet.AutoSize = true;
             this.lbl_idPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_idPlanet.ForeColor = System.Drawing.Color.White;
-            this.lbl_idPlanet.Location = new System.Drawing.Point(33, 175);
+            this.lbl_idPlanet.Location = new System.Drawing.Point(12, 165);
             this.lbl_idPlanet.Name = "lbl_idPlanet";
             this.lbl_idPlanet.Size = new System.Drawing.Size(70, 24);
             this.lbl_idPlanet.TabIndex = 94;
@@ -144,7 +154,7 @@
             this.swt_idOrder.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idOrder.foranea = true;
             this.swt_idOrder.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idOrder.Location = new System.Drawing.Point(677, 121);
+            this.swt_idOrder.Location = new System.Drawing.Point(656, 111);
             this.swt_idOrder.mensaje = null;
             this.swt_idOrder.Name = "swt_idOrder";
             this.swt_idOrder.nomCamp = "idOrder";
@@ -162,7 +172,7 @@
             this.swc_idOrder.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idOrder.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idOrder.FormCS = null;
-            this.swc_idOrder.Location = new System.Drawing.Point(190, 116);
+            this.swc_idOrder.Location = new System.Drawing.Point(169, 106);
             this.swc_idOrder.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idOrder.Name = "swc_idOrder";
             this.swc_idOrder.NomCodi = "CodeOrder";
@@ -178,7 +188,7 @@
             this.lb_idOrder.AutoSize = true;
             this.lb_idOrder.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lb_idOrder.ForeColor = System.Drawing.Color.White;
-            this.lb_idOrder.Location = new System.Drawing.Point(33, 127);
+            this.lb_idOrder.Location = new System.Drawing.Point(12, 117);
             this.lb_idOrder.Name = "lb_idOrder";
             this.lb_idOrder.Size = new System.Drawing.Size(65, 24);
             this.lb_idOrder.TabIndex = 91;
@@ -189,7 +199,7 @@
             this.lb_DeliveryDate.AutoSize = true;
             this.lb_DeliveryDate.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lb_DeliveryDate.ForeColor = System.Drawing.Color.White;
-            this.lb_DeliveryDate.Location = new System.Drawing.Point(33, 78);
+            this.lb_DeliveryDate.Location = new System.Drawing.Point(12, 68);
             this.lb_DeliveryDate.Name = "lb_DeliveryDate";
             this.lb_DeliveryDate.Size = new System.Drawing.Size(124, 24);
             this.lb_DeliveryDate.TabIndex = 90;
@@ -202,7 +212,7 @@
             this.swt_DeliveryDate.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_DeliveryDate.foranea = false;
             this.swt_DeliveryDate.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_DeliveryDate.Location = new System.Drawing.Point(196, 75);
+            this.swt_DeliveryDate.Location = new System.Drawing.Point(175, 65);
             this.swt_DeliveryDate.mensaje = null;
             this.swt_DeliveryDate.Name = "swt_DeliveryDate";
             this.swt_DeliveryDate.nomCamp = "DeliveryDate";
@@ -217,7 +227,7 @@
             this.lb_Quantity.AutoSize = true;
             this.lb_Quantity.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lb_Quantity.ForeColor = System.Drawing.Color.White;
-            this.lb_Quantity.Location = new System.Drawing.Point(33, 28);
+            this.lb_Quantity.Location = new System.Drawing.Point(12, 18);
             this.lb_Quantity.Name = "lb_Quantity";
             this.lb_Quantity.Size = new System.Drawing.Size(90, 24);
             this.lb_Quantity.TabIndex = 88;
@@ -230,7 +240,7 @@
             this.swt_Quantity.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_Quantity.foranea = false;
             this.swt_Quantity.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_Quantity.Location = new System.Drawing.Point(196, 28);
+            this.swt_Quantity.Location = new System.Drawing.Point(175, 18);
             this.swt_Quantity.mensaje = null;
             this.swt_Quantity.Name = "swt_Quantity";
             this.swt_Quantity.nomCamp = "Quantity";
@@ -243,7 +253,7 @@
             // MantenimientoOrdersDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(967, 760);
+            this.ClientSize = new System.Drawing.Size(808, 498);
             this.Controls.Add(this.swt_idReference);
             this.Controls.Add(this.swc_idReference);
             this.Controls.Add(this.lbl_idReference);
@@ -258,7 +268,9 @@
             this.Controls.Add(this.lb_Quantity);
             this.Controls.Add(this.swt_Quantity);
             this.Name = "MantenimientoOrdersDetail";
-            this.tabla = "OrdersDetail";
+            this.tabla = "OrdersDetail where idOrder = 32";
+            this.Controls.SetChildIndex(this.btn_insertar, 0);
+            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swt_Quantity, 0);
             this.Controls.SetChildIndex(this.lb_Quantity, 0);
             this.Controls.SetChildIndex(this.swt_DeliveryDate, 0);
