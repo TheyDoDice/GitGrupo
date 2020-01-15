@@ -121,9 +121,9 @@ namespace ConsolaGestionFTP
                     Console.Write("Descargando {0} en la carpeta {1}\n", item.Substring(item.IndexOf("/") + 1), arguments[3]);
                 }
             }
-            catch
+            catch (Exception e)
             {
-                Console.WriteLine("Error, faltan los datos de conexión");
+                Console.WriteLine("Error, {1}", e);
             }
             Console.WriteLine("");
         }
