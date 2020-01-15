@@ -22,7 +22,7 @@ namespace ConsolaGestionFTP
             }
 
             Console.WriteLine("Escribe 'Comandos' para ver los comandos disponibles");
-            comando = Console.ReadLine();
+            comando = Console.ReadLine().Trim();
             while (true)
             {
                 if (String.Equals(comando, "Comandos", StringComparison.OrdinalIgnoreCase))
@@ -49,7 +49,7 @@ namespace ConsolaGestionFTP
                 {
                     ping(args[0], 0, 7000);
                 }
-                comando = Console.ReadLine();
+                comando = Console.ReadLine().Trim();
             }
         }
 
