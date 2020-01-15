@@ -227,7 +227,7 @@ namespace RecepcióComandes
         private void IniciarConsola()
         {
             Consola = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
-            Thread.Sleep(120);
+            Thread.Sleep(500);
             App_Consola = Consola.MainWindowHandle;
             SetParent(App_Consola, pnl_consola.Handle);
             SetWindowLong(App_Consola, -16, 0x10000000);
