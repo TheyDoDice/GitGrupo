@@ -50,6 +50,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_imprimir = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btn_actualizarDataset
@@ -306,7 +307,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(743, 54);
+            this.panel1.Location = new System.Drawing.Point(695, 56);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(767, 505);
             this.panel1.TabIndex = 87;
@@ -316,7 +317,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(741, 17);
+            this.label1.Location = new System.Drawing.Point(693, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 24);
             this.label1.TabIndex = 88;
@@ -326,7 +327,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(726, 13);
+            this.panel2.Location = new System.Drawing.Point(678, 15);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(2, 553);
@@ -335,7 +336,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            this.panel3.Location = new System.Drawing.Point(738, 42);
+            this.panel3.Location = new System.Drawing.Point(690, 44);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(2, 520);
@@ -365,6 +366,13 @@
             this.btn_imprimir.UseVisualStyleBackColor = false;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(677, 128);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(56, 189);
+            this.panel4.TabIndex = 130;
+            // 
             // MantenimientoOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,25 +383,31 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.swTextbox3);
             this.Controls.Add(this.swc_idOperationalArea);
             this.Controls.Add(this.lbl_idOperationalArea);
-            this.Controls.Add(this.swt_idAgency);
             this.Controls.Add(this.swc_idAgency);
             this.Controls.Add(this.lbl_idAgency);
-            this.Controls.Add(this.swt_IdFactory);
             this.Controls.Add(this.swc_IdFactory);
             this.Controls.Add(this.lbl_IdFactory);
-            this.Controls.Add(this.swt_IdPriority);
             this.Controls.Add(this.swc_IdPriority);
             this.Controls.Add(this.lb_IdPriority);
             this.Controls.Add(this.lb_dateOrder);
             this.Controls.Add(this.swt_dateOrder);
             this.Controls.Add(this.lb_codeOrder);
             this.Controls.Add(this.swt_codeOrder);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.swt_IdPriority);
+            this.Controls.Add(this.swt_IdFactory);
+            this.Controls.Add(this.swt_idAgency);
+            this.Controls.Add(this.swTextbox3);
             this.Name = "MantenimientoOrders";
             this.tabla = "Orders";
             this.Load += new System.EventHandler(this.MantenimientoOrders_Load);
+            this.Controls.SetChildIndex(this.swTextbox3, 0);
+            this.Controls.SetChildIndex(this.swt_idAgency, 0);
+            this.Controls.SetChildIndex(this.swt_IdFactory, 0);
+            this.Controls.SetChildIndex(this.swt_IdPriority, 0);
+            this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.btn_insertar, 0);
             this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swt_codeOrder, 0);
@@ -402,16 +416,12 @@
             this.Controls.SetChildIndex(this.lb_dateOrder, 0);
             this.Controls.SetChildIndex(this.lb_IdPriority, 0);
             this.Controls.SetChildIndex(this.swc_IdPriority, 0);
-            this.Controls.SetChildIndex(this.swt_IdPriority, 0);
             this.Controls.SetChildIndex(this.lbl_IdFactory, 0);
             this.Controls.SetChildIndex(this.swc_IdFactory, 0);
-            this.Controls.SetChildIndex(this.swt_IdFactory, 0);
             this.Controls.SetChildIndex(this.lbl_idAgency, 0);
             this.Controls.SetChildIndex(this.swc_idAgency, 0);
-            this.Controls.SetChildIndex(this.swt_idAgency, 0);
             this.Controls.SetChildIndex(this.lbl_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swc_idOperationalArea, 0);
-            this.Controls.SetChildIndex(this.swTextbox3, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
@@ -447,5 +457,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btn_imprimir;
+        private System.Windows.Forms.Panel panel4;
     }
 }

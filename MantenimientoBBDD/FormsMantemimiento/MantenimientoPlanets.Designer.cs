@@ -57,14 +57,23 @@
             this.swt_idFiliation = new CC_Library.SWTextbox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_filtrar = new System.Windows.Forms.Panel();
+            this.btn_busqueda = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btn_actualizarDataset
+            // 
+            this.btn_actualizarDataset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
+            // btn_insertar
+            // 
+            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             // 
             // lbl_portPlanet1
             // 
             this.lbl_portPlanet1.AutoSize = true;
             this.lbl_portPlanet1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_portPlanet1.ForeColor = System.Drawing.Color.White;
-            this.lbl_portPlanet1.Location = new System.Drawing.Point(672, 122);
+            this.lbl_portPlanet1.Location = new System.Drawing.Point(721, 121);
             this.lbl_portPlanet1.Name = "lbl_portPlanet1";
             this.lbl_portPlanet1.Size = new System.Drawing.Size(126, 24);
             this.lbl_portPlanet1.TabIndex = 119;
@@ -77,13 +86,13 @@
             this.sw_portPlanet1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.sw_portPlanet1.foranea = false;
             this.sw_portPlanet1.ForeColor = System.Drawing.Color.DimGray;
-            this.sw_portPlanet1.Location = new System.Drawing.Point(820, 114);
+            this.sw_portPlanet1.Location = new System.Drawing.Point(869, 118);
             this.sw_portPlanet1.mensaje = null;
             this.sw_portPlanet1.Name = "sw_portPlanet1";
             this.sw_portPlanet1.nomCamp = "PortPlanet1";
             this.sw_portPlanet1.nomComboBox = null;
             this.sw_portPlanet1.requerit = false;
-            this.sw_portPlanet1.Size = new System.Drawing.Size(111, 32);
+            this.sw_portPlanet1.Size = new System.Drawing.Size(158, 32);
             this.sw_portPlanet1.TabIndex = 120;
             this.sw_portPlanet1.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
@@ -92,7 +101,7 @@
             this.lbl_portPlanet.AutoSize = true;
             this.lbl_portPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_portPlanet.ForeColor = System.Drawing.Color.White;
-            this.lbl_portPlanet.Location = new System.Drawing.Point(370, 122);
+            this.lbl_portPlanet.Location = new System.Drawing.Point(399, 122);
             this.lbl_portPlanet.Name = "lbl_portPlanet";
             this.lbl_portPlanet.Size = new System.Drawing.Size(111, 24);
             this.lbl_portPlanet.TabIndex = 117;
@@ -105,7 +114,7 @@
             this.sw_portPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.sw_portPlanet.foranea = false;
             this.sw_portPlanet.ForeColor = System.Drawing.Color.DimGray;
-            this.sw_portPlanet.Location = new System.Drawing.Point(493, 119);
+            this.sw_portPlanet.Location = new System.Drawing.Point(516, 119);
             this.sw_portPlanet.mensaje = null;
             this.sw_portPlanet.Name = "sw_portPlanet";
             this.sw_portPlanet.nomCamp = "PortPlanet";
@@ -120,7 +129,7 @@
             this.lbs_IPPlanet.AutoSize = true;
             this.lbs_IPPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbs_IPPlanet.ForeColor = System.Drawing.Color.White;
-            this.lbs_IPPlanet.Location = new System.Drawing.Point(25, 125);
+            this.lbs_IPPlanet.Location = new System.Drawing.Point(25, 122);
             this.lbs_IPPlanet.Name = "lbs_IPPlanet";
             this.lbs_IPPlanet.Size = new System.Drawing.Size(91, 24);
             this.lbs_IPPlanet.TabIndex = 115;
@@ -148,7 +157,7 @@
             this.lbs_PlanetPicture.AutoSize = true;
             this.lbs_PlanetPicture.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbs_PlanetPicture.ForeColor = System.Drawing.Color.White;
-            this.lbs_PlanetPicture.Location = new System.Drawing.Point(672, 73);
+            this.lbs_PlanetPicture.Location = new System.Drawing.Point(721, 72);
             this.lbs_PlanetPicture.Name = "lbs_PlanetPicture";
             this.lbs_PlanetPicture.Size = new System.Drawing.Size(134, 24);
             this.lbs_PlanetPicture.TabIndex = 113;
@@ -161,13 +170,13 @@
             this.sw_planetPicture.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.sw_planetPicture.foranea = false;
             this.sw_planetPicture.ForeColor = System.Drawing.Color.DimGray;
-            this.sw_planetPicture.Location = new System.Drawing.Point(820, 65);
+            this.sw_planetPicture.Location = new System.Drawing.Point(869, 64);
             this.sw_planetPicture.mensaje = null;
             this.sw_planetPicture.Name = "sw_planetPicture";
             this.sw_planetPicture.nomCamp = "PlanetPicture";
             this.sw_planetPicture.nomComboBox = null;
             this.sw_planetPicture.requerit = false;
-            this.sw_planetPicture.Size = new System.Drawing.Size(111, 32);
+            this.sw_planetPicture.Size = new System.Drawing.Size(158, 32);
             this.sw_planetPicture.TabIndex = 114;
             this.sw_planetPicture.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
@@ -178,13 +187,13 @@
             this.swt_lat.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_lat.foranea = false;
             this.swt_lat.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_lat.Location = new System.Drawing.Point(820, 11);
+            this.swt_lat.Location = new System.Drawing.Point(869, 12);
             this.swt_lat.mensaje = null;
             this.swt_lat.Name = "swt_lat";
             this.swt_lat.nomCamp = "Lat";
             this.swt_lat.nomComboBox = null;
             this.swt_lat.requerit = false;
-            this.swt_lat.Size = new System.Drawing.Size(111, 32);
+            this.swt_lat.Size = new System.Drawing.Size(158, 32);
             this.swt_lat.TabIndex = 98;
             this.swt_lat.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
@@ -193,7 +202,7 @@
             this.lbl_parsecs.AutoSize = true;
             this.lbl_parsecs.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_parsecs.ForeColor = System.Drawing.Color.White;
-            this.lbl_parsecs.Location = new System.Drawing.Point(370, 73);
+            this.lbl_parsecs.Location = new System.Drawing.Point(399, 73);
             this.lbl_parsecs.Name = "lbl_parsecs";
             this.lbl_parsecs.Size = new System.Drawing.Size(78, 24);
             this.lbl_parsecs.TabIndex = 100;
@@ -206,7 +215,7 @@
             this.swt_parsecs.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_parsecs.foranea = false;
             this.swt_parsecs.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_parsecs.Location = new System.Drawing.Point(493, 70);
+            this.swt_parsecs.Location = new System.Drawing.Point(516, 70);
             this.swt_parsecs.mensaje = null;
             this.swt_parsecs.Name = "swt_parsecs";
             this.swt_parsecs.nomCamp = "Parsecs";
@@ -234,7 +243,7 @@
             this.swt_long.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_long.foranea = false;
             this.swt_long.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_long.Location = new System.Drawing.Point(493, 18);
+            this.swt_long.Location = new System.Drawing.Point(516, 18);
             this.swt_long.mensaje = null;
             this.swt_long.Name = "swt_long";
             this.swt_long.nomCamp = "Long";
@@ -249,7 +258,7 @@
             this.lbl_DescPlanet.AutoSize = true;
             this.lbl_DescPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_DescPlanet.ForeColor = System.Drawing.Color.White;
-            this.lbl_DescPlanet.Location = new System.Drawing.Point(21, 79);
+            this.lbl_DescPlanet.Location = new System.Drawing.Point(25, 73);
             this.lbl_DescPlanet.Name = "lbl_DescPlanet";
             this.lbl_DescPlanet.Size = new System.Drawing.Size(114, 24);
             this.lbl_DescPlanet.TabIndex = 104;
@@ -277,7 +286,7 @@
             this.lbl_lat.AutoSize = true;
             this.lbl_lat.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_lat.ForeColor = System.Drawing.Color.White;
-            this.lbl_lat.Location = new System.Drawing.Point(672, 21);
+            this.lbl_lat.Location = new System.Drawing.Point(721, 20);
             this.lbl_lat.Name = "lbl_lat";
             this.lbl_lat.Size = new System.Drawing.Size(41, 24);
             this.lbl_lat.TabIndex = 106;
@@ -305,7 +314,7 @@
             this.lbl_long.AutoSize = true;
             this.lbl_long.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_long.ForeColor = System.Drawing.Color.White;
-            this.lbl_long.Location = new System.Drawing.Point(369, 14);
+            this.lbl_long.Location = new System.Drawing.Point(399, 21);
             this.lbl_long.Name = "lbl_long";
             this.lbl_long.Size = new System.Drawing.Size(55, 24);
             this.lbl_long.TabIndex = 108;
@@ -316,7 +325,7 @@
             this.lbl_idSector.AutoSize = true;
             this.lbl_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_idSector.ForeColor = System.Drawing.Color.White;
-            this.lbl_idSector.Location = new System.Drawing.Point(24, 176);
+            this.lbl_idSector.Location = new System.Drawing.Point(28, 186);
             this.lbl_idSector.Name = "lbl_idSector";
             this.lbl_idSector.Size = new System.Drawing.Size(68, 24);
             this.lbl_idSector.TabIndex = 109;
@@ -330,7 +339,7 @@
             this.swc_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idSector.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idSector.FormCS = null;
-            this.swc_idSector.Location = new System.Drawing.Point(165, 163);
+            this.swc_idSector.Location = new System.Drawing.Point(169, 173);
             this.swc_idSector.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idSector.Name = "swc_idSector";
             this.swc_idSector.NomCodi = "CodeSector";
@@ -349,7 +358,7 @@
             this.swc_idFiliations.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idFiliations.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idFiliations.FormCS = null;
-            this.swc_idFiliations.Location = new System.Drawing.Point(165, 249);
+            this.swc_idFiliations.Location = new System.Drawing.Point(169, 259);
             this.swc_idFiliations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idFiliations.Name = "swc_idFiliations";
             this.swc_idFiliations.NomCodi = "CodeFiliation";
@@ -365,7 +374,7 @@
             this.lbl_idNatives.AutoSize = true;
             this.lbl_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_idNatives.ForeColor = System.Drawing.Color.White;
-            this.lbl_idNatives.Location = new System.Drawing.Point(24, 212);
+            this.lbl_idNatives.Location = new System.Drawing.Point(28, 222);
             this.lbl_idNatives.Name = "lbl_idNatives";
             this.lbl_idNatives.Size = new System.Drawing.Size(78, 24);
             this.lbl_idNatives.TabIndex = 110;
@@ -376,7 +385,7 @@
             this.lbl_PlanetFiliation.AutoSize = true;
             this.lbl_PlanetFiliation.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_PlanetFiliation.ForeColor = System.Drawing.Color.White;
-            this.lbl_PlanetFiliation.Location = new System.Drawing.Point(27, 253);
+            this.lbl_PlanetFiliation.Location = new System.Drawing.Point(31, 263);
             this.lbl_PlanetFiliation.Name = "lbl_PlanetFiliation";
             this.lbl_PlanetFiliation.Size = new System.Drawing.Size(84, 24);
             this.lbl_PlanetFiliation.TabIndex = 111;
@@ -390,7 +399,7 @@
             this.swc_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idNatives.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idNatives.FormCS = null;
-            this.swc_idNatives.Location = new System.Drawing.Point(165, 206);
+            this.swc_idNatives.Location = new System.Drawing.Point(169, 216);
             this.swc_idNatives.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idNatives.Name = "swc_idNatives";
             this.swc_idNatives.NomCodi = "CodeSpecie";
@@ -408,7 +417,7 @@
             this.swt_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idSector.foranea = true;
             this.swt_idSector.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idSector.Location = new System.Drawing.Point(441, 168);
+            this.swt_idSector.Location = new System.Drawing.Point(445, 199);
             this.swt_idSector.mensaje = null;
             this.swt_idSector.Name = "swt_idSector";
             this.swt_idSector.nomCamp = "idSector";
@@ -425,7 +434,7 @@
             this.swt_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idNatives.foranea = true;
             this.swt_idNatives.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idNatives.Location = new System.Drawing.Point(441, 212);
+            this.swt_idNatives.Location = new System.Drawing.Point(445, 243);
             this.swt_idNatives.mensaje = null;
             this.swt_idNatives.Name = "swt_idNatives";
             this.swt_idNatives.nomCamp = "idNatives";
@@ -442,7 +451,7 @@
             this.swt_idFiliation.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idFiliation.foranea = true;
             this.swt_idFiliation.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idFiliation.Location = new System.Drawing.Point(441, 253);
+            this.swt_idFiliation.Location = new System.Drawing.Point(445, 284);
             this.swt_idFiliation.mensaje = null;
             this.swt_idFiliation.Name = "swt_idFiliation";
             this.swt_idFiliation.nomCamp = "idFiliation";
@@ -454,7 +463,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(432, 163);
+            this.panel1.Location = new System.Drawing.Point(436, 173);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(63, 145);
             this.panel1.TabIndex = 124;
@@ -463,16 +472,31 @@
             // 
             this.pnl_filtrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_filtrar.Location = new System.Drawing.Point(450, 168);
+            this.pnl_filtrar.Location = new System.Drawing.Point(454, 178);
             this.pnl_filtrar.Name = "pnl_filtrar";
-            this.pnl_filtrar.Size = new System.Drawing.Size(481, 208);
+            this.pnl_filtrar.Size = new System.Drawing.Size(766, 341);
             this.pnl_filtrar.TabIndex = 125;
+            // 
+            // btn_busqueda
+            // 
+            this.btn_busqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_busqueda.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_busqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_busqueda.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_busqueda.ForeColor = System.Drawing.Color.White;
+            this.btn_busqueda.Location = new System.Drawing.Point(1071, 68);
+            this.btn_busqueda.Name = "btn_busqueda";
+            this.btn_busqueda.Size = new System.Drawing.Size(117, 29);
+            this.btn_busqueda.TabIndex = 126;
+            this.btn_busqueda.Text = "Búsqueda";
+            this.btn_busqueda.UseVisualStyleBackColor = false;
             // 
             // MantenimientoPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 379);
+            this.ClientSize = new System.Drawing.Size(1242, 826);
+            this.Controls.Add(this.btn_busqueda);
             this.Controls.Add(this.pnl_filtrar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idFiliation);
@@ -506,6 +530,8 @@
             this.tabla = "Planets";
             this.Text = "MantenimientoPlanets";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MantenimientoPlanets_KeyDown);
+            this.Controls.SetChildIndex(this.btn_insertar, 0);
+            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swc_idNatives, 0);
             this.Controls.SetChildIndex(this.lbl_PlanetFiliation, 0);
             this.Controls.SetChildIndex(this.lbl_idNatives, 0);
@@ -535,6 +561,7 @@
             this.Controls.SetChildIndex(this.swt_idFiliation, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.pnl_filtrar, 0);
+            this.Controls.SetChildIndex(this.btn_busqueda, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,5 +598,6 @@
         private CC_Library.SWTextbox swt_idFiliation;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnl_filtrar;
+        protected System.Windows.Forms.Button btn_busqueda;
     }
 }

@@ -44,6 +44,14 @@
             this.lb_nomPanel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // btn_actualizarDataset
+            // 
+            this.btn_actualizarDataset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
+            // btn_insertar
+            // 
+            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
             // lb_nameSpace
             // 
             this.lb_nameSpace.AutoSize = true;
@@ -127,7 +135,7 @@
             this.lb_nomDLL.AutoSize = true;
             this.lb_nomDLL.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lb_nomDLL.ForeColor = System.Drawing.Color.White;
-            this.lb_nomDLL.Location = new System.Drawing.Point(25, 173);
+            this.lb_nomDLL.Location = new System.Drawing.Point(25, 165);
             this.lb_nomDLL.Name = "lb_nomDLL";
             this.lb_nomDLL.Size = new System.Drawing.Size(95, 24);
             this.lb_nomDLL.TabIndex = 59;
@@ -140,7 +148,7 @@
             this.swt_nomDLL.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_nomDLL.foranea = false;
             this.swt_nomDLL.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_nomDLL.Location = new System.Drawing.Point(149, 170);
+            this.swt_nomDLL.Location = new System.Drawing.Point(149, 162);
             this.swt_nomDLL.mensaje = null;
             this.swt_nomDLL.Name = "swt_nomDLL";
             this.swt_nomDLL.nomCamp = "NomDLL";
@@ -219,7 +227,7 @@
             this.swt_nomPanel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_nomPanel.foranea = false;
             this.swt_nomPanel.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_nomPanel.Location = new System.Drawing.Point(149, 243);
+            this.swt_nomPanel.Location = new System.Drawing.Point(149, 231);
             this.swt_nomPanel.mensaje = null;
             this.swt_nomPanel.Name = "swt_nomPanel";
             this.swt_nomPanel.nomCamp = "NomPanel";
@@ -234,7 +242,7 @@
             this.lb_nomPanel.AutoSize = true;
             this.lb_nomPanel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lb_nomPanel.ForeColor = System.Drawing.Color.White;
-            this.lb_nomPanel.Location = new System.Drawing.Point(25, 246);
+            this.lb_nomPanel.Location = new System.Drawing.Point(25, 234);
             this.lb_nomPanel.Name = "lb_nomPanel";
             this.lb_nomPanel.Size = new System.Drawing.Size(113, 24);
             this.lb_nomPanel.TabIndex = 66;
@@ -263,6 +271,8 @@
             this.tabla = "MenuOptions";
             this.Text = "MantenimientoMenuOptions";
             this.Load += new System.EventHandler(this.MantenimientoMenuOptions_Load);
+            this.Controls.SetChildIndex(this.btn_insertar, 0);
+            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.lb_nameSpace, 0);
             this.Controls.SetChildIndex(this.lb_nomClase, 0);
             this.Controls.SetChildIndex(this.lb_rangMin, 0);

@@ -58,6 +58,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
+            // btn_actualizarDataset
+            // 
+            this.btn_actualizarDataset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
+            // btn_insertar
+            // 
+            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            // 
             // swt_idSpecie
             // 
             this.swt_idSpecie.ControlID = "swc_UserSpecie";
@@ -65,7 +73,7 @@
             this.swt_idSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idSpecie.foranea = true;
             this.swt_idSpecie.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idSpecie.Location = new System.Drawing.Point(653, 279);
+            this.swt_idSpecie.Location = new System.Drawing.Point(653, 284);
             this.swt_idSpecie.mensaje = null;
             this.swt_idSpecie.Name = "swt_idSpecie";
             this.swt_idSpecie.nomCamp = "idSpecie";
@@ -82,7 +90,7 @@
             this.swt_idPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idPlanet.foranea = true;
             this.swt_idPlanet.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idPlanet.Location = new System.Drawing.Point(653, 238);
+            this.swt_idPlanet.Location = new System.Drawing.Point(653, 243);
             this.swt_idPlanet.mensaje = null;
             this.swt_idPlanet.Name = "swt_idPlanet";
             this.swt_idPlanet.nomCamp = "idPlanet";
@@ -99,7 +107,7 @@
             this.swt_idUserCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idUserCategory.foranea = true;
             this.swt_idUserCategory.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idUserCategory.Location = new System.Drawing.Point(653, 197);
+            this.swt_idUserCategory.Location = new System.Drawing.Point(653, 202);
             this.swt_idUserCategory.mensaje = null;
             this.swt_idUserCategory.Name = "swt_idUserCategory";
             this.swt_idUserCategory.nomCamp = "idUserCategory";
@@ -133,7 +141,7 @@
             this.swt_idUserRank.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idUserRank.foranea = true;
             this.swt_idUserRank.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idUserRank.Location = new System.Drawing.Point(653, 152);
+            this.swt_idUserRank.Location = new System.Drawing.Point(653, 157);
             this.swt_idUserRank.mensaje = null;
             this.swt_idUserRank.Name = "swt_idUserRank";
             this.swt_idUserRank.nomCamp = "iduserrank";
@@ -274,7 +282,7 @@
             this.swc_UserSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_UserSpecie.ForeColor = System.Drawing.Color.DimGray;
             this.swc_UserSpecie.FormCS = null;
-            this.swc_UserSpecie.Location = new System.Drawing.Point(169, 274);
+            this.swc_UserSpecie.Location = new System.Drawing.Point(169, 294);
             this.swc_UserSpecie.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_UserSpecie.Name = "swc_UserSpecie";
             this.swc_UserSpecie.NomCodi = "CodeSpecie";
@@ -301,7 +309,7 @@
             this.lbl_UserSpecie.AutoSize = true;
             this.lbl_UserSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_UserSpecie.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserSpecie.Location = new System.Drawing.Point(28, 281);
+            this.lbl_UserSpecie.Location = new System.Drawing.Point(23, 302);
             this.lbl_UserSpecie.Name = "lbl_UserSpecie";
             this.lbl_UserSpecie.Size = new System.Drawing.Size(69, 24);
             this.lbl_UserSpecie.TabIndex = 68;
@@ -315,7 +323,7 @@
             this.swc_UserRank.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_UserRank.ForeColor = System.Drawing.Color.DimGray;
             this.swc_UserRank.FormCS = null;
-            this.swc_UserRank.Location = new System.Drawing.Point(169, 147);
+            this.swc_UserRank.Location = new System.Drawing.Point(169, 152);
             this.swc_UserRank.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_UserRank.Name = "swc_UserRank";
             this.swc_UserRank.NomCodi = "CodeRank";
@@ -334,7 +342,7 @@
             this.swc_UserPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_UserPlanet.ForeColor = System.Drawing.Color.DimGray;
             this.swc_UserPlanet.FormCS = null;
-            this.swc_UserPlanet.Location = new System.Drawing.Point(169, 232);
+            this.swc_UserPlanet.Location = new System.Drawing.Point(169, 247);
             this.swc_UserPlanet.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_UserPlanet.Name = "swc_UserPlanet";
             this.swc_UserPlanet.NomCodi = "CodePlanet";
@@ -350,7 +358,7 @@
             this.lbl_UserCategory.AutoSize = true;
             this.lbl_UserCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_UserCategory.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserCategory.Location = new System.Drawing.Point(24, 196);
+            this.lbl_UserCategory.Location = new System.Drawing.Point(23, 209);
             this.lbl_UserCategory.Name = "lbl_UserCategory";
             this.lbl_UserCategory.Size = new System.Drawing.Size(133, 24);
             this.lbl_UserCategory.TabIndex = 66;
@@ -361,7 +369,7 @@
             this.lbl_UserPlanet.AutoSize = true;
             this.lbl_UserPlanet.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_UserPlanet.ForeColor = System.Drawing.Color.White;
-            this.lbl_UserPlanet.Location = new System.Drawing.Point(27, 237);
+            this.lbl_UserPlanet.Location = new System.Drawing.Point(23, 256);
             this.lbl_UserPlanet.Name = "lbl_UserPlanet";
             this.lbl_UserPlanet.Size = new System.Drawing.Size(70, 24);
             this.lbl_UserPlanet.TabIndex = 67;
@@ -375,7 +383,7 @@
             this.swc_UserCategory.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_UserCategory.ForeColor = System.Drawing.Color.DimGray;
             this.swc_UserCategory.FormCS = null;
-            this.swc_UserCategory.Location = new System.Drawing.Point(169, 190);
+            this.swc_UserCategory.Location = new System.Drawing.Point(169, 199);
             this.swc_UserCategory.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_UserCategory.Name = "swc_UserCategory";
             this.swc_UserCategory.NomCodi = "CodeCategory";
@@ -388,7 +396,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(653, 152);
+            this.panel1.Location = new System.Drawing.Point(653, 157);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(43, 169);
             this.panel1.TabIndex = 125;
@@ -400,7 +408,7 @@
             this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_imprimir.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Location = new System.Drawing.Point(715, 154);
+            this.btn_imprimir.Location = new System.Drawing.Point(715, 159);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(103, 29);
             this.btn_imprimir.TabIndex = 126;
@@ -422,7 +430,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(715, 208);
+            this.comboBox1.Location = new System.Drawing.Point(715, 213);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(152, 21);
             this.comboBox1.TabIndex = 127;
@@ -460,6 +468,8 @@
             this.Name = "MantenimientoUsers";
             this.tabla = "Users";
             this.Load += new System.EventHandler(this.MantenimientoUsers_Load);
+            this.Controls.SetChildIndex(this.btn_insertar, 0);
+            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swc_UserCategory, 0);
             this.Controls.SetChildIndex(this.lbl_UserPlanet, 0);
             this.Controls.SetChildIndex(this.lbl_UserCategory, 0);

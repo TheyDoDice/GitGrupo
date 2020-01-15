@@ -41,6 +41,7 @@
             this.swt_DeliveryDate = new CC_Library.SWTextbox();
             this.lb_Quantity = new System.Windows.Forms.Label();
             this.swt_Quantity = new CC_Library.SWTextbox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btn_actualizarDataset
@@ -250,10 +251,18 @@
             this.swt_Quantity.TabIndex = 87;
             this.swt_Quantity.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(656, 96);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(104, 155);
+            this.panel1.TabIndex = 100;
+            // 
             // MantenimientoOrdersDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(808, 498);
+            this.ClientSize = new System.Drawing.Size(880, 518);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idReference);
             this.Controls.Add(this.swc_idReference);
             this.Controls.Add(this.lbl_idReference);
@@ -284,6 +293,7 @@
             this.Controls.SetChildIndex(this.lbl_idReference, 0);
             this.Controls.SetChildIndex(this.swc_idReference, 0);
             this.Controls.SetChildIndex(this.swt_idReference, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +313,6 @@
         private CC_Library.SWTextbox swt_DeliveryDate;
         private System.Windows.Forms.Label lb_Quantity;
         private CC_Library.SWTextbox swt_Quantity;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -135,7 +135,7 @@
             this.btn_actualizarDataset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizarDataset.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_actualizarDataset.ForeColor = System.Drawing.Color.White;
-            this.btn_actualizarDataset.Location = new System.Drawing.Point(12, 271);
+            this.btn_actualizarDataset.Location = new System.Drawing.Point(24, 333);
             this.btn_actualizarDataset.Name = "btn_actualizarDataset";
             this.btn_actualizarDataset.Size = new System.Drawing.Size(117, 29);
             this.btn_actualizarDataset.TabIndex = 79;
@@ -150,7 +150,7 @@
             this.btn_insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_insertar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_insertar.ForeColor = System.Drawing.Color.White;
-            this.btn_insertar.Location = new System.Drawing.Point(146, 271);
+            this.btn_insertar.Location = new System.Drawing.Point(168, 333);
             this.btn_insertar.Name = "btn_insertar";
             this.btn_insertar.Size = new System.Drawing.Size(117, 29);
             this.btn_insertar.TabIndex = 80;
@@ -187,7 +187,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 336);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 442);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -201,7 +201,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(907, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(907, 278);
             this.dataGridView1.TabIndex = 81;
             // 
             // MantenimientoUserCategories
