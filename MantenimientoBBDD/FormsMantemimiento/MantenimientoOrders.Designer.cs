@@ -345,7 +345,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(431, 494);
+            this.comboBox1.Location = new System.Drawing.Point(440, 476);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(152, 21);
             this.comboBox1.TabIndex = 129;
@@ -358,7 +358,7 @@
             this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_imprimir.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Location = new System.Drawing.Point(304, 494);
+            this.btn_imprimir.Location = new System.Drawing.Point(311, 470);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(103, 29);
             this.btn_imprimir.TabIndex = 128;
