@@ -13,7 +13,7 @@ namespace ProyectoPrincipal.Forms
 {
     public partial class Splash : Form
     {
-        private int counter = 1;
+        private int counter = 5;
         private string user;
         private string userRank;
         private DataSet menuOptions;
