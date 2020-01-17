@@ -97,7 +97,7 @@
             this.gbx_credenciales.Controls.Add(this.lbl_Usuario);
             this.gbx_credenciales.Controls.Add(this.lbl_Servidor);
             this.gbx_credenciales.Controls.Add(this.txtb_Servidor);
-            this.gbx_credenciales.Location = new System.Drawing.Point(12, 41);
+            this.gbx_credenciales.Location = new System.Drawing.Point(12, 12);
             this.gbx_credenciales.Name = "gbx_credenciales";
             this.gbx_credenciales.Size = new System.Drawing.Size(1174, 58);
             this.gbx_credenciales.TabIndex = 0;
@@ -212,7 +212,7 @@
             this.txtb_RutaCarpetaDescargas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.txtb_RutaCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.txtb_RutaCarpetaDescargas.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtb_RutaCarpetaDescargas.Location = new System.Drawing.Point(12, 580);
+            this.txtb_RutaCarpetaDescargas.Location = new System.Drawing.Point(12, 567);
             this.txtb_RutaCarpetaDescargas.Name = "txtb_RutaCarpetaDescargas";
             this.txtb_RutaCarpetaDescargas.ReadOnly = true;
             this.txtb_RutaCarpetaDescargas.Size = new System.Drawing.Size(1133, 26);
@@ -224,7 +224,7 @@
             this.lbl_RutaGuardar.AutoSize = true;
             this.lbl_RutaGuardar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_RutaGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_RutaGuardar.Location = new System.Drawing.Point(9, 559);
+            this.lbl_RutaGuardar.Location = new System.Drawing.Point(9, 545);
             this.lbl_RutaGuardar.Name = "lbl_RutaGuardar";
             this.lbl_RutaGuardar.Size = new System.Drawing.Size(319, 18);
             this.lbl_RutaGuardar.TabIndex = 6;
@@ -237,7 +237,7 @@
             this.btn_CambiarCarpetaDescargas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarCarpetaDescargas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_CambiarCarpetaDescargas.Location = new System.Drawing.Point(1151, 580);
+            this.btn_CambiarCarpetaDescargas.Location = new System.Drawing.Point(1151, 567);
             this.btn_CambiarCarpetaDescargas.Name = "btn_CambiarCarpetaDescargas";
             this.btn_CambiarCarpetaDescargas.Size = new System.Drawing.Size(35, 26);
             this.btn_CambiarCarpetaDescargas.TabIndex = 6;
@@ -274,7 +274,7 @@
             this.lbl_text_hora.AutoSize = true;
             this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_hora.Location = new System.Drawing.Point(657, -1);
+            this.lbl_text_hora.Location = new System.Drawing.Point(653, -1);
             this.lbl_text_hora.Name = "lbl_text_hora";
             this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
             this.lbl_text_hora.TabIndex = 14;
@@ -286,7 +286,7 @@
             this.lbl_hora.AutoSize = true;
             this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_hora.Location = new System.Drawing.Point(695, -1);
+            this.lbl_hora.Location = new System.Drawing.Point(691, -1);
             this.lbl_hora.Name = "lbl_hora";
             this.lbl_hora.Size = new System.Drawing.Size(58, 18);
             this.lbl_hora.TabIndex = 15;
@@ -303,7 +303,7 @@
             this.lbl_text_fecha.AutoSize = true;
             this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_fecha.Location = new System.Drawing.Point(530, -1);
+            this.lbl_text_fecha.Location = new System.Drawing.Point(526, -1);
             this.lbl_text_fecha.Name = "lbl_text_fecha";
             this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
             this.lbl_text_fecha.TabIndex = 16;
@@ -315,7 +315,7 @@
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_fecha.Location = new System.Drawing.Point(575, -1);
+            this.lbl_fecha.Location = new System.Drawing.Point(571, -1);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
             this.lbl_fecha.TabIndex = 17;
@@ -335,7 +335,7 @@
             this.VisorArchivos.Location = new System.Drawing.Point(3, 21);
             this.VisorArchivos.Name = "VisorArchivos";
             this.VisorArchivos.PathSeparator = "/";
-            this.VisorArchivos.Size = new System.Drawing.Size(386, 429);
+            this.VisorArchivos.Size = new System.Drawing.Size(384, 441);
             this.VisorArchivos.TabIndex = 1;
             // 
             // pnl_consola
@@ -346,7 +346,7 @@
             this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.pnl_consola.Location = new System.Drawing.Point(3, 20);
             this.pnl_consola.Name = "pnl_consola";
-            this.pnl_consola.Size = new System.Drawing.Size(751, 431);
+            this.pnl_consola.Size = new System.Drawing.Size(773, 442);
             this.pnl_consola.TabIndex = 12;
             this.pnl_consola.Resize += new System.EventHandler(this.pnl_consola_Resize);
             // 
@@ -355,7 +355,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(12, 105);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 76);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -371,7 +371,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.lbl_text_fecha);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_hora);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_text_hora);
-            this.splitContainer1.Size = new System.Drawing.Size(1174, 451);
+            this.splitContainer1.Size = new System.Drawing.Size(1174, 465);
             this.splitContainer1.SplitterDistance = 390;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 18;
@@ -381,7 +381,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(1198, 618);
+            this.ClientSize = new System.Drawing.Size(1198, 604);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
             this.Controls.Add(this.lbl_RutaGuardar);
