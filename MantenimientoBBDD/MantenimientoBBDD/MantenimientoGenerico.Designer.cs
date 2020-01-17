@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_actualizarDataset = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_insertar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +52,21 @@
             this.btn_actualizarDataset.Text = "Actualizar";
             this.btn_actualizarDataset.UseVisualStyleBackColor = false;
             this.btn_actualizarDataset.Click += new System.EventHandler(this.btn_actualizarDataset_Click_1);
+            // 
+            // btn_insertar
+            // 
+            this.btn_insertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_insertar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_insertar.ForeColor = System.Drawing.Color.White;
+            this.btn_insertar.Location = new System.Drawing.Point(168, 470);
+            this.btn_insertar.Name = "btn_insertar";
+            this.btn_insertar.Size = new System.Drawing.Size(117, 29);
+            this.btn_insertar.TabIndex = 22;
+            this.btn_insertar.Text = "Insertar";
+            this.btn_insertar.UseVisualStyleBackColor = false;
+            this.btn_insertar.Click += new System.EventHandler(this.btn_insertar_Click_1);
             // 
             // dataGridView1
             // 
@@ -100,21 +115,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(967, 199);
             this.dataGridView1.TabIndex = 23;
             // 
-            // btn_insertar
-            // 
-            this.btn_insertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_insertar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_insertar.ForeColor = System.Drawing.Color.White;
-            this.btn_insertar.Location = new System.Drawing.Point(168, 470);
-            this.btn_insertar.Name = "btn_insertar";
-            this.btn_insertar.Size = new System.Drawing.Size(117, 29);
-            this.btn_insertar.TabIndex = 22;
-            this.btn_insertar.Text = "Insertar";
-            this.btn_insertar.UseVisualStyleBackColor = false;
-            this.btn_insertar.Click += new System.EventHandler(this.btn_insertar_Click_1);
-            // 
             // MantenimientoGenerico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,9 +135,9 @@
         }
 
         #endregion
-        protected System.Windows.Forms.DataGridView dataGridView1;
         protected System.Windows.Forms.Button btn_actualizarDataset;
         protected System.Windows.Forms.Button btn_insertar;
+        protected System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
