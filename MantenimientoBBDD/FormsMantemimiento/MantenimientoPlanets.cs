@@ -24,22 +24,32 @@ namespace FormsMantemimiento
         {
             if (e.KeyCode == Keys.F1)
             {
-                if (abrirForm)
-                {
-                    buscaManteniminetoPlanets.TopLevel = false;
-                    buscaManteniminetoPlanets.AutoScroll = true;
-                    pnl_filtrar.Controls.Add(buscaManteniminetoPlanets);
-                    buscaManteniminetoPlanets.Dock = DockStyle.Fill;
-                    buscaManteniminetoPlanets.Show();
-                    abrirForm = false;
-                }
-                else
-                {
-                    pnl_filtrar.Controls.Remove(buscaManteniminetoPlanets);
-                    abrirForm = true;
-                }
-                
+                abrirForm = abrirBusqueda(abrirForm);                
             }
+        }
+
+        private void btn_busqueda_Click(object sender, EventArgs e)
+        {
+            abrirForm = abrirBusqueda(abrirForm);
+        }
+
+        private bool abrirBusqueda (bool _abrirForm)
+        {
+            if (_abrirForm)
+            {
+                buscaManteniminetoPlanets.TopLevel = false;
+                buscaManteniminetoPlanets.AutoScroll = true;
+                pnl_filtrar.Controls.Add(buscaManteniminetoPlanets);
+                buscaManteniminetoPlanets.Dock = DockStyle.Fill;
+                buscaManteniminetoPlanets.Show();
+                _abrirForm = false;
+            }
+            else
+            {
+                pnl_filtrar.Controls.Remove(buscaManteniminetoPlanets);
+                _abrirForm = true;
+            }
+            return _abrirForm;
         }
     }
 }
