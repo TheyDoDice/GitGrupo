@@ -121,7 +121,8 @@ namespace MantenimientoBBDD
 
         private void btn_actualizarDataset_Click_1(object sender, EventArgs e)
         {
-            if (dadesUsuariCorrectes() || noData)
+            
+            if (dadesUsuariCorrectes() || noData || (dataGridView1.Rows.Count == 0))
             {
                 if (nuevaFila)
                 {
