@@ -58,6 +58,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_filtrar = new System.Windows.Forms.Panel();
             this.btn_busqueda = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_actualizarDataset
@@ -325,7 +326,7 @@
             this.lbl_idSector.AutoSize = true;
             this.lbl_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_idSector.ForeColor = System.Drawing.Color.White;
-            this.lbl_idSector.Location = new System.Drawing.Point(28, 186);
+            this.lbl_idSector.Location = new System.Drawing.Point(38, 190);
             this.lbl_idSector.Name = "lbl_idSector";
             this.lbl_idSector.Size = new System.Drawing.Size(68, 24);
             this.lbl_idSector.TabIndex = 109;
@@ -339,7 +340,7 @@
             this.swc_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idSector.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idSector.FormCS = null;
-            this.swc_idSector.Location = new System.Drawing.Point(169, 173);
+            this.swc_idSector.Location = new System.Drawing.Point(136, 178);
             this.swc_idSector.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idSector.Name = "swc_idSector";
             this.swc_idSector.NomCodi = "CodeSector";
@@ -358,7 +359,7 @@
             this.swc_idFiliations.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idFiliations.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idFiliations.FormCS = null;
-            this.swc_idFiliations.Location = new System.Drawing.Point(169, 259);
+            this.swc_idFiliations.Location = new System.Drawing.Point(136, 264);
             this.swc_idFiliations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idFiliations.Name = "swc_idFiliations";
             this.swc_idFiliations.NomCodi = "CodeFiliation";
@@ -374,7 +375,7 @@
             this.lbl_idNatives.AutoSize = true;
             this.lbl_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_idNatives.ForeColor = System.Drawing.Color.White;
-            this.lbl_idNatives.Location = new System.Drawing.Point(28, 222);
+            this.lbl_idNatives.Location = new System.Drawing.Point(38, 233);
             this.lbl_idNatives.Name = "lbl_idNatives";
             this.lbl_idNatives.Size = new System.Drawing.Size(78, 24);
             this.lbl_idNatives.TabIndex = 110;
@@ -385,7 +386,7 @@
             this.lbl_PlanetFiliation.AutoSize = true;
             this.lbl_PlanetFiliation.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.lbl_PlanetFiliation.ForeColor = System.Drawing.Color.White;
-            this.lbl_PlanetFiliation.Location = new System.Drawing.Point(31, 263);
+            this.lbl_PlanetFiliation.Location = new System.Drawing.Point(38, 276);
             this.lbl_PlanetFiliation.Name = "lbl_PlanetFiliation";
             this.lbl_PlanetFiliation.Size = new System.Drawing.Size(84, 24);
             this.lbl_PlanetFiliation.TabIndex = 111;
@@ -399,7 +400,7 @@
             this.swc_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_idNatives.ForeColor = System.Drawing.Color.DimGray;
             this.swc_idNatives.FormCS = null;
-            this.swc_idNatives.Location = new System.Drawing.Point(169, 216);
+            this.swc_idNatives.Location = new System.Drawing.Point(136, 221);
             this.swc_idNatives.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_idNatives.Name = "swc_idNatives";
             this.swc_idNatives.NomCodi = "CodeSpecie";
@@ -417,7 +418,7 @@
             this.swt_idSector.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idSector.foranea = true;
             this.swt_idSector.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idSector.Location = new System.Drawing.Point(445, 199);
+            this.swt_idSector.Location = new System.Drawing.Point(412, 204);
             this.swt_idSector.mensaje = null;
             this.swt_idSector.Name = "swt_idSector";
             this.swt_idSector.nomCamp = "idSector";
@@ -434,7 +435,7 @@
             this.swt_idNatives.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idNatives.foranea = true;
             this.swt_idNatives.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idNatives.Location = new System.Drawing.Point(445, 243);
+            this.swt_idNatives.Location = new System.Drawing.Point(412, 248);
             this.swt_idNatives.mensaje = null;
             this.swt_idNatives.Name = "swt_idNatives";
             this.swt_idNatives.nomCamp = "idNatives";
@@ -451,7 +452,7 @@
             this.swt_idFiliation.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swt_idFiliation.foranea = true;
             this.swt_idFiliation.ForeColor = System.Drawing.Color.DimGray;
-            this.swt_idFiliation.Location = new System.Drawing.Point(445, 284);
+            this.swt_idFiliation.Location = new System.Drawing.Point(412, 289);
             this.swt_idFiliation.mensaje = null;
             this.swt_idFiliation.Name = "swt_idFiliation";
             this.swt_idFiliation.nomCamp = "idFiliation";
@@ -463,7 +464,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(436, 173);
+            this.panel1.Location = new System.Drawing.Point(403, 178);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(63, 145);
             this.panel1.TabIndex = 124;
@@ -490,12 +491,25 @@
             this.btn_busqueda.TabIndex = 126;
             this.btn_busqueda.Text = "Búsqueda";
             this.btn_busqueda.UseVisualStyleBackColor = false;
+            this.btn_busqueda.Click += new System.EventHandler(this.btn_busqueda_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(1194, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 24);
+            this.label1.TabIndex = 127;
+            this.label1.Text = "F1";
             // 
             // MantenimientoPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 826);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_busqueda);
             this.Controls.Add(this.pnl_filtrar);
             this.Controls.Add(this.panel1);
@@ -562,6 +576,7 @@
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.pnl_filtrar, 0);
             this.Controls.SetChildIndex(this.btn_busqueda, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,5 +614,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnl_filtrar;
         protected System.Windows.Forms.Button btn_busqueda;
+        private System.Windows.Forms.Label label1;
     }
 }

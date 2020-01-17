@@ -39,6 +39,8 @@
             this.swt_idRegion = new CC_Library.SWTextbox();
             this.swc_CodeRegion = new CC_Library.SWCodi();
             this.swc_CodeSpecie = new CC_Library.SWCodi();
+            this.lb_codeRegion = new System.Windows.Forms.Label();
+            this.lb_codeSpecie = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Planets)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +48,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_cercar);
-            this.panel1.Location = new System.Drawing.Point(346, 12);
+            this.panel1.Location = new System.Drawing.Point(451, 26);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(133, 70);
             this.panel1.TabIndex = 133;
@@ -95,7 +97,7 @@
             this.dataGridView_Planets.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView_Planets.EnableHeadersVisualStyles = false;
             this.dataGridView_Planets.GridColor = System.Drawing.Color.White;
-            this.dataGridView_Planets.Location = new System.Drawing.Point(0, 132);
+            this.dataGridView_Planets.Location = new System.Drawing.Point(0, 119);
             this.dataGridView_Planets.Name = "dataGridView_Planets";
             this.dataGridView_Planets.ReadOnly = true;
             this.dataGridView_Planets.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -109,7 +111,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dataGridView_Planets.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView_Planets.Size = new System.Drawing.Size(833, 235);
+            this.dataGridView_Planets.Size = new System.Drawing.Size(833, 248);
             this.dataGridView_Planets.TabIndex = 132;
             // 
             // swt_idSpecie
@@ -117,7 +119,7 @@
             this.swt_idSpecie.ControlID = "swc_CodeSpecie";
             this.swt_idSpecie.DadaTipus = CC_Library.SWTextbox.tipDades.Numero;
             this.swt_idSpecie.foranea = false;
-            this.swt_idSpecie.Location = new System.Drawing.Point(346, 61);
+            this.swt_idSpecie.Location = new System.Drawing.Point(451, 75);
             this.swt_idSpecie.mensaje = null;
             this.swt_idSpecie.Name = "swt_idSpecie";
             this.swt_idSpecie.nomCamp = null;
@@ -132,7 +134,7 @@
             this.swt_idRegion.ControlID = "swc_CodeRegion";
             this.swt_idRegion.DadaTipus = CC_Library.SWTextbox.tipDades.Numero;
             this.swt_idRegion.foranea = false;
-            this.swt_idRegion.Location = new System.Drawing.Point(346, 29);
+            this.swt_idRegion.Location = new System.Drawing.Point(451, 43);
             this.swt_idRegion.mensaje = null;
             this.swt_idRegion.Name = "swt_idRegion";
             this.swt_idRegion.nomCamp = null;
@@ -150,7 +152,7 @@
             this.swc_CodeRegion.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_CodeRegion.ForeColor = System.Drawing.Color.DimGray;
             this.swc_CodeRegion.FormCS = null;
-            this.swc_CodeRegion.Location = new System.Drawing.Point(0, 1);
+            this.swc_CodeRegion.Location = new System.Drawing.Point(105, 15);
             this.swc_CodeRegion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_CodeRegion.Name = "swc_CodeRegion";
             this.swc_CodeRegion.NomCodi = "CodeRegion";
@@ -169,7 +171,7 @@
             this.swc_CodeSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_CodeSpecie.ForeColor = System.Drawing.Color.DimGray;
             this.swc_CodeSpecie.FormCS = null;
-            this.swc_CodeSpecie.Location = new System.Drawing.Point(0, 46);
+            this.swc_CodeSpecie.Location = new System.Drawing.Point(105, 60);
             this.swc_CodeSpecie.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_CodeSpecie.Name = "swc_CodeSpecie";
             this.swc_CodeSpecie.NomCodi = "CodeSpecie";
@@ -180,12 +182,36 @@
             this.swc_CodeSpecie.Size = new System.Drawing.Size(309, 36);
             this.swc_CodeSpecie.TabIndex = 135;
             // 
+            // lb_codeRegion
+            // 
+            this.lb_codeRegion.AutoSize = true;
+            this.lb_codeRegion.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lb_codeRegion.ForeColor = System.Drawing.Color.White;
+            this.lb_codeRegion.Location = new System.Drawing.Point(24, 26);
+            this.lb_codeRegion.Name = "lb_codeRegion";
+            this.lb_codeRegion.Size = new System.Drawing.Size(73, 24);
+            this.lb_codeRegion.TabIndex = 136;
+            this.lb_codeRegion.Text = "Region:";
+            // 
+            // lb_codeSpecie
+            // 
+            this.lb_codeSpecie.AutoSize = true;
+            this.lb_codeSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lb_codeSpecie.ForeColor = System.Drawing.Color.White;
+            this.lb_codeSpecie.Location = new System.Drawing.Point(24, 70);
+            this.lb_codeSpecie.Name = "lb_codeSpecie";
+            this.lb_codeSpecie.Size = new System.Drawing.Size(74, 24);
+            this.lb_codeSpecie.TabIndex = 137;
+            this.lb_codeSpecie.Text = "Specie: ";
+            // 
             // BuscaMantenimientoPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(833, 367);
+            this.Controls.Add(this.lb_codeSpecie);
+            this.Controls.Add(this.lb_codeRegion);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idRegion);
             this.Controls.Add(this.swc_CodeSpecie);
@@ -211,5 +237,7 @@
         private CC_Library.SWTextbox swt_idRegion;
         private CC_Library.SWCodi swc_CodeRegion;
         private CC_Library.SWCodi swc_CodeSpecie;
+        private System.Windows.Forms.Label lb_codeRegion;
+        private System.Windows.Forms.Label lb_codeSpecie;
     }
 }
