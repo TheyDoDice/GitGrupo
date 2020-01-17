@@ -34,14 +34,6 @@
             this.swt_codeSpecie = new CC_Library.SWTextbox();
             this.SuspendLayout();
             // 
-            // btn_actualizarDataset
-            // 
-            this.btn_actualizarDataset.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            // 
-            // btn_insertar
-            // 
-            this.btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            // 
             // lb_codeSpecie
             // 
             this.lb_codeSpecie.AutoSize = true;
@@ -60,9 +52,9 @@
             this.lbl_DescSpecie.ForeColor = System.Drawing.Color.White;
             this.lbl_DescSpecie.Location = new System.Drawing.Point(26, 103);
             this.lbl_DescSpecie.Name = "lbl_DescSpecie";
-            this.lbl_DescSpecie.Size = new System.Drawing.Size(170, 24);
+            this.lbl_DescSpecie.Size = new System.Drawing.Size(171, 24);
             this.lbl_DescSpecie.TabIndex = 79;
-            this.lbl_DescSpecie.Text = "Description Specie:";
+            this.lbl_DescSpecie.Text = "Descripcion Specie:";
             // 
             // swt_userName
             // 
@@ -108,8 +100,6 @@
             this.Controls.Add(this.swt_codeSpecie);
             this.Name = "MantenimientoSpecies";
             this.tabla = "Species";
-            this.Controls.SetChildIndex(this.btn_insertar, 0);
-            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swt_codeSpecie, 0);
             this.Controls.SetChildIndex(this.swt_userName, 0);
             this.Controls.SetChildIndex(this.lbl_DescSpecie, 0);

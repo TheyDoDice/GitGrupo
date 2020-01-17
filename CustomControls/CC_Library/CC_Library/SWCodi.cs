@@ -118,11 +118,5 @@ namespace CC_Library
                 }
             }
         }
-
-        public override void ResetText()
-        {
-            textBoxCodi.Text = "";
-            textBoxDesc.Text = "";
-        }
     }
 }

@@ -202,9 +202,9 @@
             this.lb_DeliveryDate.ForeColor = System.Drawing.Color.White;
             this.lb_DeliveryDate.Location = new System.Drawing.Point(12, 68);
             this.lb_DeliveryDate.Name = "lb_DeliveryDate";
-            this.lb_DeliveryDate.Size = new System.Drawing.Size(129, 24);
+            this.lb_DeliveryDate.Size = new System.Drawing.Size(124, 24);
             this.lb_DeliveryDate.TabIndex = 90;
-            this.lb_DeliveryDate.Text = "Delivery Date:";
+            this.lb_DeliveryDate.Text = "DeliveryDate:";
             // 
             // swt_DeliveryDate
             // 

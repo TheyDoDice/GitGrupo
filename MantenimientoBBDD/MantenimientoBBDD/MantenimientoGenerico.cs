@@ -26,24 +26,20 @@ namespace MantenimientoBBDD
         public string tabla { get; set; }
         private DataSet dataSet;
         private DataTable datable;
-        private bool nuevaFila = false, noData = false;
+        private bool nuevaFila = false;
 
 
         private void MantenimientoGenerico_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
+
             
+
             bbdd.Connectar();
 
             dataSet = bbdd.PortarPerConsulta("select * from " + tabla);
             datable = dataSet.Tables[0];
             dataGridView1.DataSource = datable;
-
-            if (dataSet.Tables[0].Rows.Count == 0)
-            {
-                nuevaFila = true;
-                noData = true;
-            }       
 
             Regex rg = new Regex("^Id|^id");
 
@@ -61,8 +57,8 @@ namespace MantenimientoBBDD
                 {
                     swt.DataBindings.Clear();
                     swt.DataBindings.Add("Text", datable, swt.nomCamp);
-                    swt.TextChanged += (s, ev) => actualizaLaForanea(swt);
-                    actualizaLaForanea(swt);
+                    swt.TextChanged += (s, ev) => atualizaLaForanea(swt);
+                    atualizaLaForanea(swt);
                     swt.Validated += bindingOnValidated;
                 }
             }
@@ -83,7 +79,7 @@ namespace MantenimientoBBDD
             }
         }
 
-        private void actualizaLaForanea(SWTextbox swt)
+        private void atualizaLaForanea(SWTextbox swt)
         {
             if (swt.foranea)
             {
@@ -112,28 +108,18 @@ namespace MantenimientoBBDD
                     swt.DataBindings.Clear();
                     swt.Text = "";
                 }
-                if (control is SWCodi swc)
-                {
-                    swc.ResetText();
-                }
             }
         }
 
         private void btn_actualizarDataset_Click_1(object sender, EventArgs e)
         {
-            if (dadesUsuariCorrectes() || noData)
+            if (dadesUsuariCorrectes())
             {
                 if (nuevaFila)
                 {
                     insertarNuevaFila();
                 }
                 bbdd.Actualitzar("select * from " + tabla, "users", dataSet);
-
-                if (dataSet.Tables[0].Rows.Count == 0)
-                {
-                    nuevaFila = true;
-                    noData = true;
-                }
             }
             else
             {

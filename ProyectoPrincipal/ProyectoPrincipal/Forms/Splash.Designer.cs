@@ -96,9 +96,9 @@
             this.lbl_splash.ForeColor = System.Drawing.Color.White;
             this.lbl_splash.Location = new System.Drawing.Point(12, 78);
             this.lbl_splash.Name = "lbl_splash";
-            this.lbl_splash.Size = new System.Drawing.Size(143, 36);
+            this.lbl_splash.Size = new System.Drawing.Size(150, 36);
             this.lbl_splash.TabIndex = 16;
-            this.lbl_splash.Text = "Welcome, ";
+            this.lbl_splash.Text = "Wellcome, ";
             // 
             // barraSuperior
             // 
