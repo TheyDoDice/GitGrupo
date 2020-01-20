@@ -41,7 +41,7 @@
             this.swt_idAgency = new CC_Library.SWTextbox();
             this.swc_idAgency = new CC_Library.SWCodi();
             this.lbl_idAgency = new System.Windows.Forms.Label();
-            this.swTextbox3 = new CC_Library.SWTextbox();
+            this.swt_idOperationalArea = new CC_Library.SWTextbox();
             this.swc_idOperationalArea = new CC_Library.SWCodi();
             this.lbl_idOperationalArea = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -258,22 +258,22 @@
             this.lbl_idAgency.TabIndex = 81;
             this.lbl_idAgency.Text = "Agency:";
             // 
-            // swTextbox3
+            // swt_idOperationalArea
             // 
-            this.swTextbox3.ControlID = "swc_idOperationalArea";
-            this.swTextbox3.DadaTipus = CC_Library.SWTextbox.tipDades.Codi;
-            this.swTextbox3.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            this.swTextbox3.foranea = true;
-            this.swTextbox3.ForeColor = System.Drawing.Color.DimGray;
-            this.swTextbox3.Location = new System.Drawing.Point(677, 277);
-            this.swTextbox3.mensaje = null;
-            this.swTextbox3.Name = "swTextbox3";
-            this.swTextbox3.nomCamp = "idOperationalArea";
-            this.swTextbox3.nomComboBox = null;
-            this.swTextbox3.requerit = false;
-            this.swTextbox3.Size = new System.Drawing.Size(34, 32);
-            this.swTextbox3.TabIndex = 86;
-            this.swTextbox3.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
+            this.swt_idOperationalArea.ControlID = "swc_idOperationalArea";
+            this.swt_idOperationalArea.DadaTipus = CC_Library.SWTextbox.tipDades.Codi;
+            this.swt_idOperationalArea.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.swt_idOperationalArea.foranea = true;
+            this.swt_idOperationalArea.ForeColor = System.Drawing.Color.DimGray;
+            this.swt_idOperationalArea.Location = new System.Drawing.Point(677, 277);
+            this.swt_idOperationalArea.mensaje = null;
+            this.swt_idOperationalArea.Name = "swt_idOperationalArea";
+            this.swt_idOperationalArea.nomCamp = "idOperationalArea";
+            this.swt_idOperationalArea.nomComboBox = null;
+            this.swt_idOperationalArea.requerit = false;
+            this.swt_idOperationalArea.Size = new System.Drawing.Size(34, 32);
+            this.swt_idOperationalArea.TabIndex = 86;
+            this.swt_idOperationalArea.TipusControl = CC_Library.SWTextbox.tipControlRef.SWComboBox;
             // 
             // swc_idOperationalArea
             // 
@@ -301,13 +301,13 @@
             this.lbl_idOperationalArea.ForeColor = System.Drawing.Color.White;
             this.lbl_idOperationalArea.Location = new System.Drawing.Point(33, 283);
             this.lbl_idOperationalArea.Name = "lbl_idOperationalArea";
-            this.lbl_idOperationalArea.Size = new System.Drawing.Size(156, 24);
+            this.lbl_idOperationalArea.Size = new System.Drawing.Size(161, 24);
             this.lbl_idOperationalArea.TabIndex = 84;
-            this.lbl_idOperationalArea.Text = "OperationalArea:";
+            this.lbl_idOperationalArea.Text = "Operational Area:";
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(695, 56);
+            this.panel1.Location = new System.Drawing.Point(697, 59);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(767, 505);
             this.panel1.TabIndex = 87;
@@ -377,12 +377,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1552, 778);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btn_imprimir);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.swc_idOperationalArea);
             this.Controls.Add(this.lbl_idOperationalArea);
             this.Controls.Add(this.swc_idAgency);
@@ -399,17 +399,15 @@
             this.Controls.Add(this.swt_IdPriority);
             this.Controls.Add(this.swt_IdFactory);
             this.Controls.Add(this.swt_idAgency);
-            this.Controls.Add(this.swTextbox3);
+            this.Controls.Add(this.swt_idOperationalArea);
             this.Name = "MantenimientoOrders";
             this.tabla = "Orders";
             this.Load += new System.EventHandler(this.MantenimientoOrders_Load);
-            this.Controls.SetChildIndex(this.swTextbox3, 0);
+            this.Controls.SetChildIndex(this.swt_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swt_idAgency, 0);
             this.Controls.SetChildIndex(this.swt_IdFactory, 0);
             this.Controls.SetChildIndex(this.swt_IdPriority, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
-            this.Controls.SetChildIndex(this.btn_insertar, 0);
-            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.Controls.SetChildIndex(this.swt_codeOrder, 0);
             this.Controls.SetChildIndex(this.lb_codeOrder, 0);
             this.Controls.SetChildIndex(this.swt_dateOrder, 0);
@@ -422,12 +420,14 @@
             this.Controls.SetChildIndex(this.swc_idAgency, 0);
             this.Controls.SetChildIndex(this.lbl_idOperationalArea, 0);
             this.Controls.SetChildIndex(this.swc_idOperationalArea, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.btn_imprimir, 0);
             this.Controls.SetChildIndex(this.comboBox1, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.panel3, 0);
+            this.Controls.SetChildIndex(this.btn_insertar, 0);
+            this.Controls.SetChildIndex(this.btn_actualizarDataset, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,7 +448,7 @@
         private CC_Library.SWTextbox swt_idAgency;
         private CC_Library.SWCodi swc_idAgency;
         private System.Windows.Forms.Label lbl_idAgency;
-        private CC_Library.SWTextbox swTextbox3;
+        private CC_Library.SWTextbox swt_idOperationalArea;
         private CC_Library.SWCodi swc_idOperationalArea;
         private System.Windows.Forms.Label lbl_idOperationalArea;
         private System.Windows.Forms.Panel panel1;

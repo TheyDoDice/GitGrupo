@@ -39,5 +39,21 @@ namespace CC_Library
             args[1] = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             this.Close();
         }
+
+        private void HelpForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                this.Close();
+            }
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                this.Close();
+            }
+        }
     }
 }

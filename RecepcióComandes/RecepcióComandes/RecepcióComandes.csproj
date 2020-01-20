@@ -60,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrearTreeNode.cs" />
+    <Compile Include="PropiedadesVisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropiedadesVisor.Designer.cs">
+      <DependentUpon>PropiedadesVisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FTPListDetail.cs" />
     <Compile Include="gestionServidorFTP.cs" />
     <Compile Include="Program.cs" />
@@ -78,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PropiedadesConsola.resx">
       <DependentUpon>PropiedadesConsola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropiedadesVisor.resx">
+      <DependentUpon>PropiedadesVisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecepcioComandes.resx">
       <DependentUpon>RecepcioComandes.cs</DependentUpon>

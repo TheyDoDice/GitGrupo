@@ -22,8 +22,10 @@ namespace RecepcióComandes
 
         //ORDENAR VARIABLES
         private static string RutaArchivoXML = Application.StartupPath + "\\credenciales.xml";
+        private static string RutaConfigVisor = Application.StartupPath + "\\ConfigVisor.xml";
         private static string CarpetaDescargas = Application.StartupPath + "\\Descargas";
         private XDocument Credenciales = XDocument.Load(RutaArchivoXML);
+        private XDocument XDConfigVisor = XDocument.Load(RutaConfigVisor);
         private FolderBrowserDialog SelectorCarpetas = new FolderBrowserDialog();
         private OpenFileDialog ExploradorArchivos = new OpenFileDialog();
         private FileSystemWatcher VisorProcesar = new FileSystemWatcher();
@@ -104,7 +106,19 @@ namespace RecepcióComandes
             lbl_fecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             IniciarConsola();
+            ConfigVisor();
             ActualizarArbol("/");
+        }
+
+        private void ConfigVisor()
+        {
+            foreach (XElement node in XDConfigVisor.Descendants("ConfigVisor"))
+            {
+                VisorArchivos.LineColor = ColorTranslator.FromHtml(node.Element("ColorLineas").Value);
+                VisorArchivos.ShowLines = Convert.ToBoolean(node.Element("MostrarLineas").Value);
+                VisorArchivos.Indent = Int32.Parse(node.Element("AnchoSangria").Value);
+                VisorArchivos.ShowPlusMinus = Convert.ToBoolean(node.Element("BotonesNodos").Value);
+            }
         }
         
         private void OnChanged(object source, FileSystemEventArgs e)
@@ -226,13 +240,31 @@ namespace RecepcióComandes
         //INICIAR LA CONSOLA Y PONERLA DENTRO DEL PANEL
         private void IniciarConsola()
         {
+            Process[] pname = Process.GetProcessesByName("ConsolaGestionFTP");
+            if (pname.Length == 0)
+            {
+                IniciarProcesoConsola();
+            }
+            else
+            {
+                foreach (var process in pname)
+                {
+                    process.Kill();
+                }
+
+                IniciarProcesoConsola();
+            }
+
+        }
+
+        private void IniciarProcesoConsola()
+        {
             Consola = Process.Start(Application.StartupPath + "\\ConsolaGestionFTP.exe", txtb_Servidor.Text.Trim() + " " + txtb_Usuario.Text.Trim() + " " + txtb_Contraseña.Text.Trim() + " " + CarpetaDescargas + " / /Tractats/");
             Thread.Sleep(500);
             App_Consola = Consola.MainWindowHandle;
             SetParent(App_Consola, pnl_consola.Handle);
             SetWindowLong(App_Consola, -16, 0x10000000);
             MoveWindow(App_Consola, 0, 0, pnl_consola.Width, pnl_consola.Height, true);
-            
         }
 
         private void tmr_hora_Tick(object sender, EventArgs e)
@@ -277,22 +309,16 @@ namespace RecepcióComandes
             }
         }
 
-        private void lbl_consola_Click(object sender, EventArgs e)
+        private void btn_diseñoConsola_Click(object sender, EventArgs e)
         {
             PropiedadesConsola frm_consola = new PropiedadesConsola();
-            frm_consola.ShowDialog(); 
+            frm_consola.ShowDialog();
         }
 
-        private void RecepcióDeComandes_FormClosing(object sender, FormClosingEventArgs e)
+        private void btn_diseñoVisor_Click(object sender, EventArgs e)
         {
-            Consola.Kill();
-            Consola.Close();
-        }
-
-        private void RecepcióDeComandes_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Consola.Kill();
-            Consola.Close();
+            PropiedadesVisor frm_propsVisor = new PropiedadesVisor();
+            frm_propsVisor.ShowDialog();
         }
     }
 }

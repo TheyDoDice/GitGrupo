@@ -46,6 +46,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(277, 280);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
+            this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
             // HelpForm
             // 
@@ -58,6 +59,7 @@
             this.Name = "HelpForm";
             this.Text = "HelpForm";
             this.Load += new System.EventHandler(this.HelpForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HelpForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

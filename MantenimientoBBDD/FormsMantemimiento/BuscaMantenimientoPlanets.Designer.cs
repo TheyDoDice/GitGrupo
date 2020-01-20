@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_cercar = new System.Windows.Forms.Button();
             this.dataGridView_Planets = new System.Windows.Forms.DataGridView();
@@ -39,6 +39,8 @@
             this.swt_idRegion = new CC_Library.SWTextbox();
             this.swc_CodeRegion = new CC_Library.SWCodi();
             this.swc_CodeSpecie = new CC_Library.SWCodi();
+            this.lb_codeRegion = new System.Windows.Forms.Label();
+            this.lb_codeSpecie = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Planets)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +48,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_cercar);
-            this.panel1.Location = new System.Drawing.Point(346, 12);
+            this.panel1.Location = new System.Drawing.Point(451, 26);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(133, 70);
             this.panel1.TabIndex = 133;
@@ -62,7 +64,7 @@
             this.btn_cercar.Name = "btn_cercar";
             this.btn_cercar.Size = new System.Drawing.Size(117, 29);
             this.btn_cercar.TabIndex = 131;
-            this.btn_cercar.Text = "Cercar planetes";
+            this.btn_cercar.Text = "Búsqueda";
             this.btn_cercar.UseVisualStyleBackColor = false;
             this.btn_cercar.Click += new System.EventHandler(this.btn_cercar_Click_1);
             // 
@@ -75,41 +77,41 @@
             this.dataGridView_Planets.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_Planets.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView_Planets.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Planets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Planets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_Planets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Planets.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Planets.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_Planets.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView_Planets.EnableHeadersVisualStyles = false;
             this.dataGridView_Planets.GridColor = System.Drawing.Color.White;
-            this.dataGridView_Planets.Location = new System.Drawing.Point(0, 132);
+            this.dataGridView_Planets.Location = new System.Drawing.Point(0, 134);
             this.dataGridView_Planets.Name = "dataGridView_Planets";
             this.dataGridView_Planets.ReadOnly = true;
             this.dataGridView_Planets.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView_Planets.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dataGridView_Planets.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView_Planets.Size = new System.Drawing.Size(833, 235);
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView_Planets.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dataGridView_Planets.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView_Planets.Size = new System.Drawing.Size(833, 233);
             this.dataGridView_Planets.TabIndex = 132;
             // 
             // swt_idSpecie
@@ -117,7 +119,7 @@
             this.swt_idSpecie.ControlID = "swc_CodeSpecie";
             this.swt_idSpecie.DadaTipus = CC_Library.SWTextbox.tipDades.Numero;
             this.swt_idSpecie.foranea = false;
-            this.swt_idSpecie.Location = new System.Drawing.Point(346, 61);
+            this.swt_idSpecie.Location = new System.Drawing.Point(451, 75);
             this.swt_idSpecie.mensaje = null;
             this.swt_idSpecie.Name = "swt_idSpecie";
             this.swt_idSpecie.nomCamp = null;
@@ -132,7 +134,7 @@
             this.swt_idRegion.ControlID = "swc_CodeRegion";
             this.swt_idRegion.DadaTipus = CC_Library.SWTextbox.tipDades.Numero;
             this.swt_idRegion.foranea = false;
-            this.swt_idRegion.Location = new System.Drawing.Point(346, 29);
+            this.swt_idRegion.Location = new System.Drawing.Point(451, 43);
             this.swt_idRegion.mensaje = null;
             this.swt_idRegion.Name = "swt_idRegion";
             this.swt_idRegion.nomCamp = null;
@@ -150,7 +152,7 @@
             this.swc_CodeRegion.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_CodeRegion.ForeColor = System.Drawing.Color.DimGray;
             this.swc_CodeRegion.FormCS = null;
-            this.swc_CodeRegion.Location = new System.Drawing.Point(0, 1);
+            this.swc_CodeRegion.Location = new System.Drawing.Point(105, 15);
             this.swc_CodeRegion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_CodeRegion.Name = "swc_CodeRegion";
             this.swc_CodeRegion.NomCodi = "CodeRegion";
@@ -169,7 +171,7 @@
             this.swc_CodeSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
             this.swc_CodeSpecie.ForeColor = System.Drawing.Color.DimGray;
             this.swc_CodeSpecie.FormCS = null;
-            this.swc_CodeSpecie.Location = new System.Drawing.Point(0, 46);
+            this.swc_CodeSpecie.Location = new System.Drawing.Point(105, 60);
             this.swc_CodeSpecie.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.swc_CodeSpecie.Name = "swc_CodeSpecie";
             this.swc_CodeSpecie.NomCodi = "CodeSpecie";
@@ -180,12 +182,36 @@
             this.swc_CodeSpecie.Size = new System.Drawing.Size(309, 36);
             this.swc_CodeSpecie.TabIndex = 135;
             // 
+            // lb_codeRegion
+            // 
+            this.lb_codeRegion.AutoSize = true;
+            this.lb_codeRegion.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lb_codeRegion.ForeColor = System.Drawing.Color.White;
+            this.lb_codeRegion.Location = new System.Drawing.Point(24, 26);
+            this.lb_codeRegion.Name = "lb_codeRegion";
+            this.lb_codeRegion.Size = new System.Drawing.Size(73, 24);
+            this.lb_codeRegion.TabIndex = 136;
+            this.lb_codeRegion.Text = "Region:";
+            // 
+            // lb_codeSpecie
+            // 
+            this.lb_codeSpecie.AutoSize = true;
+            this.lb_codeSpecie.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.lb_codeSpecie.ForeColor = System.Drawing.Color.White;
+            this.lb_codeSpecie.Location = new System.Drawing.Point(24, 70);
+            this.lb_codeSpecie.Name = "lb_codeSpecie";
+            this.lb_codeSpecie.Size = new System.Drawing.Size(74, 24);
+            this.lb_codeSpecie.TabIndex = 137;
+            this.lb_codeSpecie.Text = "Specie: ";
+            // 
             // BuscaMantenimientoPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(833, 367);
+            this.Controls.Add(this.lb_codeSpecie);
+            this.Controls.Add(this.lb_codeRegion);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.swt_idRegion);
             this.Controls.Add(this.swc_CodeSpecie);
@@ -211,5 +237,7 @@
         private CC_Library.SWTextbox swt_idRegion;
         private CC_Library.SWCodi swc_CodeRegion;
         private CC_Library.SWCodi swc_CodeSpecie;
+        private System.Windows.Forms.Label lb_codeRegion;
+        private System.Windows.Forms.Label lb_codeSpecie;
     }
 }

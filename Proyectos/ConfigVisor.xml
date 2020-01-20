@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigVisor>
+  <ColorLineas>White</ColorLineas>
+  <AnchoSangria>14</AnchoSangria>
+  <MostrarLineas>true</MostrarLineas>
+  <BotonesNodos>true</BotonesNodos>
+</ConfigVisor>
