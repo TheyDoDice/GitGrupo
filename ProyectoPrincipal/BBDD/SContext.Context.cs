@@ -50,5 +50,6 @@ namespace BBDD
         public virtual DbSet<UserCategories> UserCategories { get; set; }
         public virtual DbSet<UserRanks> UserRanks { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<TareasDiarias> TareasDiarias { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace CC_Library
 {
     public partial class SW_TareaDiaria : UserControl
     {
+        #region ROUNDED
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -23,6 +24,9 @@ namespace CC_Library
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
+        #endregion
+
+        private bool oculto = true;
 
         public string titulo 
 {
@@ -36,17 +40,40 @@ namespace CC_Library
             set { Fecha.Text = value; }
         }
 
-        public SW_TareaDiaria(string titulo, string fecha)
+        public string tarea
+        {
+            get { return Tarea.Text; }
+            set { Tarea.Text = value; }
+        }
+
+        public SW_TareaDiaria(string titulo, string fecha, string tarea)
         {
             InitializeComponent();
             this.titulo = titulo;
             this.fecha = fecha;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            this.tarea = tarea;
         }
 
         private void SW_TareaDiaria_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(243, 54);
+            panel1.Size = new Size(243, 44);
+        }
 
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            if (oculto)
+            {
+                this.Size = new Size(243, 154);
+                panel1.Size = new Size(243, 144);
+                oculto = false;
+            }
+            else
+            {
+                this.Size = new Size(243, 54);
+                panel1.Size = new Size(243, 44);
+                oculto = true;
+            }
         }
     }
 }

@@ -14,6 +14,12 @@ namespace BBDD
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.TareasDiarias = new HashSet<TareasDiarias>();
+        }
+    
         public int idUser { get; set; }
         public string CodeUser { get; set; }
         public string UserName { get; set; }
@@ -30,5 +36,7 @@ namespace BBDD
         public virtual Species Species { get; set; }
         public virtual UserCategories UserCategories { get; set; }
         public virtual UserRanks UserRanks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TareasDiarias> TareasDiarias { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="securecoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="securecoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agencies">
           <Key>
             <PropertyRef Name="idAgency" />
@@ -221,6 +221,16 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TareasDiarias">
+          <Key>
+            <PropertyRef Name="idTareaDiaria" />
+          </Key>
+          <Property Name="idTareaDiaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="Tarea" Type="varchar" MaxLength="500" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="UserCategories">
           <Key>
@@ -483,6 +493,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TareasDiarias_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="TareasDiarias" Type="Self.TareasDiarias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="idUser" />
+            </Principal>
+            <Dependent Role="TareasDiarias">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Planets">
           <End Role="Planets" Type="Self.Planets" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -554,6 +576,7 @@
           <EntitySet Name="SpaceShipTypes" EntityType="Self.SpaceShipTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TareasDiarias" EntityType="Self.TareasDiarias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserCategories" EntityType="Self.UserCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRanks" EntityType="Self.UserRanks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -633,6 +656,10 @@
             <End Role="SpaceShipCategories" EntitySet="SpaceShipCategories" />
             <End Role="SpaceShipTypes" EntitySet="SpaceShipTypes" />
           </AssociationSet>
+          <AssociationSet Name="FK_TareasDiarias_Users" Association="Self.FK_TareasDiarias_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TareasDiarias" EntitySet="TareasDiarias" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Planets" Association="Self.FK_Users_Planets">
             <End Role="Planets" EntitySet="Planets" />
             <End Role="Users" EntitySet="Users" />
@@ -650,8 +677,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="securecoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -950,6 +976,7 @@
           <NavigationProperty Name="Species" Relationship="Self.FK_Users_Species" FromRole="Users" ToRole="Species" />
           <NavigationProperty Name="UserCategories" Relationship="Self.FK_Users_UserCategories" FromRole="Users" ToRole="UserCategories" />
           <NavigationProperty Name="UserRanks" Relationship="Self.FK_Users_UserRanks" FromRole="Users" ToRole="UserRanks" />
+          <NavigationProperty Name="TareasDiarias" Relationship="securecoreModel.FK_TareasDiarias_Users" FromRole="Users" ToRole="TareasDiarias" />
         </EntityType>
         <Association Name="FK_Orders_Agencies">
           <End Role="Agencies" Type="Self.Agencies" Multiplicity="1" />
@@ -1345,7 +1372,35 @@
             <End Role="UserRanks" EntitySet="UserRanks" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="TareasDiarias" EntityType="securecoreModel.TareasDiarias" />
+          <AssociationSet Name="FK_TareasDiarias_Users" Association="securecoreModel.FK_TareasDiarias_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TareasDiarias" EntitySet="TareasDiarias" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TareasDiarias">
+          <Key>
+            <PropertyRef Name="idTareaDiaria" />
+          </Key>
+          <Property Name="idTareaDiaria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tarea" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="securecoreModel.FK_TareasDiarias_Users" FromRole="TareasDiarias" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_TareasDiarias_Users">
+          <End Type="securecoreModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="securecoreModel.TareasDiarias" Role="TareasDiarias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="idUser" />
+            </Principal>
+            <Dependent Role="TareasDiarias">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1624,6 +1679,17 @@
                 <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
                 <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
                 <ScalarProperty Name="Salt" ColumnName="Salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TareasDiarias">
+            <EntityTypeMapping TypeName="securecoreModel.TareasDiarias">
+              <MappingFragment StoreEntitySet="TareasDiarias">
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="idTareaDiaria" ColumnName="idTareaDiaria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

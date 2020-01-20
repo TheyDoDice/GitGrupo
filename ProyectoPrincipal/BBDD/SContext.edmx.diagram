@@ -53,6 +53,8 @@
         <AssociationConnector Association="securecoreModel.FK_Users_Species" ManuallyRouted="false" />
         <AssociationConnector Association="securecoreModel.FK_Users_UserCategories" ManuallyRouted="false" />
         <AssociationConnector Association="securecoreModel.FK_Users_UserRanks" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="securecoreModel.TareasDiarias" Width="1.5" PointX="11.375" PointY="12.625" />
+        <AssociationConnector Association="securecoreModel.FK_TareasDiarias_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -38,12 +38,19 @@
             this.pantallaPrincipal = new System.Windows.Forms.Panel();
             this.listado = new System.Windows.Forms.Panel();
             this.marginSuperior = new System.Windows.Forms.Panel();
+            this.separator = new System.Windows.Forms.Panel();
+            this.tarea = new System.Windows.Forms.TextBox();
+            this.titulo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_Action = new System.Windows.Forms.Button();
             this.marginIzquierda = new System.Windows.Forms.Panel();
             this.marginDerecha = new System.Windows.Forms.Panel();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
             this.pantallaPrincipal.SuspendLayout();
+            this.marginSuperior.SuspendLayout();
             this.SuspendLayout();
             // 
             // barraSuperior
@@ -130,21 +137,94 @@
             // 
             // listado
             // 
+            this.listado.AutoScroll = true;
             this.listado.BackColor = System.Drawing.Color.Transparent;
             this.listado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listado.Location = new System.Drawing.Point(10, 37);
+            this.listado.Location = new System.Drawing.Point(10, 297);
             this.listado.Name = "listado";
-            this.listado.Size = new System.Drawing.Size(243, 636);
+            this.listado.Size = new System.Drawing.Size(243, 376);
             this.listado.TabIndex = 4;
             // 
             // marginSuperior
             // 
             this.marginSuperior.BackColor = System.Drawing.Color.Transparent;
+            this.marginSuperior.Controls.Add(this.separator);
+            this.marginSuperior.Controls.Add(this.tarea);
+            this.marginSuperior.Controls.Add(this.titulo);
+            this.marginSuperior.Controls.Add(this.label2);
+            this.marginSuperior.Controls.Add(this.label1);
+            this.marginSuperior.Controls.Add(this.btn_Action);
             this.marginSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.marginSuperior.ForeColor = System.Drawing.SystemColors.ControlText;
             this.marginSuperior.Location = new System.Drawing.Point(10, 27);
             this.marginSuperior.Name = "marginSuperior";
-            this.marginSuperior.Size = new System.Drawing.Size(243, 10);
+            this.marginSuperior.Size = new System.Drawing.Size(243, 270);
             this.marginSuperior.TabIndex = 3;
+            // 
+            // separator
+            // 
+            this.separator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.separator.Location = new System.Drawing.Point(0, 259);
+            this.separator.Name = "separator";
+            this.separator.Size = new System.Drawing.Size(243, 2);
+            this.separator.TabIndex = 5;
+            // 
+            // tarea
+            // 
+            this.tarea.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tarea.Location = new System.Drawing.Point(6, 103);
+            this.tarea.Multiline = true;
+            this.tarea.Name = "tarea";
+            this.tarea.Size = new System.Drawing.Size(231, 108);
+            this.tarea.TabIndex = 4;
+            // 
+            // titulo
+            // 
+            this.titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulo.Location = new System.Drawing.Point(6, 43);
+            this.titulo.Name = "titulo";
+            this.titulo.Size = new System.Drawing.Size(231, 24);
+            this.titulo.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.label2.Location = new System.Drawing.Point(3, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Tarea";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Titulo";
+            // 
+            // btn_Action
+            // 
+            this.btn_Action.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.btn_Action.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_Action.FlatAppearance.BorderSize = 0;
+            this.btn_Action.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(162)))), ((int)(((byte)(240)))));
+            this.btn_Action.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(174)))), ((int)(((byte)(234)))));
+            this.btn_Action.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Action.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Action.ForeColor = System.Drawing.Color.White;
+            this.btn_Action.Location = new System.Drawing.Point(146, 217);
+            this.btn_Action.Name = "btn_Action";
+            this.btn_Action.Size = new System.Drawing.Size(91, 33);
+            this.btn_Action.TabIndex = 0;
+            this.btn_Action.Text = "Insertar";
+            this.btn_Action.UseVisualStyleBackColor = false;
+            this.btn_Action.Click += new System.EventHandler(this.btn_Action_Click);
             // 
             // marginIzquierda
             // 
@@ -182,6 +262,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
             this.pantallaPrincipal.ResumeLayout(false);
+            this.marginSuperior.ResumeLayout(false);
+            this.marginSuperior.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -200,5 +282,11 @@
         private System.Windows.Forms.Panel marginSuperior;
         private System.Windows.Forms.Panel marginIzquierda;
         private System.Windows.Forms.Panel marginDerecha;
+        private System.Windows.Forms.Button btn_Action;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox titulo;
+        private System.Windows.Forms.Panel separator;
+        private System.Windows.Forms.TextBox tarea;
     }
 }

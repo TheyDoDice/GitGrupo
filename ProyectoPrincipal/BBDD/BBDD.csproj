@@ -140,6 +140,9 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="TareasDiarias.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserCategories.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
