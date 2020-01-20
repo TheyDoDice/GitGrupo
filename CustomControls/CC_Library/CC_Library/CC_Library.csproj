@@ -58,6 +58,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SW TareaDiaria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SW TareaDiaria.Designer.cs">
+      <DependentUpon>SW TareaDiaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="SWCodi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SW TareaDiaria.resx">
+      <DependentUpon>SW TareaDiaria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SWCodi.resx">
       <DependentUpon>SWCodi.cs</DependentUpon>
