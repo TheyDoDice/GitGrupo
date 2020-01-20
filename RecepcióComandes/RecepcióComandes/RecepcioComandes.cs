@@ -83,13 +83,11 @@ namespace RecepcióComandes
             //Comprovar en caso de que la ruta en el XML sea incorrecta poner una por defecto.
             if (!(Directory.Exists(txtb_RutaCarpetaDescargas.Text)))
             {
-                string ruta = Application.StartupPath + "\\Descargas";
-
-                txtb_RutaCarpetaDescargas.Text = ruta;
+                txtb_RutaCarpetaDescargas.Text = CarpetaDescargas;
 
                 foreach (XElement node in Credenciales.Descendants("Credencials"))
                 { 
-                    node.SetElementValue("CarpetaBaixada", ruta);
+                    node.SetElementValue("CarpetaBaixada", CarpetaDescargas);
                 }
             }
 
