@@ -21,10 +21,12 @@ namespace Tareas
         DateTime localDate = DateTime.Now;
         DataSet tareas;
         private string data;
+        private int id;
 
-        public FormPrincipal()
+        public FormPrincipal(int id)
         {
             InitializeComponent();
+            this.id = id;
         }
 
         #region MOVEPANEL
@@ -68,12 +70,13 @@ namespace Tareas
             #endregion
 
 
-            tareas = basedatos.PortarTaula("TareasDiarias");
+            tareas = basedatos.PortarPerConsulta("select * from TareasDiarias where idUser = "+id);
                 
             foreach (DataRow item in tareas.Tables[0].Rows)
             {
                 SW_TareaDiaria OpcioMenu = new SW_TareaDiaria(item["Titulo"].ToString(), item["fecha"].ToString().Split(' ')[0], item["Tarea"].ToString());
 
+                OpcioMenu.pictureBox1.Click += (se, ev) => eliminarTarea((int)item[0]);
                 OpcioMenu.Dock = DockStyle.Top;
                 listado.Controls.Add(OpcioMenu);
                 OpcioMenu.Show();
@@ -82,11 +85,18 @@ namespace Tareas
             data = localDate.ToShortDateString();
         }
 
+        private void eliminarTarea(int id)
+        {
+            context.TareasDiarias.Remove(context.TareasDiarias.Find(id));
+            context.SaveChanges();
+            actualizarTareas();
+        }
+
         private void btn_Action_Click(object sender, EventArgs e)
         {
             TareasDiarias nuevaTarea = new TareasDiarias();
 
-            nuevaTarea.idUser = 4;
+            nuevaTarea.idUser = id;
             nuevaTarea.fecha = DateTime.Parse(data);
             nuevaTarea.Titulo = titulo.Text;
             nuevaTarea.Tarea = tarea.Text;
@@ -100,12 +110,13 @@ namespace Tareas
         {
             listado.Controls.Clear();
 
-            tareas = basedatos.PortarTaula("TareasDiarias");
+            tareas = basedatos.PortarPerConsulta("select * from TareasDiarias where idUser = " + id);
 
             foreach (DataRow item in tareas.Tables[0].Rows)
             {
                 SW_TareaDiaria OpcioMenu = new SW_TareaDiaria(item["Titulo"].ToString(), item["fecha"].ToString().Split(' ')[0], item["Tarea"].ToString());
 
+                OpcioMenu.pictureBox1.Click += (se, ev) => eliminarTarea((int)item[0]);
                 OpcioMenu.Dock = DockStyle.Top;
                 listado.Controls.Add(OpcioMenu);
                 OpcioMenu.Show();

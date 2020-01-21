@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Titulo = new System.Windows.Forms.Label();
             this.Fecha = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Tarea = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulo
@@ -53,7 +57,7 @@
             this.Fecha.BackColor = System.Drawing.Color.Transparent;
             this.Fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Fecha.ForeColor = System.Drawing.Color.White;
-            this.Fecha.Location = new System.Drawing.Point(157, 19);
+            this.Fecha.Location = new System.Drawing.Point(157, 22);
             this.Fecha.Name = "Fecha";
             this.Fecha.Size = new System.Drawing.Size(41, 15);
             this.Fecha.TabIndex = 2;
@@ -62,6 +66,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.Tarea);
             this.panel1.Controls.Add(this.Titulo);
             this.panel1.Controls.Add(this.Fecha);
@@ -70,7 +75,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(243, 151);
             this.panel1.TabIndex = 3;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(204, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(15, 15);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // Tarea
             // 
@@ -85,6 +98,11 @@
             this.Tarea.Size = new System.Drawing.Size(216, 82);
             this.Tarea.TabIndex = 3;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 5;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // SW_TareaDiaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,6 +114,7 @@
             this.Load += new System.EventHandler(this.SW_TareaDiaria_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,5 +125,7 @@
         private System.Windows.Forms.Label Fecha;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox Tarea;
+        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

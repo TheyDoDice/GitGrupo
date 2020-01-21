@@ -99,6 +99,7 @@
             // btn_Guardar
             // 
             this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Guardar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -190,6 +191,7 @@
             this.txtb_RutaCarpetaDescargas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtb_RutaCarpetaDescargas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.txtb_RutaCarpetaDescargas.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtb_RutaCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.txtb_RutaCarpetaDescargas.ForeColor = System.Drawing.SystemColors.Window;
             this.txtb_RutaCarpetaDescargas.Location = new System.Drawing.Point(12, 567);
@@ -214,6 +216,7 @@
             // 
             this.btn_CambiarCarpetaDescargas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_CambiarCarpetaDescargas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_CambiarCarpetaDescargas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CambiarCarpetaDescargas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarCarpetaDescargas.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarCarpetaDescargas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -253,7 +256,7 @@
             this.lbl_text_hora.AutoSize = true;
             this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_hora.Location = new System.Drawing.Point(625, -1);
+            this.lbl_text_hora.Location = new System.Drawing.Point(618, -1);
             this.lbl_text_hora.Name = "lbl_text_hora";
             this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
             this.lbl_text_hora.TabIndex = 14;
@@ -265,7 +268,7 @@
             this.lbl_hora.AutoSize = true;
             this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_hora.Location = new System.Drawing.Point(663, -1);
+            this.lbl_hora.Location = new System.Drawing.Point(656, -1);
             this.lbl_hora.Name = "lbl_hora";
             this.lbl_hora.Size = new System.Drawing.Size(58, 18);
             this.lbl_hora.TabIndex = 15;
@@ -282,7 +285,7 @@
             this.lbl_text_fecha.AutoSize = true;
             this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_fecha.Location = new System.Drawing.Point(498, -1);
+            this.lbl_text_fecha.Location = new System.Drawing.Point(491, -1);
             this.lbl_text_fecha.Name = "lbl_text_fecha";
             this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
             this.lbl_text_fecha.TabIndex = 16;
@@ -294,7 +297,7 @@
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_fecha.Location = new System.Drawing.Point(543, -1);
+            this.lbl_fecha.Location = new System.Drawing.Point(536, -1);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
             this.lbl_fecha.TabIndex = 17;
@@ -310,11 +313,12 @@
             this.VisorArchivos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VisorArchivos.ForeColor = System.Drawing.SystemColors.Window;
             this.VisorArchivos.FullRowSelect = true;
+            this.VisorArchivos.Indent = 14;
             this.VisorArchivos.LineColor = System.Drawing.Color.White;
             this.VisorArchivos.Location = new System.Drawing.Point(3, 21);
             this.VisorArchivos.Name = "VisorArchivos";
             this.VisorArchivos.PathSeparator = "/";
-            this.VisorArchivos.Size = new System.Drawing.Size(384, 453);
+            this.VisorArchivos.Size = new System.Drawing.Size(383, 451);
             this.VisorArchivos.TabIndex = 1;
             // 
             // pnl_consola
@@ -325,7 +329,7 @@
             this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.pnl_consola.Location = new System.Drawing.Point(3, 20);
             this.pnl_consola.Name = "pnl_consola";
-            this.pnl_consola.Size = new System.Drawing.Size(765, 421);
+            this.pnl_consola.Size = new System.Drawing.Size(758, 419);
             this.pnl_consola.TabIndex = 12;
             this.pnl_consola.Resize += new System.EventHandler(this.pnl_consola_Resize);
             // 
@@ -334,6 +338,9 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.splitContainer1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.splitContainer1.Location = new System.Drawing.Point(15, 65);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -344,6 +351,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.btn_diseñoVisor);
             this.splitContainer1.Panel2.Controls.Add(this.btn_diseñoConsola);
             this.splitContainer1.Panel2.Controls.Add(this.pnl_consola);
@@ -352,8 +360,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.lbl_text_fecha);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_hora);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_text_hora);
+            this.splitContainer1.Panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Size = new System.Drawing.Size(1174, 477);
-            this.splitContainer1.SplitterDistance = 390;
+            this.splitContainer1.SplitterDistance = 391;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 18;
             // 
@@ -361,10 +370,11 @@
             // 
             this.btn_diseñoVisor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_diseñoVisor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_diseñoVisor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_diseñoVisor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_diseñoVisor.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_diseñoVisor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_diseñoVisor.Location = new System.Drawing.Point(411, 447);
+            this.btn_diseñoVisor.Location = new System.Drawing.Point(404, 442);
             this.btn_diseñoVisor.Name = "btn_diseñoVisor";
             this.btn_diseñoVisor.Size = new System.Drawing.Size(162, 30);
             this.btn_diseñoVisor.TabIndex = 18;
@@ -376,10 +386,11 @@
             // 
             this.btn_diseñoConsola.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_diseñoConsola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btn_diseñoConsola.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_diseñoConsola.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_diseñoConsola.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_diseñoConsola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_diseñoConsola.Location = new System.Drawing.Point(579, 447);
+            this.btn_diseñoConsola.Location = new System.Drawing.Point(572, 442);
             this.btn_diseñoConsola.Name = "btn_diseñoConsola";
             this.btn_diseñoConsola.Size = new System.Drawing.Size(189, 30);
             this.btn_diseñoConsola.TabIndex = 7;

@@ -29,10 +29,10 @@ namespace RecepcióComandes
         private FolderBrowserDialog SelectorCarpetas = new FolderBrowserDialog();
         private OpenFileDialog ExploradorArchivos = new OpenFileDialog();
         private FileSystemWatcher VisorProcesar = new FileSystemWatcher();
-        OrderReception comanda = new OrderReception();
         private Process Consola = new Process();
         private IntPtr App_Consola;
         private Uri CadenaConnexionFTP;
+        OrderReception comanda = new OrderReception();
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
 
         public RecepcióDeComandes()
@@ -194,13 +194,10 @@ namespace RecepcióComandes
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
             //DADES FTP:  -IP: 172.17.6.0     -User: g02      -Pass: 12345aA      -Port: 22
-
-            string serv, user, pass;
             int port = 21;
-
-            pass = Encriptar(txtb_Contraseña.Text.Trim());
-            serv = txtb_Servidor.Text.Trim();
-            user = txtb_Usuario.Text.Trim();
+            string pass = Encriptar(txtb_Contraseña.Text.Trim());
+            string serv = txtb_Servidor.Text.Trim();
+            string user = txtb_Usuario.Text.Trim();
 
             if (!string.IsNullOrEmpty(txtb_Puerto.Text.Trim()))
             {
@@ -223,7 +220,7 @@ namespace RecepcióComandes
         private void btn_CambiarCarpetaDescargas_Click(object sender, EventArgs e)
         {
             DialogResult result = SelectorCarpetas.ShowDialog();
-
+            
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(SelectorCarpetas.SelectedPath))
             {
                 txtb_RutaCarpetaDescargas.Text = SelectorCarpetas.SelectedPath;
@@ -252,7 +249,6 @@ namespace RecepcióComandes
 
                 IniciarProcesoConsola();
             }
-
         }
 
         private void IniciarProcesoConsola()
@@ -284,11 +280,10 @@ namespace RecepcióComandes
         /// Esta función "desencripta" la cadena que le envíamos en el parámentro de entrada.
         public static string DesEncriptar(string _cadenaAdesencriptar)
         {
+            string result = string.Empty;
             try
             {
-                string result = string.Empty;
-                byte[] decryted =
-                Convert.FromBase64String(_cadenaAdesencriptar);
+                byte[] decryted = Convert.FromBase64String(_cadenaAdesencriptar);
                 System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
                 result = System.Text.Encoding.Unicode.GetString(decryted);
                 return result;
