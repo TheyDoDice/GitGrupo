@@ -37,21 +37,13 @@ namespace RecepcióComandes
             this.Close();
         }
 
-        private void txtb_sangria_TextChanged(object sender, EventArgs e)
-        {
-            foreach (XElement node in ArchivoConfig.Descendants("ConfigVisor"))
-            {
-                node.SetElementValue("AnchoSangria", txtb_sangria.Text);
-            }
-            ArchivoConfig.Save(RutaArchivoConfig);
-        }
-
         private void PropiedadesVisor_Load(object sender, EventArgs e)
         {
             foreach (XElement node in ArchivoConfig.Descendants("ConfigVisor"))
             {
                 txtb_colorPicker.BackColor = ColorTranslator.FromHtml(node.Element("ColorLineas").Value);
-                txtb_sangria.Text = node.Element("AnchoSangria").Value;
+                trb_ancho.Value = Int32.Parse(node.Element("AnchoSangria").Value);
+                lbl_trackbarValue.Text = node.Element("AnchoSangria").Value;
                 if (node.Element("MostrarLineas").Value.Equals("true"))
                 {
                     rb_lines_yes.Checked = true;
@@ -97,7 +89,7 @@ namespace RecepcióComandes
         {
             rb_lines_yes.Checked = true;
             rb_lines_no.Checked = false;
-            txtb_sangria.Text = "14";
+            trb_ancho.Value = 14;
             txtb_colorPicker.BackColor = Color.White;
 
             foreach (XElement node in ArchivoConfig.Descendants("ConfigVisor"))
@@ -124,6 +116,16 @@ namespace RecepcióComandes
             foreach (XElement node in ArchivoConfig.Descendants("ConfigVisor"))
             {
                 node.SetElementValue("BotonesNodos", false);
+            }
+            ArchivoConfig.Save(RutaArchivoConfig);
+        }
+
+        private void trb_ancho_ValueChanged(object sender, EventArgs e)
+        {
+            lbl_trackbarValue.Text = trb_ancho.Value.ToString();
+            foreach (XElement node in ArchivoConfig.Descendants("ConfigVisor"))
+            {
+                node.SetElementValue("AnchoSangria", trb_ancho.Value);
             }
             ArchivoConfig.Save(RutaArchivoConfig);
         }
