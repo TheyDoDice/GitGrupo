@@ -42,15 +42,7 @@ namespace FormsMantemimiento
                 }
             }
 
-            foreach (var control in this.Controls)
-            {
-                if (control is SWTextbox swt)
-                {
-                    swt.DataBindings.Clear();
-                    swt.DataBindings.Add("Text", dataGridView1.DataSource, swt.nomCamp);
-                    swt.Validated += bindingOnValidated;
-                }
-            }
+            newBinding();
         }
 
         private void bindingOnValidated(object sender, EventArgs e)
@@ -91,7 +83,7 @@ namespace FormsMantemimiento
         private void btn_actualizarDataset_Click(object sender, EventArgs e)
         {
             int id = 0;
-            UserCategories Category;
+            UserCategories Category = new UserCategories();
             if (dadesUsuariCorrectes())
             {
                 if (nuevaFila)
@@ -115,14 +107,12 @@ namespace FormsMantemimiento
                     }
 
                     db.UserCategories.Add(Category);
-                    id = db.UserCategories.ToList().FindIndex(x => x == Category);
                     nuevaFila = false;
                 }
                 else
                 {
                     id = dataGridView1.CurrentCell.RowIndex;
                     Category = db.UserCategories.ToList()[id];
-
                     foreach (var control in this.Controls)
                     {
                         if (control is SWTextbox swt)
@@ -149,15 +139,11 @@ namespace FormsMantemimiento
             db.SaveChanges();
             dataGridView1.DataSource = db.UserCategories.ToList();
 
-            foreach (var control in this.Controls)
-            {
-                if (control is SWTextbox swt)
-                {
-                    swt.DataBindings.Clear();
-                    swt.DataBindings.Add("Text", dataGridView1.DataSource, swt.nomCamp);
-                }
-            }
-            //dataGridView1.Rows[id].Selected = true;
+            newBinding();
+
+            dataGridView1.ClearSelection();
+            id = db.UserCategories.ToList().FindIndex(x => x.idUserCategory == Category.idUserCategory);
+            dataGridView1.CurrentCell = dataGridView1.Rows[id].Cells[1];
         }
 
         private bool dadesUsuariCorrectes()
@@ -173,6 +159,35 @@ namespace FormsMantemimiento
                 }
             }
             return res;
+        }
+        private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && dataGridView1.SelectedRows.Count == 1)
+            {
+                db.UserCategories.Remove(db.UserCategories.Find(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())));
+                db.SaveChanges();
+                dataGridView1.DataSource = db.UserCategories.ToList();
+
+                newBinding();
+                dataGridView1.Rows[0].Selected = true;
+            }
+        }
+
+        private void newBinding()
+        {
+            foreach (var control in this.Controls)
+            {
+                if (control is SWTextbox swt)
+                {
+                    swt.DataBindings.Clear();
+                    swt.DataBindings.Add("Text", dataGridView1.DataSource, swt.nomCamp);
+                }
+            }
         }
     }
 }
