@@ -18,6 +18,7 @@ namespace FormsMantemimiento
     {
         SContext db = new SContext();
         private bool nuevaFila = false;
+        private UserCategories selected = new UserCategories();
 
         public MantenimientoUserCategories()
         {
@@ -156,8 +157,6 @@ namespace FormsMantemimiento
                     swt.DataBindings.Add("Text", dataGridView1.DataSource, swt.nomCamp);
                 }
             }
-            dataGridView1.ClearSelection();
-            dataGridView1.CurrentCell = dataGridView1.Rows[id].Cells[0];
             //dataGridView1.Rows[id].Selected = true;
         }
 
