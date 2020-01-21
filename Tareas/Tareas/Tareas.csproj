@@ -83,12 +83,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SplashTareas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SplashTareas.Designer.cs">
-      <DependentUpon>SplashTareas.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

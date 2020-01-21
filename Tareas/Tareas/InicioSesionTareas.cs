@@ -15,9 +15,7 @@ namespace Tareas
     public partial class InicioSesionTareas : Form
     {
         BBDD.Dades basedades = new BBDD.SQL();
-        private int userRankNumber;
-        private string userRank;
-        private DataSet menu;
+        private int id;
 
         #region MOVEPANEL
         private const int ButtonDown = 0xA1;
@@ -50,29 +48,27 @@ namespace Tareas
             barraSuperior.MouseDown += MovePanel;
 
             ptb_close.Image = TakeImg("dark", "close");
-            ptb_close.MouseLeave += (se, ev) => ptb_close.BackColor = Colors.c_panels;
+            ptb_close.MouseLeave += (se, ev) => ptb_close.BackColor = Colors.azulPrincipal;
             ptb_close.MouseEnter += (se, ev) => ptb_close.BackColor = Color.LightCoral;
             ptb_close.Click += (se, ev) => this.Close();
 
             ptb_minimize.Image = TakeImg("dark", "minimize");
-            ptb_minimize.MouseLeave += (se, ev) => ptb_minimize.BackColor = Colors.c_panels;
-            ptb_minimize.MouseEnter += (se, ev) => ptb_minimize.BackColor = Colors.c_hoverControls;
+            ptb_minimize.MouseLeave += (se, ev) => ptb_minimize.BackColor = Colors.azulPrincipal;
+            ptb_minimize.MouseEnter += (se, ev) => ptb_minimize.BackColor = Colors.azulSeleccion;
             ptb_minimize.Click += (se, ev) => this.WindowState = FormWindowState.Minimized;
 
             #endregion
 
-            ptb_decoration.Image = TakeImg("blue", "logo");
-
-            btn_login.Leave += (se, ev) => btn_login.BackColor = Colors.c_panels;
-            btn_login.Enter += (se, ev) => btn_login.BackColor = Colors.azulPrincipal;
+            btn_login.Leave += (se, ev) => btn_login.BackColor = Colors.azulPrincipal;
+            btn_login.Enter += (se, ev) => btn_login.BackColor = Colors.azulSeleccion;
 
             txt_user.Enter += (se, ev) => txt_user.BackColor = Colors.azulSeleccion;
             txt_user.Leave += (se, ev) => txt_user.BackColor = Colors.azulSeleccion;
             txt_user.Enter += (se, ev) => txt_user.Text = (txt_user.Text == "User" ? "" : txt_user.Text);
             txt_user.Leave += (se, ev) => txt_user.Text = (txt_user.Text.Trim() == "" ? "User" : txt_user.Text);
 
-            txt_password.Leave += (se, ev) => txt_password.BackColor = Colors.c_panels;
-            txt_password.Enter += (se, ev) => txt_password.BackColor = Colors.c_hoverControls;
+            txt_password.Leave += (se, ev) => txt_password.BackColor = Colors.azulSeleccion;
+            txt_password.Enter += (se, ev) => txt_password.BackColor = Colors.azulSeleccion;
             txt_password.Enter += (se, ev) => txt_password.PasswordChar = (txt_password.Text != "Password" ? '■' : '\0');
             txt_password.Enter += (se, ev) => txt_password.Text = (txt_password.Text == "Password" ? "" : txt_password.Text);
             txt_password.Leave += (se, ev) => txt_password.PasswordChar = (txt_password.Text.Trim() == "" ? '\0' : '■');
@@ -89,10 +85,10 @@ namespace Tareas
         {
             if (correctUser(txt_user.Text, txt_password.Text))
             {
-                SplashTareas splash = new SplashTareas();
-                splash.FormClosed += (se, ev) => this.Close();
+                FormPrincipal form = new FormPrincipal(id);
+                form.FormClosed += (se, ev) => this.Close();
                 this.Hide();
-                splash.Show();
+                form.Show();
             }
         }
 
@@ -111,9 +107,7 @@ namespace Tareas
 
                     if (encript.VerifyPassword(password, saltBase, passwordBase))
                     {
-                        userRankNumber = int.Parse(dataSet.Tables[0].Rows[0]["idUserRank"].ToString());
-                        menu = basedades.CarregaMenu(userRankNumber);
-                        userRank = basedades.PortarPerConsulta("select DescRank from UserRanks where idUserRank =" + userRankNumber).Tables[0].Rows[0]["DesCRank"].ToString();
+                        id = (int) (dataSet.Tables[0].Rows[0]["idUser"]);
                         return true;
                     }
                     else

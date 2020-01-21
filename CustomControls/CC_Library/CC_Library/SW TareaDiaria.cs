@@ -25,6 +25,7 @@ namespace CC_Library
             int nHeightEllipse // width of ellipse
         );
         #endregion
+        
 
         private bool oculto = true;
 
@@ -56,11 +57,20 @@ namespace CC_Library
 
         private void SW_TareaDiaria_Load(object sender, EventArgs e)
         {
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\Img\\dark_close.png");
+            pictureBox1.MouseEnter += (se, ev) => pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\Img\\red_close.png");
+            pictureBox1.MouseLeave += (se, ev) => pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\Img\\dark_close.png");
+
             this.Size = new Size(243, 54);
             panel1.Size = new Size(243, 44);
+
+            panel1.Click += (se, ev) => timer1.Start();
+            Tarea.Click  += (se, ev) => timer1.Start();
+            Titulo.Click += (se, ev) => timer1.Start();
+            Fecha.Click  += (se, ev) => timer1.Start();
         }
 
-        private void panel1_Click(object sender, EventArgs e)
+        private void desplegarTarea()
         {
             if (oculto)
             {
@@ -73,6 +83,18 @@ namespace CC_Library
                 this.Size = new Size(243, 54);
                 panel1.Size = new Size(243, 44);
                 oculto = true;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panel1.Height = oculto ? panel1.Height + 5 : panel1.Height - 5;
+            this.Height = oculto ? this.Height + 5 : this.Height - 5;
+
+            if (panel1.Height <= 45 || panel1.Height >= 145)
+            {
+                oculto = !oculto;
+                timer1.Stop();
             }
         }
     }
