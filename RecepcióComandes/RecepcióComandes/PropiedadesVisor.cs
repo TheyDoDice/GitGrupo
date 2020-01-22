@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Hashcodes;
+using System.Collections;
 
 namespace RecepcióComandes
 {
@@ -9,6 +11,7 @@ namespace RecepcióComandes
     {
         private static string RutaArchivoConfig = Application.StartupPath + "\\ConfigVisor.xml";
         private XDocument ArchivoConfig = XDocument.Load(RutaArchivoConfig);
+        HashCodes hash = new HashCodes(Application.StartupPath + "\\jordi\\hashcodes.h", Application.StartupPath + "\\jordi\\ProgramStrings.txt");
 
         public PropiedadesVisor()
         {
@@ -65,6 +68,22 @@ namespace RecepcióComandes
                     rb_botones_no.Checked = true;
                 }
             }
+
+            Hashtable ht = new Hashtable();
+            ht = hash.GetHashtable();
+            hash.MontarTablaTextos(ht, 1);
+            lbl_LinesColour.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_ConfigTreeNode_LabelColorLineas");
+            lbl_sangria.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_ConfigTreeNode_LabelAnchoSangria");
+            lbl_ShowLines.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_ConfigTreeNode_LabelMostrarLineas");
+            label1.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_ConfigTreeNode_LabelMostrarBotones");
+            label3.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_LabelCambios");
+            btn_reset.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_BotonResetConfig");
+            btn_cerrar.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_BotonCerrar");
+            rb_botones_no.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_yes");
+            rb_botones_yes.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_no");
+            rb_lines_no.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_yes");
+            rb_lines_yes.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_no");
+            label2.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_ConfigTreeNode_Title");
         }
 
         private void rb_lines_yes_Click(object sender, EventArgs e)
