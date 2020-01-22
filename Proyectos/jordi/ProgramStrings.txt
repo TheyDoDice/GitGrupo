@@ -1,0 +1,26 @@
+HT_Text_RecepcioComandes_LabelPuerto--HT_String_Delimiter--Port:--HT_String_Delimiter--Puerto:--HT_String_Delimiter--Port:
+HT_Text_RecepcioComandes_LabelServidor--HT_String_Delimiter--Server:--HT_String_Delimiter--Servidor:--HT_String_Delimiter--Servidor:
+HT_Text_RecepcioComandes_LabelUsuario--HT_String_Delimiter--User:--HT_String_Delimiter--Usuario:--HT_String_Delimiter--Usuari:
+HT_Text_RecepcioComandes_LabelContraseña--HT_String_Delimiter--Password:--HT_String_Delimiter--Contraseña:--HT_String_Delimiter--Contrasenya:
+HT_Text_RecepcioComandes_LabelImpresora--HT_String_Delimiter--Printer:--HT_String_Delimiter--Impresora:--HT_String_Delimiter--Impressora:
+HT_Text_GenText_BotonGuardar--HT_String_Delimiter--Save--HT_String_Delimiter--Guardar--HT_String_Delimiter--Guardar
+HT_Text_RecepcioComandes_LabelRuta--HT_String_Delimiter--Route where the downloaded files will be saved:--HT_String_Delimiter--Ruta donde se guardarán los archivos descargados:--HT_String_Delimiter--Ruta on es guardarán els arxius descarregats:
+HT_Text_RecepcioComandes_DiseñoBotonVisor--HT_String_Delimiter--Change the tree node style--HT_String_Delimiter--Cambiar diseño visor--HT_String_Delimiter--Cambiar disseny del visor
+HT_Text_RecepcioComandes_DiseñoBotonConsola--HT_String_Delimiter--Change console design--HT_String_Delimiter--Cambiar diseño consola--HT_String_Delimiter--Cambiar disseny de la consola
+HT_Text_RecepcioComandes_LabelFecha--HT_String_Delimiter--Date:--HT_String_Delimiter--Fecha:--HT_String_Delimiter--Data:
+HT_Text_RecepcioComandes_LabelHora--HT_String_Delimiter--Time:--HT_String_Delimiter--Hora:--HT_String_Delimiter--Hora:
+HT_Text_RecepcioComandes_LabelPanelTreeNode--HT_String_Delimiter--Files and directories:--HT_String_Delimiter--Archivos y directorios:--HT_String_Delimiter--Arxius i directoris:
+HT_Text_RecepcioComandes_LabelPanelConsola--HT_String_Delimiter--Console:--HT_String_Delimiter--Consola:--HT_String_Delimiter--Consola:
+HT_Text_GenText_BotonCerrar--HT_String_Delimiter--Close--HT_String_Delimiter--Cerrar--HT_String_Delimiter--Tancar
+HT_Text_GenText_BotonResetConfig--HT_String_Delimiter--Reset config--HT_String_Delimiter--Reset config--HT_String_Delimiter--Reset config
+HT_Text_RecepcioComandes_ConfigTreeNode_LabelColorLineas--HT_String_Delimiter--Lines color:--HT_String_Delimiter--Color líneas:--HT_String_Delimiter--Color línies:
+HT_Text_RecepcioComandes_ConfigTreeNode_LabelAnchoSangria--HT_String_Delimiter--Indentation width:--HT_String_Delimiter--Ancho sangría:--HT_String_Delimiter--Ample sagnia:
+HT_Text_RecepcioComandes_ConfigTreeNode_LabelMostrarBotones--HT_String_Delimiter--Show buttons '+' '-':--HT_String_Delimiter--Mostrar botones '+' '-':--HT_String_Delimiter--Mostrar botons '+''-':
+HT_Text_RecepcioComandes_ConfigTreeNode_LabelMostrarLineas--HT_String_Delimiter--Show lines:--HT_String_Delimiter--Mostrar líneas:--HT_String_Delimiter--Mostrar línies:
+HT_Text_GenText_LabelCambios--HT_String_Delimiter--The changes will be applied when this form will be restarted. --HT_String_Delimiter--Los cambios se aplicarán la próxima vez que se abra el formulario.--HT_String_Delimiter--Els canvis s' aplicarán la próxima vegada que es reinicï el formulari.
+HT_Text_GenText_yes--HT_String_Delimiter--Yes--HT_String_Delimiter--Sí--HT_String_Delimiter--Sí
+HT_Text_GenText_no--HT_String_Delimiter--No--HT_String_Delimiter--No--HT_String_Delimiter--No
+HT_Text_RecepcioComandes_ConfigTreeNode_Title--HT_String_Delimiter--Tree Node Configuration--HT_String_Delimiter--Configuración Tree Node--HT_String_Delimiter--Configuració Tree Node
+HT_Text_RecepcioComandes_ConfigConsole_Title--HT_String_Delimiter--Console Configuration--HT_String_Delimiter--Configuración Consola--HT_String_Delimiter--Configuració Consola
+HT_Text_RecepcioComandes_ConfigConsole_ColorTexto--HT_String_Delimiter--Text color:--HT_String_Delimiter--Color del texto:--HT_String_Delimiter--Color del text:
+HT_Text_RecepcioComandes_ConfigConsole_ColorFondo--HT_String_Delimiter--Background color:--HT_String_Delimiter--Color del fondo:--HT_String_Delimiter--Color del fons:

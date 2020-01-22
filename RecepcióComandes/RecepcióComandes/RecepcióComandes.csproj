@@ -45,6 +45,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Proyectos\GenerarOrder.dll</HintPath>
     </Reference>
+    <Reference Include="Hashcodes">
+      <HintPath>..\..\Proyectos\jordi\tools\Hashcodes.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

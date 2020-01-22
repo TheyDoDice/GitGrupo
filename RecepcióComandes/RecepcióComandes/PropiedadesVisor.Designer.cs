@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_trackbarValue = new System.Windows.Forms.Label();
+            this.trb_ancho = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_ShowLines = new System.Windows.Forms.Label();
@@ -44,11 +46,9 @@
             this.txtb_colorPicker = new System.Windows.Forms.TextBox();
             this.lbl_LinesColour = new System.Windows.Forms.Label();
             this.SelectorColores = new System.Windows.Forms.ColorDialog();
-            this.trb_ancho = new System.Windows.Forms.TrackBar();
-            this.lbl_trackbarValue = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trb_ancho)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,6 +71,28 @@
             this.groupBox1.Size = new System.Drawing.Size(408, 280);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // lbl_trackbarValue
+            // 
+            this.lbl_trackbarValue.AutoSize = true;
+            this.lbl_trackbarValue.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_trackbarValue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_trackbarValue.Location = new System.Drawing.Point(314, 92);
+            this.lbl_trackbarValue.Name = "lbl_trackbarValue";
+            this.lbl_trackbarValue.Size = new System.Drawing.Size(22, 18);
+            this.lbl_trackbarValue.TabIndex = 19;
+            this.lbl_trackbarValue.Text = "14";
+            // 
+            // trb_ancho
+            // 
+            this.trb_ancho.Location = new System.Drawing.Point(151, 92);
+            this.trb_ancho.Maximum = 20;
+            this.trb_ancho.Minimum = 1;
+            this.trb_ancho.Name = "trb_ancho";
+            this.trb_ancho.Size = new System.Drawing.Size(166, 45);
+            this.trb_ancho.TabIndex = 18;
+            this.trb_ancho.Value = 1;
+            this.trb_ancho.ValueChanged += new System.EventHandler(this.trb_ancho_ValueChanged);
             // 
             // label3
             // 
@@ -219,11 +241,11 @@
             this.lbl_sangria.AutoSize = true;
             this.lbl_sangria.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_sangria.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_sangria.Location = new System.Drawing.Point(57, 98);
+            this.lbl_sangria.Location = new System.Drawing.Point(31, 92);
             this.lbl_sangria.Name = "lbl_sangria";
-            this.lbl_sangria.Size = new System.Drawing.Size(98, 18);
+            this.lbl_sangria.Size = new System.Drawing.Size(124, 18);
             this.lbl_sangria.TabIndex = 2;
-            this.lbl_sangria.Text = "Ancho sangría:";
+            this.lbl_sangria.Text = "indentation width:";
             // 
             // txtb_colorPicker
             // 
@@ -247,28 +269,6 @@
             this.lbl_LinesColour.TabIndex = 0;
             this.lbl_LinesColour.Text = "Color líneas:";
             // 
-            // trb_ancho
-            // 
-            this.trb_ancho.Location = new System.Drawing.Point(151, 92);
-            this.trb_ancho.Maximum = 20;
-            this.trb_ancho.Minimum = 1;
-            this.trb_ancho.Name = "trb_ancho";
-            this.trb_ancho.Size = new System.Drawing.Size(166, 45);
-            this.trb_ancho.TabIndex = 18;
-            this.trb_ancho.Value = 1;
-            this.trb_ancho.ValueChanged += new System.EventHandler(this.trb_ancho_ValueChanged);
-            // 
-            // lbl_trackbarValue
-            // 
-            this.lbl_trackbarValue.AutoSize = true;
-            this.lbl_trackbarValue.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_trackbarValue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_trackbarValue.Location = new System.Drawing.Point(314, 92);
-            this.lbl_trackbarValue.Name = "lbl_trackbarValue";
-            this.lbl_trackbarValue.Size = new System.Drawing.Size(22, 18);
-            this.lbl_trackbarValue.TabIndex = 19;
-            this.lbl_trackbarValue.Text = "14";
-            // 
             // PropiedadesVisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,9 +283,9 @@
             this.Load += new System.EventHandler(this.PropiedadesVisor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trb_ancho)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trb_ancho)).EndInit();
             this.ResumeLayout(false);
 
         }

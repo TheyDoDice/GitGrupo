@@ -256,7 +256,7 @@
             this.lbl_text_hora.AutoSize = true;
             this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_hora.Location = new System.Drawing.Point(618, -1);
+            this.lbl_text_hora.Location = new System.Drawing.Point(665, 0);
             this.lbl_text_hora.Name = "lbl_text_hora";
             this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
             this.lbl_text_hora.TabIndex = 14;
@@ -268,7 +268,7 @@
             this.lbl_hora.AutoSize = true;
             this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_hora.Location = new System.Drawing.Point(656, -1);
+            this.lbl_hora.Location = new System.Drawing.Point(703, 0);
             this.lbl_hora.Name = "lbl_hora";
             this.lbl_hora.Size = new System.Drawing.Size(58, 18);
             this.lbl_hora.TabIndex = 15;
@@ -285,7 +285,7 @@
             this.lbl_text_fecha.AutoSize = true;
             this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_fecha.Location = new System.Drawing.Point(491, -1);
+            this.lbl_text_fecha.Location = new System.Drawing.Point(538, 0);
             this.lbl_text_fecha.Name = "lbl_text_fecha";
             this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
             this.lbl_text_fecha.TabIndex = 16;
@@ -297,7 +297,7 @@
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_fecha.Location = new System.Drawing.Point(536, -1);
+            this.lbl_fecha.Location = new System.Drawing.Point(583, 0);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
             this.lbl_fecha.TabIndex = 17;
