@@ -37,9 +37,11 @@
             this.lbl_password = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_error = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.barraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // barraSuperior
@@ -50,14 +52,14 @@
             this.barraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraSuperior.Location = new System.Drawing.Point(0, 0);
             this.barraSuperior.Name = "barraSuperior";
-            this.barraSuperior.Size = new System.Drawing.Size(442, 27);
+            this.barraSuperior.Size = new System.Drawing.Size(381, 27);
             this.barraSuperior.TabIndex = 1;
             // 
             // ptb_minimize
             // 
             this.ptb_minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
             this.ptb_minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ptb_minimize.Location = new System.Drawing.Point(388, 0);
+            this.ptb_minimize.Location = new System.Drawing.Point(327, 0);
             this.ptb_minimize.Name = "ptb_minimize";
             this.ptb_minimize.Size = new System.Drawing.Size(27, 27);
             this.ptb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,7 +70,7 @@
             // 
             this.ptb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
             this.ptb_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ptb_close.Location = new System.Drawing.Point(415, 0);
+            this.ptb_close.Location = new System.Drawing.Point(354, 0);
             this.ptb_close.Name = "ptb_close";
             this.ptb_close.Size = new System.Drawing.Size(27, 27);
             this.ptb_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -146,12 +148,24 @@
             this.lbl_error.Text = "Usuario o contraseña incorrectas.";
             this.lbl_error.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(304, 159);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 46);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // InicioSesionTareas
             // 
             this.AcceptButton = this.btn_login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 249);
+            this.ClientSize = new System.Drawing.Size(381, 249);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.txt_password);
@@ -166,6 +180,7 @@
             this.barraSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +197,6 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Label lbl_error;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

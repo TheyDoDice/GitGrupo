@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Encriptar;
+using BBDD;
 
 namespace Tareas
 {
@@ -74,6 +76,10 @@ namespace Tareas
             txt_password.Leave += (se, ev) => txt_password.PasswordChar = (txt_password.Text.Trim() == "" ? '\0' : '■');
             txt_password.Leave += (se, ev) => txt_password.Text = (txt_password.Text.Trim() == "" ? "Password" : txt_password.Text);
             txt_password.TextChanged += (se, ev) => txt_password.PasswordChar = (txt_password.Text != "Password" ? '■' : '\0');
+
+            pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + "\\Img\\txt.png");
+            pictureBox1.MouseEnter += (se, ev) => pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + "\\Img\\txt_2.png");
+            pictureBox1.MouseLeave += (se, ev) => pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + "\\Img\\txt.png");
         }
 
         private Image TakeImg(string mode, string name)
@@ -126,6 +132,37 @@ namespace Tareas
             {
                 MessageBox.Show("No intentes liarla!");
                 return false;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            string path = "";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog.FilterIndex = 1;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                path = saveFileDialog.FileName;
+            }
+
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+           
+            using (StreamWriter sw = new StreamWriter(stream))
+            {
+                DataSet tareas = basedades.PortarPerConsulta("select * from TareasDiarias order by idUser, fecha");
+                string user = "";
+
+                foreach (DataRow item in tareas.Tables[0].Rows)
+                {
+                    string name = basedades.PortarPerConsulta("select CodeUser from Users where idUser = " + item["idUser"]).Tables[0].Rows[0][0].ToString();
+                    if (user != name)
+                    {
+                        sw.WriteLine("\n" + name + "\n------------");
+                        user = name;
+                    }
+                    sw.WriteLine("[" + item["fecha"].ToString().Split(' ')[0] + "] " + item["Titulo"].ToString() + ": " + item["Tarea"].ToString());
+                }
             }
         }
     }

@@ -1,0 +1,15 @@
+------------
+1
+------------
+[22/01/2020] asd: asd
+[22/01/2020] 123213: d213we
+------------
+Alberto
+------------
+[22/01/2020] Testeando: sadasd
+[21/01/2020] Tareas: Tareas acabado al 100% (queda el log y el instalador pero es operativo)
+------------
+Nastya
+------------
+[22/01/2020] Instalador: Hacer instalador del proyecto
+[22/01/2020] Documentación: Documentar Windows Service 

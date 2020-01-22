@@ -50,7 +50,7 @@ namespace Tareas
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            this.CenterToScreen();
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width-20-this.Width, 20);
 
             #region BARRA SUPERIOR
 
