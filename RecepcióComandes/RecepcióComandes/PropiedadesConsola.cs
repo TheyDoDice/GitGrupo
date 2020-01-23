@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Hashcodes;
 
 namespace RecepcióComandes
 {
@@ -9,6 +10,8 @@ namespace RecepcióComandes
     {
         private static string RutaArchivoConfig = Application.StartupPath + "\\ConfigConsola.xml";
         private XDocument ArchivoConfig = XDocument.Load(RutaArchivoConfig);
+        HashCodes hash = new HashCodes(Application.StartupPath + "\\Hashcodes\\hashcodes.h", Application.StartupPath + "\\Hashcodes\\ProgramStrings.txt");
+        private static Hashtable HT = new Hashtable();
         private string[] TextColors = { "Black", "Blue", "Cyan", "DarkBlue", "DarkCyan", "DarkGray",
         "DarkGreen", "DarkMagenta", "DarkRed", "DarkYellow", "Gray", "Green", "Magenta", "Red", "White","Yellow" };
 
@@ -23,6 +26,10 @@ namespace RecepcióComandes
 
         private void PropiedadesConsola_Load(object sender, EventArgs e)
         {
+            int idioma = 2;
+            HT = hash.MontarTablaTextos(idioma);
+            hash.CambiarTextos(this);
+
             cbx_textcolors.DataSource = TextColors;
             cbx_colorFondo.DataSource = BackColors;
 

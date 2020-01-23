@@ -11,6 +11,7 @@ using System.Security.Permissions;
 using GenerarOrder;
 using System.Threading;
 using System.Collections;
+using Hashcodes;
 
 namespace RecepcióComandes
 {
@@ -34,6 +35,9 @@ namespace RecepcióComandes
         private IntPtr App_Consola;
         private Uri CadenaConnexionFTP;
         OrderReception comanda = new OrderReception();
+        HashCodes hash = new HashCodes(Application.StartupPath + "\\Hashcodes\\hashcodes.h", Application.StartupPath + "\\Hashcodes\\ProgramStrings.txt");
+        private static Hashtable HT = new Hashtable();
+
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
 
         public RecepcióDeComandes()
@@ -64,6 +68,10 @@ namespace RecepcióComandes
 
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
+            int idioma = 2;
+            HT = hash.MontarTablaTextos(idioma);
+            hash.CambiarTextos(this);
+
             ImageList myImageList = new ImageList();
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\carpeta.png"));
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\archivo.png"));

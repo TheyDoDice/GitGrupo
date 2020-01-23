@@ -28,54 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_TextColor = new System.Windows.Forms.Label();
-            this.lbl_backgroundcolor = new System.Windows.Forms.Label();
-            this.btn_cerrar = new System.Windows.Forms.Button();
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo = new System.Windows.Forms.Label();
+            this.HT_Text_GenText_BotonCerrar = new System.Windows.Forms.Button();
             this.cbx_textcolors = new System.Windows.Forms.ComboBox();
             this.cbx_colorFondo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.HT_Text_GenText_LabelCambios = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbl_TextColor
+            // HT_Text_RecepcioComandes_ConfigConsole_ColorTexto
             // 
-            this.lbl_TextColor.AutoSize = true;
-            this.lbl_TextColor.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TextColor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_TextColor.Location = new System.Drawing.Point(6, 69);
-            this.lbl_TextColor.Name = "lbl_TextColor";
-            this.lbl_TextColor.Size = new System.Drawing.Size(104, 18);
-            this.lbl_TextColor.TabIndex = 1;
-            this.lbl_TextColor.Text = "Color del texto:";
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.AutoSize = true;
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.Location = new System.Drawing.Point(6, 69);
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.Name = "HT_Text_RecepcioComandes_ConfigConsole_ColorTexto";
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.Size = new System.Drawing.Size(104, 18);
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.TabIndex = 1;
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto.Text = "Color del texto:";
             // 
-            // lbl_backgroundcolor
+            // HT_Text_RecepcioComandes_ConfigConsole_ColorFondo
             // 
-            this.lbl_backgroundcolor.AutoSize = true;
-            this.lbl_backgroundcolor.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_backgroundcolor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_backgroundcolor.Location = new System.Drawing.Point(6, 108);
-            this.lbl_backgroundcolor.Name = "lbl_backgroundcolor";
-            this.lbl_backgroundcolor.Size = new System.Drawing.Size(104, 18);
-            this.lbl_backgroundcolor.TabIndex = 2;
-            this.lbl_backgroundcolor.Text = "Color de fondo:";
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.AutoSize = true;
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.Location = new System.Drawing.Point(6, 108);
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.Name = "HT_Text_RecepcioComandes_ConfigConsole_ColorFondo";
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.Size = new System.Drawing.Size(104, 18);
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.TabIndex = 2;
+            this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo.Text = "Color de fondo:";
             // 
-            // btn_cerrar
+            // HT_Text_GenText_BotonCerrar
             // 
-            this.btn_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cerrar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cerrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cerrar.Location = new System.Drawing.Point(315, 207);
-            this.btn_cerrar.Name = "btn_cerrar";
-            this.btn_cerrar.Size = new System.Drawing.Size(86, 30);
-            this.btn_cerrar.TabIndex = 7;
-            this.btn_cerrar.Text = "Cerrar";
-            this.btn_cerrar.UseVisualStyleBackColor = false;
-            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            this.HT_Text_GenText_BotonCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HT_Text_GenText_BotonCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.HT_Text_GenText_BotonCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HT_Text_GenText_BotonCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HT_Text_GenText_BotonCerrar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_GenText_BotonCerrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_GenText_BotonCerrar.Location = new System.Drawing.Point(315, 207);
+            this.HT_Text_GenText_BotonCerrar.Name = "HT_Text_GenText_BotonCerrar";
+            this.HT_Text_GenText_BotonCerrar.Size = new System.Drawing.Size(86, 30);
+            this.HT_Text_GenText_BotonCerrar.TabIndex = 7;
+            this.HT_Text_GenText_BotonCerrar.Text = "Cerrar";
+            this.HT_Text_GenText_BotonCerrar.UseVisualStyleBackColor = false;
+            this.HT_Text_GenText_BotonCerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
             // 
             // cbx_textcolors
             // 
@@ -103,25 +103,25 @@
             this.cbx_colorFondo.TabIndex = 11;
             this.cbx_colorFondo.SelectedValueChanged += new System.EventHandler(this.cbx_colorFondo_SelectedValueChanged);
             // 
-            // label1
+            // HT_Text_GenText_LabelCambios
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(6, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 18);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Los cambios se aplicarán la próxima vez que abra el formulario.";
+            this.HT_Text_GenText_LabelCambios.AutoSize = true;
+            this.HT_Text_GenText_LabelCambios.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_GenText_LabelCambios.ForeColor = System.Drawing.Color.Red;
+            this.HT_Text_GenText_LabelCambios.Location = new System.Drawing.Point(6, 151);
+            this.HT_Text_GenText_LabelCambios.Name = "HT_Text_GenText_LabelCambios";
+            this.HT_Text_GenText_LabelCambios.Size = new System.Drawing.Size(395, 18);
+            this.HT_Text_GenText_LabelCambios.TabIndex = 12;
+            this.HT_Text_GenText_LabelCambios.Text = "Los cambios se aplicarán la próxima vez que abra el formulario.";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btn_cerrar);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.lbl_TextColor);
+            this.groupBox1.Controls.Add(this.HT_Text_RecepcioComandes_ConfigConsole_Title);
+            this.groupBox1.Controls.Add(this.HT_Text_GenText_BotonCerrar);
+            this.groupBox1.Controls.Add(this.HT_Text_GenText_LabelCambios);
+            this.groupBox1.Controls.Add(this.HT_Text_RecepcioComandes_ConfigConsole_ColorTexto);
             this.groupBox1.Controls.Add(this.cbx_colorFondo);
-            this.groupBox1.Controls.Add(this.lbl_backgroundcolor);
+            this.groupBox1.Controls.Add(this.HT_Text_RecepcioComandes_ConfigConsole_ColorFondo);
             this.groupBox1.Controls.Add(this.cbx_textcolors);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
@@ -129,16 +129,16 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // HT_Text_RecepcioComandes_ConfigConsole_Title
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(7, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 33);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Configurar Consola";
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.AutoSize = true;
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.Location = new System.Drawing.Point(7, 16);
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.Name = "HT_Text_RecepcioComandes_ConfigConsole_Title";
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.Size = new System.Drawing.Size(227, 33);
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.TabIndex = 16;
+            this.HT_Text_RecepcioComandes_ConfigConsole_Title.Text = "Configurar Consola";
             // 
             // PropiedadesConsola
             // 
@@ -162,13 +162,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_TextColor;
-        private System.Windows.Forms.Label lbl_backgroundcolor;
-        private System.Windows.Forms.Button btn_cerrar;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_ConfigConsole_ColorTexto;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_ConfigConsole_ColorFondo;
+        private System.Windows.Forms.Button HT_Text_GenText_BotonCerrar;
         private System.Windows.Forms.ComboBox cbx_textcolors;
         private System.Windows.Forms.ComboBox cbx_colorFondo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label HT_Text_GenText_LabelCambios;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_ConfigConsole_Title;
     }
 }

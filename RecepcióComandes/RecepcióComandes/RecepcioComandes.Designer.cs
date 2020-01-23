@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbl_Servidor = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelServidor = new System.Windows.Forms.Label();
             this.txtb_Servidor = new System.Windows.Forms.TextBox();
             this.cbx_Impresora = new System.Windows.Forms.ComboBox();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.lbl_impresora = new System.Windows.Forms.Label();
+            this.HT_Text_GenText_BotonGuardar = new System.Windows.Forms.Button();
+            this.HT_Text_RecepcioComandes_LabelImpresora = new System.Windows.Forms.Label();
             this.txtb_Puerto = new System.Windows.Forms.TextBox();
-            this.lbl_puerto = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelPuerto = new System.Windows.Forms.Label();
             this.txtb_Contraseña = new System.Windows.Forms.TextBox();
-            this.lbl_Contraseña = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelContraseña = new System.Windows.Forms.Label();
             this.txtb_Usuario = new System.Windows.Forms.TextBox();
-            this.lbl_Usuario = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelUsuario = new System.Windows.Forms.Label();
             this.txtb_RutaCarpetaDescargas = new System.Windows.Forms.TextBox();
-            this.lbl_RutaGuardar = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelRuta = new System.Windows.Forms.Label();
             this.btn_CambiarCarpetaDescargas = new System.Windows.Forms.Button();
-            this.lbl_ServidorFTP = new System.Windows.Forms.Label();
-            this.lbl_consola = new System.Windows.Forms.Label();
-            this.lbl_text_hora = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelPanelConsola = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelHora = new System.Windows.Forms.Label();
             this.lbl_hora = new System.Windows.Forms.Label();
             this.tmr_hora = new System.Windows.Forms.Timer(this.components);
-            this.lbl_text_fecha = new System.Windows.Forms.Label();
+            this.HT_Text_RecepcioComandes_LabelFecha = new System.Windows.Forms.Label();
             this.lbl_fecha = new System.Windows.Forms.Label();
             this.VisorArchivos = new System.Windows.Forms.TreeView();
             this.pnl_consola = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btn_diseñoVisor = new System.Windows.Forms.Button();
-            this.btn_diseñoConsola = new System.Windows.Forms.Button();
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor = new System.Windows.Forms.Button();
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -63,16 +63,16 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbl_Servidor
+            // HT_Text_RecepcioComandes_LabelServidor
             // 
-            this.lbl_Servidor.AutoSize = true;
-            this.lbl_Servidor.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Servidor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_Servidor.Location = new System.Drawing.Point(3, 9);
-            this.lbl_Servidor.Name = "lbl_Servidor";
-            this.lbl_Servidor.Size = new System.Drawing.Size(64, 18);
-            this.lbl_Servidor.TabIndex = 0;
-            this.lbl_Servidor.Text = "Servidor:";
+            this.HT_Text_RecepcioComandes_LabelServidor.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelServidor.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_RecepcioComandes_LabelServidor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelServidor.Location = new System.Drawing.Point(3, 9);
+            this.HT_Text_RecepcioComandes_LabelServidor.Name = "HT_Text_RecepcioComandes_LabelServidor";
+            this.HT_Text_RecepcioComandes_LabelServidor.Size = new System.Drawing.Size(64, 18);
+            this.HT_Text_RecepcioComandes_LabelServidor.TabIndex = 0;
+            this.HT_Text_RecepcioComandes_LabelServidor.Text = "Servidor:";
             // 
             // txtb_Servidor
             // 
@@ -96,31 +96,31 @@
             this.cbx_Impresora.Size = new System.Drawing.Size(184, 26);
             this.cbx_Impresora.TabIndex = 5;
             // 
-            // btn_Guardar
+            // HT_Text_GenText_BotonGuardar
             // 
-            this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Guardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Guardar.Location = new System.Drawing.Point(1062, 5);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(86, 30);
-            this.btn_Guardar.TabIndex = 6;
-            this.btn_Guardar.Text = "Guardar";
-            this.btn_Guardar.UseVisualStyleBackColor = false;
-            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
+            this.HT_Text_GenText_BotonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.HT_Text_GenText_BotonGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HT_Text_GenText_BotonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HT_Text_GenText_BotonGuardar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_GenText_BotonGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_GenText_BotonGuardar.Location = new System.Drawing.Point(1062, 5);
+            this.HT_Text_GenText_BotonGuardar.Name = "HT_Text_GenText_BotonGuardar";
+            this.HT_Text_GenText_BotonGuardar.Size = new System.Drawing.Size(86, 30);
+            this.HT_Text_GenText_BotonGuardar.TabIndex = 6;
+            this.HT_Text_GenText_BotonGuardar.Text = "Guardar";
+            this.HT_Text_GenText_BotonGuardar.UseVisualStyleBackColor = false;
+            this.HT_Text_GenText_BotonGuardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
-            // lbl_impresora
+            // HT_Text_RecepcioComandes_LabelImpresora
             // 
-            this.lbl_impresora.AutoSize = true;
-            this.lbl_impresora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_impresora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_impresora.Location = new System.Drawing.Point(781, 9);
-            this.lbl_impresora.Name = "lbl_impresora";
-            this.lbl_impresora.Size = new System.Drawing.Size(75, 18);
-            this.lbl_impresora.TabIndex = 6;
-            this.lbl_impresora.Text = "Impresora:";
+            this.HT_Text_RecepcioComandes_LabelImpresora.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelImpresora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelImpresora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelImpresora.Location = new System.Drawing.Point(781, 9);
+            this.HT_Text_RecepcioComandes_LabelImpresora.Name = "HT_Text_RecepcioComandes_LabelImpresora";
+            this.HT_Text_RecepcioComandes_LabelImpresora.Size = new System.Drawing.Size(75, 18);
+            this.HT_Text_RecepcioComandes_LabelImpresora.TabIndex = 6;
+            this.HT_Text_RecepcioComandes_LabelImpresora.Text = "Impresora:";
             // 
             // txtb_Puerto
             // 
@@ -132,16 +132,16 @@
             this.txtb_Puerto.Size = new System.Drawing.Size(100, 26);
             this.txtb_Puerto.TabIndex = 4;
             // 
-            // lbl_puerto
+            // HT_Text_RecepcioComandes_LabelPuerto
             // 
-            this.lbl_puerto.AutoSize = true;
-            this.lbl_puerto.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_puerto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_puerto.Location = new System.Drawing.Point(597, 9);
-            this.lbl_puerto.Name = "lbl_puerto";
-            this.lbl_puerto.Size = new System.Drawing.Size(54, 18);
-            this.lbl_puerto.TabIndex = 4;
-            this.lbl_puerto.Text = "Puerto:";
+            this.HT_Text_RecepcioComandes_LabelPuerto.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelPuerto.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelPuerto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelPuerto.Location = new System.Drawing.Point(597, 9);
+            this.HT_Text_RecepcioComandes_LabelPuerto.Name = "HT_Text_RecepcioComandes_LabelPuerto";
+            this.HT_Text_RecepcioComandes_LabelPuerto.Size = new System.Drawing.Size(54, 18);
+            this.HT_Text_RecepcioComandes_LabelPuerto.TabIndex = 4;
+            this.HT_Text_RecepcioComandes_LabelPuerto.Text = "Puerto:";
             // 
             // txtb_Contraseña
             // 
@@ -154,16 +154,16 @@
             this.txtb_Contraseña.Size = new System.Drawing.Size(100, 26);
             this.txtb_Contraseña.TabIndex = 3;
             // 
-            // lbl_Contraseña
+            // HT_Text_RecepcioComandes_LabelContraseña
             // 
-            this.lbl_Contraseña.AutoSize = true;
-            this.lbl_Contraseña.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_Contraseña.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_Contraseña.Location = new System.Drawing.Point(388, 9);
-            this.lbl_Contraseña.Name = "lbl_Contraseña";
-            this.lbl_Contraseña.Size = new System.Drawing.Size(82, 18);
-            this.lbl_Contraseña.TabIndex = 3;
-            this.lbl_Contraseña.Text = "Contraseña:";
+            this.HT_Text_RecepcioComandes_LabelContraseña.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelContraseña.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelContraseña.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelContraseña.Location = new System.Drawing.Point(388, 9);
+            this.HT_Text_RecepcioComandes_LabelContraseña.Name = "HT_Text_RecepcioComandes_LabelContraseña";
+            this.HT_Text_RecepcioComandes_LabelContraseña.Size = new System.Drawing.Size(82, 18);
+            this.HT_Text_RecepcioComandes_LabelContraseña.TabIndex = 3;
+            this.HT_Text_RecepcioComandes_LabelContraseña.Text = "Contraseña:";
             // 
             // txtb_Usuario
             // 
@@ -175,16 +175,16 @@
             this.txtb_Usuario.Size = new System.Drawing.Size(104, 26);
             this.txtb_Usuario.TabIndex = 2;
             // 
-            // lbl_Usuario
+            // HT_Text_RecepcioComandes_LabelUsuario
             // 
-            this.lbl_Usuario.AutoSize = true;
-            this.lbl_Usuario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_Usuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_Usuario.Location = new System.Drawing.Point(198, 9);
-            this.lbl_Usuario.Name = "lbl_Usuario";
-            this.lbl_Usuario.Size = new System.Drawing.Size(60, 18);
-            this.lbl_Usuario.TabIndex = 2;
-            this.lbl_Usuario.Text = "Usuario:";
+            this.HT_Text_RecepcioComandes_LabelUsuario.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelUsuario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelUsuario.Location = new System.Drawing.Point(198, 9);
+            this.HT_Text_RecepcioComandes_LabelUsuario.Name = "HT_Text_RecepcioComandes_LabelUsuario";
+            this.HT_Text_RecepcioComandes_LabelUsuario.Size = new System.Drawing.Size(60, 18);
+            this.HT_Text_RecepcioComandes_LabelUsuario.TabIndex = 2;
+            this.HT_Text_RecepcioComandes_LabelUsuario.Text = "Usuario:";
             // 
             // txtb_RutaCarpetaDescargas
             // 
@@ -200,17 +200,17 @@
             this.txtb_RutaCarpetaDescargas.Size = new System.Drawing.Size(1133, 26);
             this.txtb_RutaCarpetaDescargas.TabIndex = 5;
             // 
-            // lbl_RutaGuardar
+            // HT_Text_RecepcioComandes_LabelRuta
             // 
-            this.lbl_RutaGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_RutaGuardar.AutoSize = true;
-            this.lbl_RutaGuardar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_RutaGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_RutaGuardar.Location = new System.Drawing.Point(9, 545);
-            this.lbl_RutaGuardar.Name = "lbl_RutaGuardar";
-            this.lbl_RutaGuardar.Size = new System.Drawing.Size(319, 18);
-            this.lbl_RutaGuardar.TabIndex = 6;
-            this.lbl_RutaGuardar.Text = "Ruta donde se guardarán los archivos descargados:";
+            this.HT_Text_RecepcioComandes_LabelRuta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.HT_Text_RecepcioComandes_LabelRuta.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelRuta.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelRuta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelRuta.Location = new System.Drawing.Point(9, 545);
+            this.HT_Text_RecepcioComandes_LabelRuta.Name = "HT_Text_RecepcioComandes_LabelRuta";
+            this.HT_Text_RecepcioComandes_LabelRuta.Size = new System.Drawing.Size(319, 18);
+            this.HT_Text_RecepcioComandes_LabelRuta.TabIndex = 6;
+            this.HT_Text_RecepcioComandes_LabelRuta.Text = "Ruta donde se guardarán los archivos descargados:";
             // 
             // btn_CambiarCarpetaDescargas
             // 
@@ -228,39 +228,39 @@
             this.btn_CambiarCarpetaDescargas.UseVisualStyleBackColor = false;
             this.btn_CambiarCarpetaDescargas.Click += new System.EventHandler(this.btn_CambiarCarpetaDescargas_Click);
             // 
-            // lbl_ServidorFTP
+            // HT_Text_RecepcioComandes_LabelPanelTreeNode
             // 
-            this.lbl_ServidorFTP.AutoSize = true;
-            this.lbl_ServidorFTP.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_ServidorFTP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_ServidorFTP.Location = new System.Drawing.Point(3, 0);
-            this.lbl_ServidorFTP.Name = "lbl_ServidorFTP";
-            this.lbl_ServidorFTP.Size = new System.Drawing.Size(145, 18);
-            this.lbl_ServidorFTP.TabIndex = 11;
-            this.lbl_ServidorFTP.Text = "Archivos y directorios:";
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.Location = new System.Drawing.Point(3, 0);
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.Name = "HT_Text_RecepcioComandes_LabelPanelTreeNode";
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.Size = new System.Drawing.Size(145, 18);
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.TabIndex = 11;
+            this.HT_Text_RecepcioComandes_LabelPanelTreeNode.Text = "Archivos y directorios:";
             // 
-            // lbl_consola
+            // HT_Text_RecepcioComandes_LabelPanelConsola
             // 
-            this.lbl_consola.AutoSize = true;
-            this.lbl_consola.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_consola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_consola.Location = new System.Drawing.Point(3, 0);
-            this.lbl_consola.Name = "lbl_consola";
-            this.lbl_consola.Size = new System.Drawing.Size(61, 18);
-            this.lbl_consola.TabIndex = 13;
-            this.lbl_consola.Text = "Consola:";
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.Location = new System.Drawing.Point(3, 0);
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.Name = "HT_Text_RecepcioComandes_LabelPanelConsola";
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.Size = new System.Drawing.Size(61, 18);
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.TabIndex = 13;
+            this.HT_Text_RecepcioComandes_LabelPanelConsola.Text = "Consola:";
             // 
-            // lbl_text_hora
+            // HT_Text_RecepcioComandes_LabelHora
             // 
-            this.lbl_text_hora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_text_hora.AutoSize = true;
-            this.lbl_text_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_text_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_hora.Location = new System.Drawing.Point(665, 0);
-            this.lbl_text_hora.Name = "lbl_text_hora";
-            this.lbl_text_hora.Size = new System.Drawing.Size(41, 18);
-            this.lbl_text_hora.TabIndex = 14;
-            this.lbl_text_hora.Text = "Hora:";
+            this.HT_Text_RecepcioComandes_LabelHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HT_Text_RecepcioComandes_LabelHora.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelHora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelHora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelHora.Location = new System.Drawing.Point(661, 0);
+            this.HT_Text_RecepcioComandes_LabelHora.Name = "HT_Text_RecepcioComandes_LabelHora";
+            this.HT_Text_RecepcioComandes_LabelHora.Size = new System.Drawing.Size(41, 18);
+            this.HT_Text_RecepcioComandes_LabelHora.TabIndex = 14;
+            this.HT_Text_RecepcioComandes_LabelHora.Text = "Hora:";
             // 
             // lbl_hora
             // 
@@ -268,7 +268,7 @@
             this.lbl_hora.AutoSize = true;
             this.lbl_hora.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_hora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_hora.Location = new System.Drawing.Point(703, 0);
+            this.lbl_hora.Location = new System.Drawing.Point(699, 0);
             this.lbl_hora.Name = "lbl_hora";
             this.lbl_hora.Size = new System.Drawing.Size(58, 18);
             this.lbl_hora.TabIndex = 15;
@@ -279,17 +279,17 @@
             this.tmr_hora.Enabled = true;
             this.tmr_hora.Tick += new System.EventHandler(this.tmr_hora_Tick);
             // 
-            // lbl_text_fecha
+            // HT_Text_RecepcioComandes_LabelFecha
             // 
-            this.lbl_text_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_text_fecha.AutoSize = true;
-            this.lbl_text_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_text_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_text_fecha.Location = new System.Drawing.Point(538, 0);
-            this.lbl_text_fecha.Name = "lbl_text_fecha";
-            this.lbl_text_fecha.Size = new System.Drawing.Size(48, 18);
-            this.lbl_text_fecha.TabIndex = 16;
-            this.lbl_text_fecha.Text = "Fecha:";
+            this.HT_Text_RecepcioComandes_LabelFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HT_Text_RecepcioComandes_LabelFecha.AutoSize = true;
+            this.HT_Text_RecepcioComandes_LabelFecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HT_Text_RecepcioComandes_LabelFecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_LabelFecha.Location = new System.Drawing.Point(534, 0);
+            this.HT_Text_RecepcioComandes_LabelFecha.Name = "HT_Text_RecepcioComandes_LabelFecha";
+            this.HT_Text_RecepcioComandes_LabelFecha.Size = new System.Drawing.Size(48, 18);
+            this.HT_Text_RecepcioComandes_LabelFecha.TabIndex = 16;
+            this.HT_Text_RecepcioComandes_LabelFecha.Text = "Fecha:";
             // 
             // lbl_fecha
             // 
@@ -297,7 +297,7 @@
             this.lbl_fecha.AutoSize = true;
             this.lbl_fecha.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.lbl_fecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_fecha.Location = new System.Drawing.Point(583, 0);
+            this.lbl_fecha.Location = new System.Drawing.Point(579, 0);
             this.lbl_fecha.Name = "lbl_fecha";
             this.lbl_fecha.Size = new System.Drawing.Size(76, 18);
             this.lbl_fecha.TabIndex = 17;
@@ -329,7 +329,7 @@
             this.pnl_consola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.pnl_consola.Location = new System.Drawing.Point(3, 20);
             this.pnl_consola.Name = "pnl_consola";
-            this.pnl_consola.Size = new System.Drawing.Size(758, 419);
+            this.pnl_consola.Size = new System.Drawing.Size(754, 419);
             this.pnl_consola.TabIndex = 12;
             this.pnl_consola.Resize += new System.EventHandler(this.pnl_consola_Resize);
             // 
@@ -347,56 +347,56 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.VisorArchivos);
-            this.splitContainer1.Panel1.Controls.Add(this.lbl_ServidorFTP);
+            this.splitContainer1.Panel1.Controls.Add(this.HT_Text_RecepcioComandes_LabelPanelTreeNode);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.btn_diseñoVisor);
-            this.splitContainer1.Panel2.Controls.Add(this.btn_diseñoConsola);
+            this.splitContainer1.Panel2.Controls.Add(this.HT_Text_RecepcioComandes_DiseñoBotonVisor);
+            this.splitContainer1.Panel2.Controls.Add(this.HT_Text_RecepcioComandes_DiseñoBotonConsola);
             this.splitContainer1.Panel2.Controls.Add(this.pnl_consola);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_fecha);
-            this.splitContainer1.Panel2.Controls.Add(this.lbl_consola);
-            this.splitContainer1.Panel2.Controls.Add(this.lbl_text_fecha);
+            this.splitContainer1.Panel2.Controls.Add(this.HT_Text_RecepcioComandes_LabelPanelConsola);
+            this.splitContainer1.Panel2.Controls.Add(this.HT_Text_RecepcioComandes_LabelFecha);
             this.splitContainer1.Panel2.Controls.Add(this.lbl_hora);
-            this.splitContainer1.Panel2.Controls.Add(this.lbl_text_hora);
+            this.splitContainer1.Panel2.Controls.Add(this.HT_Text_RecepcioComandes_LabelHora);
             this.splitContainer1.Panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Size = new System.Drawing.Size(1174, 477);
             this.splitContainer1.SplitterDistance = 391;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 18;
             // 
-            // btn_diseñoVisor
+            // HT_Text_RecepcioComandes_DiseñoBotonVisor
             // 
-            this.btn_diseñoVisor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_diseñoVisor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_diseñoVisor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_diseñoVisor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_diseñoVisor.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_diseñoVisor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_diseñoVisor.Location = new System.Drawing.Point(404, 442);
-            this.btn_diseñoVisor.Name = "btn_diseñoVisor";
-            this.btn_diseñoVisor.Size = new System.Drawing.Size(162, 30);
-            this.btn_diseñoVisor.TabIndex = 18;
-            this.btn_diseñoVisor.Text = "Cambiar diseño visor";
-            this.btn_diseñoVisor.UseVisualStyleBackColor = false;
-            this.btn_diseñoVisor.Click += new System.EventHandler(this.btn_diseñoVisor_Click);
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Location = new System.Drawing.Point(400, 442);
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Name = "HT_Text_RecepcioComandes_DiseñoBotonVisor";
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Size = new System.Drawing.Size(162, 30);
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.TabIndex = 18;
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Text = "Cambiar diseño visor";
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.UseVisualStyleBackColor = false;
+            this.HT_Text_RecepcioComandes_DiseñoBotonVisor.Click += new System.EventHandler(this.btn_diseñoVisor_Click);
             // 
-            // btn_diseñoConsola
+            // HT_Text_RecepcioComandes_DiseñoBotonConsola
             // 
-            this.btn_diseñoConsola.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_diseñoConsola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.btn_diseñoConsola.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_diseñoConsola.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_diseñoConsola.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_diseñoConsola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_diseñoConsola.Location = new System.Drawing.Point(572, 442);
-            this.btn_diseñoConsola.Name = "btn_diseñoConsola";
-            this.btn_diseñoConsola.Size = new System.Drawing.Size(189, 30);
-            this.btn_diseñoConsola.TabIndex = 7;
-            this.btn_diseñoConsola.Text = "Cambiar diseño consola";
-            this.btn_diseñoConsola.UseVisualStyleBackColor = false;
-            this.btn_diseñoConsola.Click += new System.EventHandler(this.btn_diseñoConsola_Click);
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Location = new System.Drawing.Point(568, 442);
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Name = "HT_Text_RecepcioComandes_DiseñoBotonConsola";
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Size = new System.Drawing.Size(189, 30);
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.TabIndex = 7;
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Text = "Cambiar diseño consola";
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.UseVisualStyleBackColor = false;
+            this.HT_Text_RecepcioComandes_DiseñoBotonConsola.Click += new System.EventHandler(this.btn_diseñoConsola_Click);
             // 
             // panel1
             // 
@@ -404,16 +404,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btn_Guardar);
+            this.panel1.Controls.Add(this.HT_Text_GenText_BotonGuardar);
             this.panel1.Controls.Add(this.cbx_Impresora);
-            this.panel1.Controls.Add(this.lbl_Servidor);
+            this.panel1.Controls.Add(this.HT_Text_RecepcioComandes_LabelServidor);
             this.panel1.Controls.Add(this.txtb_Servidor);
-            this.panel1.Controls.Add(this.lbl_impresora);
-            this.panel1.Controls.Add(this.lbl_Usuario);
+            this.panel1.Controls.Add(this.HT_Text_RecepcioComandes_LabelImpresora);
+            this.panel1.Controls.Add(this.HT_Text_RecepcioComandes_LabelUsuario);
             this.panel1.Controls.Add(this.txtb_Puerto);
             this.panel1.Controls.Add(this.txtb_Usuario);
-            this.panel1.Controls.Add(this.lbl_puerto);
-            this.panel1.Controls.Add(this.lbl_Contraseña);
+            this.panel1.Controls.Add(this.HT_Text_RecepcioComandes_LabelPuerto);
+            this.panel1.Controls.Add(this.HT_Text_RecepcioComandes_LabelContraseña);
             this.panel1.Controls.Add(this.txtb_Contraseña);
             this.panel1.Location = new System.Drawing.Point(15, 12);
             this.panel1.Name = "panel1";
@@ -429,7 +429,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btn_CambiarCarpetaDescargas);
-            this.Controls.Add(this.lbl_RutaGuardar);
+            this.Controls.Add(this.HT_Text_RecepcioComandes_LabelRuta);
             this.Controls.Add(this.txtb_RutaCarpetaDescargas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RecepcióDeComandes";
@@ -451,32 +451,32 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_Servidor;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelServidor;
         private System.Windows.Forms.TextBox txtb_Servidor;
-        private System.Windows.Forms.Button btn_Guardar;
+        private System.Windows.Forms.Button HT_Text_GenText_BotonGuardar;
         private System.Windows.Forms.TextBox txtb_Puerto;
-        private System.Windows.Forms.Label lbl_puerto;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelPuerto;
         private System.Windows.Forms.TextBox txtb_Contraseña;
-        private System.Windows.Forms.Label lbl_Contraseña;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelContraseña;
         private System.Windows.Forms.TextBox txtb_Usuario;
-        private System.Windows.Forms.Label lbl_Usuario;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelUsuario;
         private System.Windows.Forms.TextBox txtb_RutaCarpetaDescargas;
-        private System.Windows.Forms.Label lbl_RutaGuardar;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelRuta;
         private System.Windows.Forms.Button btn_CambiarCarpetaDescargas;
         private System.Windows.Forms.ComboBox cbx_Impresora;
-        private System.Windows.Forms.Label lbl_impresora;
-        private System.Windows.Forms.Label lbl_ServidorFTP;
-        private System.Windows.Forms.Label lbl_consola;
-        private System.Windows.Forms.Label lbl_text_hora;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelImpresora;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelPanelTreeNode;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelPanelConsola;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelHora;
         private System.Windows.Forms.Label lbl_hora;
         private System.Windows.Forms.Timer tmr_hora;
-        private System.Windows.Forms.Label lbl_text_fecha;
+        private System.Windows.Forms.Label HT_Text_RecepcioComandes_LabelFecha;
         private System.Windows.Forms.Label lbl_fecha;
         private System.Windows.Forms.TreeView VisorArchivos;
         private System.Windows.Forms.Panel pnl_consola;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btn_diseñoConsola;
-        private System.Windows.Forms.Button btn_diseñoVisor;
+        private System.Windows.Forms.Button HT_Text_RecepcioComandes_DiseñoBotonConsola;
+        private System.Windows.Forms.Button HT_Text_RecepcioComandes_DiseñoBotonVisor;
         private System.Windows.Forms.Panel panel1;
     }
 }

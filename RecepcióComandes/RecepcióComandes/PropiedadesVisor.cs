@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Collections;
+using Hashcodes;
 
 namespace RecepcióComandes
 {
@@ -10,7 +11,9 @@ namespace RecepcióComandes
     {
         private static string RutaArchivoConfig = Application.StartupPath + "\\ConfigVisor.xml";
         private XDocument ArchivoConfig = XDocument.Load(RutaArchivoConfig);
-        
+        HashCodes hash = new HashCodes(Application.StartupPath + "\\Hashcodes\\hashcodes.h", Application.StartupPath + "\\Hashcodes\\ProgramStrings.txt");
+        private static Hashtable HT = new Hashtable();
+
         public PropiedadesVisor()
         {
             InitializeComponent();
@@ -40,6 +43,10 @@ namespace RecepcióComandes
 
         private void PropiedadesVisor_Load(object sender, EventArgs e)
         {
+            int idioma = 2;
+            HT = hash.MontarTablaTextos(idioma);
+            hash.CambiarTextos(this);
+
             foreach (XElement node in ArchivoConfig.Descendants("ConfigVisor"))
             {
                 txtb_colorPicker.BackColor = ColorTranslator.FromHtml(node.Element("ColorLineas").Value);
@@ -47,13 +54,13 @@ namespace RecepcióComandes
                 lbl_trackbarValue.Text = node.Element("AnchoSangria").Value;
                 if (node.Element("MostrarLineas").Value.Equals("true"))
                 {
-                    rb_lines_yes.Checked = true;
-                    rb_lines_no.Checked = false;
+                    HT_Text_GenText_yes.Checked = true;
+                    HT_Text_GenText_no.Checked = false;
                 }
                 else
                 {
-                    rb_lines_yes.Checked = false;
-                    rb_lines_no.Checked = true;
+                    HT_Text_GenText_yes.Checked = false;
+                    HT_Text_GenText_no.Checked = true;
                 }
                 if (node.Element("BotonesNodos").Value.Equals("true"))
                 {
@@ -89,8 +96,8 @@ namespace RecepcióComandes
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            rb_lines_yes.Checked = true;
-            rb_lines_no.Checked = false;
+            HT_Text_GenText_yes.Checked = true;
+            HT_Text_GenText_no.Checked = false;
             trb_ancho.Value = 14;
             txtb_colorPicker.BackColor = Color.White;
 
