@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tareas", "Tareas\Tareas.csproj", "{3D02F0C9-D7CB-4204-9ECD-5F6A9AAB3728}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TareasInstal·ler", "TareasInstal·ler\TareasInstal·ler.vdproj", "{142B94C9-1761-478D-94A8-6CADE8E0E743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{3D02F0C9-D7CB-4204-9ECD-5F6A9AAB3728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D02F0C9-D7CB-4204-9ECD-5F6A9AAB3728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D02F0C9-D7CB-4204-9ECD-5F6A9AAB3728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{142B94C9-1761-478D-94A8-6CADE8E0E743}.Debug|Any CPU.ActiveCfg = Debug
+		{142B94C9-1761-478D-94A8-6CADE8E0E743}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
