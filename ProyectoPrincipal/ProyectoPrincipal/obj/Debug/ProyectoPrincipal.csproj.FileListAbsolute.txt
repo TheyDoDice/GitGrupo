@@ -50,7 +50,6 @@ C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\Pr
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.Forms.Splash.resources
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.Properties.Resources.resources
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.csproj.CopyComplete
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.exe
 C:\Users\admin\Desktop\GitGrupo\ProyectoPrincipal\ProyectoPrincipal\obj\Debug\ProyectoPrincipal.pdb
