@@ -47,7 +47,7 @@
     </Reference>
     <Reference Include="Hashcodes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\Librerias\Hashcodes\Hashcodes\bin\Debug\Hashcodes.dll</HintPath>
+      <HintPath>..\..\Proyectos\Hashcodes\Hashcodes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
