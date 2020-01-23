@@ -10,7 +10,6 @@ using System.IO;
 using System.Security.Permissions;
 using GenerarOrder;
 using System.Threading;
-using Hashcodes;
 using System.Collections;
 
 namespace RecepcióComandes
@@ -35,7 +34,6 @@ namespace RecepcióComandes
         private IntPtr App_Consola;
         private Uri CadenaConnexionFTP;
         OrderReception comanda = new OrderReception();
-        HashCodes hash = new HashCodes(Application.StartupPath + "\\jordi\\hashcodes.h", Application.StartupPath + "\\jordi\\ProgramStrings.txt");
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
 
         public RecepcióDeComandes()
@@ -66,25 +64,6 @@ namespace RecepcióComandes
 
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
-            Hashtable ht = new Hashtable();
-            ht = hash.GetHashtable();
-            hash.MontarTablaTextos(ht, 1);
-            lbl_Servidor.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelServidor");
-            lbl_Usuario.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelUsuario");
-            lbl_Contraseña.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelContraseña");
-            lbl_puerto.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelPuerto");
-            lbl_impresora.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelImpresora");
-            btn_Guardar.Text = hash.ObtenerValorHashcode(ht, "HT_Text_GenText_BotonGuardar");
-            lbl_ServidorFTP.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelPanelTreeNode");
-            lbl_consola.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelPanelConsola");
-            lbl_text_fecha.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelFecha");
-            lbl_text_hora.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelHora");
-            btn_diseñoVisor.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_DiseñoBotonVisor");
-            btn_diseñoConsola.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_DiseñoBotonConsola");
-            lbl_RutaGuardar.Text = hash.ObtenerValorHashcode(ht, "HT_Text_RecepcioComandes_LabelRuta");
-
-
-
             ImageList myImageList = new ImageList();
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\carpeta.png"));
             myImageList.Images.Add(Image.FromFile(Application.StartupPath + "\\Img\\archivo.png"));
