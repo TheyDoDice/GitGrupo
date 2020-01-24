@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupWindowsService", "SetupWindowsService\SetupWindowsService.vdproj", "{929EF243-0D0A-4D3C-8492-79B636DE960F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{929EF243-0D0A-4D3C-8492-79B636DE960F}.Debug|Default.ActiveCfg = Debug
+		{929EF243-0D0A-4D3C-8492-79B636DE960F}.Debug|Default.Build.0 = Debug
+		{929EF243-0D0A-4D3C-8492-79B636DE960F}.Release|Default.ActiveCfg = Release
+		{929EF243-0D0A-4D3C-8492-79B636DE960F}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {646F15B1-22E2-42C0-9278-2620097D699E}
+	EndGlobalSection
+EndGlobal
