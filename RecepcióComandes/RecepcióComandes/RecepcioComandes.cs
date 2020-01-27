@@ -68,7 +68,7 @@ namespace RecepcióComandes
 
         private void RecepcióDeComandes_Load(object sender, EventArgs e)
         {
-            int idioma = 2;
+            int idioma = 1;
             HT = hash.MontarTablaTextos(idioma);
             hash.CambiarTextos(this);
 

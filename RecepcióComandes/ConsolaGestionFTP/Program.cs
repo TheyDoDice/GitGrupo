@@ -12,7 +12,7 @@ namespace ConsolaGestionFTP
 {
     class Program
     {
-        private static string RutaHistorial = Application.StartupPath + "\\ConsoleHistory.SecureCore";
+        private static string RutaHistorial = Application.StartupPath + "\\ConsoleHistory.txt";
 
         public static List<string> Comandos = new List<string>() {"Comandos", "MostrarDatosServidor", "ComprobarArchivos", "PingAlServidor -detalles", "LimpiarPantalla", "Historial", "comandos", "mostrarDatosServidor", "comprobarArchivos", "pingAlServidor -detalles", "limpiarPantalla", "historial" };
         static void Main(string[] args)
