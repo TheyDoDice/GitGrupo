@@ -27,7 +27,14 @@ namespace ConsolaGestionFTP
                 Console.BackgroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), node.Element("ColorFondo").Value);
             }
 
-            File.WriteAllText(RutaHistorial, String.Empty);
+            try
+            {
+                File.WriteAllText(RutaHistorial, String.Empty);
+            }
+            catch
+            {
+                Console.WriteLine("Ha habido un error al abrir");
+            }
 
             Console.WriteLine("Escribe 'Comandos' para ver los comandos disponibles");
             comando = LeerLinea();
