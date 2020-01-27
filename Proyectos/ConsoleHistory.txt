@@ -1,2 +1,0 @@
-comandos 16:53:29
-pingAlServidor -detalles 16:54:04
