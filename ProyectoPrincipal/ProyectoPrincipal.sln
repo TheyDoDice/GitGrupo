@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoPrincipal", "ProyectoPrincipal\ProyectoPrincipal.csproj", "{7DD90A11-5FB0-466B-82E8-F327C4D787EC}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBDD", "BBDD\BBDD.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encriptar", "Encriptar\Encriptar.csproj", "{7B329F1B-B333-4414-8C22-F315A64CD301}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SecureCode", "SecureCode\SecureCode.vdproj", "{42968292-8D58-4637-A8E8-A324AD567DBF}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SecureCore", "SecureCore\SecureCore.vdproj", "{C5C22A83-073D-41FC-99CB-DE844436CEB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,8 +29,8 @@ Global
 		{7B329F1B-B333-4414-8C22-F315A64CD301}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B329F1B-B333-4414-8C22-F315A64CD301}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B329F1B-B333-4414-8C22-F315A64CD301}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42968292-8D58-4637-A8E8-A324AD567DBF}.Debug|Any CPU.ActiveCfg = Debug
-		{42968292-8D58-4637-A8E8-A324AD567DBF}.Release|Any CPU.ActiveCfg = Release
+		{C5C22A83-073D-41FC-99CB-DE844436CEB1}.Debug|Any CPU.ActiveCfg = Debug
+		{C5C22A83-073D-41FC-99CB-DE844436CEB1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
