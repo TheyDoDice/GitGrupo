@@ -1,0 +1,5 @@
+0x00000001--HT_String_Delimiter--Show valor--HT_String_Delimiter--Mostrar valor--HT_String_Delimiter--Mostrar valor
+0x00000003--HT_String_Delimiter--Next--HT_String_Delimiter--Siguiente--HT_String_Delimiter--Següent
+0x00000002--HT_String_Delimiter--Show identifier--HT_String_Delimiter--Mostrar Identificador--HT_String_Delimiter--Mostrar identificador
+0x00000000--HT_String_Delimiter--Test--HT_String_Delimiter--Prueba--HT_String_Delimiter--Prova
+0x00000004--HT_String_Delimiter--Group1--HT_String_Delimiter--Grupo1--HT_String_Delimiter--Grup 1
