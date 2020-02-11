@@ -55,6 +55,18 @@
         <AssociationConnector Association="securecoreModel.FK_Users_UserRanks" ManuallyRouted="false" />
         <EntityTypeShape EntityType="securecoreModel.TareasDiarias" Width="1.5" PointX="11.375" PointY="12.625" />
         <AssociationConnector Association="securecoreModel.FK_TareasDiarias_Users" />
+        <EntityTypeShape EntityType="securecoreModel.CoordinateKeys" Width="1.5" PointX="15.625" PointY="4" />
+        <EntityTypeShape EntityType="securecoreModel.DeliveryData" Width="1.5" PointX="10.5" PointY="9.25" />
+        <EntityTypeShape EntityType="securecoreModel.InnerEncryption" Width="1.5" PointX="13.375" PointY="2.625" />
+        <EntityTypeShape EntityType="securecoreModel.InnerEncryptionData" Width="1.5" PointX="15.625" PointY="1.125" />
+        <EntityTypeShape EntityType="securecoreModel.PlanetKeys" Width="1.5" PointX="5.25" PointY="21.75" />
+        <EntityTypeShape EntityType="securecoreModel.ValidationCode" Width="1.5" PointX="5.25" PointY="24.25" />
+        <AssociationConnector Association="securecoreModel.FK_CoordinateKeys_InnerEncryption" />
+        <AssociationConnector Association="securecoreModel.FK_DeliveryData_Planets" />
+        <AssociationConnector Association="securecoreModel.FK_DeliveryData_SpaceShips" />
+        <AssociationConnector Association="securecoreModel.FK_InnerEncryptionData_InnerEncryption" />
+        <AssociationConnector Association="securecoreModel.FK_PlanetKeys_Planets" />
+        <AssociationConnector Association="securecoreModel.FK_ValidationCode_Planets" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
