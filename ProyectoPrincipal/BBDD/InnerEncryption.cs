@@ -12,23 +12,21 @@ namespace BBDD
     using System;
     using System.Collections.Generic;
     
-    public partial class SpaceShips
+    public partial class InnerEncryption
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SpaceShips()
+        public InnerEncryption()
         {
-            this.DeliveryData = new HashSet<DeliveryData>();
+            this.CoordinateKeys = new HashSet<CoordinateKeys>();
+            this.InnerEncryptionData = new HashSet<InnerEncryptionData>();
         }
     
-        public int idSpaceShip { get; set; }
-        public Nullable<int> idSpaceShipType { get; set; }
-        public string CodeSpaceShip { get; set; }
-        public string IPSpaceShip { get; set; }
-        public string PortSpaceShip { get; set; }
-        public string PortSpaceShip1 { get; set; }
+        public int idInnerEncryption { get; set; }
+        public string ValidationCode { get; set; }
     
-        public virtual SpaceShipTypes SpaceShipTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryData> DeliveryData { get; set; }
+        public virtual ICollection<CoordinateKeys> CoordinateKeys { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InnerEncryptionData> InnerEncryptionData { get; set; }
     }
 }

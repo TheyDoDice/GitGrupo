@@ -51,5 +51,11 @@ namespace BBDD
         public virtual DbSet<UserRanks> UserRanks { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<TareasDiarias> TareasDiarias { get; set; }
+        public virtual DbSet<CoordinateKeys> CoordinateKeys { get; set; }
+        public virtual DbSet<DeliveryData> DeliveryData { get; set; }
+        public virtual DbSet<InnerEncryption> InnerEncryption { get; set; }
+        public virtual DbSet<InnerEncryptionData> InnerEncryptionData { get; set; }
+        public virtual DbSet<PlanetKeys> PlanetKeys { get; set; }
+        public virtual DbSet<ValidationCode> ValidationCode { get; set; }
     }
 }

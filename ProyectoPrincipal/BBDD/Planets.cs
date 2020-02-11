@@ -21,6 +21,8 @@ namespace BBDD
             this.OrdersDetail = new HashSet<OrdersDetail>();
             this.PlanetRoutes = new HashSet<PlanetRoutes>();
             this.Users = new HashSet<Users>();
+            this.DeliveryData = new HashSet<DeliveryData>();
+            this.PlanetKeys = new HashSet<PlanetKeys>();
         }
     
         public int idPlanet { get; set; }
@@ -48,5 +50,10 @@ namespace BBDD
         public virtual Species Species { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users> Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryData> DeliveryData { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PlanetKeys> PlanetKeys { get; set; }
+        public virtual ValidationCode ValidationCode { get; set; }
     }
 }
