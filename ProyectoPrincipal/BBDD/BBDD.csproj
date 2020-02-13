@@ -58,14 +58,26 @@
     <Compile Include="Agencies.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="CoordinateKeys.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dades.cs" />
     <Compile Include="DefinedRoutes.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryData.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Factories.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Filiations.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InnerEncryption.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InnerEncryptionData.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
     <Compile Include="MenuOptions.cs">
@@ -82,6 +94,9 @@
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
     <Compile Include="OrdersDetail.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetKeys.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
     <Compile Include="PlanetRoutes.cs">
@@ -150,6 +165,9 @@
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
+      <DependentUpon>SContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationCode.cs">
       <DependentUpon>SContext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
