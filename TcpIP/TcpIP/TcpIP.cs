@@ -72,9 +72,9 @@ namespace TcpIP
                 int bytesRead = StreamSender.Read(bytesToRead, 0, client.ReceiveBufferSize);
                 client.Close();
             }
-            catch
+            catch(Exception es)
             {
-                MessageBox.Show("Ha habido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(es.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
