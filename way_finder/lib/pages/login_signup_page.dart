@@ -148,6 +148,13 @@ bool comprobar;
     );
   }
 
+  void navigateToListaCursos()async{
+    //BuildContext context;
+    await Navigator.push(
+      context, 
+      MaterialPageRoute(builder: (context) =>ListaConcursos())
+    );
+  }
   
   void comprobarUsuario(){
     Navigator.push(
@@ -155,43 +162,6 @@ bool comprobar;
       MaterialPageRoute(builder: (context) => Registrar())
     );
   }
-
-  /*Widget showPasswordInput() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
-      child: new TextFormField(
-        maxLines: 1,
-        obscureText: true,
-        autofocus: false,
-        decoration: new InputDecoration(
-            hintText: 'Password',
-            icon: new Icon(
-              Icons.lock,
-              color: Colors.grey,
-            )),
-        validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
-        onSaved: (value) => _password = value.trim(),
-      ),
-    );
-  }*/
-
-
-  /*Widget showPrimaryButton() {
-    return new Padding(
-        padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
-        child: SizedBox(
-          height: 40.0,
-          child: new RaisedButton(
-            elevation: 5.0,
-            shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30.0)),
-            color: Colors.blueGrey,
-            child: new Text(_isLoginForm ? 'Login' : 'Create account',
-                style: new TextStyle(fontSize: 20.0, color: Colors.white)),
-            onPressed: validateAndSubmit,
-          ),
-        ));
-  }*/
 }
 
 

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:way_finder/pages/escoger_ciudad.dart';
 
 class ListaConcursos extends StatefulWidget {
   @override
@@ -7,49 +8,51 @@ class ListaConcursos extends StatefulWidget {
 }
 
 class _ListaConcursosState extends State<ListaConcursos> {
+  List<String> _list;
 
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Generated App',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: const Color(0xFF2196f3),
-        accentColor: const Color(0xFF2196f3),
-        canvasColor: const Color(0xFFafbcc2),
+  void initState() {
+    //_errorMessage = "";
+   // _isLoading = false;
+   // _isLoginForm = true;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Cursos disponibles")
       ),
-      home: new MyHomePage(),
+      body: showList(),
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-    @override
-    Widget build(BuildContext context) {
-      return new Scaffold(
-        body:
-          new Container(
-            child:
-              new Text(
-              "Cursos Disponibles",
-                style: new TextStyle(fontSize:22.0,
-                color: const Color(0xFF000000),
-                fontWeight: FontWeight.w600,
-                fontFamily: "Roboto"),
-              ),
-    
-            padding: const EdgeInsets.fromLTRB(25.0, 1.0, 25.0, 1.0),
-            alignment: Alignment.topLeft,
-            width: 450.0,
-            height: 450.0,
-          ),
-    
+  Widget showList(){
+    //if(_list.length > 0){
+      return ListView.builder(
+      shrinkWrap: true,
+      itemCount: 1,
+      itemBuilder: (BuildContext context, int index){
+        return ListTile(  
+          trailing: RaisedButton(
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(30.0)
+            ),
+            child: Text("Inscribir"),
+        
+            onPressed: () => _navigateToLocalizaciones(),
+          ),     
+        );
+      }
       );
-    }
+    //}
+  }
+
+   void _navigateToLocalizaciones()async{
+    await Navigator.push(
+      context, 
+      MaterialPageRoute(builder: (context) => EscogerCiudad())
+    );
+  }
 }

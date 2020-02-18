@@ -38,11 +38,13 @@ class _RegistrarState extends State<Registrar> {
             children: <Widget>[
               padding(20),
               showLogo(),
-              padding(20),
+              padding(50),
               showNombreEquipoInput(),
-              padding(20),
+              padding(10),
               showNombreParticipanteInputyButtonAdd(),
-              //showButtonAdd(),
+              padding(10),
+              showPassowrdInput(),
+              padding(10),
               showButtonRegistrar(),
              // showButtonIniciarSesion(),
               //showSecondaryButton(),
@@ -85,7 +87,7 @@ class _RegistrarState extends State<Registrar> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30)
           ),
-            hintText: 'Nombre del equipo:',
+            hintText: 'Nombre del equipo',
            /* icon: new Icon(
               Icons.mail,
               color: Colors.grey,
@@ -98,57 +100,72 @@ class _RegistrarState extends State<Registrar> {
 
   Widget showNombreParticipanteInputyButtonAdd() {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 150.0),
-      child: Row(
-        //mainAxisSize: MainAxisSize.min,
-        children:<Widget>[
-          new Expanded(
-            child: TextFormField(
-              maxLines: 1,
-              keyboardType: TextInputType.emailAddress,
-              autofocus: false,
-              decoration: new InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30)
-                ),
-                hintText: 'Participante',
+      padding: const EdgeInsets.only(left: 20.0, right: 25.0),
+      child: new Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              new Container(
+                child:
+                  new TextField(
+                    decoration: InputDecoration(
+                      hintText: "Participante",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30)
+                      ),
+                    ),
+                  ),
+    
+                padding: const EdgeInsets.all(0.0),
+                alignment: Alignment.center,
+                width: 250.0,
+                height: 100.0,
               ),
-              validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
-              //onSaved: (value) => _email = value.trim(),
-            ),
+                padding(10.0),
+              new RaisedButton(key:null, onPressed: (){},
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0)
+                ),
+                child:
+                  new Text("Añadir")
+                )
+            ]
+    
           ),
-          padding(12),
-          new Expanded(
-            child: RaisedButton(
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(30.0)
-            ),
-            child: Text("Añadir"),
-        
-             onPressed: () => ListaConcursos(),
-          ),
-          )
-        ], 
-      )
+    
+      );
+    }
+    void _navigateToListaCursos()async{
+    //BuildContext context;
+    await Navigator.push(
+      context, 
+      MaterialPageRoute(builder: (context) =>ListaConcursos())
     );
   }
 
- /* Widget showButtonAdd(){
-    return Container(
-      child: new RaisedButton(
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(30.0)
+  Widget showPassowrdInput() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+      child: new TextFormField(
+        maxLines: 1,
+        obscureText: true,
+        autofocus: false,
+        decoration: new InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30)
+          ),
+            hintText: 'Contraseña',
         ),
-        child: Text("Añadir"),
-        
-        onPressed: () => ListaConcursos(),
-      )
+        validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
+        //onSaved: (value) => _password = value.trim(),
+      ),
     );
-  }*/
+  }
 
   Widget showButtonRegistrar(){
     return Container(
-     margin: EdgeInsets.only(left: 50.0, right: 0.0),
+      margin: EdgeInsets.only(left: 150.0, right: 20.0),
      child: new RaisedButton(
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0)
@@ -156,25 +173,13 @@ class _RegistrarState extends State<Registrar> {
 
         child: Text("Registrar"),
         
-        onPressed: () => comprobarUsuario(),
+        onPressed: () => _navigateToListaCursos()//comprobarUsuario(context),
 
             
      ),
     );
   }
-
-  void comprobarUsuario(){
-    Navigator.push(
-      context, 
-      MaterialPageRoute(builder: (context) => Registrar())
-    );
-  }
-
-
-  
-
-
-
-
-
 }
+
+
+

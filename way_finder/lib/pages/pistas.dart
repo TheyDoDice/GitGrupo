@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:way_finder/pages/home_page.dart';
 
+import 'package:flutter/material.dart';
 
-class EscogerCiudad extends StatefulWidget {
+class Pistas extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new _EscogerCiudadState();
+  State<StatefulWidget> createState() => new _PistasState();
 }
 
-class _EscogerCiudadState extends State<EscogerCiudad> {
+class _PistasState extends State<Pistas> {
   List<String> _list;
 
   @override
@@ -22,31 +22,33 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Localizaciones")
+        title: Text("Mapa")
       ),
       body: showList(),
     );
   }
 
   Widget showList(){
-    //if(_list.length > 0){
+    if(_list.length > 0){
       return ListView.builder(
       shrinkWrap: true,
-      itemCount: 1,
+      itemCount: _list.length,
       itemBuilder: (BuildContext context, int index){
-        return ListTile(
-          title: Text("Localizacion 1"),  
-          onTap: () => _navigateToHome(), 
+        return Dismissible(
+          key: null,
+          child: ListTile(
+            title: Text("Localizacion 1"),
+            onTap: () => _navigateToPistas(),
+          )
         );
       }
       );
-    //}
+    }
   }
-
-   void _navigateToHome()async{
+  void _navigateToPistas()async{
     await Navigator.push(
       context, 
-      MaterialPageRoute(builder: (context) => Home())
+      MaterialPageRoute(builder: (context) =>Pistas())
     );
   }
 }
