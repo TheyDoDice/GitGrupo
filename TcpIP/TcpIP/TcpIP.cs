@@ -54,13 +54,16 @@ namespace TcpIP
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //SendTCP("hola", txtb_ip_Sender.Text.Trim(), Int32.Parse(txtb_puerto_sender.Text.Trim()));
             try
             {
+
                 //---data to send to the server---
                 string textToSend = DateTime.Now.ToString();
 
                 //---create a TCPClient object at the IP and port no.---
-                TcpClient client = new TcpClient(txtb_ip_Sender.Text.Trim(), Int32.Parse(txtb_puerto_sender.Text.Trim()));
+                TcpClient client = new TcpClient();
+                client.Connect(txtb_ip_Sender.Text.Trim(), Int32.Parse(txtb_puerto_sender.Text.Trim()));
                 NetworkStream StreamSender = client.GetStream();
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(txtb_send_data.Text);
 
@@ -76,6 +79,12 @@ namespace TcpIP
             {
                 MessageBox.Show("Ha habido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        private void txtb_ip_Sender_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
