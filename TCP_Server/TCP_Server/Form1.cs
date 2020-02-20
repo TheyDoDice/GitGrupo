@@ -22,7 +22,6 @@ namespace TCP_Server
 
         private void frm_server_Load(object sender, EventArgs e)
         {
-            //CheckForIllegalCrossThreadCalls = false;
             th_Escuchar = new Thread(EscucharCliente);
             th_Escuchar.Start();
 
