@@ -22,7 +22,7 @@ namespace TCP_Server
 
         private void frm_server_Load(object sender, EventArgs e)
         {
-            CheckForIllegalCrossThreadCalls = false;
+            //CheckForIllegalCrossThreadCalls = false;
             th_Escuchar = new Thread(EscucharCliente);
             th_Escuchar.Start();
 
@@ -47,7 +47,10 @@ namespace TCP_Server
                         int bytesLength= nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
                         string _dataRecived = Encoding.ASCII.GetString(buffer);
 
-                        txtb_datosRecibidos.Text += "\n"+_dataRecived;
+                        txtb_datosRecibidos.Invoke((MethodInvoker) delegate
+                        {
+                            txtb_datosRecibidos.Text += "\n" + _dataRecived;
+                        });
                         
                         //DEVOLVER UNA RESPUESTA
                         RespuestaCliente("Respuesta recibida");

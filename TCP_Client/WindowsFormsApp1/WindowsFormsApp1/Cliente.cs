@@ -15,6 +15,8 @@ namespace WindowsFormsApp1
         {
             try
             {
+                lbl_estado.Text = "Enviando";
+
                 TcpClient client = new TcpClient(tbx_ip.Text.Trim(), Int32.Parse(tbx_port.Text.Trim()));
                 Byte[] dades = Encoding.ASCII.GetBytes(tbx_Message.Text);
 
@@ -25,15 +27,14 @@ namespace WindowsFormsApp1
 
                 //Rebre Resposta servidor
                 byte[] dadaResposta = new Byte[client.ReceiveBufferSize];
-                String resposta = textBox2.Text;
                 Int32 bytes = ns.Read(dadaResposta, 0, dadaResposta.Length);
-                resposta = Encoding.ASCII.GetString(dadaResposta);
+                string resposta = Encoding.ASCII.GetString(dadaResposta);
 
-                MessageBox.Show(resposta, "Resposta Servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_estado.Text = resposta;
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lbl_estado.Text = "Servidor no conectat";
             }
         }
     }

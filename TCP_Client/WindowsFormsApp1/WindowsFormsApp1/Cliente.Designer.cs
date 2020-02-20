@@ -34,8 +34,7 @@
             this.tbx_ip = new System.Windows.Forms.TextBox();
             this.lbl_portServer = new System.Windows.Forms.Label();
             this.tbx_port = new System.Windows.Forms.TextBox();
-            this.lbl_resposta_server = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lbl_estado = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbx_Message
@@ -48,7 +47,7 @@
             // 
             // bttn_enviarDades
             // 
-            this.bttn_enviarDades.Location = new System.Drawing.Point(318, 213);
+            this.bttn_enviarDades.Location = new System.Drawing.Point(318, 223);
             this.bttn_enviarDades.Name = "bttn_enviarDades";
             this.bttn_enviarDades.Size = new System.Drawing.Size(118, 24);
             this.bttn_enviarDades.TabIndex = 7;
@@ -71,6 +70,7 @@
             this.tbx_ip.Name = "tbx_ip";
             this.tbx_ip.Size = new System.Drawing.Size(149, 20);
             this.tbx_ip.TabIndex = 8;
+            this.tbx_ip.Text = "172.17.22.48";
             // 
             // lbl_portServer
             // 
@@ -87,31 +87,22 @@
             this.tbx_port.Name = "tbx_port";
             this.tbx_port.Size = new System.Drawing.Size(61, 20);
             this.tbx_port.TabIndex = 11;
+            this.tbx_port.Text = "8888";
             // 
-            // lbl_resposta_server
+            // lbl_estado
             // 
-            this.lbl_resposta_server.AutoSize = true;
-            this.lbl_resposta_server.Location = new System.Drawing.Point(29, 326);
-            this.lbl_resposta_server.Name = "lbl_resposta_server";
-            this.lbl_resposta_server.Size = new System.Drawing.Size(94, 13);
-            this.lbl_resposta_server.TabIndex = 13;
-            this.lbl_resposta_server.Text = "Resposta Servidor";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(32, 342);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(409, 154);
-            this.textBox2.TabIndex = 12;
+            this.lbl_estado.AutoSize = true;
+            this.lbl_estado.Location = new System.Drawing.Point(27, 229);
+            this.lbl_estado.Name = "lbl_estado";
+            this.lbl_estado.Size = new System.Drawing.Size(0, 13);
+            this.lbl_estado.TabIndex = 12;
             // 
             // Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 526);
-            this.Controls.Add(this.lbl_resposta_server);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(459, 270);
+            this.Controls.Add(this.lbl_estado);
             this.Controls.Add(this.tbx_port);
             this.Controls.Add(this.lbl_portServer);
             this.Controls.Add(this.lbl_ipServer);
@@ -133,8 +124,7 @@
         private System.Windows.Forms.TextBox tbx_ip;
         private System.Windows.Forms.Label lbl_portServer;
         private System.Windows.Forms.TextBox tbx_port;
-        private System.Windows.Forms.Label lbl_resposta_server;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lbl_estado;
     }
 }
 
