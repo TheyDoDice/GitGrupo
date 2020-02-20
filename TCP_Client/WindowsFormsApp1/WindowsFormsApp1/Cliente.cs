@@ -71,14 +71,11 @@ namespace WindowsFormsApp1
                 }
 
                 Fs.Close();
+                netstream.Close();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                netstream.Close();
             }
         }
 
