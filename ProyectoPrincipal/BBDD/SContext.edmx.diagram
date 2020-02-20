@@ -56,7 +56,7 @@
         <EntityTypeShape EntityType="securecoreModel.TareasDiarias" Width="1.5" PointX="11.375" PointY="12.625" />
         <AssociationConnector Association="securecoreModel.FK_TareasDiarias_Users" />
         <EntityTypeShape EntityType="securecoreModel.CoordinateKeys" Width="1.5" PointX="15.625" PointY="4" />
-        <EntityTypeShape EntityType="securecoreModel.DeliveryData" Width="1.5" PointX="10.5" PointY="9.25" />
+        <EntityTypeShape EntityType="securecoreModel.DeliveryData" Width="1.5" PointX="11.125" PointY="8.875" />
         <EntityTypeShape EntityType="securecoreModel.InnerEncryption" Width="1.5" PointX="13.375" PointY="2.625" />
         <EntityTypeShape EntityType="securecoreModel.InnerEncryptionData" Width="1.5" PointX="15.625" PointY="1.125" />
         <EntityTypeShape EntityType="securecoreModel.PlanetKeys" Width="1.5" PointX="5.25" PointY="21.75" />
