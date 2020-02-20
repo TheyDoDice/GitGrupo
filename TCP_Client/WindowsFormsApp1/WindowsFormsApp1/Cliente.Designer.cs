@@ -35,6 +35,7 @@
             this.lbl_portServer = new System.Windows.Forms.Label();
             this.tbx_port = new System.Windows.Forms.TextBox();
             this.lbl_estado = new System.Windows.Forms.Label();
+            this.btn_enviarArchivos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbx_Message
@@ -97,11 +98,22 @@
             this.lbl_estado.Size = new System.Drawing.Size(0, 13);
             this.lbl_estado.TabIndex = 12;
             // 
+            // btn_enviarArchivos
+            // 
+            this.btn_enviarArchivos.Location = new System.Drawing.Point(237, 224);
+            this.btn_enviarArchivos.Name = "btn_enviarArchivos";
+            this.btn_enviarArchivos.Size = new System.Drawing.Size(75, 23);
+            this.btn_enviarArchivos.TabIndex = 13;
+            this.btn_enviarArchivos.Text = "Enviar";
+            this.btn_enviarArchivos.UseVisualStyleBackColor = true;
+            this.btn_enviarArchivos.Click += new System.EventHandler(this.btn_enviarArchivos_Click);
+            // 
             // Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 270);
+            this.Controls.Add(this.btn_enviarArchivos);
             this.Controls.Add(this.lbl_estado);
             this.Controls.Add(this.tbx_port);
             this.Controls.Add(this.lbl_portServer);
@@ -125,6 +137,7 @@
         private System.Windows.Forms.Label lbl_portServer;
         private System.Windows.Forms.TextBox tbx_port;
         private System.Windows.Forms.Label lbl_estado;
+        private System.Windows.Forms.Button btn_enviarArchivos;
     }
 }
 
