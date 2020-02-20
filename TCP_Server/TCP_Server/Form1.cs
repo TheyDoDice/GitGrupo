@@ -25,7 +25,7 @@ namespace TCP_Server
         private void btn_conectar_Click(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
-            th_Escuchar = new Thread(() => { dataReceived = EscucharCliente(); txtb_datosRecibidos.Text = dataReceived; });
+            th_Escuchar = new Thread(() => { dataReceived = EscucharCliente(); });
             th_Escuchar.Start();
         }
 
@@ -67,8 +67,8 @@ namespace TCP_Server
                         int bytesRead = nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
 
                         _dataRecived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                        //txtb_datosRecibidos.Text = _dataRecived;
-                        sortir = false;
+                        txtb_datosRecibidos.Text = _dataRecived;
+                        //sortir = false;
                     }
                 }
             }
