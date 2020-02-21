@@ -30,11 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grbx_datos = new System.Windows.Forms.GroupBox();
+            this.txtb_portData = new System.Windows.Forms.TextBox();
+            this.lbl_portData = new System.Windows.Forms.Label();
             this.txtb_port = new System.Windows.Forms.TextBox();
             this.lbl_puerto = new System.Windows.Forms.Label();
             this.gb_datosRecibidos = new System.Windows.Forms.GroupBox();
             this.txtb_datosRecibidos = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtb_portExtensio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grbx_datos.SuspendLayout();
             this.gb_datosRecibidos.SuspendLayout();
             this.SuspendLayout();
@@ -43,20 +47,42 @@
             // 
             this.grbx_datos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbx_datos.Controls.Add(this.label1);
+            this.grbx_datos.Controls.Add(this.txtb_portExtensio);
+            this.grbx_datos.Controls.Add(this.txtb_portData);
+            this.grbx_datos.Controls.Add(this.lbl_portData);
             this.grbx_datos.Controls.Add(this.txtb_port);
             this.grbx_datos.Controls.Add(this.lbl_puerto);
             this.grbx_datos.Location = new System.Drawing.Point(12, 12);
             this.grbx_datos.Name = "grbx_datos";
-            this.grbx_datos.Size = new System.Drawing.Size(281, 46);
+            this.grbx_datos.Size = new System.Drawing.Size(281, 96);
             this.grbx_datos.TabIndex = 0;
             this.grbx_datos.TabStop = false;
             this.grbx_datos.Text = "Datos";
             // 
+            // txtb_portData
+            // 
+            this.txtb_portData.Location = new System.Drawing.Point(96, 43);
+            this.txtb_portData.Name = "txtb_portData";
+            this.txtb_portData.Size = new System.Drawing.Size(167, 20);
+            this.txtb_portData.TabIndex = 5;
+            this.txtb_portData.Text = "8889";
+            this.txtb_portData.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lbl_portData
+            // 
+            this.lbl_portData.AutoSize = true;
+            this.lbl_portData.Location = new System.Drawing.Point(10, 46);
+            this.lbl_portData.Name = "lbl_portData";
+            this.lbl_portData.Size = new System.Drawing.Size(80, 13);
+            this.lbl_portData.TabIndex = 4;
+            this.lbl_portData.Text = "Puerto Archivo:";
+            // 
             // txtb_port
             // 
-            this.txtb_port.Location = new System.Drawing.Point(57, 15);
+            this.txtb_port.Location = new System.Drawing.Point(96, 15);
             this.txtb_port.Name = "txtb_port";
-            this.txtb_port.Size = new System.Drawing.Size(206, 20);
+            this.txtb_port.Size = new System.Drawing.Size(167, 20);
             this.txtb_port.TabIndex = 3;
             this.txtb_port.Text = "8888";
             // 
@@ -65,9 +91,9 @@
             this.lbl_puerto.AutoSize = true;
             this.lbl_puerto.Location = new System.Drawing.Point(10, 18);
             this.lbl_puerto.Name = "lbl_puerto";
-            this.lbl_puerto.Size = new System.Drawing.Size(41, 13);
+            this.lbl_puerto.Size = new System.Drawing.Size(66, 13);
             this.lbl_puerto.TabIndex = 2;
-            this.lbl_puerto.Text = "Puerto:";
+            this.lbl_puerto.Text = "Puerto Chat:";
             // 
             // gb_datosRecibidos
             // 
@@ -75,9 +101,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_datosRecibidos.Controls.Add(this.txtb_datosRecibidos);
-            this.gb_datosRecibidos.Location = new System.Drawing.Point(12, 64);
+            this.gb_datosRecibidos.Location = new System.Drawing.Point(12, 114);
             this.gb_datosRecibidos.Name = "gb_datosRecibidos";
-            this.gb_datosRecibidos.Size = new System.Drawing.Size(281, 363);
+            this.gb_datosRecibidos.Size = new System.Drawing.Size(281, 313);
             this.gb_datosRecibidos.TabIndex = 3;
             this.gb_datosRecibidos.TabStop = false;
             this.gb_datosRecibidos.Text = "Datos Recibidos";
@@ -90,7 +116,7 @@
             this.txtb_datosRecibidos.Location = new System.Drawing.Point(10, 19);
             this.txtb_datosRecibidos.Name = "txtb_datosRecibidos";
             this.txtb_datosRecibidos.ReadOnly = true;
-            this.txtb_datosRecibidos.Size = new System.Drawing.Size(253, 338);
+            this.txtb_datosRecibidos.Size = new System.Drawing.Size(253, 288);
             this.txtb_datosRecibidos.TabIndex = 0;
             this.txtb_datosRecibidos.Text = "";
             // 
@@ -98,6 +124,23 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtb_portExtensio
+            // 
+            this.txtb_portExtensio.Location = new System.Drawing.Point(96, 69);
+            this.txtb_portExtensio.Name = "txtb_portExtensio";
+            this.txtb_portExtensio.Size = new System.Drawing.Size(167, 20);
+            this.txtb_portExtensio.TabIndex = 6;
+            this.txtb_portExtensio.Text = "pacs.tx";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nombre Archivo:";
             // 
             // frm_server
             // 
@@ -124,6 +167,10 @@
         private System.Windows.Forms.GroupBox gb_datosRecibidos;
         private System.Windows.Forms.RichTextBox txtb_datosRecibidos;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox txtb_portData;
+        private System.Windows.Forms.Label lbl_portData;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtb_portExtensio;
     }
 }
 

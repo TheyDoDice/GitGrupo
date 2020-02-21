@@ -38,15 +38,15 @@ namespace TCP_Server
         {
             try
             {
-                TcpListener listener1 = new TcpListener(IPAddress.Any, Int32.Parse(txtb_port.Text.Trim()));
-                listener1.Start();
+                TcpListener listenerMsg = new TcpListener(IPAddress.Any, Int32.Parse(txtb_port.Text.Trim()));
+                listenerMsg.Start();
                 while (sortir)
                 {
                     //ESPERA UN MENSAJE DE ENTRADA
-                    if (listener1.Pending())
+                    if (listenerMsg.Pending())
                     {
                         //TRATAR MENSAJE DE ENTRADA
-                        client = listener1.AcceptTcpClient();
+                        client = listenerMsg.AcceptTcpClient();
                         buffer = new byte[client.ReceiveBufferSize];
                         nwStreamServer = client.GetStream();
                         int bytesLength= nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
@@ -72,33 +72,36 @@ namespace TCP_Server
         {
             try
             {
-                TcpListener listener2 = new TcpListener(IPAddress.Any, 8889);
-                listener2.Start();
+                TcpListener listenerData = new TcpListener(IPAddress.Any, int.Parse(txtb_portData.Text));
+                listenerData.Start();
                 while (sortir)
                 {
-                    //ESPERA UN MENSAJE DE ENTRADA
-                    if (listener2.Pending())
+                    //ESPERA UN ARCHIVO DE ENTRADA
+                    if (listenerData.Pending())
                     {
-                        string SaveFileName = string.Empty;
-                        SaveFileDialog DialogSave = new SaveFileDialog();
-                        DialogSave.Filter = "All files (*.*)|*.*";
-                        DialogSave.RestoreDirectory = true;
-                        DialogSave.Title = "Where do you want to save the file?";
-                        DialogSave.InitialDirectory = @"C:/";
-                        if (DialogSave.ShowDialog() == DialogResult.OK)
-                            SaveFileName = DialogSave.FileName;
-                        if (SaveFileName != string.Empty)
+                        client = listenerData.AcceptTcpClient();
+                        nwStreamServer = client.GetStream();
+                        buffer = new byte[client.ReceiveBufferSize];
+
+                        string SaveFileName = @"C:\Users\admin\Desktop\"+ txtb_portExtensio.Text;
+
+                        int totalrecbytes = 0;
+                        FileStream Fs = new FileStream(SaveFileName, FileMode.OpenOrCreate, FileAccess.Write);
+                        while ((RecBytes = nwStreamServer.Read(buffer, 0, buffer.Length)) > 0)
                         {
-                            int totalrecbytes = 0;
-                            FileStream Fs = new FileStream(SaveFileName, FileMode.OpenOrCreate, FileAccess.Write);
-                            while ((RecBytes = nwStreamServer.Read(buffer, 0, buffer.Length)) > 0)
-                            {
-                                Fs.Write(buffer, 0, RecBytes);
-                                totalrecbytes += RecBytes;
-                            }
-                            Fs.Close();
+                            Fs.Write(buffer, 0, RecBytes);
+                            totalrecbytes += RecBytes;
                         }
-                        nwStreamServer.Close();
+                        //int n = 0;
+                        //do
+                        //{
+                        //    n++;
+                        //    RecBytes = nwStreamServer.Read(buffer, 0, buffer.Length);
+                        //    Fs.Write(buffer, 0, RecBytes);
+                        //}
+                        //while (nwStreamServer.DataAvailable);
+
+                        Fs.Close();
 
                         //DEVOLVER UNA RESPUESTA
                         RespuestaCliente("Respuesta recibida");
@@ -117,13 +120,18 @@ namespace TCP_Server
             try
             {
                 byte[] nouBuffer = Encoding.ASCII.GetBytes(respuesta);
-                nwStreamServer = client.GetStream();
                 nwStreamServer.Write(nouBuffer, 0, nouBuffer.Length);
+                nwStreamServer.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
         #region FUNCIONES INUTILES
         //PARA DESCONECTARSE --APARENTEMENTE INUTIL

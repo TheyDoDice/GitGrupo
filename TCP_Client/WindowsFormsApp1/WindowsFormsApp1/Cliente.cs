@@ -9,7 +9,7 @@ namespace WindowsFormsApp1
     public partial class Cliente : Form
     {
         private const int BufferSize = 1024;
-        TcpClient client;
+        TcpClient client = null;
 
         public Cliente()
         {
@@ -42,8 +42,12 @@ namespace WindowsFormsApp1
                 lbl_estado.Text = "Servidor no conectat";
             }
         }
+        private void btn_enviarArchivos_Click(object sender, EventArgs e)
+        {
+            SendTCP(@"C:\Users\admin\Desktop\PACSSOL.txt");
+        }
 
-        public void SendTCP(string M)
+        public void SendTCP(string filePath)
         {
             byte[] SendingBuffer = null;
             NetworkStream netstream = null;
@@ -51,50 +55,36 @@ namespace WindowsFormsApp1
             {
                 client = new TcpClient(tbx_ip.Text.Trim(), Int32.Parse(tbx_port.Text.Trim()));
                 netstream = client.GetStream();
-                FileStream Fs = new FileStream(M, FileMode.Open, FileAccess.Read);
+
+                FileStream Fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                 int NoOfPackets = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Fs.Length) / Convert.ToDouble(BufferSize)));
+                
                 int TotalLength = (int)Fs.Length, CurrentPacketLength;
                 for (int i = 0; i < NoOfPackets; i++)
                 {
                     if (TotalLength > BufferSize)
                     {
                         CurrentPacketLength = BufferSize;
-                        TotalLength = TotalLength - CurrentPacketLength;
+                        TotalLength -= CurrentPacketLength;
                     }
                     else
                     {
                         CurrentPacketLength = TotalLength;
-                        SendingBuffer = new byte[CurrentPacketLength];
-                        Fs.Read(SendingBuffer, 0, CurrentPacketLength);
-                        netstream.Write(SendingBuffer, 0, (int)SendingBuffer.Length);
                     }
+                    SendingBuffer = new byte[CurrentPacketLength];
+                    Fs.Read(SendingBuffer, 0, CurrentPacketLength);
+                    netstream.Write(SendingBuffer, 0, (int)SendingBuffer.Length);
                 }
-
                 Fs.Close();
-                netstream.Close();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-        }
-
-        private void btn_enviarArchivos_Click(object sender, EventArgs e)
-        {
-            string SendingFilePath;
-
-            OpenFileDialog Dlg = new OpenFileDialog();
-            Dlg.Filter = "All Files (*.*)|*.*";
-            Dlg.CheckFileExists = true;
-            Dlg.Title = "Choose a File";
-            Dlg.InitialDirectory = @"C:\";
-            if (Dlg.ShowDialog() == DialogResult.OK)
+            finally
             {
-                SendingFilePath = Dlg.FileName;
-                if (!String.IsNullOrEmpty(SendingFilePath))
-                {
-                    SendTCP(SendingFilePath);
-                }
+                netstream.Close();
+                client.Close();
             }
         }
     }
