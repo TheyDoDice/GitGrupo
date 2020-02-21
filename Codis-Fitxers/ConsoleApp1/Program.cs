@@ -49,7 +49,7 @@ namespace ConsoleApp1
 
             DecodeFiles(files, codification, solutionFilePath);
 
-            if(EqualFiles(@"C:\Users\admin\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\PACS\PACS1numbers.txt", @"C:\Users\admin\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\PACSSOL\PACS1numbers.txt"))
+            if(EqualFiles(@"C:\Users\admin\Desktop\GitGrupo\Codis-Fitxers\ConsoleApp1\bin\Debug\PACS\PACS1numbers.txt", @"C:\Users\admin\Desktop\GitGrupo\Codis-Fitxers\ConsoleApp1\bin\Debug\PACSSOL\PACS1numbers.txt"))
             {
                 Console.WriteLine("Iguales");
             }
