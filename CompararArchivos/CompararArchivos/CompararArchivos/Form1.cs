@@ -39,7 +39,7 @@ namespace CompararArchivos
         private void btn_comparar_Click(object sender, EventArgs e)
         {
             //Comprobar si existen los archivos y si es así compararlos
-            if (File.Exists(txtb_RutaArchivo1.Text) &&File.Exists(txtb_RutaArchivo2.Text))
+            if (File.Exists(txtb_RutaArchivo1.Text) && File.Exists(txtb_RutaArchivo2.Text))
             {
                 //Limpiar Consola
                 Consola.Clear();
@@ -53,7 +53,10 @@ namespace CompararArchivos
                     {
                         iguales = true;
                     }
-
+                    else
+                    {
+                        iguales = false;
+                    }
                 Cronometro.Stop();
 
                 //Imprimir Resultados
