@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planet", "Nave\Planet.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormNave", "FormNave\FormNave\FormNave.csproj", "{DB5F776F-67ED-4846-943E-2D867AE39EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codificacio", "..\Codificacio\Codificacio.csproj", "{101DAA04-55FA-4F9C-A87A-0DF9EB2589D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XifratCodificacio", "..\Codificacio\XifratCodificacio.csproj", "{101DAA04-55FA-4F9C-A87A-0DF9EB2589D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

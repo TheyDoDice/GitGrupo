@@ -96,9 +96,9 @@
     <None Include="Resources\Byss.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Codificacio\Codificacio.csproj">
+    <ProjectReference Include="..\..\Codificacio\XifratCodificacio.csproj">
       <Project>{101daa04-55fa-4f9c-a87a-0df9eb2589d7}</Project>
-      <Name>Codificacio</Name>
+      <Name>XifratCodificacio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
