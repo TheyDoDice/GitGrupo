@@ -66,7 +66,6 @@ namespace Codificacio
 
         public static void DescodificarFitxers(string[] files, Dictionary<string, string> codification, string newFilePath)
         {
-
             StreamWriter pacs = File.CreateText(newFilePath);
 
             foreach (string file in files)
@@ -96,12 +95,29 @@ namespace Codificacio
 
         public static bool CompararFitxers(string pathFile1, string pathFile2)
         {
-            string text1 = File.ReadAllText(pathFile1);
-            string text2 = File.ReadAllText(pathFile2);
+            bool iguales = false;
 
-            return text1.GetHashCode() == text2.GetHashCode();
+            string hash1 = GetMD5HashFromFile(File.ReadAllText(pathFile1));
+            string hash2 = GetMD5HashFromFile(File.ReadAllText(pathFile2));
 
+            if (hash1 == hash2)
+            {
+                iguales = true;
+            }
+
+            return iguales;
         }
 
+        protected static string GetMD5HashFromFile(string NombreArchivo)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                using (FileStream Stream = File.OpenRead(NombreArchivo))
+                {
+                    byte[] Hash = md5.ComputeHash(Stream);
+                    return BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
+                }
+            }
+        }
     }
 }
