@@ -126,6 +126,7 @@
             this.Consola.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Consola.Location = new System.Drawing.Point(12, 88);
             this.Consola.Name = "Consola";
+            this.Consola.ReadOnly = true;
             this.Consola.Size = new System.Drawing.Size(466, 189);
             this.Consola.TabIndex = 1;
             this.Consola.Text = "";
@@ -143,6 +144,7 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btn_comparar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 318);
