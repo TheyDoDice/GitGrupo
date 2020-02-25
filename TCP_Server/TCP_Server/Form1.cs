@@ -31,7 +31,7 @@ namespace TCP_Server
             th_Escuchar2 = new Thread(EscucharClienteArchivo);
             th_Escuchar2.Start();
 
-            this.FormClosed += (se, ev) => { sortir = false; };
+            //this.FormClosed += (se, ev) => { sortir = false; };
         }
 
         private void EscucharClienteMensaje()
