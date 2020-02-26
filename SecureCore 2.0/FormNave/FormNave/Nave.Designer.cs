@@ -109,6 +109,7 @@
             this.MinimizeBox = false;
             this.Name = "Nave";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
