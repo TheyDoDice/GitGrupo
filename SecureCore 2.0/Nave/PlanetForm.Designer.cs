@@ -193,6 +193,18 @@
             this.txtb_consola.Size = new System.Drawing.Size(721, 335);
             this.txtb_consola.TabIndex = 50;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtb_consola);
+            this.panel1.Location = new System.Drawing.Point(720, 266);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(178, 118);
+            this.panel1.TabIndex = 51;
+            // 
             // frm_nave
             // 
             this.AcceptButton = this.btn_EnviarInput;
