@@ -64,7 +64,7 @@
             <PropertyRef Name="idInnerEncryption" />
           </Key>
           <Property Name="idInnerEncryption" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ValidationCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="idPlanet" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="InnerEncryptionData">
           <Key>
@@ -362,6 +362,18 @@
             </Principal>
             <Dependent Role="DeliveryData">
               <PropertyRef Name="idSpaceShip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InnerEncryption_Planets">
+          <End Role="Planets" Type="Self.Planets" Multiplicity="1" />
+          <End Role="InnerEncryption" Type="Self.InnerEncryption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planets">
+              <PropertyRef Name="idPlanet" />
+            </Principal>
+            <Dependent Role="InnerEncryption">
+              <PropertyRef Name="idPlanet" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -726,6 +738,10 @@
             <End Role="SpaceShips" EntitySet="SpaceShips" />
             <End Role="DeliveryData" EntitySet="DeliveryData" />
           </AssociationSet>
+          <AssociationSet Name="FK_InnerEncryption_Planets" Association="Self.FK_InnerEncryption_Planets">
+            <End Role="Planets" EntitySet="Planets" />
+            <End Role="InnerEncryption" EntitySet="InnerEncryption" />
+          </AssociationSet>
           <AssociationSet Name="FK_InnerEncryptionData_InnerEncryption" Association="Self.FK_InnerEncryptionData_InnerEncryption">
             <End Role="InnerEncryption" EntitySet="InnerEncryption" />
             <End Role="InnerEncryptionData" EntitySet="InnerEncryptionData" />
@@ -974,6 +990,7 @@
           <NavigationProperty Name="DeliveryData" Relationship="securecoreModel.FK_DeliveryData_Planets" FromRole="Planets" ToRole="DeliveryData" />
           <NavigationProperty Name="PlanetKeys" Relationship="securecoreModel.FK_PlanetKeys_Planets" FromRole="Planets" ToRole="PlanetKeys" />
           <NavigationProperty Name="ValidationCode" Relationship="securecoreModel.FK_ValidationCode_Planets" FromRole="Planets" ToRole="ValidationCode" />
+          <NavigationProperty Name="InnerEncryption" Relationship="securecoreModel.FK_InnerEncryption_Planets" FromRole="Planets" ToRole="InnerEncryption" />
         </EntityType>
         <EntityType Name="Priority">
           <Key>
@@ -1565,6 +1582,10 @@
             <End Role="Planets" EntitySet="Planets" />
             <End Role="ValidationCode" EntitySet="ValidationCode" />
           </AssociationSet>
+          <AssociationSet Name="FK_InnerEncryption_Planets" Association="securecoreModel.FK_InnerEncryption_Planets">
+            <End Role="Planets" EntitySet="Planets" />
+            <End Role="InnerEncryption" EntitySet="InnerEncryption" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TareasDiarias">
           <Key>
@@ -1617,9 +1638,10 @@
             <PropertyRef Name="idInnerEncryption" />
           </Key>
           <Property Name="idInnerEncryption" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ValidationCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CoordinateKeys" Relationship="securecoreModel.FK_CoordinateKeys_InnerEncryption" FromRole="InnerEncryption" ToRole="CoordinateKeys" />
           <NavigationProperty Name="InnerEncryptionData" Relationship="securecoreModel.FK_InnerEncryptionData_InnerEncryption" FromRole="InnerEncryption" ToRole="InnerEncryptionData" />
+          <Property Name="idPlanet" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Planets" Relationship="securecoreModel.FK_InnerEncryption_Planets" FromRole="InnerEncryption" ToRole="Planets" />
         </EntityType>
         <EntityType Name="InnerEncryptionData">
           <Key>
@@ -1717,6 +1739,18 @@
               <PropertyRef Name="idPlanet" />
             </Principal>
             <Dependent Role="ValidationCode">
+              <PropertyRef Name="idPlanet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InnerEncryption_Planets">
+          <End Type="securecoreModel.Planets" Role="Planets" Multiplicity="1" />
+          <End Type="securecoreModel.InnerEncryption" Role="InnerEncryption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planets">
+              <PropertyRef Name="idPlanet" />
+            </Principal>
+            <Dependent Role="InnerEncryption">
               <PropertyRef Name="idPlanet" />
             </Dependent>
           </ReferentialConstraint>
@@ -2038,7 +2072,7 @@
           <EntitySetMapping Name="InnerEncryption">
             <EntityTypeMapping TypeName="securecoreModel.InnerEncryption">
               <MappingFragment StoreEntitySet="InnerEncryption">
-                <ScalarProperty Name="ValidationCode" ColumnName="ValidationCode" />
+                <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
                 <ScalarProperty Name="idInnerEncryption" ColumnName="idInnerEncryption" />
               </MappingFragment>
             </EntityTypeMapping>

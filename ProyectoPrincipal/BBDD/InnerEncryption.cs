@@ -22,11 +22,12 @@ namespace BBDD
         }
     
         public int idInnerEncryption { get; set; }
-        public string ValidationCode { get; set; }
+        public int idPlanet { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoordinateKeys> CoordinateKeys { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InnerEncryptionData> InnerEncryptionData { get; set; }
+        public virtual Planets Planets { get; set; }
     }
 }

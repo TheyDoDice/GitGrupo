@@ -23,6 +23,7 @@ namespace BBDD
             this.Users = new HashSet<Users>();
             this.DeliveryData = new HashSet<DeliveryData>();
             this.PlanetKeys = new HashSet<PlanetKeys>();
+            this.InnerEncryption = new HashSet<InnerEncryption>();
         }
     
         public int idPlanet { get; set; }
@@ -55,5 +56,7 @@ namespace BBDD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlanetKeys> PlanetKeys { get; set; }
         public virtual ValidationCode ValidationCode { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InnerEncryption> InnerEncryption { get; set; }
     }
 }

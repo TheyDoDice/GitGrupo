@@ -67,6 +67,7 @@
         <AssociationConnector Association="securecoreModel.FK_InnerEncryptionData_InnerEncryption" />
         <AssociationConnector Association="securecoreModel.FK_PlanetKeys_Planets" />
         <AssociationConnector Association="securecoreModel.FK_ValidationCode_Planets" />
+        <AssociationConnector Association="securecoreModel.FK_InnerEncryption_Planets" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
