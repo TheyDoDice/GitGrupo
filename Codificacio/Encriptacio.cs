@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Codificacio
+namespace XifratCodificacio
 {
     public class Encriptacio
     {
@@ -23,17 +23,17 @@ namespace Codificacio
 
         //FUNCIONS CLAUS
 
-        public string GenerarClaus(string missatge)
-        {
-            //Salvem la info de les claus en un XML.
-            string publicKey = RSA.ToXmlString(false);
-            string privateKey = RSA.ToXmlString(true);
+        //public string GenerarClaus(string missatge)
+        //{
+        //    //Salvem la info de les claus en un XML.
+        //    string publicKey = RSA.ToXmlString(false);
+        //    string privateKey = RSA.ToXmlString(true);
 
-            //Insertar les claus a la base de dades.
-            InsertarClaus(idPlaneta, publicKey, missatge);
+        //    //Insertar les claus a la base de dades.
+        //    InsertarClaus(idPlaneta, publicKey, missatge);
 
-            return privateKey;
-        }
+        //    return privateKey;
+        //}
 
         public string ObtenirClauPrivada()
         {
@@ -45,20 +45,20 @@ namespace Codificacio
             return RSA.ToXmlString(false);
         }
 
-        public void InsertarClaus(int idPlaneta, string publicKey, string missatge)
-        {
-            if (context.ValidationCode.Where(x => x.idPlanet == idPlaneta) != null)
-            {
-                context.ValidationCode.Remove(context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault());
-            }
-            if (context.PlanetKeys.Where(x => x.idPlanet == idPlaneta) != null)
-            {
-                context.PlanetKeys.Remove(context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault());
-            }
-            context.ValidationCode.Add(new ValidationCode() { idPlanet = idPlaneta, ValidationCode1 = missatge });
-            context.PlanetKeys.Add(new PlanetKeys() { idPlanet = idPlaneta, XMLKey = publicKey });
-            context.SaveChanges();
-        }
+        //public void InsertarClaus(int idPlaneta, string publicKey, string missatge)
+        //{
+        //    if (context.ValidationCode.Where(x => x.idPlanet == idPlaneta) != null)
+        //    {
+        //        context.ValidationCode.Remove(context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault());
+        //    }
+        //    if (context.PlanetKeys.Where(x => x.idPlanet == idPlaneta) != null)
+        //    {
+        //        context.PlanetKeys.Remove(context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault());
+        //    }
+        //    context.ValidationCode.Add(new ValidationCode() { idPlanet = idPlaneta, ValidationCode1 = missatge });
+        //    context.PlanetKeys.Add(new PlanetKeys() { idPlanet = idPlaneta, XMLKey = publicKey });
+        //    context.SaveChanges();
+        //}
 
         public byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAPublicKeyInfo, bool DoOAEPPadding)
         {

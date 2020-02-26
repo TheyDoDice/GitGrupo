@@ -9,17 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using Codificacio;
 
 namespace Nave
 {
     public partial class frm_nave : Form
     {
-        public frm_nave()
-        {
-            InitializeComponent();
-        }
-
         Dictionary<string, string> Codificacio = new Dictionary<string, string>();
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
         string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
@@ -27,15 +21,15 @@ namespace Nave
         const int NumFitxers = 3;
 
 
-
-        private Image TakeImg(string name)
+        public frm_nave()
         {
-            string dir = Path.GetDirectoryName(Application.StartupPath + "\\Img\\NewSecureCore\\");
-            return Image.FromFile(dir + "\\" + name + ".png");
+            InitializeComponent();
         }
 
         private void frm_nave_Load(object sender, EventArgs e)
         {
+            //INICIAR SERVIDOR
+
             #region Botones 
             btn_entregar_datos.Enabled = false;
             btn_entregar_datos.Image = TakeImg("buttonv2_disabled");
@@ -52,8 +46,16 @@ namespace Nave
             btn_preparar_datos.MouseEnter += (send, ev) => btn_preparar_datos.Image = TakeImg("buttonv2_hover");
             btn_preparar_datos.MouseLeave += (send, ev) => btn_preparar_datos.Image = TakeImg("buttonv2");
 
-            btn_clearConsole.MouseEnter += (send, ev) => btn_clearConsole.Image = TakeImg("buttonv2_hover");
-            btn_clearConsole.MouseLeave += (send, ev) => btn_clearConsole.Image = TakeImg("buttonv2");
+            #endregion
+            #region consola autoscroll
+            txtb_consola.TextChanged += (se, ev) =>
+            {
+                if (txtb_consola.Visible)
+                {
+                    txtb_consola.SelectionStart = txtb_consola.TextLength;
+                    txtb_consola.ScrollToCaret();
+                }
+            };
             #endregion
         }
 
@@ -61,45 +63,6 @@ namespace Nave
         {
             btn_preparar_datos.Enabled = true;
             btn_preparar_datos.Image = TakeImg("buttonv2");
-        }
-
-        private void btn_preparar_datos_Click(object sender, EventArgs e)
-        {
-            FitxersPACS pacs = new FitxersPACS();
-            
-            txtb_consola.Text = Environment.NewLine + "Creando archivos PACS...";
-
-            Thread GenerarPacs = new Thread(() => { 
-                try
-                {
-                    Codificacio = pacs.ObtenirCodificacio(999);
-                    Stopwatch Cronometro = Stopwatch.StartNew();
-                    CrearCarpetas();
-                    pacs.GenerarFitxerPacs(MidaFitxersPACS, Codificacio, FilePathPACS, FilePathLLetres, NumFitxers);
-                    Cronometro.Stop();
-
-                    btn_entregar_datos.Invoke((MethodInvoker)delegate
-                    {
-                        btn_entregar_datos.Enabled = true;
-                        btn_entregar_datos.Image = TakeImg("buttonv2");
-                    });
-
-                    txtb_consola.Invoke((MethodInvoker)delegate
-                    {
-                        txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente";
-                        txtb_consola.Text += Environment.NewLine + "el proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms";
-                    });
-                }
-                catch (Exception ex)
-                {
-                    txtb_consola.Invoke((MethodInvoker)delegate
-                    {
-                        txtb_consola.Text += Environment.NewLine + ex.ToString();
-                    });
-                }
-            });
-
-            GenerarPacs.Start();
         }
 
         private void CrearCarpetas()
@@ -118,5 +81,56 @@ namespace Nave
         {
             txtb_consola.Clear();
         }
+
+        private Image TakeImg(string name)
+        {
+            string dir = Path.GetDirectoryName(Application.StartupPath + "\\Img\\NewSecureCore\\");
+            return Image.FromFile(dir + "\\" + name + ".png");
+        }
+
+        private void btn_EnviarInput_Click(object sender, EventArgs e)
+        {
+            txtb_consola.Text += Environment.NewLine + "- " + txt_Input.Text;
+        }
+
+        //PREPARAR PACS
+        //FitxersPACS pacs = new FitxersPACS();
+
+        //txtb_consola.Text = Environment.NewLine + "Creando archivos PACS...";
+
+        //    Thread GenerarPacs = new Thread(() => {
+        //        try
+        //        {
+        //            Codificacio = pacs.ObtenirCodificacio(999);
+        //            Stopwatch Cronometro = Stopwatch.StartNew();
+        //            CrearCarpetas();
+
+        //            pacs.GenerarFitxerPacs(MidaFitxersPACS, Codificacio, FilePathPACS, FilePathLLetres, NumFitxers);
+
+
+        //            btn_entregar_datos.Invoke((MethodInvoker)delegate
+        //            {
+        //                btn_entregar_datos.Enabled = true;
+        //                btn_entregar_datos.Image = TakeImg("buttonv2");
+        //            });
+        //            Cronometro.Stop();
+
+        //            txtb_consola.Invoke((MethodInvoker)delegate
+        //            {
+        //                txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente";
+        //                txtb_consola.Text += Environment.NewLine + "el proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms";
+        //            });
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            txtb_consola.Invoke((MethodInvoker)delegate
+        //            {
+        //                txtb_consola.Text += Environment.NewLine + ex.ToString();
+        //            });
+        //        }
+        //    });
+
+        //GenerarPacs.Start();
+
     }
 }
