@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6773559D-9245-4FC9-AC87-2D5510D2A18F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Nave</RootNamespace>
-    <AssemblyName>Nave</AssemblyName>
+    <RootNamespace>Planet</RootNamespace>
+    <AssemblyName>Planet</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Proyectos\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -105,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Byss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Codificacio\XifratCodificacio.csproj">
+      <Project>{101daa04-55fa-4f9c-a87a-0df9eb2589d7}</Project>
+      <Name>XifratCodificacio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

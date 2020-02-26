@@ -1,29 +1,37 @@
 ﻿using System;
-using System.Text;
-using System.Windows.Forms;
-using System.Net.Sockets;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace TCP
 {
-    public partial class Cliente : Form
+    public class ClientTCP
     {
+        //VARIABLES Y CONSTANTES
         private const int BufferSize = 1024;
         TcpClient client = null;
 
-        public Cliente()
+        private int port  = 8888;
+        private string ip = "127.0.0.1";
+
+        public void setClient(string ip, int port)
         {
-            InitializeComponent();
+            this.port = port;
+            this.ip = ip;
         }
 
-        private void bttn_enviarDades_Click(object sender, EventArgs e)
+        public void enviarChat(string message, Label labelState)
         {
             try
             {
-                lbl_estado.Text = "Enviando";
+                labelState.Text = "Enviant";
 
-                client = new TcpClient(tbx_ip.Text.Trim(), Int32.Parse(tbx_port.Text.Trim()));
-                Byte[] dades = Encoding.ASCII.GetBytes(tbx_Message.Text);
+                client = new TcpClient(ip, port);
+                Byte[] dades = Encoding.ASCII.GetBytes(message);
 
                 NetworkStream ns = client.GetStream();
 
@@ -35,30 +43,27 @@ namespace WindowsFormsApp1
                 Int32 bytes = ns.Read(dadaResposta, 0, dadaResposta.Length);
                 string resposta = Encoding.ASCII.GetString(dadaResposta);
 
-                lbl_estado.Text = resposta;
+                labelState.Text = resposta;
             }
             catch
             {
-                lbl_estado.Text = "Servidor no conectat";
+                labelState.Text = "Servidor no conectat";
             }
         }
-        private void btn_enviarArchivos_Click(object sender, EventArgs e)
-        {
-            SendTCP(@"C:\Users\admin\Desktop\PACSSOL.txt");
-        }
-
-        public void SendTCP(string filePath)
+        public void enviarData(string filePath, Label labelState)
         {
             byte[] SendingBuffer = null;
             NetworkStream netstream = null;
             try
             {
-                client = new TcpClient(tbx_ip.Text.Trim(), Int32.Parse(tbx_port.Text.Trim()));
+                labelState.Text = "Enviant";
+
+                client = new TcpClient(ip, port);
                 netstream = client.GetStream();
 
-                FileStream Fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                FileStream Fs = new FileStream("C:\\Users\\admin\\Desktop\\PACSSOL.txt", FileMode.Open, FileAccess.Read);
                 int NoOfPackets = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Fs.Length) / Convert.ToDouble(BufferSize)));
-                
+
                 int TotalLength = (int)Fs.Length, CurrentPacketLength;
                 for (int i = 0; i < NoOfPackets; i++)
                 {
@@ -75,11 +80,13 @@ namespace WindowsFormsApp1
                     Fs.Read(SendingBuffer, 0, CurrentPacketLength);
                     netstream.Write(SendingBuffer, 0, (int)SendingBuffer.Length);
                 }
+
                 Fs.Close();
             }
-            catch (Exception ex)
+            catch(Exception e)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(e.Message);
+                labelState.Text = "Servidor no conectat";
             }
             finally
             {
