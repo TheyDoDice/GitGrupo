@@ -86,8 +86,8 @@ namespace Nave
 
                     txtb_consola.Invoke((MethodInvoker)delegate
                     {
-                        txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente";
-                        txtb_consola.Text += Environment.NewLine + "el proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms";
+                        txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente.";
+                        txtb_consola.Text += Environment.NewLine + "El proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms.";
                     });
                 }
                 catch (Exception ex)
