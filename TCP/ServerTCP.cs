@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TCP_Server
+namespace TCP
 {
-    public partial class frm_server : Form
+    public class ServerTCP
     {
+        //VARIABLES Y CONSTANTES
         int RecBytes;
         byte[] buffer;
         bool sortir = true;
@@ -18,27 +22,40 @@ namespace TCP_Server
         Thread th_Escuchar1, th_Escuchar2;
         TcpClient client;
 
-        public frm_server()
-        {
-            InitializeComponent();
-        }
+        private int portChat = 8888;
+        private int portData = 8889;
+        private string dataName = "PACS.txt";
 
-        private void frm_server_Load(object sender, EventArgs e)
+        public void iniciarServer(RichTextBox txt_chat, int portChat, int portData, string dataName, Label labelState)
         {
-            th_Escuchar1 = new Thread(EscucharClienteMensaje);
+            this.dataName = dataName;
+            this.portData = portData; 
+            this.portChat = portChat;
+
+            th_Escuchar1 = new Thread(()=> { EscucharClienteMensaje(txt_chat); });
             th_Escuchar1.Start();
-
-            th_Escuchar2 = new Thread(EscucharClienteArchivo);
+            th_Escuchar2 = new Thread(() => { EscucharClienteArchivo(labelState); });
             th_Escuchar2.Start();
-
-            //this.FormClosed += (se, ev) => { sortir = false; };
         }
 
-        private void EscucharClienteMensaje()
+        public void apagarServer()
+        {
+            sortir = false;
+        }
+
+        //FUNCION PARA REINICIAR NO OPERATIVA
+        private void reiniciarServer(int portChat, int portData, string dataName)
+        {
+            this.dataName = dataName;
+            this.portData = portData;
+            this.portChat = portChat;
+        }
+
+        private void EscucharClienteMensaje(RichTextBox txt_chat)
         {
             try
             {
-                TcpListener listenerMsg = new TcpListener(IPAddress.Any, Int32.Parse(txtb_port.Text.Trim()));
+                TcpListener listenerMsg = new TcpListener(IPAddress.Any, portChat);
                 listenerMsg.Start();
                 while (sortir)
                 {
@@ -49,17 +66,18 @@ namespace TCP_Server
                         client = listenerMsg.AcceptTcpClient();
                         buffer = new byte[client.ReceiveBufferSize];
                         nwStreamServer = client.GetStream();
-                        int bytesLength= nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
+                        int bytesLength = nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
                         string _dataRecived = Encoding.ASCII.GetString(buffer);
 
-                        txtb_datosRecibidos.Invoke((MethodInvoker) delegate
-                        {
-                            txtb_datosRecibidos.Text += "\n" + _dataRecived;
-                        });
-                        
                         //DEVOLVER UNA RESPUESTA
                         RespuestaCliente("Respuesta recibida");
-                    } 
+
+                        txt_chat.Invoke((MethodInvoker)delegate
+                        {
+                            txt_chat.Text += "\n - " + _dataRecived;
+                        });
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -68,11 +86,11 @@ namespace TCP_Server
             }
         }
 
-        private void EscucharClienteArchivo()
+        private void EscucharClienteArchivo(Label labelState)
         {
             try
             {
-                TcpListener listenerData = new TcpListener(IPAddress.Any, int.Parse(txtb_portData.Text));
+                TcpListener listenerData = new TcpListener(IPAddress.Any, portData);
                 listenerData.Start();
                 while (sortir)
                 {
@@ -83,7 +101,7 @@ namespace TCP_Server
                         nwStreamServer = client.GetStream();
                         buffer = new byte[client.ReceiveBufferSize];
 
-                        string SaveFileName = @"C:\Users\admin\Desktop\"+ txtb_portExtensio.Text;
+                        string SaveFileName = @"C:\Users\admin\Desktop\" + dataName;
 
                         int totalrecbytes = 0;
                         FileStream Fs = new FileStream(SaveFileName, FileMode.OpenOrCreate, FileAccess.Write);
@@ -92,19 +110,14 @@ namespace TCP_Server
                             Fs.Write(buffer, 0, RecBytes);
                             totalrecbytes += RecBytes;
                         }
-                        //int n = 0;
-                        //do
-                        //{
-                        //    n++;
-                        //    RecBytes = nwStreamServer.Read(buffer, 0, buffer.Length);
-                        //    Fs.Write(buffer, 0, RecBytes);
-                        //}
-                        //while (nwStreamServer.DataAvailable);
-
-                        Fs.Close();
 
                         //DEVOLVER UNA RESPUESTA
-                        RespuestaCliente("Respuesta recibida");
+                        labelState.Invoke((MethodInvoker)delegate
+                        {
+                            labelState.Text = "Respuesta recibida";
+                        });
+
+                        Fs.Close();
                     }
                 }
             }
@@ -128,32 +141,5 @@ namespace TCP_Server
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        #region FUNCIONES INUTILES
-        //PARA DESCONECTARSE --APARENTEMENTE INUTIL
-        //private void btn_desconectar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        client.Close();
-        //        listener.Stop();
-        //        nwStreamServer.Close();
-        //    }
-        //    catch
-        //    {}
-        //}
-
-        private string GetIP()
-        {
-            string strHostName = System.Net.Dns.GetHostName();
-            IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(strHostName);
-            IPAddress[] addr = ipEntry.AddressList;
-            return addr[addr.Length - 1].ToString();
-        }
-        #endregion
     }
 }

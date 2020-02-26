@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TCP_Server
+namespace TCP
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace TCP_Server
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_server());
+            Application.Run(new Form1());
         }
     }
 }

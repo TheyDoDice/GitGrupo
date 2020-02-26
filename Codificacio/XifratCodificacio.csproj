@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Codificacio.cs" />
+    <Compile Include="Encriptacio.cs" />
     <Compile Include="FitxersPACS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

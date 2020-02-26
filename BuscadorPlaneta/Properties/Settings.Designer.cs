@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TCP_Server.Properties
+namespace BuscadorPlaneta.Properties
 {
 
 
