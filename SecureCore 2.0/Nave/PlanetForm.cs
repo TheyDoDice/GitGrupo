@@ -6,14 +6,26 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using BibliotecaPACS;
 
 namespace Nave
 {
     public partial class frm_nave : Form
     {
+        //SERVIDOR Y CLIENTE
+        ServerTCP serverTcp = new ServerTCP();
+        ClientTCP clientTcp = new ClientTCP();
+
+        int portChat = 8888;
+        int portData = 8889;
+        string ip = "172.17.22.48";
+
+        string lastMessage = "";
+
         Dictionary<string, string> Codificacio = new Dictionary<string, string>();
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
         string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
@@ -28,7 +40,9 @@ namespace Nave
 
         private void frm_nave_Load(object sender, EventArgs e)
         {
-            //INICIAR SERVIDOR
+            //INICIAR SERVIDOR   
+            serverTcp.iniciarServer(txtb_consola, portChat, portData, "pacsSend.txt", lbl_state);
+            this.FormClosed += (se, ev) => { serverTcp.apagarServer(); };
 
             #region Botones 
             btn_entregar_datos.Enabled = false;
@@ -56,30 +70,44 @@ namespace Nave
                     txtb_consola.ScrollToCaret();
                 }
             };
+
+            txtb_consola.TextChanged += (se, ev) =>
+            {
+                try
+                {
+                    lastMessage = txtb_consola.Text.Split('➖').LastOrDefault().Trim();
+                }
+                catch
+                {
+                }
+            };
             #endregion
+        }
+
+        private void btn_EnviarInput_Click(object sender, EventArgs e)
+        {
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portChat);
+            clientTcp.enviarChat(txt_Input.Text, lbl_state);
+
+            txtb_consola.Text += Environment.NewLine + "[Mensaje Planeta] ➖ " + txt_Input.Text;
+            txt_Input.Text = "";
         }
 
         private void btn_verificar_Click(object sender, EventArgs e)
         {
-            btn_preparar_datos.Enabled = true;
-            btn_preparar_datos.Image = TakeImg("buttonv2");
-        }
+            MessageBox.Show(lastMessage);
 
-        private void CrearCarpetas()
-        {
-            if (!Directory.Exists(FilePathLLetres))
+            switch (lastMessage)
             {
-                Directory.CreateDirectory(FilePathLLetres);
-            }
-            if (!Directory.Exists(FilePathPACS))
-            {
-                Directory.CreateDirectory(FilePathPACS);
-            }
-        }
+                case "quiero entrar":
 
-        private void btn_clearConsole_Click(object sender, EventArgs e)
-        {
-            txtb_consola.Clear();
+                    MessageBox.Show("ahora te dejo pasar");
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         private Image TakeImg(string name)
@@ -88,9 +116,11 @@ namespace Nave
             return Image.FromFile(dir + "\\" + name + ".png");
         }
 
-        private void btn_EnviarInput_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            txtb_consola.Text += Environment.NewLine + "- " + txt_Input.Text;
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portData);
+            clientTcp.enviarData("pacsEnviar.txt", lbl_state);
         }
 
         //PREPARAR PACS
@@ -131,6 +161,18 @@ namespace Nave
         //    });
 
         //GenerarPacs.Start();
+
+        //private void CrearCarpetas()
+        //{
+        //    if (!Directory.Exists(FilePathLLetres))
+        //    {
+        //        Directory.CreateDirectory(FilePathLLetres);
+        //    }
+        //    if (!Directory.Exists(FilePathPACS))
+        //    {
+        //        Directory.CreateDirectory(FilePathPACS);
+        //    }
+        //}
 
     }
 }

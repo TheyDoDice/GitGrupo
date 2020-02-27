@@ -31,8 +31,6 @@ namespace SecureCore_2._0
                 //PLANETA --> GENERAR CLAUS
                 string privatekey = GenerarClaus(delivery, missatge, idPlaneta);
 
-
-
                 //NAU --> AGAFAR MISSATE Y ENCRIPTARLO PER ENTREGAR A LA NAU
                 string publicKey   = context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().XMLKey;
                 string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().ValidationCode1;
