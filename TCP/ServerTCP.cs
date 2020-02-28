@@ -24,7 +24,7 @@ namespace TCP
 
         private int portChat = 8888;
         private int portData = 8889;
-        private string dataName = "PACS.txt";
+        private string dataName = "patata.zip";
 
         public void iniciarServer(RichTextBox txt_chat, int portChat, int portData, string dataName, Label labelState)
         {

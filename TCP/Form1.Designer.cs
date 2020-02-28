@@ -105,7 +105,7 @@
             this.txt_ServerDataName.Name = "txt_ServerDataName";
             this.txt_ServerDataName.Size = new System.Drawing.Size(100, 20);
             this.txt_ServerDataName.TabIndex = 7;
-            this.txt_ServerDataName.Text = "PACS.txt";
+            this.txt_ServerDataName.Text = "PACS.zip";
             // 
             // txt_ClientChatMessage
             // 
