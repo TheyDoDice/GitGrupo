@@ -35,6 +35,7 @@
             this.bttn_EntregarPaquetes = new System.Windows.Forms.Button();
             this.bttn_DescodificarrPaquetes = new System.Windows.Forms.Button();
             this.btn_enviarMensajeEncriptado = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bttn_peticion
@@ -105,13 +106,25 @@
             // 
             // btn_enviarMensajeEncriptado
             // 
-            this.btn_enviarMensajeEncriptado.Location = new System.Drawing.Point(588, 351);
+            this.btn_enviarMensajeEncriptado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_enviarMensajeEncriptado.BackColor = System.Drawing.Color.DimGray;
+            this.btn_enviarMensajeEncriptado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_enviarMensajeEncriptado.BackgroundImage")));
+            this.btn_enviarMensajeEncriptado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_enviarMensajeEncriptado.Location = new System.Drawing.Point(215, 243);
             this.btn_enviarMensajeEncriptado.Name = "btn_enviarMensajeEncriptado";
-            this.btn_enviarMensajeEncriptado.Size = new System.Drawing.Size(75, 23);
+            this.btn_enviarMensajeEncriptado.Size = new System.Drawing.Size(72, 74);
             this.btn_enviarMensajeEncriptado.TabIndex = 5;
-            this.btn_enviarMensajeEncriptado.Text = "button1";
-            this.btn_enviarMensajeEncriptado.UseVisualStyleBackColor = true;
+            this.btn_enviarMensajeEncriptado.UseVisualStyleBackColor = false;
             this.btn_enviarMensajeEncriptado.Click += new System.EventHandler(this.btn_enviarMensajeEncriptado_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(188, 477);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
             // 
             // Nave
             // 
@@ -120,6 +133,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(876, 499);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_enviarMensajeEncriptado);
             this.Controls.Add(this.bttn_DescodificarrPaquetes);
             this.Controls.Add(this.bttn_EntregarPaquetes);
@@ -133,6 +147,7 @@
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,6 +159,7 @@
         private System.Windows.Forms.Button bttn_EntregarPaquetes;
         private System.Windows.Forms.Button bttn_DescodificarrPaquetes;
         private System.Windows.Forms.Button btn_enviarMensajeEncriptado;
+        private System.Windows.Forms.Label label1;
     }
 }
 

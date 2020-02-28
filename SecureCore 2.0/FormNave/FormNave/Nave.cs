@@ -86,7 +86,10 @@ namespace FormNave
 
         private void btn_enviarMensajeEncriptado_Click(object sender, EventArgs e)
         {
+            ClientTCP client = new ClientTCP();
 
+            client.enviarChat(codificacio.ToString(), label1);
+            
         }
     }
 }
