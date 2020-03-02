@@ -45,7 +45,7 @@
             this.bttn_peticion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bttn_peticion.BackgroundImage")));
             this.bttn_peticion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bttn_peticion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bttn_peticion.Location = new System.Drawing.Point(477, 243);
+            this.bttn_peticion.Location = new System.Drawing.Point(477, 535);
             this.bttn_peticion.Name = "bttn_peticion";
             this.bttn_peticion.Size = new System.Drawing.Size(69, 74);
             this.bttn_peticion.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.bttn_downloadCodificacion.BackColor = System.Drawing.Color.DimGray;
             this.bttn_downloadCodificacion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bttn_downloadCodificacion.BackgroundImage")));
             this.bttn_downloadCodificacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttn_downloadCodificacion.Location = new System.Drawing.Point(288, 334);
+            this.bttn_downloadCodificacion.Location = new System.Drawing.Point(926, 626);
             this.bttn_downloadCodificacion.Name = "bttn_downloadCodificacion";
             this.bttn_downloadCodificacion.Size = new System.Drawing.Size(177, 57);
             this.bttn_downloadCodificacion.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.bttn_obtenirValidationCode.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bttn_obtenirValidationCode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bttn_obtenirValidationCode.BackgroundImage")));
             this.bttn_obtenirValidationCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttn_obtenirValidationCode.Location = new System.Drawing.Point(331, 242);
+            this.bttn_obtenirValidationCode.Location = new System.Drawing.Point(969, 534);
             this.bttn_obtenirValidationCode.Name = "bttn_obtenirValidationCode";
             this.bttn_obtenirValidationCode.Size = new System.Drawing.Size(86, 74);
             this.bttn_obtenirValidationCode.TabIndex = 2;
@@ -84,7 +84,7 @@
             this.bttn_EntregarPaquetes.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bttn_EntregarPaquetes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bttn_EntregarPaquetes.BackgroundImage")));
             this.bttn_EntregarPaquetes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttn_EntregarPaquetes.Location = new System.Drawing.Point(66, 399);
+            this.bttn_EntregarPaquetes.Location = new System.Drawing.Point(704, 691);
             this.bttn_EntregarPaquetes.Name = "bttn_EntregarPaquetes";
             this.bttn_EntregarPaquetes.Size = new System.Drawing.Size(97, 88);
             this.bttn_EntregarPaquetes.TabIndex = 3;
@@ -97,7 +97,7 @@
             this.bttn_DescodificarrPaquetes.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bttn_DescodificarrPaquetes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bttn_DescodificarrPaquetes.BackgroundImage")));
             this.bttn_DescodificarrPaquetes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttn_DescodificarrPaquetes.Location = new System.Drawing.Point(637, 399);
+            this.bttn_DescodificarrPaquetes.Location = new System.Drawing.Point(637, 691);
             this.bttn_DescodificarrPaquetes.Name = "bttn_DescodificarrPaquetes";
             this.bttn_DescodificarrPaquetes.Size = new System.Drawing.Size(96, 88);
             this.bttn_DescodificarrPaquetes.TabIndex = 4;
@@ -110,7 +110,7 @@
             this.btn_enviarMensajeEncriptado.BackColor = System.Drawing.Color.DimGray;
             this.btn_enviarMensajeEncriptado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_enviarMensajeEncriptado.BackgroundImage")));
             this.btn_enviarMensajeEncriptado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_enviarMensajeEncriptado.Location = new System.Drawing.Point(215, 243);
+            this.btn_enviarMensajeEncriptado.Location = new System.Drawing.Point(853, 535);
             this.btn_enviarMensajeEncriptado.Name = "btn_enviarMensajeEncriptado";
             this.btn_enviarMensajeEncriptado.Size = new System.Drawing.Size(72, 74);
             this.btn_enviarMensajeEncriptado.TabIndex = 5;
@@ -122,9 +122,8 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(188, 477);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
             // 
             // Nave
             // 
@@ -132,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(876, 499);
+            this.ClientSize = new System.Drawing.Size(1514, 791);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_enviarMensajeEncriptado);
             this.Controls.Add(this.bttn_DescodificarrPaquetes);

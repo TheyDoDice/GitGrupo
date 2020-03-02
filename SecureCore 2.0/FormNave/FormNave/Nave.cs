@@ -22,6 +22,8 @@ namespace FormNave
         SContext context = new SContext();
         Dictionary<string, string> codificacio = new Dictionary<string, string>();
 
+        string ruta = "";
+
         public Nave()
         {
             InitializeComponent();
@@ -35,12 +37,19 @@ namespace FormNave
 
             InitializeComponent();
 
+            
             bttn_obtenirValidationCode.Enabled = false;
             bttn_EntregarPaquetes.Enabled = false;
             bttn_DescodificarrPaquetes.Enabled = false;
             bttn_downloadCodificacion.Enabled = false;
+            btn_enviarMensajeEncriptado.Enabled = false;
 
+            if(bttn_obtenirValidationCode.Enabled == false)
+            {
+                BackgroundImage.Equals(ruta = "C:\\Users\\admin\\Desktop\\GitGrupo\\SecureCore 2.0\\FormNave\\Images\\");
+            }
 
+            
 
         }
 
