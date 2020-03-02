@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,10 +43,10 @@
       <HintPath>..\Proyectos\CC_Library.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\SecureCore 2.0\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\SecureCore 2.0\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -99,11 +99,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BibliotecaPACS\BibliotecaPACS.csproj">
-      <Project>{2259177b-8348-4b98-ab6b-7e31df1e735a}</Project>
-      <Name>BibliotecaPACS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SecureCore 2.0\FormNave\FormNave\FormNave.csproj">
+    <ProjectReference Include="..\SC2 - SecureCore 2.0\FormNave\FormNave\FormNave.csproj">
       <Project>{DB5F776F-67ED-4846-943E-2D867AE39EC4}</Project>
       <Name>FormNave</Name>
     </ProjectReference>
@@ -113,8 +109,8 @@
     <PropertyGroup>
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\SC2 - SecureCore 2.0\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
 </Project>

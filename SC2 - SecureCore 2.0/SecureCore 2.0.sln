@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureCore 2.0", "SecureCore 2.0.csproj", "{5D6B787D-02D6-4A03-8CE6-392426797E13}"
 EndProject
@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planet", "Nave\Planet.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormNave", "FormNave\FormNave\FormNave.csproj", "{DB5F776F-67ED-4846-943E-2D867AE39EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscadorPlaneta", "..\SC1 - BuscadorPlaneta\BuscadorPlaneta.csproj", "{0415013C-5E4C-4E73-B9E2-376C2080D132}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscadorPlaneta", "..\SC2 - BuscadorPlaneta\BuscadorPlaneta.csproj", "{0415013C-5E4C-4E73-B9E2-376C2080D132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaPACS", "..\SC2 - BibliotecaPACS\BibliotecaPACS.csproj", "{2259177B-8348-4B98-AB6B-7E31DF1E735A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacsLibrary", "PacsLibrary\PacsLibrary.csproj", "{D405722F-85A2-4C19-A5E6-7393B8C7E26E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{0415013C-5E4C-4E73-B9E2-376C2080D132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0415013C-5E4C-4E73-B9E2-376C2080D132}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0415013C-5E4C-4E73-B9E2-376C2080D132}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2259177B-8348-4B98-AB6B-7E31DF1E735A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2259177B-8348-4B98-AB6B-7E31DF1E735A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2259177B-8348-4B98-AB6B-7E31DF1E735A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2259177B-8348-4B98-AB6B-7E31DF1E735A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D405722F-85A2-4C19-A5E6-7393B8C7E26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D405722F-85A2-4C19-A5E6-7393B8C7E26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D405722F-85A2-4C19-A5E6-7393B8C7E26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D405722F-85A2-4C19-A5E6-7393B8C7E26E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

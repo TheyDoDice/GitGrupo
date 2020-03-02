@@ -39,6 +39,10 @@
     <Reference Include="BBDD">
       <HintPath>..\..\..\Proyectos\BBDD.dll</HintPath>
     </Reference>
+    <Reference Include="BibliotecaPACS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Proyectos\BibliotecaPACS.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -95,9 +99,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BibliotecaPACS\BibliotecaPACS.csproj">
-      <Project>{2259177b-8348-4b98-ab6b-7e31df1e735a}</Project>
-      <Name>BibliotecaPACS</Name>
+    <ProjectReference Include="..\..\PacsLibrary\PacsLibrary.csproj">
+      <Project>{d405722f-85a2-4c19-a5e6-7393b8c7e26e}</Project>
+      <Name>PacsLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

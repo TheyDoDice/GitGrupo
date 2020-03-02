@@ -10,7 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using BibliotecaPACS;
+using PacsLibrary;
 using BBDD;
 using System.Security.Cryptography;
 using System.IO.Compression;
