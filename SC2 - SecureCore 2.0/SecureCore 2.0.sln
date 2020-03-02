@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planet", "Nave\Planet.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormNave", "FormNave\FormNave\FormNave.csproj", "{DB5F776F-67ED-4846-943E-2D867AE39EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscadorPlaneta", "..\BuscadorPlaneta\BuscadorPlaneta.csproj", "{0415013C-5E4C-4E73-B9E2-376C2080D132}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscadorPlaneta", "..\SC1 - BuscadorPlaneta\BuscadorPlaneta.csproj", "{0415013C-5E4C-4E73-B9E2-376C2080D132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaPACS", "..\BibliotecaPACS\BibliotecaPACS.csproj", "{2259177B-8348-4B98-AB6B-7E31DF1E735A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaPACS", "..\SC2 - BibliotecaPACS\BibliotecaPACS.csproj", "{2259177B-8348-4B98-AB6B-7E31DF1E735A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
