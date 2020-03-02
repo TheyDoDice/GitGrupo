@@ -9,6 +9,7 @@ namespace BibliotecaPACS
 {
     public class Codificacio
     {
+        SContext context = new SContext();
         char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         public Dictionary<string, string> CrearCodificacio(int codeSize)
         {
@@ -41,15 +42,35 @@ namespace BibliotecaPACS
         {
             Dictionary<string, string> codification = new Dictionary<string, string>();
             int idInnerEncryption;
-            
-            SContext context = new SContext();
 
            idInnerEncryption = context.InnerEncryption.Where(x => x.idPlanet == idPlanet).FirstOrDefault().idInnerEncryption;
 
            codification=  context.InnerEncryptionData.Where(x => x.idInnerEncryptionData == idInnerEncryption).ToDictionary(x => x.Word, x => x.Numbers);
 
-           return codification;
+           return codification;            
+        }
+
+        public void GuardarCodificacioBBDD(int idPlanet, Dictionary<string, string> codificacio)
+        {
+            InnerEncryption innerEncryption = new InnerEncryption();
+            innerEncryption.idPlanet = idPlanet;
+
+            context.InnerEncryption.Add(innerEncryption);
+
+            int orderData = 1;
             
+            foreach(KeyValuePair<string, string> keyValuePair in codificacio)
+            {
+                InnerEncryptionData innerData = new InnerEncryptionData();
+                innerData.idInnerEncryptionData = context.InnerEncryption.Last().idInnerEncryption;
+                innerData.Word = keyValuePair.Key;
+                innerData.Numbers = keyValuePair.Value;
+                innerData.OrderData = short.Parse(orderData.ToString());
+                orderData++;
+
+                context.InnerEncryptionData.Add(innerData);
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -66,17 +66,10 @@ namespace BibliotecaPACS
 
         public bool CompararFitxers(string pathFile1, string pathFile2)
         {
-            bool iguales = false;
-
             string hash1 = GetMD5HashFromFile(File.ReadAllText(pathFile1));
             string hash2 = GetMD5HashFromFile(File.ReadAllText(pathFile2));
 
-            if (hash1 == hash2)
-            {
-                iguales = true;
-            }
-
-            return iguales;
+            return hash1 == hash2;
         }
 
         protected string GetMD5HashFromFile(string NombreArchivo)

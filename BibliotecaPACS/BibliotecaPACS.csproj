@@ -60,6 +60,7 @@
     <Compile Include="Codificacio.cs" />
     <Compile Include="Encriptacio.cs" />
     <Compile Include="Fitxers.cs" />
+    <Compile Include="MissatgesTCPIP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerTCP.cs" />
   </ItemGroup>
