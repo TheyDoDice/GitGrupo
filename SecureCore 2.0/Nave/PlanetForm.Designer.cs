@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.pnl_enviar_datos = new System.Windows.Forms.Panel();
+            this.btn_EnviarData = new System.Windows.Forms.Button();
+            this.txtb_consola = new System.Windows.Forms.RichTextBox();
+            this.lbl_state = new System.Windows.Forms.Label();
             this.btn_EnviarInput = new System.Windows.Forms.Button();
             this.txt_Input = new System.Windows.Forms.TextBox();
             this.lbl_btn_entregar_datos = new System.Windows.Forms.Label();
@@ -39,9 +42,6 @@
             this.pb_naves = new System.Windows.Forms.PictureBox();
             this.lbl_btn_verificar = new System.Windows.Forms.Label();
             this.btn_verificar = new System.Windows.Forms.PictureBox();
-            this.lbl_state = new System.Windows.Forms.Label();
-            this.txtb_consola = new System.Windows.Forms.RichTextBox();
-            this.btn_EnviarData = new System.Windows.Forms.Button();
             this.pnl_enviar_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_entregar_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_preparar_datos)).BeginInit();
@@ -73,6 +73,36 @@
             this.pnl_enviar_datos.Name = "pnl_enviar_datos";
             this.pnl_enviar_datos.Size = new System.Drawing.Size(1530, 830);
             this.pnl_enviar_datos.TabIndex = 2;
+            // 
+            // btn_EnviarData
+            // 
+            this.btn_EnviarData.Location = new System.Drawing.Point(1324, 611);
+            this.btn_EnviarData.Name = "btn_EnviarData";
+            this.btn_EnviarData.Size = new System.Drawing.Size(90, 23);
+            this.btn_EnviarData.TabIndex = 57;
+            this.btn_EnviarData.Text = "Send Data";
+            this.btn_EnviarData.UseVisualStyleBackColor = true;
+            // 
+            // txtb_consola
+            // 
+            this.txtb_consola.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtb_consola.Location = new System.Drawing.Point(698, 266);
+            this.txtb_consola.Name = "txtb_consola";
+            this.txtb_consola.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtb_consola.Size = new System.Drawing.Size(716, 320);
+            this.txtb_consola.TabIndex = 56;
+            this.txtb_consola.Text = "";
+            // 
+            // lbl_state
+            // 
+            this.lbl_state.AutoSize = true;
+            this.lbl_state.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_state.ForeColor = System.Drawing.Color.Red;
+            this.lbl_state.Location = new System.Drawing.Point(56, 41);
+            this.lbl_state.Name = "lbl_state";
+            this.lbl_state.Size = new System.Drawing.Size(0, 37);
+            this.lbl_state.TabIndex = 55;
             // 
             // btn_EnviarInput
             // 
@@ -181,37 +211,6 @@
             this.btn_verificar.TabIndex = 0;
             this.btn_verificar.TabStop = false;
             this.btn_verificar.Click += new System.EventHandler(this.btn_verificar_Click);
-            // 
-            // lbl_state
-            // 
-            this.lbl_state.AutoSize = true;
-            this.lbl_state.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_state.ForeColor = System.Drawing.Color.Red;
-            this.lbl_state.Location = new System.Drawing.Point(56, 41);
-            this.lbl_state.Name = "lbl_state";
-            this.lbl_state.Size = new System.Drawing.Size(0, 37);
-            this.lbl_state.TabIndex = 55;
-            // 
-            // txtb_consola
-            // 
-            this.txtb_consola.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtb_consola.Location = new System.Drawing.Point(698, 266);
-            this.txtb_consola.Name = "txtb_consola";
-            this.txtb_consola.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtb_consola.Size = new System.Drawing.Size(716, 320);
-            this.txtb_consola.TabIndex = 56;
-            this.txtb_consola.Text = "";
-            // 
-            // btn_EnviarData
-            // 
-            this.btn_EnviarData.Location = new System.Drawing.Point(1324, 611);
-            this.btn_EnviarData.Name = "btn_EnviarData";
-            this.btn_EnviarData.Size = new System.Drawing.Size(90, 23);
-            this.btn_EnviarData.TabIndex = 57;
-            this.btn_EnviarData.Text = "Send Data";
-            this.btn_EnviarData.UseVisualStyleBackColor = true;
-            this.btn_EnviarData.Click += new System.EventHandler(this.button1_Click);
             // 
             // frm_nave
             // 

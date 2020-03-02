@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using BibliotecaPACS;
+using BBDD;
+using System.Security.Cryptography;
+using System.IO.Compression;
 
 namespace Nave
 {
@@ -23,12 +26,28 @@ namespace Nave
         int portChat = 8888;
         int portData = 8889;
         string ip = "172.17.22.48";
-
         string lastMessage = "";
 
+        //BOOLEANS COMPROVACIO
+        bool boolDataCorrecta    = false;
+        bool boolMisatgeCorrecte = false;
+
+        //COMPROVACIONS 1
+        int idNau = 1;
+        int idPlaneta = 2;
+        private SContext    context = new SContext();
+        private Encriptacio encrypt = new Encriptacio();
+
+        string privatekey;
+        string missatge;
+
+        //COMPROVACIONS 2
+        Codificacio pacs = new Codificacio();
+        Fitxers fitxers  = new Fitxers();
         Dictionary<string, string> Codificacio = new Dictionary<string, string>();
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
         string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
+        string FilePathZip     = Application.StartupPath + "\\Planet\\Zips";
         const int MidaFitxersPACS = 500000;
         const int NumFitxers = 3;
 
@@ -84,6 +103,7 @@ namespace Nave
             #endregion
         }
 
+        //BOTONES ENVIAR
         private void btn_EnviarInput_Click(object sender, EventArgs e)
         {
             //INICIAR CLIENTE
@@ -96,83 +116,152 @@ namespace Nave
 
         private void btn_verificar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(lastMessage);
-
             switch (lastMessage)
             {
                 case "quiero entrar":
 
-                    MessageBox.Show("ahora te dejo pasar");
-
+                    PeticioEntrada();
                     break;
+
+                case "adria":
+
+                    DesencriptarMisatge();
+                    if (boolMisatgeCorrecte)
+                    {
+                        EntregaPacs();
+                    }
+                    break;
+
                 default:
+
                     break;
             }
         }
 
+        //FUNCIO PER ENTRAR AL PLANETA
+        private void PeticioEntrada()
+        {
+            lbl_state.Text = "Verifying delivery date...";
+            //PLANETA --> COMPROBAR DELIVERYDATA
+            DeliveryData delivery = ObenirDeliveryData(idNau, idPlaneta);
+
+            if (DeliryDataCorrecte(delivery))
+            {
+                //PLANETA --> GENERAR MISSATGE
+                missatge = encrypt.GenerarRNG(100000);
+
+                //PLANETA --> GENERAR CLAUS
+                privatekey = encrypt.GenerarClaus(delivery, missatge, idPlaneta);
+
+                //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
+                boolDataCorrecta = true;
+                lbl_state.Text = "Delivery date ";
+            }
+            else
+            {
+                //DELIVERY DATA INCORRECTE
+            }
+        }
+
+        //FUNCIO ENTREGA DEL MISATGE ENRIPTAT
+        private void DesencriptarMisatge()
+        {
+            if (boolDataCorrecta)
+            {
+
+                //NAU --> AGAFAR MISSATE Y ENCRIPTARLO PER ENTREGAR A LA NAU (HARDCODE MOMENTANI) 
+                string publicKey = context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().XMLKey;
+                string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().ValidationCode1;
+
+                UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                byte[] missategeNauBytes = ByteConverter.GetBytes(missatgeNau);
+
+                RSACryptoServiceProvider RSANau = new RSACryptoServiceProvider();
+                RSANau.FromXmlString(publicKey);
+
+                byte[] missatgeEncriptatNau = encrypt.RSAEncrypt(missategeNauBytes, RSANau.ExportParameters(false), false);
+
+                //PLANETA --> DESENCRIPTAR MISSATGE NAU
+                RSACryptoServiceProvider RSAPlaneta = new RSACryptoServiceProvider();
+                RSAPlaneta.FromXmlString(privatekey);
+
+                string missatgeDesencriptat = ByteConverter.GetString(encrypt.RSADecrypt(missatgeEncriptatNau, RSAPlaneta.ExportParameters(true), false));
+
+                if (missatgeDesencriptat == missatge)
+                {
+                    //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
+                    boolMisatgeCorrecte = true;
+                }
+                else
+                {
+                    //MAL
+                }
+
+            }
+        }
+
+        //FUNCIONS ENTREGA PACS
+        private void EntregaPacs()
+        {
+            Codificacio = pacs.CrearCodificacio(999);
+            Stopwatch Cronometro = Stopwatch.StartNew();
+            
+            CrearCarpetas();
+            fitxers.GenerarFitxerPacs(MidaFitxersPACS, Codificacio, FilePathPACS, FilePathLLetres, NumFitxers);
+
+            if(File.Exists(FilePathZip + "\\PACS.zip"))
+            {
+                File.Delete(FilePathZip + "\\PACS.zip");
+            }
+            ZipFile.CreateFromDirectory(FilePathPACS, FilePathZip + "\\PACS.zip");
+
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portData);
+            clientTcp.enviarData(FilePathZip + "\\PACS.zip", lbl_state);
+
+            btn_entregar_datos.Enabled = true;
+            btn_entregar_datos.Image = TakeImg("buttonv2");
+
+            Cronometro.Stop();
+
+            txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente";
+            txtb_consola.Text += Environment.NewLine + "el proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms";
+        }
+
+        //FUNCIONS DELIVERYDATA
+        private bool DeliryDataCorrecte(DeliveryData delivery)
+        {
+            return delivery != null ? true : false;
+        }
+
+        // ----Falta el dia
+        private DeliveryData ObenirDeliveryData(int idNave, int idPlaneta)
+        {
+            return context.DeliveryData.Where(x => x.idPlanetDest == idPlaneta && x.idSpaceShip == idNave).FirstOrDefault();
+        }
+
+        //FUNCIO PER AGAFAR LA IMATGE
         private Image TakeImg(string name)
         {
             string dir = Path.GetDirectoryName(Application.StartupPath + "\\Img\\NewSecureCore\\");
             return Image.FromFile(dir + "\\" + name + ".png");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CrearCarpetas()
         {
-            //INICIAR CLIENTE
-            clientTcp.setClient(ip, portData);
-            clientTcp.enviarData("pacsEnviar.txt", lbl_state);
+            if (!Directory.Exists(FilePathLLetres))
+            {
+                Directory.CreateDirectory(FilePathLLetres);
+            }
+            if (!Directory.Exists(FilePathPACS))
+            {
+                Directory.CreateDirectory(FilePathPACS);
+            }
+            if (!Directory.Exists(FilePathZip))
+            {
+                Directory.CreateDirectory(FilePathZip);
+            }
         }
-
-        //PREPARAR PACS
-        //FitxersPACS pacs = new FitxersPACS();
-
-        //txtb_consola.Text = Environment.NewLine + "Creando archivos PACS...";
-
-        //    Thread GenerarPacs = new Thread(() => {
-        //        try
-        //        {
-        //            Codificacio = pacs.ObtenirCodificacio(999);
-        //            Stopwatch Cronometro = Stopwatch.StartNew();
-        //            CrearCarpetas();
-
-        //            pacs.GenerarFitxerPacs(MidaFitxersPACS, Codificacio, FilePathPACS, FilePathLLetres, NumFitxers);
-
-
-        //            btn_entregar_datos.Invoke((MethodInvoker)delegate
-        //            {
-        //                btn_entregar_datos.Enabled = true;
-        //                btn_entregar_datos.Image = TakeImg("buttonv2");
-        //            });
-        //            Cronometro.Stop();
-
-        //            txtb_consola.Invoke((MethodInvoker)delegate
-        //            {
-        //                txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente";
-        //                txtb_consola.Text += Environment.NewLine + "el proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms";
-        //            });
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            txtb_consola.Invoke((MethodInvoker)delegate
-        //            {
-        //                txtb_consola.Text += Environment.NewLine + ex.ToString();
-        //            });
-        //        }
-        //    });
-
-        //GenerarPacs.Start();
-
-        //private void CrearCarpetas()
-        //{
-        //    if (!Directory.Exists(FilePathLLetres))
-        //    {
-        //        Directory.CreateDirectory(FilePathLLetres);
-        //    }
-        //    if (!Directory.Exists(FilePathPACS))
-        //    {
-        //        Directory.CreateDirectory(FilePathPACS);
-        //    }
-        //}
 
     }
 }

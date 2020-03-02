@@ -15,8 +15,8 @@ namespace BibliotecaPACS
             for (int i = 1; i <= numFitxers; i++)
             {
 
-                StreamWriter letters = File.CreateText(keyFilePath + "PACSKey" + i + ".txt");
-                StreamWriter numbers = File.CreateText(valueFilePath + "PACS" + i + ".txt");
+                StreamWriter letters = File.CreateText(keyFilePath + "\\PACSKey" + i + ".txt");
+                StreamWriter numbers = File.CreateText(valueFilePath + "\\PACS" + i + ".txt");
 
                 Random random = new Random();
 

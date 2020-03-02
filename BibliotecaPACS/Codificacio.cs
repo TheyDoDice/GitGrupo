@@ -46,7 +46,7 @@ namespace BibliotecaPACS
 
            idInnerEncryption = context.InnerEncryption.Where(x => x.idPlanet == idPlanet).FirstOrDefault().idInnerEncryption;
 
-          codification=  context.InnerEncryptionData.Where(x => x.idInnerEncryptionData == idInnerEncryption).ToDictionary(x => x.Word, x => x.Numbers);
+           codification=  context.InnerEncryptionData.Where(x => x.idInnerEncryptionData == idInnerEncryption).ToDictionary(x => x.Word, x => x.Numbers);
 
            return codification;
             

@@ -12,14 +12,14 @@ namespace BibliotecaPACS
     {
         SContext context = new SContext();
 
-        private string GenerarRNG(int max)
+        public string GenerarRNG(int max)
         {
             return new Random().Next(max).ToString();
         }
 
         //FUNCIONS CLAUS
 
-        private string GenerarClaus(DeliveryData delivery, string missatge, int idPlaneta)
+        public string GenerarClaus(DeliveryData delivery, string missatge, int idPlaneta)
         {
             RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
 

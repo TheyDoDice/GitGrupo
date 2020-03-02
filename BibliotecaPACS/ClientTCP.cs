@@ -56,7 +56,7 @@ namespace BibliotecaPACS
                 client = new TcpClient(ip, port);
                 netstream = client.GetStream();
 
-                FileStream Fs = new FileStream("C:\\Users\\admin\\Desktop\\"+ filePath, FileMode.Open, FileAccess.Read);
+                FileStream Fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                 int NoOfPackets = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Fs.Length) / Convert.ToDouble(BufferSize)));
 
                 int TotalLength = (int)Fs.Length, CurrentPacketLength;
