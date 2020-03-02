@@ -69,7 +69,7 @@ class _RegistrarState extends State<Registrar> {
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
           radius: 48.0,
-          child: Image.asset('assets/firebase.png'),
+          child: Image.asset('assets/logoAddUser.png'),
         ),
       ),
     );

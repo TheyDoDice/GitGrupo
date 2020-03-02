@@ -25,13 +25,16 @@ class _HomeState extends State<Home> {
 
   Widget showForm(){
     return new Container(
+      padding: EdgeInsets.all(30.0),
       child: new Form(
         child: new ListView(
           shrinkWrap: true,
           children:<Widget>[
             showContainer1(),
             showContainerImage(),
-            showContainer2()
+            padding(20.0),
+            showContainer2(),
+            showContainerList()
           ]  
         ),
       ),              
@@ -46,54 +49,76 @@ class _HomeState extends State<Home> {
   Widget showContainer1(){
     return Container(
       padding: EdgeInsets.all(20.0),
-      height: 50,
+      color: Colors.blueGrey,
       child: Text("Mapa", style: TextStyle(
-        color: Colors.blueGrey
+        color: Colors.white
         ),
-        textAlign: TextAlign.center,
       ),
     );
-      
-      /* children:<Widget>[
-         Text(
-          "Mapa",
-        ),*/
-        /*Image.asset("assets/mapa.jpg",
-          height: MediaQuery.of(context).size.height * 0.0,
-          )*/
-     /*   Container(
-          height: MediaQuery.of(context).size.height * 0.4,
-          color: Colors.black,
-        )
-       ],
-      );*/
   }
 
   Widget showContainerImage(){
     return Container(
-      
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black
+          ),
+          top: BorderSide(
+            color: Colors.black
+          ),
+          right: BorderSide(
+            color: Colors.black
+          ),
+          left: BorderSide(
+            color: Colors.black
+          ),
+        )
+      ),
+    //  padding: EdgeInsets.all(20.0),
+      child: Image.asset('assets/mapa.jpg'),
     );
   }
 
   Widget showContainer2(){
-    return Column(
-      children: <Widget>[
-        Text(
-          "Pistas",
-          style: TextStyle(
-            background: Paint()..color = Colors.blueGrey
-          )
+    return Container(
+      //width: 30.0,
+      padding: EdgeInsets.all(20.0),
+      color: Colors.blueGrey,
+      child: Text("Pistas", style: TextStyle(
+        color: Colors.white
         ),
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: 1,
-          itemBuilder: (BuildContext context, int index){
-            return ListTile(  
-              title: Text("Pista 1"),     
-            );
-          }
+      ),
+    );
+  }
+  Widget showContainerList(){
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black
+          ),
+          top: BorderSide(
+            color: Colors.black
+          ),
+          right: BorderSide(
+            color: Colors.black
+          ),
+          left: BorderSide(
+            color: Colors.black
+          ),
         )
-      ],
+      ),
+      child: Form(
+        child: ListView(
+          shrinkWrap: true,
+          children:<Widget>[
+            Text("Pista 1"),
+            Text("Pista 2"),
+            Text("Pista 3")
+          ]
+        )
+      ),
     );
   }
 }

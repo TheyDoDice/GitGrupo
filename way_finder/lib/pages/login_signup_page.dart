@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:way_finder/services/authentication.dart';
 import 'package:way_finder/pages/registrar.dart';
@@ -64,7 +66,7 @@ bool comprobar;
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
           radius: 48.0,
-          child: Image.asset('assets/logo.png'),
+          child: Image.asset('assets/logoUsers.png'),
         ),
       ),
     );
@@ -136,16 +138,20 @@ bool comprobar;
         ),
         child: Text("IniciarSesión"),
         
-        onPressed: () => _navigateToRegistrar(),
+        onPressed: () {
+          log("Hola");
+          Navigator.push( 
+            context, 
+            MaterialPageRoute(builder: (context) =>Registrar())
+          );
+          log("adeu");
+        },
       )
     );
   }
 
   void _navigateToRegistrar()async{
-    await Navigator.push(
-      context, 
-      MaterialPageRoute(builder: (context) =>Registrar())
-    );
+    
   }
 
   void navigateToListaCursos()async{

@@ -57,11 +57,11 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(20),
-            child: Image.asset(
+           /* child: Image.asset(
               'assets/logo.png',
               height: 410,
               fit: BoxFit.fitHeight,
-            ),
+            ),*/
             /*  decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(90)),
                 color: Colors.white),*/
