@@ -1,2 +1,0 @@
-0x00000001--HT_String_Delimiter--Lime--HT_String_Delimiter--#004040
-0x00000004--HT_String_Delimiter--Red--HT_String_Delimiter--window
