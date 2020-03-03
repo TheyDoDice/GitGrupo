@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
 class Pistas extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _PistasState();

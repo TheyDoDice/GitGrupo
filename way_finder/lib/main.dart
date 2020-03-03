@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:way_finder/pages/login_signup_page.dart';
-import 'package:way_finder/services/authentication.dart';
-import 'package:way_finder/pages/root_page.dart';
 
 void main() {
   runApp(new MyApp());

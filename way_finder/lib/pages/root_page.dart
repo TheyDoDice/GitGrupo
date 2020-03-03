@@ -1,6 +1,5 @@
 /*import 'package:flutter/material.dart';
 import 'package:way_finder/pages/login_signup_page.dart';
-import 'package:way_finder/services/authentication.dart';
 import 'package:way_finder/pages/home_page.dart';
 
 enum AuthStatus {

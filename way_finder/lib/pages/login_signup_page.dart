@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:way_finder/services/authentication.dart';
 import 'package:way_finder/pages/registrar.dart';
 import 'package:way_finder/pages/lista_concursos.dart';
 
@@ -148,10 +147,6 @@ bool comprobar;
         },
       )
     );
-  }
-
-  void _navigateToRegistrar()async{
-    
   }
 
   void navigateToListaCursos()async{
