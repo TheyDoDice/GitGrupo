@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Way Finder',
-      home: SplashScreen(),
+      initialRoute: 'Splash',
       routes: <String, WidgetBuilder>{
         'Splash': (BuildContext context) => new SplashScreen(),
         'Login': (BuildContext context) => new Login(),

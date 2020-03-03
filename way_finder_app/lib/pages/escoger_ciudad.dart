@@ -8,7 +8,7 @@ class EscogerCiudad extends StatefulWidget {
 }
 
 class _EscogerCiudadState extends State<EscogerCiudad> {
-  List<String> _list;
+  //List<String> _list;
 
   @override
   void initState() {

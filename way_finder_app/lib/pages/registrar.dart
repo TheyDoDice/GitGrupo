@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:way_finder_app/pages/lista_concursos.dart';
 
 
 class Registrar extends StatefulWidget{

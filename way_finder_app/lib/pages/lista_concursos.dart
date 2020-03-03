@@ -7,7 +7,7 @@ class ListaConcursos extends StatefulWidget {
 }
 
 class _ListaConcursosState extends State<ListaConcursos> {
-  List<String> _list;
+  //List<String> _list;
 
   @override
   void initState() {

@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:way_finder_app/pages/registrar.dart';
-import 'package:way_finder_app/pages/lista_concursos.dart';
 
 class Login extends StatefulWidget {
 
