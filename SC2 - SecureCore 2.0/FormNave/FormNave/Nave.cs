@@ -29,14 +29,11 @@ namespace FormNave
             InitializeComponent();
         }
 
-        public Nave(int idNave, int idPlanet, string ipPlanet)
+        public Nave(int idNave, int idPlanet) : base()
         {
             this.idNave = idNave;
             this.idPlanet = idPlanet;
-            this.ipPlanet = ipPlanet;
-
-            InitializeComponent();
-
+            this.ipPlanet = context.Planets.Where(x => x.idPlanet == idPlanet).FirstOrDefault().IPPlanet;            
             
             bttn_obtenirValidationCode.Enabled = false;
             bttn_EntregarPaquetes.Enabled = false;
@@ -48,9 +45,6 @@ namespace FormNave
             {
                 BackgroundImage.Equals(ruta = "C:\\Users\\admin\\Desktop\\GitGrupo\\SecureCore 2.0\\FormNave\\Images\\");
             }
-
-            
-
         }
 
         private void bttn_peticion_Click(object sender, EventArgs e)
