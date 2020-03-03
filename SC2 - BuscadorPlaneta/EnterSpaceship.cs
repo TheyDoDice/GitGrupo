@@ -21,7 +21,6 @@ namespace FormsIniciales
         private static SContext db = new SContext();
         private int idPlanet;
         private int idNave = 0;
-        private string ip = "0";
 
         #region MOVEPANEL
         private const int ButtonDown = 0xA1;
@@ -89,7 +88,7 @@ namespace FormsIniciales
 
         private void btn_enter_Click_1(object sender, EventArgs e)
         {
-            Form nave = new FormNave.Nave(idNave, idPlanet, ip);
+            Form nave = new FormNave.Nave(idNave, idPlanet);
             nave.FormClosed += (se, ev) => this.Close();
             this.Hide();
             nave.Show();
