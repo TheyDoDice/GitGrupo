@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:way_finder/pages/registrar.dart';
-import 'package:way_finder/pages/lista_concursos.dart';
+import 'package:way_finder_app/pages/registrar.dart';
+import 'package:way_finder_app/pages/lista_concursos.dart';
 
 class Login extends StatefulWidget {
 
@@ -139,9 +139,9 @@ bool comprobar;
         
         onPressed: () {
           log("Hola");
-          Navigator.push( 
+          Navigator.pushNamed( 
             context, 
-            MaterialPageRoute(builder: (context) =>Registrar())
+            'Registrar'
           );
           log("adeu");
         },
@@ -151,9 +151,9 @@ bool comprobar;
 
   void navigateToListaCursos()async{
     //BuildContext context;
-    await Navigator.push(
+    await Navigator.pushNamed(
       context, 
-      MaterialPageRoute(builder: (context) =>ListaConcursos())
+      'ListaConcursos'
     );
   }
   

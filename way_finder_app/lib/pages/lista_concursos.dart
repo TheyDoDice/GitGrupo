@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:way_finder/pages/escoger_ciudad.dart';
+import 'package:way_finder_app/pages/escoger_ciudad.dart';
 
 class ListaConcursos extends StatefulWidget {
   @override

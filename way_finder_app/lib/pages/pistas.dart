@@ -44,9 +44,9 @@ class _PistasState extends State<Pistas> {
     }
   }
   void _navigateToPistas()async{
-    await Navigator.push(
+    await Navigator.pushNamed(
       context, 
-      MaterialPageRoute(builder: (context) =>Pistas())
+      'Pistas'
     );
   }
 }

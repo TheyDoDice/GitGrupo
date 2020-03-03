@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:way_finder/pages/lista_concursos.dart';
+import 'package:way_finder_app/pages/lista_concursos.dart';
 
 
 class Registrar extends StatefulWidget{
@@ -138,10 +138,7 @@ class _RegistrarState extends State<Registrar> {
     }
     void _navigateToListaCursos()async{
     //BuildContext context;
-    await Navigator.push(
-      context, 
-      MaterialPageRoute(builder: (context) =>ListaConcursos())
-    );
+    await Navigator.pushNamed(context, 'ListaConcursos');
   }
 
   Widget showPassowrdInput() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:way_finder/pages/home_page.dart';
+import 'package:way_finder_app/pages/home_page.dart';
 
 
 class EscogerCiudad extends StatefulWidget {
