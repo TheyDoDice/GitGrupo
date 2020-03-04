@@ -165,7 +165,6 @@ namespace Forms
         {
             if (boolDataCorrecta)
             {
-
                 //NAU --> AGAFAR MISSATE Y ENCRIPTARLO PER ENTREGAR A LA NAU (HARDCODE MOMENTANI) 
                 string publicKey = context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().XMLKey;
                 string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().ValidationCode1;
