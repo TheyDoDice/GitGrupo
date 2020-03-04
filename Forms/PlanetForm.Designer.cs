@@ -214,9 +214,9 @@
             this.ClientSize = new System.Drawing.Size(1530, 830);
             this.Controls.Add(this.pnl_enviar_datos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frm_nave";
+            this.Name = "PlanetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Planet";
             this.Load += new System.EventHandler(this.PlanetForm_Load);
             this.pnl_enviar_datos.ResumeLayout(false);
             this.pnl_enviar_datos.PerformLayout();

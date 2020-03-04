@@ -15,44 +15,80 @@ namespace Forms
 {
     public partial class RocketForm : Form
     {
-        public int idNave { get; set; }
-        public int idPlanet { get; set; }
-        public string ipPlanet { get; set; }
+        //SERVIDOR Y CLIENTE
+        ServerTCP serverTcp = new ServerTCP();
+        ClientTCP clientTcp = new ClientTCP();
 
-        SContext context = new SContext();
+        int portChat = 8888;
+        int portData = 8889;
+        string ip = "172.17.21.169";
+        string lastMessage = "";
+
+        //COMPROVACIONS 1
+        int idNau = 1;
+        int idPlaneta = 2;
+        private SContext context = new SContext();
+        private Encriptacio encrypt = new Encriptacio();
+        
+        //COMPROVACIONS 2
         Dictionary<string, string> codificacio = new Dictionary<string, string>();
-
         string ruta = "";
+
+        //CONSTRUCTOR
+        public RocketForm(int idNave, int idPlanet) : base()
+        {
+            this.idNau = idNave;
+            this.idPlaneta = idPlanet;
+            this.ip = context.Planets.Where(x => x.idPlanet == idPlanet).FirstOrDefault().IPPlanet;
+        }
 
         public RocketForm()
         {
             InitializeComponent();
         }
 
-        public RocketForm(int idNave, int idPlanet) : base()
+        private void RocketForm_Load(object sender, EventArgs e)
         {
-            this.idNave = idNave;
-            this.idPlanet = idPlanet;
-            this.ipPlanet = context.Planets.Where(x => x.idPlanet == idPlanet).FirstOrDefault().IPPlanet;
+            //INICIAR SERVIDOR   
+            serverTcp.iniciarServer(tbx_console, portChat, portData, "pacsSend.txt", lbl_state);
+            this.FormClosed += (se, ev) => { serverTcp.apagarServer(); };
 
-            bttn_obtenirValidationCode.Enabled = false;
-            bttn_EntregarPaquetes.Enabled = false;
-            bttn_DescodificarrPaquetes.Enabled = false;
-            bttn_downloadCodificacion.Enabled = false;
-            btn_enviarMensajeEncriptado.Enabled = false;
-
-            if (bttn_obtenirValidationCode.Enabled == false)
+            #region consola autoscroll
+            tbx_console.TextChanged += (se, ev) =>
             {
-                BackgroundImage.Equals(ruta = "C:\\Users\\admin\\Desktop\\GitGrupo\\SecureCore 2.0\\FormNave\\Images\\");
-            }
+                if (tbx_console.Visible)
+                {
+                    tbx_console.SelectionStart = tbx_console.TextLength;
+                    tbx_console.ScrollToCaret();
+                }
+            };
+
+            tbx_console.TextChanged += (se, ev) =>
+            {
+                try
+                {
+                    lastMessage = tbx_console.Text.Split('➖').LastOrDefault().Trim();
+                }
+                catch
+                {
+                }
+            };
+            #endregion
+        }
+
+        //ENVIAR MENSAJE
+        private void btn_input_Click(object sender, EventArgs e)
+        {
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portChat);
+            clientTcp.enviarChat(txb_input.Text, lbl_state);
+
+            tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ " + txb_input.Text;
+            txb_input.Text = "";
         }
 
         private void bttn_peticion_Click(object sender, EventArgs e)
         {
-            bttn_obtenirValidationCode.Enabled = true;
-            bttn_EntregarPaquetes.Enabled = true;
-            bttn_DescodificarrPaquetes.Enabled = true;
-            bttn_downloadCodificacion.Enabled = true;
         }
 
         private void bttn_DescodificarrPaquetes_Click(object sender, EventArgs e)
@@ -68,15 +104,14 @@ namespace Forms
         private void bttn_downloadCodificacion_Click(object sender, EventArgs e)
         {
             Codificacio codificacioDLL = new Codificacio();
-
-            codificacio = codificacioDLL.ObtenirCodificacio(idPlanet);
+            codificacio = codificacioDLL.ObtenirCodificacio(idPlaneta);
         }
 
         private void bttn_obtenirValidationCode_Click(object sender, EventArgs e)
         {
             Encriptacio encriptacio = new Encriptacio();
-            string publicKey = context.PlanetKeys.Where(x => x.idPlanet == idPlanet).FirstOrDefault().XMLKey;
-            string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlanet).FirstOrDefault().ValidationCode1;
+            string publicKey = context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().XMLKey;
+            string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().ValidationCode1;
 
             UnicodeEncoding ByteConverter = new UnicodeEncoding();
             byte[] missategeNauBytes = ByteConverter.GetBytes(missatgeNau);
@@ -94,5 +129,7 @@ namespace Forms
             client.enviarChat(codificacio.ToString(), label1);
 
         }
+
+        
     }
 }
