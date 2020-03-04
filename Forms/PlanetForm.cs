@@ -18,6 +18,8 @@ namespace Forms
 {
     public partial class PlanetForm : Form
     {
+        MissatgesTCPIP tCPIP = new MissatgesTCPIP();
+
         //SERVIDOR Y CLIENTE
         ServerTCP serverTcp = new ServerTCP();
         ClientTCP clientTcp = new ClientTCP();
@@ -113,14 +115,14 @@ namespace Forms
 
         private void btn_verificar_Click(object sender, EventArgs e)
         {
-            switch (lastMessage)
+            switch (tCPIP.ObtenirTipusMissatge(lastMessage))
             {
-                case "quiero entrar":
+                case MissatgesTCPIP.TipusMissatge.EntryRequirement:
 
-                    PeticioEntrada();
+                    PeticioEntrada(lastMessage);
                     break;
 
-                case "adria":
+                case MissatgesTCPIP.TipusMissatge.ValidationKey:
 
                     DesencriptarMisatge();
                     if (boolMisatgeCorrecte)
@@ -131,13 +133,16 @@ namespace Forms
 
                 default:
 
+                    //TipusMissatge.ERROR
+
                     break;
             }
         }
 
         //FUNCIO PER ENTRAR AL PLANETA
-        private void PeticioEntrada()
+        private void PeticioEntrada(string missatge)
         {
+            idNau = Int32.Parse(tCPIP.ObtenirIdNau(missatge, MissatgesTCPIP.TipusMissatge.EntryRequirement));
             lbl_state.Text = "Verifying delivery date...";
             //PLANETA --> COMPROBAR DELIVERYDATA
             DeliveryData delivery = ObenirDeliveryData(idNau, idPlaneta);

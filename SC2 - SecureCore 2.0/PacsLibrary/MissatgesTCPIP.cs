@@ -4,17 +4,15 @@ using System.Linq;
 
 namespace PacsLibrary
 {
-    class MissatgesTCPIP
+    public class MissatgesTCPIP
     {
-        public enum TipusMissatge { ER = 1, VR = 2, VK = 3, ERROR = 4 };
-        Dictionary<string, string> msgFormats = new Dictionary<string, string>();
-
-        public MissatgesTCPIP()
+        public enum TipusMissatge { EntryRequirement = 1, ValidationResult = 2, ValidationKey    = 3, ERROR = 4 };
+        private Dictionary<string, string> msgFormats = new Dictionary<string, string>()
         {
-            msgFormats.Add("ER", "ERMMDDYYYYSSSSSSSSSSSSCCCCCCCCCCCC");
-            msgFormats.Add("VR", "VRSSSSSSSSSSSSRR");
-            msgFormats.Add("VK", "VKCCCCCCCCCCCC");
-        }
+            {"ER", "ERMMDDYYYYSSSSSSSSSSSSCCCCCCCCCCCC" },
+            {"VR", "VRSSSSSSSSSSSSRR" },
+            {"VK", "VKCCCCCCCCCCCC" },
+        };
 
         public string CrearMissatgeEntryRequirement (string IdentificadorNau, string IdentificadorEntrega)
         {
@@ -87,6 +85,22 @@ namespace PacsLibrary
             else
             {
                 return TipusMissatge.ERROR;
+            }
+        }
+
+        public string ObtenirIdNau(string missatge, TipusMissatge tipus)
+        {
+            if(tipus == TipusMissatge.EntryRequirement)
+            {
+                return missatge.Substring(10, 12);
+            }
+            else if (tipus == TipusMissatge.ValidationResult)
+            {
+                return missatge.Substring(2, 12);
+            }
+            else
+            {
+                return null;
             }
         }
     }
