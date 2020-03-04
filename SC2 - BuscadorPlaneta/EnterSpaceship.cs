@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BBDD;
 using CC_Library;
-using FormNave;
 using PacsLibrary;
 using PacsLibrary.Model;
+using Forms;
 
 namespace FormsIniciales
 {
@@ -88,7 +88,7 @@ namespace FormsIniciales
 
         private void btn_enter_Click_1(object sender, EventArgs e)
         {
-            Form nave = new FormNave.Nave(idNave, idPlanet);
+            Form nave = new RocketForm(idNave, idPlanet);
             nave.FormClosed += (se, ev) => this.Close();
             this.Hide();
             nave.Show();

@@ -118,13 +118,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SC2 - SecureCore 2.0\FormNave\FormNave\FormNave.csproj">
-      <Project>{DB5F776F-67ED-4846-943E-2D867AE39EC4}</Project>
-      <Name>FormNave</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SC2 - SecureCore 2.0\Nave\Planet.csproj">
-      <Project>{6773559d-9245-4fc9-ac87-2d5510d2a18f}</Project>
-      <Name>Planet</Name>
+    <ProjectReference Include="..\Forms\Forms.csproj">
+      <Project>{4c958aba-684a-4743-ae29-270ec6faff64}</Project>
+      <Name>Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\SC2 - SecureCore 2.0\PacsLibrary\PacsLibrary.csproj">
       <Project>{d405722f-85a2-4c19-a5e6-7393b8c7e26e}</Project>

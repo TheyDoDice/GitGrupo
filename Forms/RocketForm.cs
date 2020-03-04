@@ -11,9 +11,9 @@ using System.Windows.Forms;
 using BBDD;
 using PacsLibrary;
 
-namespace FormNave
+namespace Forms
 {
-    public partial class Nave : Form
+    public partial class RocketForm : Form
     {
         public int idNave { get; set; }
         public int idPlanet { get; set; }
@@ -24,24 +24,24 @@ namespace FormNave
 
         string ruta = "";
 
-        public Nave()
+        public RocketForm()
         {
             InitializeComponent();
         }
 
-        public Nave(int idNave, int idPlanet) : base()
+        public RocketForm(int idNave, int idPlanet) : base()
         {
             this.idNave = idNave;
             this.idPlanet = idPlanet;
-            this.ipPlanet = context.Planets.Where(x => x.idPlanet == idPlanet).FirstOrDefault().IPPlanet;            
-            
+            this.ipPlanet = context.Planets.Where(x => x.idPlanet == idPlanet).FirstOrDefault().IPPlanet;
+
             bttn_obtenirValidationCode.Enabled = false;
             bttn_EntregarPaquetes.Enabled = false;
             bttn_DescodificarrPaquetes.Enabled = false;
             bttn_downloadCodificacion.Enabled = false;
             btn_enviarMensajeEncriptado.Enabled = false;
 
-            if(bttn_obtenirValidationCode.Enabled == false)
+            if (bttn_obtenirValidationCode.Enabled == false)
             {
                 BackgroundImage.Equals(ruta = "C:\\Users\\admin\\Desktop\\GitGrupo\\SecureCore 2.0\\FormNave\\Images\\");
             }
@@ -92,7 +92,7 @@ namespace FormNave
             ClientTCP client = new ClientTCP();
 
             client.enviarChat(codificacio.ToString(), label1);
-            
+
         }
     }
 }

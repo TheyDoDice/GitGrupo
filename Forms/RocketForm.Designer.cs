@@ -1,16 +1,16 @@
-﻿namespace FormNave
+﻿namespace Forms
 {
-    partial class Nave
+    partial class RocketForm
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nave));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RocketForm));
             this.bttn_peticion = new System.Windows.Forms.Button();
             this.bttn_downloadCodificacion = new System.Windows.Forms.Button();
             this.bttn_obtenirValidationCode = new System.Windows.Forms.Button();
@@ -161,4 +161,3 @@
         private System.Windows.Forms.Label label1;
     }
 }
-

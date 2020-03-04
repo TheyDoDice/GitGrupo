@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Forms;
 
 namespace FormsIniciales
 {
@@ -75,7 +76,7 @@ namespace FormsIniciales
 
         private void btn_enter_Click(object sender, EventArgs e)
         {
-            Nave.frm_nave planet = new Nave.frm_nave();
+            RocketForm planet = new RocketForm();
             planet.FormClosed += (se, ev) => this.Close();
             this.Hide();
             planet.Show();
