@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PacsLibrary;
+using PacsLibrary.BBDD;
 using BBDD;
 using System.IO;
 using System.Diagnostics;
@@ -19,6 +20,7 @@ namespace Forms
     public partial class PlanetForm : Form
     {
         MissatgesTCPIP tCPIP = new MissatgesTCPIP();
+        GestioBDD bDD = new GestioBDD();
 
         //SERVIDOR Y CLIENTE
         ServerTCP serverTcp = new ServerTCP();
@@ -56,6 +58,15 @@ namespace Forms
         {
             InitializeComponent();
         }
+
+        public PlanetForm(int idPlanet, string ip) : base()
+        {
+            this.idPlaneta = idPlanet;
+            this.ip = ip;
+
+            bDD.InsertPlanetIp(this.idPlaneta, this.ip);            
+        }
+
         private void PlanetForm_Load(object sender, EventArgs e)
         {
             //INICIAR SERVIDOR   
@@ -197,7 +208,6 @@ namespace Forms
                 {
                     //MAL
                 }
-
             }
         }
 
@@ -205,6 +215,7 @@ namespace Forms
         private void EntregaPacs()
         {
             Codificacio = pacs.CrearCodificacio(999);
+            
             Stopwatch Cronometro = Stopwatch.StartNew();
 
             CrearCarpetas();
