@@ -76,7 +76,7 @@ namespace FormsIniciales
 
         private void btn_enter_Click(object sender, EventArgs e)
         {
-            RocketForm planet = new RocketForm();
+            PlanetForm planet = new PlanetForm(idPlanet, ip);
             planet.FormClosed += (se, ev) => this.Close();
             this.Hide();
             planet.Show();

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PacsLibrary;
+using PacsLibrary.BBDD;
 using BBDD;
 using System.IO;
 using System.Diagnostics;
@@ -18,6 +19,9 @@ namespace Forms
 {
     public partial class PlanetForm : Form
     {
+        MissatgesTCPIP tCPIP = new MissatgesTCPIP();
+        GestioBDD bDD = new GestioBDD();
+
         //SERVIDOR Y CLIENTE
         ServerTCP serverTcp = new ServerTCP();
         ClientTCP clientTcp = new ClientTCP();
@@ -56,6 +60,15 @@ namespace Forms
         {
             InitializeComponent();
         }
+
+        public PlanetForm(int idPlanet, string ip) : base()
+        {
+            this.idPlaneta = idPlanet;
+            this.ip = ip;
+
+            bDD.InsertPlanetIp(this.idPlaneta, this.ip);            
+        }
+
         private void PlanetForm_Load(object sender, EventArgs e)
         {
             //INICIAR SERVIDOR   
@@ -115,14 +128,14 @@ namespace Forms
 
         private void btn_verificar_Click(object sender, EventArgs e)
         {
-            switch (lastMessage)
+            switch (tCPIP.ObtenirTipusMissatge(lastMessage))
             {
-                case "quiero entrar":
+                case MissatgesTCPIP.TipusMissatge.EntryRequirement:
 
-                    PeticioEntrada();
+                    PeticioEntrada(lastMessage);
                     break;
 
-                case "adria":
+                case MissatgesTCPIP.TipusMissatge.ValidationKey:
 
                     DesencriptarMisatge();
                     if (boolMisatgeCorrecte)
@@ -133,13 +146,16 @@ namespace Forms
 
                 default:
 
+                    //TipusMissatge.ERROR
+
                     break;
             }
         }
 
         //FUNCIO PER ENTRAR AL PLANETA
-        private void PeticioEntrada()
+        private void PeticioEntrada(string missatge)
         {
+            idNau = Int32.Parse(tCPIP.ObtenirIdNau(missatge, MissatgesTCPIP.TipusMissatge.EntryRequirement));
             lbl_state.Text = "Verifying delivery date...";
             //PLANETA --> COMPROBAR DELIVERYDATA
             DeliveryData delivery = ObenirDeliveryData(idNau, idPlaneta);
@@ -194,7 +210,6 @@ namespace Forms
                 {
                     //MAL
                 }
-
             }
         }
 
@@ -202,6 +217,7 @@ namespace Forms
         private void EntregaPacs()
         {
             Codificacio = pacs.CrearCodificacio(999);
+            
             Stopwatch Cronometro = Stopwatch.StartNew();
 
             CrearCarpetas();
