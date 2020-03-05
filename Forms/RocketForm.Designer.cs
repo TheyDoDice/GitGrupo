@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RocketForm));
-            this.bttn_peticion = new System.Windows.Forms.Button();
+            this.btn_verificar = new System.Windows.Forms.Button();
             this.bttn_downloadCodificacion = new System.Windows.Forms.Button();
             this.bttn_obtenirValidationCode = new System.Windows.Forms.Button();
             this.bttn_EntregarPaquetes = new System.Windows.Forms.Button();
@@ -44,18 +44,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_background)).BeginInit();
             this.SuspendLayout();
             // 
-            // bttn_peticion
+            // btn_verificar
             // 
-            this.bttn_peticion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttn_peticion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.bttn_peticion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttn_peticion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bttn_peticion.Location = new System.Drawing.Point(477, 574);
-            this.bttn_peticion.Name = "bttn_peticion";
-            this.bttn_peticion.Size = new System.Drawing.Size(69, 74);
-            this.bttn_peticion.TabIndex = 0;
-            this.bttn_peticion.UseVisualStyleBackColor = false;
-            this.bttn_peticion.Click += new System.EventHandler(this.bttn_peticion_Click);
+            this.btn_verificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_verificar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_verificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_verificar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_verificar.Location = new System.Drawing.Point(417, 590);
+            this.btn_verificar.Name = "btn_verificar";
+            this.btn_verificar.Size = new System.Drawing.Size(69, 74);
+            this.btn_verificar.TabIndex = 0;
+            this.btn_verificar.UseVisualStyleBackColor = false;
+            this.btn_verificar.Click += new System.EventHandler(this.btn_verificar_Click);
             // 
             // bttn_downloadCodificacion
             // 
@@ -79,7 +79,6 @@
             this.bttn_obtenirValidationCode.Size = new System.Drawing.Size(90, 70);
             this.bttn_obtenirValidationCode.TabIndex = 2;
             this.bttn_obtenirValidationCode.UseVisualStyleBackColor = false;
-            this.bttn_obtenirValidationCode.Click += new System.EventHandler(this.bttn_obtenirValidationCode_Click);
             // 
             // bttn_EntregarPaquetes
             // 
@@ -91,7 +90,6 @@
             this.bttn_EntregarPaquetes.Size = new System.Drawing.Size(70, 70);
             this.bttn_EntregarPaquetes.TabIndex = 3;
             this.bttn_EntregarPaquetes.UseVisualStyleBackColor = false;
-            this.bttn_EntregarPaquetes.Click += new System.EventHandler(this.bttn_EntregarPaquetes_Click);
             // 
             // bttn_DescodificarrPaquetes
             // 
@@ -103,7 +101,6 @@
             this.bttn_DescodificarrPaquetes.Size = new System.Drawing.Size(70, 70);
             this.bttn_DescodificarrPaquetes.TabIndex = 4;
             this.bttn_DescodificarrPaquetes.UseVisualStyleBackColor = false;
-            this.bttn_DescodificarrPaquetes.Click += new System.EventHandler(this.bttn_DescodificarrPaquetes_Click);
             // 
             // btn_enviarMensajeEncriptado
             // 
@@ -115,7 +112,6 @@
             this.btn_enviarMensajeEncriptado.Size = new System.Drawing.Size(70, 70);
             this.btn_enviarMensajeEncriptado.TabIndex = 5;
             this.btn_enviarMensajeEncriptado.UseVisualStyleBackColor = false;
-            this.btn_enviarMensajeEncriptado.Click += new System.EventHandler(this.btn_enviarMensajeEncriptado_Click);
             // 
             // label1
             // 
@@ -186,7 +182,7 @@
             this.Controls.Add(this.bttn_EntregarPaquetes);
             this.Controls.Add(this.bttn_obtenirValidationCode);
             this.Controls.Add(this.bttn_downloadCodificacion);
-            this.Controls.Add(this.bttn_peticion);
+            this.Controls.Add(this.btn_verificar);
             this.Controls.Add(this.ptb_background);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -203,7 +199,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bttn_peticion;
+        private System.Windows.Forms.Button btn_verificar;
         private System.Windows.Forms.Button bttn_downloadCodificacion;
         private System.Windows.Forms.Button bttn_obtenirValidationCode;
         private System.Windows.Forms.Button bttn_EntregarPaquetes;

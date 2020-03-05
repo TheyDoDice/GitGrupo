@@ -64,9 +64,9 @@
             // 
             // btn_EnviarData
             // 
-            this.btn_EnviarData.Location = new System.Drawing.Point(1352, 650);
+            this.btn_EnviarData.Location = new System.Drawing.Point(1352, 648);
             this.btn_EnviarData.Name = "btn_EnviarData";
-            this.btn_EnviarData.Size = new System.Drawing.Size(90, 23);
+            this.btn_EnviarData.Size = new System.Drawing.Size(90, 24);
             this.btn_EnviarData.TabIndex = 69;
             this.btn_EnviarData.Text = "Send Data";
             this.btn_EnviarData.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             // btn_entregar_datos
             // 
             this.btn_entregar_datos.BackColor = System.Drawing.Color.Transparent;
-            this.btn_entregar_datos.Location = new System.Drawing.Point(391, 520);
+            this.btn_entregar_datos.Location = new System.Drawing.Point(403, 529);
             this.btn_entregar_datos.Name = "btn_entregar_datos";
             this.btn_entregar_datos.Size = new System.Drawing.Size(54, 58);
             this.btn_entregar_datos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +135,7 @@
             // btn_preparar_datos
             // 
             this.btn_preparar_datos.BackColor = System.Drawing.Color.Transparent;
-            this.btn_preparar_datos.Location = new System.Drawing.Point(305, 520);
+            this.btn_preparar_datos.Location = new System.Drawing.Point(322, 529);
             this.btn_preparar_datos.Name = "btn_preparar_datos";
             this.btn_preparar_datos.Size = new System.Drawing.Size(54, 58);
             this.btn_preparar_datos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
