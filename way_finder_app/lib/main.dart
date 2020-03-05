@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
         'Login': (BuildContext context) => new Login(),
         'ListaConcursos': (BuildContext context) => new ListaConcursos(),
         'Pistas': (BuildContext context) => new Pistas(),
-        'Registrar': (BuildContext context) => new Registrar()
+        'Registrar': (BuildContext context) => new Registrar(),
+        'Home': (BuildContext context) => new Home(),
+        'EscogerCiudad': (BuildContext context) => new EscogerCiudad()
       } 
     );
   }
