@@ -192,8 +192,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimizeBox = false;
             this.Name = "RocketForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rocket";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RocketForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_background)).EndInit();
             this.ResumeLayout(false);

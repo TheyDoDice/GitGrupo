@@ -44,12 +44,14 @@ namespace Forms
         Codificacio pacs = new Codificacio();
         Fitxers fitxers = new Fitxers();
         Dictionary<string, string> Codificacio = new Dictionary<string, string>();
-        string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
-        string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
-        string FilePathZip = Application.StartupPath + "\\Planet\\Zips";
         const int MidaFitxersPACS = 500000;
         const int NumFitxers = 3;
 
+        //PATH
+        string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
+        string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
+        string FilePathZip = Application.StartupPath + "\\Planet\\Zips";
+        
         public PlanetForm()
         {
             InitializeComponent();
