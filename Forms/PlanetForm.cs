@@ -48,14 +48,12 @@ namespace Forms
         Codificacio pacs = new Codificacio();
         Fitxers fitxers = new Fitxers();
         Dictionary<string, string> Codificacio = new Dictionary<string, string>();
-        const int MidaFitxersPACS = 500000;
-        const int NumFitxers = 3;
-
-        //PATH
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
         string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
         string FilePathZip = Application.StartupPath + "\\Planet\\Zips";
-        
+        const int MidaFitxersPACS = 500000;
+        const int NumFitxers = 3;
+
         public PlanetForm()
         {
             InitializeComponent();
@@ -144,6 +142,12 @@ namespace Forms
                     }
                     break;
 
+                case MissatgesTCPIP.TipusMissatge.PacsSending:
+
+                    //Rebre Fitxer PACSSOL.txt
+
+                    //Comparar fitxer amb fixtersKey
+
                 default:
 
                     //TipusMissatge.ERROR
@@ -227,6 +231,7 @@ namespace Forms
             {
                 File.Delete(FilePathZip + "\\PACS.zip");
             }
+
             ZipFile.CreateFromDirectory(FilePathPACS, FilePathZip + "\\PACS.zip");
 
             //INICIAR CLIENTE

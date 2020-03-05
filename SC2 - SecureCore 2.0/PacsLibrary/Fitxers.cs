@@ -14,9 +14,21 @@ namespace PacsLibrary
         {
             for (int i = 1; i <= numFitxers; i++)
             {
+                string keyFile = keyFilePath + "\\PACSKey" + i + ".txt";
+                string valueFile = valueFilePath + "\\PACS" + i + ".txt";
 
-                StreamWriter letters = File.CreateText(keyFilePath + "\\PACSKey" + i + ".txt");
-                StreamWriter numbers = File.CreateText(valueFilePath + "\\PACS" + i + ".txt");
+                if (File.Exists(keyFile))
+                {
+                    File.Delete(keyFile);
+                }
+
+                if (File.Exists(valueFile))
+                {
+                    File.Delete(valueFile);
+                }
+
+                StreamWriter letters = File.CreateText(keyFile);
+                StreamWriter numbers = File.CreateText(valueFile);
 
                 Random random = new Random();
 
