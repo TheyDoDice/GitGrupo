@@ -55,6 +55,7 @@ namespace Forms
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
         string FilePathPACS    = Application.StartupPath + "\\Planet\\FicherosPACS";
         string FilePathZip     = Application.StartupPath + "\\Planet\\Zips";
+        string FilePathSOL = Application.StartupPath + "\\Planet\\PACSKeys.txt";
         //PATH ENTRADA
         string FilePathRecived = Application.StartupPath + "\\Planet\\Recived\\PACS.zip";
         
@@ -148,9 +149,10 @@ namespace Forms
 
                 case MissatgesTCPIP.TipusMissatge.PacsSending:
 
-                    //Rebre Fitxer PACSSOL.txt
+                    bool correcte = ComprovarPACSSOL();
+                    txtb_consola.Text += Environment.NewLine + "[Mensaje Planeta] ➖ " + tCPIP.CrearMissatgeValidationResult(idNau.ToString(), correcte);
 
-                    //Comparar fitxer amb fixtersKey
+                    break;
 
                 default:
 
@@ -242,6 +244,12 @@ namespace Forms
 
             txtb_consola.Text += Environment.NewLine + "Archivos creados correctamente";
             txtb_consola.Text += Environment.NewLine + "el proceso ha tardado: " + Cronometro.ElapsedMilliseconds + "ms";
+        }
+
+        private bool ComprovarPACSSOL()
+        {
+            fitxers.UnificarFixters(FilePathLLetres, FilePathSOL);
+            return fitxers.CompararFitxers(FilePathSOL, FilePathRecived);
         }
 
         //FUNCIONS DELIVERYDATA

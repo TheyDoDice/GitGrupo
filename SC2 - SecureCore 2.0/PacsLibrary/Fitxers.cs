@@ -95,5 +95,18 @@ namespace PacsLibrary
                 }
             }
         }
+
+        public void UnificarFixters(string FolderPath, string NewFilePath)
+        {
+            StreamWriter newFile = File.CreateText(NewFilePath);
+
+            string[] files = Directory.GetFiles(FolderPath);
+            foreach(string file in files)
+            {
+                string text = File.ReadAllText(file);
+                newFile.Write(text);
+            }
+            newFile.Close();
+        }
     }
 }
