@@ -25,11 +25,11 @@ namespace PacsLibrary
 
         private int portChat = 8888;
         private int portData = 8889;
-        public string dataName { get; set; }
+        public string FilePath { get; set; }
 
-        public void iniciarServer(RichTextBox txt_chat, int portChat, int portData, string dataName, Label labelState)
+        public void iniciarServer(RichTextBox txt_chat, int portChat, int portData, string FilePath, Label labelState)
         {
-            this.dataName = dataName;
+            this.FilePath = FilePath;
             this.portData = portData; 
             this.portChat = portChat;
 
@@ -45,9 +45,9 @@ namespace PacsLibrary
         }
 
         //FUNCION PARA REINICIAR NO OPERATIVA
-        private void reiniciarServer(int portChat, int portData, string dataName)
+        private void reiniciarServer(int portChat, int portData, string FilePath)
         {
-            this.dataName = dataName;
+            this.FilePath = FilePath;
             this.portData = portData;
             this.portChat = portChat;
         }
@@ -102,7 +102,7 @@ namespace PacsLibrary
                         nwStreamServer = client.GetStream();
                         buffer = new byte[client.ReceiveBufferSize];
 
-                        string SaveFileName = @"C:\Users\admin\Desktop\ArcivosRecibidos\" + dataName;
+                        string SaveFileName = FilePath;
 
                         int totalrecbytes = 0;
                         FileStream Fs = new FileStream(SaveFileName, FileMode.OpenOrCreate, FileAccess.Write);

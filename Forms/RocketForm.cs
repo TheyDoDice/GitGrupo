@@ -86,28 +86,29 @@ namespace Forms
             tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ " + txb_input.Text;
             txb_input.Text = "";
         }
-
-        private void bttn_peticion_Click(object sender, EventArgs e)
+        private void btn_verificar_Click(object sender, EventArgs e)
         {
+            switch (lastMessage)
+            {
+                case "validationCode subido" :
+
+                    encriptarValidationCode();
+                    break;
+               
+                default:
+
+                    break;
+            }
         }
 
-        private void bttn_DescodificarrPaquetes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bttn_EntregarPaquetes_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //FUNCIONES
         private void bttn_downloadCodificacion_Click(object sender, EventArgs e)
         {
             Codificacio codificacioDLL = new Codificacio();
             codificacio = codificacioDLL.ObtenirCodificacio(idPlaneta);
         }
 
-        private void bttn_obtenirValidationCode_Click(object sender, EventArgs e)
+        private void encriptarValidationCode()
         {
             Encriptacio encriptacio = new Encriptacio();
             string publicKey = context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().XMLKey;
@@ -120,16 +121,13 @@ namespace Forms
             RSANau.FromXmlString(publicKey);
 
             byte[] missatgeEncriptatNau = encriptacio.RSAEncrypt(missategeNauBytes, RSANau.ExportParameters(false), false);
+
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portChat);
+            clientTcp.enviarChat(txb_input.Text, lbl_state);
+
+            tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ " + txb_input.Text;
+            txb_input.Text = "";
         }
-
-        private void btn_enviarMensajeEncriptado_Click(object sender, EventArgs e)
-        {
-            ClientTCP client = new ClientTCP();
-
-            client.enviarChat(codificacio.ToString(), label1);
-
-        }
-
-        
     }
 }

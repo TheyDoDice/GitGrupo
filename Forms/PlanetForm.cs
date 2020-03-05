@@ -42,19 +42,21 @@ namespace Forms
         private Encriptacio encrypt = new Encriptacio();
 
         string privatekey;
-        string missatge;
+        string missatgeInicial;
 
         //COMPROVACIONS 2
         Codificacio pacs = new Codificacio();
         Fitxers fitxers = new Fitxers();
-        Dictionary<string, string> Codificacio = new Dictionary<string, string>();
+        Dictionary<string, string> dicCodificacio = new Dictionary<string, string>();
         const int MidaFitxersPACS = 500000;
         const int NumFitxers = 3;
 
-        //PATH
+        //PATH SALIDA
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
-        string FilePathPACS = Application.StartupPath + "\\Planet\\FicherosPACS";
-        string FilePathZip = Application.StartupPath + "\\Planet\\Zips";
+        string FilePathPACS    = Application.StartupPath + "\\Planet\\FicherosPACS";
+        string FilePathZip     = Application.StartupPath + "\\Planet\\Zips";
+        //PATH ENTRADA
+        string FilePathRecived = Application.StartupPath + "\\Planet\\Recived\\PACS.zip";
         
         public PlanetForm()
         {
@@ -72,7 +74,7 @@ namespace Forms
         private void PlanetForm_Load(object sender, EventArgs e)
         {
             //INICIAR SERVIDOR   
-            serverTcp.iniciarServer(txtb_consola, portChat, portData, "pacsSend.txt", lbl_state);
+            serverTcp.iniciarServer(txtb_consola, portChat, portData, FilePathRecived, lbl_state);
             this.FormClosed += (se, ev) => { serverTcp.apagarServer(); };
 
             #region Botones 
@@ -132,7 +134,7 @@ namespace Forms
             {
                 case MissatgesTCPIP.TipusMissatge.EntryRequirement:
 
-                    PeticioEntrada(lastMessage);
+                    PeticioEntrada();
                     break;
 
                 case MissatgesTCPIP.TipusMissatge.ValidationKey:
@@ -153,9 +155,9 @@ namespace Forms
         }
 
         //FUNCIO PER ENTRAR AL PLANETA
-        private void PeticioEntrada(string missatge)
+        private void PeticioEntrada()
         {
-            idNau = Int32.Parse(tCPIP.ObtenirIdNau(missatge, MissatgesTCPIP.TipusMissatge.EntryRequirement));
+            idNau = Int32.Parse(tCPIP.ObtenirIdNau(lastMessage, MissatgesTCPIP.TipusMissatge.EntryRequirement));
             lbl_state.Text = "Verifying delivery date...";
             //PLANETA --> COMPROBAR DELIVERYDATA
             DeliveryData delivery = ObenirDeliveryData(idNau, idPlaneta);
@@ -163,14 +165,15 @@ namespace Forms
             if (DeliryDataCorrecte(delivery))
             {
                 //PLANETA --> GENERAR MISSATGE
-                missatge = encrypt.GenerarRNG(100000);
+                missatgeInicial = encrypt.GenerarRNG(100000);
 
                 //PLANETA --> GENERAR CLAUS
-                privatekey = encrypt.GenerarClaus(delivery, missatge, idPlaneta);
+                privatekey = encrypt.GenerarClaus(delivery, missatgeInicial, idPlaneta);
 
-                //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
+                //CONTESTAR A LA NAVE
+                    //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
                 boolDataCorrecta = true;
-                lbl_state.Text = "Delivery date ";
+                lbl_state.Text = "Delivery date";
             }
             else
             {
@@ -183,25 +186,17 @@ namespace Forms
         {
             if (boolDataCorrecta)
             {
-                //NAU --> AGAFAR MISSATE Y ENCRIPTARLO PER ENTREGAR A LA NAU (HARDCODE MOMENTANI) 
-                string publicKey = context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().XMLKey;
-                string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().ValidationCode1;
-
-                UnicodeEncoding ByteConverter = new UnicodeEncoding();
-                byte[] missategeNauBytes = ByteConverter.GetBytes(missatgeNau);
-
-                RSACryptoServiceProvider RSANau = new RSACryptoServiceProvider();
-                RSANau.FromXmlString(publicKey);
-
-                byte[] missatgeEncriptatNau = encrypt.RSAEncrypt(missategeNauBytes, RSANau.ExportParameters(false), false);
-
                 //PLANETA --> DESENCRIPTAR MISSATGE NAU
+                UnicodeEncoding ByteConverter = new UnicodeEncoding();
+
+                byte[] missatgeEncriptatNau = ByteConverter.GetBytes(lastMessage); //pendiente substring del mensaje
+
                 RSACryptoServiceProvider RSAPlaneta = new RSACryptoServiceProvider();
                 RSAPlaneta.FromXmlString(privatekey);
 
                 string missatgeDesencriptat = ByteConverter.GetString(encrypt.RSADecrypt(missatgeEncriptatNau, RSAPlaneta.ExportParameters(true), false));
 
-                if (missatgeDesencriptat == missatge)
+                if (missatgeDesencriptat == missatgeInicial)
                 {
                     //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
                     boolMisatgeCorrecte = true;
@@ -216,12 +211,12 @@ namespace Forms
         //FUNCIONS ENTREGA PACS
         private void EntregaPacs()
         {
-            Codificacio = pacs.CrearCodificacio(999);
-            
+            //CREAR DICCIONARI
+            dicCodificacio = pacs.CrearCodificacio(999);
             Stopwatch Cronometro = Stopwatch.StartNew();
 
             CrearCarpetas();
-            fitxers.GenerarFitxerPacs(MidaFitxersPACS, Codificacio, FilePathPACS, FilePathLLetres, NumFitxers);
+            fitxers.GenerarFitxerPacs(MidaFitxersPACS, dicCodificacio, FilePathPACS, FilePathLLetres, NumFitxers);
 
             if (File.Exists(FilePathZip + "\\PACS.zip"))
             {
@@ -233,8 +228,8 @@ namespace Forms
             clientTcp.setClient(ip, portData);
             clientTcp.enviarData(FilePathZip + "\\PACS.zip", lbl_state);
 
-            btn_entregar_datos.Enabled = true;
-            btn_entregar_datos.Image = TakeImg("buttonv2");
+            //GUARDAR DADES EN BBDD
+            pacs.GuardarCodificacioBBDD(idPlaneta, dicCodificacio);
 
             Cronometro.Stop();
 

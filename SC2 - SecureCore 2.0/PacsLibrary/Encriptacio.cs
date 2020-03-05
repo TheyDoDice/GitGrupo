@@ -35,6 +35,7 @@ namespace PacsLibrary
 
         public void InsertarClaus(int idPlaneta, string publicKey, string missatge)
         {
+            //ELIMINAR VALIDATION CODE & PLANET KEY
             if (context.ValidationCode.Where(x => x.idPlanet == idPlaneta) != null)
             {
                 context.ValidationCode.Remove(context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault());
@@ -43,6 +44,8 @@ namespace PacsLibrary
             {
                 context.PlanetKeys.Remove(context.PlanetKeys.Where(x => x.idPlanet == idPlaneta).FirstOrDefault());
             }
+
+            //INSERTAR VALIDATION CODE & PLANET KEY
             context.ValidationCode.Add(new ValidationCode() { idPlanet = idPlaneta, ValidationCode1 = missatge });
             context.PlanetKeys.Add(new PlanetKeys() { idPlanet = idPlaneta, XMLKey = publicKey });
             context.SaveChanges();
