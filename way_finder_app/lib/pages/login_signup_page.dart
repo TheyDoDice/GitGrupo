@@ -157,9 +157,9 @@ bool comprobar;
   }
   
   void comprobarUsuario(){
-    Navigator.push(
+    Navigator.pushNamed(
       context, 
-      MaterialPageRoute(builder: (context) => Registrar())
+      'Registrar'
     );
   }
 }
