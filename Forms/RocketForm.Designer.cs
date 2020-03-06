@@ -67,7 +67,6 @@
             this.bttn_downloadCodificacion.Size = new System.Drawing.Size(177, 57);
             this.bttn_downloadCodificacion.TabIndex = 1;
             this.bttn_downloadCodificacion.UseVisualStyleBackColor = false;
-            this.bttn_downloadCodificacion.Click += new System.EventHandler(this.bttn_downloadCodificacion_Click);
             // 
             // bttn_obtenirValidationCode
             // 

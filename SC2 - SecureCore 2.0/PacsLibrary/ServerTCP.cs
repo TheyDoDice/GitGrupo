@@ -102,10 +102,8 @@ namespace PacsLibrary
                         nwStreamServer = client.GetStream();
                         buffer = new byte[client.ReceiveBufferSize];
 
-                        string SaveFileName = FilePath;
-
                         int totalrecbytes = 0;
-                        FileStream Fs = new FileStream(SaveFileName, FileMode.OpenOrCreate, FileAccess.Write);
+                        FileStream Fs = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Write);
                         while ((RecBytes = nwStreamServer.Read(buffer, 0, buffer.Length)) > 0)
                         {
                             Fs.Write(buffer, 0, RecBytes);

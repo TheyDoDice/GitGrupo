@@ -54,10 +54,11 @@ namespace Forms
         //PATH SALIDA
         string FilePathLLetres = Application.StartupPath + "\\Planet\\FicherosTextos";
         string FilePathPACS    = Application.StartupPath + "\\Planet\\FicherosPACS";
+        string FilePathSOL     = Application.StartupPath + "\\Planet\\PACSKeys.txt";
         string FilePathZip     = Application.StartupPath + "\\Planet\\Zips";
-        string FilePathSOL = Application.StartupPath + "\\Planet\\PACSKeys.txt";
+
         //PATH ENTRADA
-        string FilePathRecived = Application.StartupPath + "\\Planet\\Recived\\PACS.zip";
+        string FilePathRecived = Application.StartupPath + "\\Planet\\Recived\\PACSSOL.txt";
         
         public PlanetForm()
         {
