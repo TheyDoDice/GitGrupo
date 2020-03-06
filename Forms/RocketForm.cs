@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -36,8 +37,8 @@ namespace Forms
         string ruta = "";
 
         //PATH SALIDA
-        string FolderPath = Application.StartupPath    + "\\Rocket\\";
-        string newFolderPath = Application.StartupPath + "\\Rocket\\";
+        string FolderPath = Application.StartupPath    + "\\Rocket\\unzipedPacs";
+        string newFolderPath = Application.StartupPath + "\\Rocket\\Pacssol";
 
         //PATH ENTRADA
         string FilePathRecived = Application.StartupPath + "\\Rocket\\Recived\\PACS.zip";
@@ -141,6 +142,8 @@ namespace Forms
         {
             Codificacio codificacioDLL = new Codificacio();
             codificacio = codificacioDLL.ObtenirCodificacio(idPlaneta);
+
+            ZipFile.ExtractToDirectory(FilePathRecived, FolderPath);
 
             Fitxers fitxers = new Fitxers();
             fitxers.DescodificarFitxers(Directory.GetFiles(FolderPath), codificacio, newFolderPath);
