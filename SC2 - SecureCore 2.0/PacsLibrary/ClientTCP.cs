@@ -45,6 +45,26 @@ namespace PacsLibrary
                 labelState.Text = "Server disconect";
             }
         }
+        public void enviarChat(byte[] message, Label labelState)
+        {
+            try
+            {
+                labelState.Text = "Sending...";
+
+                client = new TcpClient(ip, port);
+
+                NetworkStream ns = client.GetStream();
+
+                //Enviar dades al servidor
+                ns.Write(message, 0, message.Length);
+
+                labelState.Text = "Message Sent";
+            }
+            catch
+            {
+                labelState.Text = "Server disconect";
+            }
+        }
         public void enviarData(string filePath, Label labelState)
         {
             byte[] SendingBuffer = null;

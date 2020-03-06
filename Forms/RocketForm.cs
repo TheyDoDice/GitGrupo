@@ -23,7 +23,7 @@ namespace Forms
 
         int portChat = 8888;
         int portData = 8889;
-        string ip = "172.17.21.169";
+        string ip = "172.17.22.48";
         string lastMessage = "";
 
         //COMPROVACIONS 1
@@ -37,8 +37,8 @@ namespace Forms
         string ruta = "";
 
         //PATH SALIDA
-        string FolderPath = Application.StartupPath    + "\\Rocket\\unzipedPacs";
-        string newFolderPath = Application.StartupPath + "\\Rocket\\Pacssol";
+        string FolderPath    = Application.StartupPath + "\\Rocket\\unzipedPacs";
+        string newFolderPath = Application.StartupPath + "\\Rocket\\Pacssol\\PACSSOL.txt";
 
         //PATH ENTRADA
         string FilePathRecived = Application.StartupPath + "\\Rocket\\Recived\\PACS.zip";
@@ -131,13 +131,13 @@ namespace Forms
             byte[] missatgeEncriptatNau = encrypt.RSAEncrypt(missategeNauBytes, RSANau.ExportParameters(false), false);
 
             MissatgesTCPIP missatgesTCPIP = new MissatgesTCPIP();
-            string resposta = missatgesTCPIP.CrearMissatgeValidationKey(ByteConverter.GetString(missatgeEncriptatNau));
+            //string resposta = missatgesTCPIP.CrearMissatgeValidationKey(ByteConverter.GetString(missatgeEncriptatNau));
 
             //INICIAR CLIENTE
             clientTcp.setClient(ip, portChat);
-            clientTcp.enviarChat(resposta, lbl_state);
+            clientTcp.enviarChat(missatgeEncriptatNau, lbl_state);
 
-            tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ " + resposta;
+            tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ missatge en cami";
             txb_input.Text = "";
         }
 
@@ -151,6 +151,9 @@ namespace Forms
             Fitxers fitxers = new Fitxers();
             fitxers.DescodificarFitxers(Directory.GetFiles(FolderPath), codificacio, newFolderPath);
 
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portChat);
+            clientTcp.enviarData(newFolderPath, lbl_state);
         }
     }
 }

@@ -151,7 +151,13 @@ namespace Forms
                 case MissatgesTCPIP.TipusMissatge.PacsSending:
 
                     bool correcte = ComprovarPACSSOL();
+
+                    //INICIAR CLIENTE
+                    clientTcp.setClient(ip, portChat);
+                    clientTcp.enviarChat(tCPIP.CrearMissatgeValidationResult(idNau.ToString(), correcte), lbl_state);
+
                     txtb_consola.Text += Environment.NewLine + "[Mensaje Planeta] ➖ " + tCPIP.CrearMissatgeValidationResult(idNau.ToString(), correcte);
+                    txt_Input.Text = "";
 
                     break;
 
