@@ -130,11 +130,14 @@ namespace Forms
 
             byte[] missatgeEncriptatNau = encrypt.RSAEncrypt(missategeNauBytes, RSANau.ExportParameters(false), false);
 
+            MissatgesTCPIP missatgesTCPIP = new MissatgesTCPIP();
+            string resposta = missatgesTCPIP.CrearMissatgeValidationKey(ByteConverter.GetString(missatgeEncriptatNau));
+
             //INICIAR CLIENTE
             clientTcp.setClient(ip, portChat);
-            clientTcp.enviarChat(txb_input.Text, lbl_state);
+            clientTcp.enviarChat(resposta, lbl_state);
 
-            tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ " + ByteConverter.GetString(missatgeEncriptatNau);
+            tbx_console.Text += Environment.NewLine + "[Mensaje Nave]      ➖ " + resposta;
             txb_input.Text = "";
         }
 
