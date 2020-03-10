@@ -74,7 +74,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
         child: _textLocation(snapshot, index),
       ),
     onTap: (){
-        Navigator.pushNamed(context, 'Home');
+         Navigator.pushNamed(context, 'Home', arguments: snapshot.data[index].id);
       }
       );
   }

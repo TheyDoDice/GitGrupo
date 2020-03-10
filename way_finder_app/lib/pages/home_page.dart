@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:way_finder_app/models/Trial.dart';
 import 'package:http/http.dart' as http;
@@ -24,7 +26,6 @@ class _HomeState extends State<Home> {
       showForm(),
     );
   }
-
 
   Widget showForm(){
     return new Container(
@@ -78,14 +79,12 @@ class _HomeState extends State<Home> {
           ),
         )
       ),
-    //  padding: EdgeInsets.all(20.0),
       child: Image.asset('assets/mapa.jpg'),
     );
   }
 
   Widget showContainer2(){
     return Container(
-      //width: 30.0,
       padding: EdgeInsets.all(20.0),
       color: Colors.blueGrey,
       child: Text("Pistas", style: TextStyle(
@@ -97,28 +96,36 @@ class _HomeState extends State<Home> {
 
   Future<List<Trial>> getData() async {
 
-    List<Trial> locations = [];
+    List<Trial> trials = [];
 
-    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locations");
+    int idLocation = 1;
+
+    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locationtrials");
     http.Response response_2 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/trials");
+    
+    int idTrial;
 
-    Map<int, String> cities = Map.fromIterable(
-      json.decode(response_2.body), 
-      key: (x) => x["id"], 
-      value: (x) => x["name"]
-    );
-
-    for (Map<String, dynamic> x in json.decode(response_1.body)) {
-      //locations.add(new Trial(x["id"], x["name"], x["clue"], x["idRace"], x["idCity"], cities[x["idCity"]]));
+    for (var x in json.decode(response_1.body)) {
+      if (x["idLocation"] == idLocation) {
+        idTrial = x["idTrial"];
+      }
     }
 
-    return locations;
+    for (var x in json.decode(response_2.body)) {
+      if (x["id"] == idTrial) {
+        trials.add(new Trial(idTrial, x["name"], x["description"]));
+      }
+    }
+
+    for (Trial t in trials) {
+      log(t.name + " - " + t.description);
+    }
+
+    return trials;
   }
 
   Widget showContainerList(){
      return Container(
-      width: double.infinity,
-      height: double.infinity,
       child: FutureBuilder(
         future: getData(),
         builder: (BuildContext context, AsyncSnapshot snapshot){
@@ -137,23 +144,21 @@ class _HomeState extends State<Home> {
 
    Widget showList(AsyncSnapshot snapshot, BuildContext context){
     return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
       itemCount: snapshot.data.length,
       itemBuilder: (BuildContext context, int index){
-        return _location(snapshot, index, context);
+        return _trial(snapshot, index, context);
       }
     );
   }
 
-  Widget _location(AsyncSnapshot snapshot, int index, BuildContext context){
+  Widget _trial(AsyncSnapshot snapshot, int index, BuildContext context){
     return GestureDetector(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-        decoration: BoxDecoration(
-          //image:
-          //color:
-          //border:  
-        ), 
-        child: _textLocation(snapshot, index),
+        decoration: BoxDecoration(), 
+        child: _textTrial(snapshot, index),
       ),
     onTap: (){
         //Navigator.pushNamed(context, 'EscogerCiudad');
@@ -161,12 +166,12 @@ class _HomeState extends State<Home> {
       );
   }
 
-  Widget _textLocation(AsyncSnapshot snapshot, int index){
+  Widget _textTrial(AsyncSnapshot snapshot, int index){
     return Container(
       child: Center(
         child: Column(
           children: <Widget>[
-            _text(snapshot.data[index].city + ": " + snapshot.data[index].name , 23)
+            _text(snapshot.data[index].name + ": " + snapshot.data[index].description , 23)
           ]
         )
       ),
