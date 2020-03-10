@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:way_finder_app/models/concuros.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:way_finder_app/models/Location.dart';
 
 
 class EscogerCiudad extends StatefulWidget {
@@ -11,7 +11,7 @@ class EscogerCiudad extends StatefulWidget {
 
 class _EscogerCiudadState extends State<EscogerCiudad> {
   //List<String> _list;
-
+  
   @override
   void initState() {
     //_errorMessage = "";
@@ -22,6 +22,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
 
   @override
   Widget build(BuildContext context){
+    //final int idRace = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text("Localizaciones")
@@ -48,7 +49,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     //}
   }
 
-   Widget _cargando(){
+  Widget _cargando(){
     return Center(child: (CircularProgressIndicator()));
   }
 
@@ -69,21 +70,21 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
           //image:
           //color:
           //border:  
-        ),
+        ), 
         child: _textLocation(snapshot, index),
       ),
-    onTap: (){Navigator.pushNamed(context, 'EscogerCiudad');}
+    onTap: (){
+        //Navigator.pushNamed(context, 'EscogerCiudad');
+      }
       );
   }
 
   Widget _textLocation(AsyncSnapshot snapshot, int index){
     return Container(
-      margin: new EdgeInsets.only(top: 210),
-      //color: 
       child: Center(
         child: Column(
           children: <Widget>[
-            _text(snapshot.data[index].name, 23)
+            _text(snapshot.data[index].city + ": " + snapshot.data[index].name , 23)
           ]
         )
       ),
@@ -97,46 +98,28 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
         color: Color.fromRGBO(187, 146, 95, 1),
         fontSize: fontSize,
       ),
-
     );
   }
 
 
 
-  Future<List<Race>> getData() async {
+  Future<List<Location>> getData() async {
 
-    List<Race> races = [];
+    List<Location> locations = [];
 
     http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locations");
-    
-    for (var item in json.decode(response_1.body)) {
-      
+    http.Response response_2 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/cities");
 
-      int id;
-      String name;
-
-      item.forEach((property,value){
-        switch (property) {
-          case "id":
-            id = int.parse(value.toString());
-          break;
-          case "Name":
-            name = value;
-          break;
-        }
-      });
-
-      races.add(new Race(id, name));
-    }
-    
-    return races;
-  }
-
-
-   void _navigateToHome()async{
-    await Navigator.pushNamed(
-      context, 
-      'Home'
+    Map<int, String> cities = Map.fromIterable(
+      json.decode(response_2.body), 
+      key: (x) => x["id"], 
+      value: (x) => x["name"]
     );
+
+    for (Map<String, dynamic> x in json.decode(response_1.body)) {
+      locations.add(new Location(x["id"], x["name"], x["clue"], x["idRace"], x["idCity"], cities[x["idCity"]]));
+    }
+
+    return locations;
   }
 }

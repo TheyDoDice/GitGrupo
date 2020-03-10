@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:way_finder_app/pages/registrar.dart';
 
 class Login extends StatefulWidget {
 
@@ -138,10 +137,7 @@ bool comprobar;
         
         onPressed: () {
           log("Hola");
-          Navigator.pushNamed( 
-            context, 
-            'Registrar'
-          );
+          Navigator.pushNamed(context, 'Registrar');
           log("adeu");
         },
       )

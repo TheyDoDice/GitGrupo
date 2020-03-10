@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:way_finder_app/models/Trial.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Home extends StatefulWidget {
   @override
@@ -91,33 +94,91 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+  Future<List<Trial>> getData() async {
+
+    List<Trial> locations = [];
+
+    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locations");
+    http.Response response_2 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/trials");
+
+    Map<int, String> cities = Map.fromIterable(
+      json.decode(response_2.body), 
+      key: (x) => x["id"], 
+      value: (x) => x["name"]
+    );
+
+    for (Map<String, dynamic> x in json.decode(response_1.body)) {
+      //locations.add(new Trial(x["id"], x["name"], x["clue"], x["idRace"], x["idCity"], cities[x["idCity"]]));
+    }
+
+    return locations;
+  }
+
   Widget showContainerList(){
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Colors.black
-          ),
-          top: BorderSide(
-            color: Colors.black
-          ),
-          right: BorderSide(
-            color: Colors.black
-          ),
-          left: BorderSide(
-            color: Colors.black
-          ),
-        )
+     return Container(
+      width: double.infinity,
+      height: double.infinity,
+      child: FutureBuilder(
+        future: getData(),
+        builder: (BuildContext context, AsyncSnapshot snapshot){
+          if(snapshot.data == null){
+            return _cargando();
+          }
+          return showList(snapshot, context);
+        }
+      )
+    );
+  }
+
+  Widget _cargando(){
+    return Center(child: (CircularProgressIndicator()));
+  }
+
+   Widget showList(AsyncSnapshot snapshot, BuildContext context){
+    return ListView.builder(
+      itemCount: snapshot.data.length,
+      itemBuilder: (BuildContext context, int index){
+        return _location(snapshot, index, context);
+      }
+    );
+  }
+
+  Widget _location(AsyncSnapshot snapshot, int index, BuildContext context){
+    return GestureDetector(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+        decoration: BoxDecoration(
+          //image:
+          //color:
+          //border:  
+        ), 
+        child: _textLocation(snapshot, index),
       ),
-      child: Form(
-        child: ListView(
-          shrinkWrap: true,
-          children:<Widget>[
-            Text("Pista 1"),
-            Text("Pista 2"),
-            Text("Pista 3")
+    onTap: (){
+        //Navigator.pushNamed(context, 'EscogerCiudad');
+      }
+      );
+  }
+
+  Widget _textLocation(AsyncSnapshot snapshot, int index){
+    return Container(
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            _text(snapshot.data[index].city + ": " + snapshot.data[index].name , 23)
           ]
         )
+      ),
+    );
+  }
+
+  Widget _text(String text, double fontSize){
+    return Text(
+      text,
+      style: TextStyle(
+        color: Color.fromRGBO(187, 146, 95, 1),
+        fontSize: fontSize,
       ),
     );
   }

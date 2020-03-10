@@ -28,28 +28,11 @@ class _ListaConcursosState extends State<ListaConcursos> {
   Future<List<Race>> getData() async {
 
     List<Race> races = [];
-
     http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/races");
     
-    for (var item in json.decode(response_1.body)) {
-      
-      int id;
-      String name;
-
-      item.forEach((property,value){
-        switch (property) {
-          case "id":
-            id = int.parse(value.toString());
-          break;
-          case "name":
-            name = value;
-          break;
-        }
-      });
-
-      races.add(new Race(id, name));
+    for (var x in json.decode(response_1.body)) {
+      races.add(new Race(x["id"], x["name"]));
     }
-    
     return races;
   }
 
@@ -105,8 +88,8 @@ class _ListaConcursosState extends State<ListaConcursos> {
         ),
         child: _textConcursos(snapshot, index),
       ),
-    onTap: (){Navigator.pushNamed(context, 'EscogerCiudad');}
-      );
+    onTap: () => Navigator.pushNamed(context, 'EscogerCiudad', arguments: snapshot.data[index].name)
+    );
   }
 
   Widget _text(String text, double fontSize){
@@ -122,7 +105,6 @@ class _ListaConcursosState extends State<ListaConcursos> {
 
   Widget _textConcursos(AsyncSnapshot snapshot, int index){
     return Container(
-      margin: new EdgeInsets.only(top: 210),
       //color: 
       child: Center(
         child: Column(
