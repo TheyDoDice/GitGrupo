@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PacsLibrary;
 
 namespace TCP
 {
@@ -48,7 +49,19 @@ namespace TCP
 
         private void btn_sendData_Click(object sender, EventArgs e)
         {
-            clientTcp.enviarData("PACSSOL.txt", lbl_estado);
+            clientTcp.enviarData("PACS.zip", lbl_estado);
+        }
+
+        private void generarClaus_Click(object sender, EventArgs e)
+        {
+            Encriptacio encriptacio = new Encriptacio();
+            encriptacio.GenerarClaus("Prova", 2);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Encriptacio encriptacio = new Encriptacio();
+            //encriptacio.RSADecrypt();
         }
     }
 }

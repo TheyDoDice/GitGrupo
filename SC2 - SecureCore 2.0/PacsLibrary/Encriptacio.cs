@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using BBDD;
+using System.IO;
 
 namespace PacsLibrary
 {
@@ -19,18 +20,23 @@ namespace PacsLibrary
 
         //FUNCIONS CLAUS
 
-        public string GenerarClaus(DeliveryData delivery, string missatge, int idPlaneta)
+        public void GenerarClaus(string missatge, int idPlaneta)
         {
-            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+            
+            CspParameters csp = new CspParameters();
+            csp.KeyContainerName = "PlanetKey";
 
+
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(csp);
+            RSA.PersistKeyInCsp = true;
             //Salvem la info de les claus en un XML.
             string publicKey = RSA.ToXmlString(false);
-            string privateKey = RSA.ToXmlString(true);
+            //string privateKey = RSA.ToXmlString(true);
 
             //Insertar les claus a la base de dades.
             InsertarClaus(idPlaneta, publicKey, missatge);
 
-            return privateKey;
+            //return privateKey;
         }
 
         public void InsertarClaus(int idPlaneta, string publicKey, string missatge)
@@ -60,12 +66,18 @@ namespace PacsLibrary
             }
         }
 
-        public byte[] RSADecrypt(byte[] DataToDecrypt, RSAParameters RSAPrivateKeyInfo, bool DoOAEPPadding)
+        public byte[] RSADecrypt(byte[] DataToDecrypt,  bool DoOAEPPadding)
         {
-            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            CspParameters csp = new CspParameters();
+            csp.KeyContainerName = "PlanetKey";
+                                  
+            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(csp))
             {
-                RSA.ImportParameters(RSAPrivateKeyInfo);
-                return RSA.Decrypt(DataToDecrypt, DoOAEPPadding);
+                string publicKey = RSA.ToXmlString(true);
+                File.WriteAllText("c:\\temp\\PrivateKey.xml", publicKey);
+                //RSA.ImportParameters(RSAPrivateKeyInfo);
+                byte[] test = RSA.Decrypt(DataToDecrypt, DoOAEPPadding);
+                return test;
             }
         }
     }

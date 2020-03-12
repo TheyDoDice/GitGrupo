@@ -19,6 +19,8 @@ namespace PacsLibrary
         byte[] buffer;
         bool sortir = true;
 
+        bool vkmsg = true;
+
         NetworkStream nwStreamServer;
         Thread th_Escuchar1, th_Escuchar2;
         TcpClient client;
@@ -63,12 +65,31 @@ namespace PacsLibrary
                     //ESPERA UN MENSAJE DE ENTRADA
                     if (listenerMsg.Pending())
                     {
-                        //TRATAR MENSAJE DE ENTRADA
                         client = listenerMsg.AcceptTcpClient();
                         buffer = new byte[client.ReceiveBufferSize];
                         nwStreamServer = client.GetStream();
                         int bytesLength = nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
-                        string _dataRecived = Encoding.ASCII.GetString(buffer);
+                        string _dataRecived = "";
+
+                        if (!vkmsg)
+                        {
+                            //TRATAR MENSAJE DE ENTRADA                           
+                            _dataRecived = Encoding.ASCII.GetString(buffer);
+
+                            if (_dataRecived == "VK")
+                            {
+                                vkmsg = true;
+                            }
+                        }
+                        else{
+
+                            Encriptacio encriptacio = new Encriptacio();
+
+                            //TEMPORAL FINS ARREGLAR MIDA BUFFER
+                            Array.Resize(ref buffer, 128);
+                            _dataRecived = string.Join("", Encoding.ASCII.GetString(encriptacio.RSADecrypt(buffer, false)).Split('\0'));
+                            vkmsg = false;
+                        }
 
                         //DEVOLVER UNA RESPUESTA
                         RespuestaCliente("Respuesta recibida");

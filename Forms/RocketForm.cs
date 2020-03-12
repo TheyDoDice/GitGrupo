@@ -123,7 +123,7 @@ namespace Forms
             string missatgeNau = context.ValidationCode.Where(x => x.idPlanet == idPlaneta).FirstOrDefault().ValidationCode1;
 
             UnicodeEncoding ByteConverter = new UnicodeEncoding();
-            byte[] missategeNauBytes      = ByteConverter.GetBytes(missatgeNau);
+            byte[] missategeNauBytes      = Convert.FromBase64String(missatgeNau);
 
             RSACryptoServiceProvider RSANau = new RSACryptoServiceProvider();
             RSANau.FromXmlString(publicKey);

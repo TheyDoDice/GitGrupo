@@ -89,6 +89,7 @@
             this.btn_EnviarInput.TabIndex = 67;
             this.btn_EnviarInput.Text = "Send Message";
             this.btn_EnviarInput.UseVisualStyleBackColor = true;
+            this.btn_EnviarInput.Click += new System.EventHandler(this.btn_EnviarInput_Click_1);
             // 
             // txt_Input
             // 

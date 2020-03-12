@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PacsLibrary;
 
 namespace TCP
 {
@@ -64,10 +65,15 @@ namespace TCP
                     {
                         //TRATAR MENSAJE DE ENTRADA
                         client = listenerMsg.AcceptTcpClient();
-                        buffer = new byte[client.ReceiveBufferSize];
                         nwStreamServer = client.GetStream();
+                        buffer = new byte[client.ReceiveBufferSize];                        
                         int bytesLength = nwStreamServer.Read(buffer, 0, client.ReceiveBufferSize);
-                        string _dataRecived = Encoding.ASCII.GetString(buffer);
+
+                        Encriptacio encriptacio = new Encriptacio();
+
+                        //TEMPORAL FINS ARREGLAR MIDA BUFFER
+                        Array.Resize(ref buffer, 128);
+                        string _dataRecived = string.Join("", Encoding.ASCII.GetString(encriptacio.RSADecrypt(buffer, false)).Split('\0'));
 
                         //DEVOLVER UNA RESPUESTA
                         RespuestaCliente("Respuesta recibida");
@@ -76,7 +82,6 @@ namespace TCP
                         {
                             txt_chat.Text += "\n - " + _dataRecived;
                         });
-
                     }
                 }
             }

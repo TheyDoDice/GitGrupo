@@ -46,6 +46,8 @@
             this.btn_ClientConect = new System.Windows.Forms.Button();
             this.lbl_ClientIp = new System.Windows.Forms.Label();
             this.txt_ClientIp = new System.Windows.Forms.TextBox();
+            this.generarClaus = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,7 +107,7 @@
             this.txt_ServerDataName.Name = "txt_ServerDataName";
             this.txt_ServerDataName.Size = new System.Drawing.Size(100, 20);
             this.txt_ServerDataName.TabIndex = 7;
-            this.txt_ServerDataName.Text = "PACS.zip";
+            this.txt_ServerDataName.Text = "PACSSOL.txt";
             // 
             // txt_ClientChatMessage
             // 
@@ -202,13 +204,35 @@
             this.txt_ClientIp.Name = "txt_ClientIp";
             this.txt_ClientIp.Size = new System.Drawing.Size(153, 20);
             this.txt_ClientIp.TabIndex = 18;
-            this.txt_ClientIp.Text = "127.0.0.1";
+            this.txt_ClientIp.Text = "172.17.21.169";
+            // 
+            // generarClaus
+            // 
+            this.generarClaus.Location = new System.Drawing.Point(121, 303);
+            this.generarClaus.Name = "generarClaus";
+            this.generarClaus.Size = new System.Drawing.Size(81, 23);
+            this.generarClaus.TabIndex = 19;
+            this.generarClaus.Text = "Generar claus";
+            this.generarClaus.UseVisualStyleBackColor = true;
+            this.generarClaus.Click += new System.EventHandler(this.generarClaus_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(351, 305);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Desencriptar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 348);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.generarClaus);
             this.Controls.Add(this.txt_ClientIp);
             this.Controls.Add(this.lbl_ClientIp);
             this.Controls.Add(this.btn_ClientConect);
@@ -255,6 +279,8 @@
         private System.Windows.Forms.Button btn_ClientConect;
         private System.Windows.Forms.Label lbl_ClientIp;
         private System.Windows.Forms.TextBox txt_ClientIp;
+        private System.Windows.Forms.Button generarClaus;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -28,8 +28,9 @@ namespace Forms
 
         int portChat = 8888;
         int portData = 8889;
-        string ip = "172.17.22.48";
+        string ip = "172.17.21.169";
         string lastMessage = "";
+        byte[] encryptedCode;
 
         //BOOLEANS COMPROVACIO
         bool boolDataCorrecta = false;
@@ -108,13 +109,14 @@ namespace Forms
 
             txtb_consola.TextChanged += (se, ev) =>
             {
-                try
-                {
-                    lastMessage = txtb_consola.Text.Split('➖').LastOrDefault().Trim();
-                }
-                catch
-                {
-                }
+                    try
+                    {
+                        lastMessage = txtb_consola.Text.Split('➖').LastOrDefault().Trim();
+
+                    }
+                    catch
+                    {
+                    }
             };
             #endregion
         }
@@ -132,14 +134,14 @@ namespace Forms
 
         private void btn_verificar_Click(object sender, EventArgs e)
         {
-            switch (tCPIP.ObtenirTipusMissatge(lastMessage))
+            switch (lastMessage)
             {
-                case MissatgesTCPIP.TipusMissatge.EntryRequirement:
+                case "entrar":
 
                     PeticioEntrada();
                     break;
 
-                case MissatgesTCPIP.TipusMissatge.ValidationKey:
+                case "VK":
 
                     DesencriptarMisatge();
                     if (boolMisatgeCorrecte)
@@ -148,7 +150,7 @@ namespace Forms
                     }
                     break;
 
-                case MissatgesTCPIP.TipusMissatge.PacsSending:
+                case "...":
 
                     bool correcte = ComprovarPACSSOL();
 
@@ -176,6 +178,7 @@ namespace Forms
             lbl_state.Text = "Verifying delivery date...";
             //PLANETA --> COMPROBAR DELIVERYDATA
             DeliveryData delivery = ObenirDeliveryData(idNau, idPlaneta);
+            bool peticio = false;
 
             if (DeliryDataCorrecte(delivery))
             {
@@ -183,44 +186,40 @@ namespace Forms
                 missatgeInicial = encrypt.GenerarRNG(100000);
 
                 //PLANETA --> GENERAR CLAUS
-                privatekey = encrypt.GenerarClaus(delivery, missatgeInicial, idPlaneta);
-
+                //privatekey = encrypt.GenerarClaus(missatgeInicial, idPlaneta);
+                encrypt.GenerarClaus(missatgeInicial, idPlaneta);
                 //CONTESTAR A LA NAVE
-                    //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
+                //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
                 boolDataCorrecta = true;
                 lbl_state.Text = "Delivery date";
+                peticio = true;   
             }
-            else
-            {
-                //DELIVERY DATA INCORRECTE
-            }
+
+            clientTcp.enviarChat(tCPIP.CrearMissatgeValidationResult(idNau.ToString(), peticio), lbl_state);
         }
 
         //FUNCIO ENTREGA DEL MISATGE ENRIPTAT
         private void DesencriptarMisatge()
         {
-            if (boolDataCorrecta)
-            {
                 //PLANETA --> DESENCRIPTAR MISSATGE NAU
                 UnicodeEncoding ByteConverter = new UnicodeEncoding();
 
-                byte[] missatgeEncriptatNau = ByteConverter.GetBytes(lastMessage); //pendiente substring del mensaje
+                //byte[] missatgeEncriptatNau = ByteConverter.GetBytes(lastMessage); //pendiente substring del mensaje
 
-                RSACryptoServiceProvider RSAPlaneta = new RSACryptoServiceProvider();
-                RSAPlaneta.FromXmlString(privatekey);
+                //RSACryptoServiceProvider RSAPlaneta = new RSACryptoServiceProvider();
+                //RSAPlaneta.FromXmlString(privatekey);
 
-                string missatgeDesencriptat = ByteConverter.GetString(encrypt.RSADecrypt(missatgeEncriptatNau, RSAPlaneta.ExportParameters(true), false));
+                //string missatgeDesencriptat = ByteConverter.GetString(encrypt.RSADecrypt(missatgeEncriptatNau,  false));
 
-                if (missatgeDesencriptat == missatgeInicial)
-                {
-                    //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
-                    boolMisatgeCorrecte = true;
-                }
-                else
-                {
-                    //MAL
-                }
-            }
+                //if (missatgeDesencriptat == missatgeInicial)
+                //{
+                //    //--> ENVIAR A LA NAVE EL MENSAJE PARA CONTINUAR
+                //    boolMisatgeCorrecte = true;
+                //}
+                //else
+                //{
+                //    //MAL
+                //}
         }
 
         //FUNCIONS ENTREGA PACS
@@ -292,6 +291,16 @@ namespace Forms
             {
                 Directory.CreateDirectory(FilePathZip);
             }
+        }
+
+        private void btn_EnviarInput_Click_1(object sender, EventArgs e)
+        {
+            //INICIAR CLIENTE
+            clientTcp.setClient(ip, portChat);
+            clientTcp.enviarChat(txt_Input.Text, lbl_state);
+
+            txtb_consola.Text += Environment.NewLine + "[Mensaje Planeta] ➖ " + txt_Input.Text;
+            txt_Input.Text = "";
         }
     }
 }
