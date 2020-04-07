@@ -20,6 +20,12 @@ class _RegistrarState extends State<Registrar> {
     return new Scaffold(
         body: Stack(
           children: <Widget>[
+            Image.asset(
+              "assets/back_LoginRegistro.png",
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
             _showForm(),
            // _showCircularProgress(),
           ],
@@ -36,8 +42,8 @@ class _RegistrarState extends State<Registrar> {
             shrinkWrap: true,
             children: <Widget>[
               padding(20),
-              showLogo(),
-              padding(50),
+              //showLogo(),
+              padding(80),
               showNombreEquipoInput(),
               padding(10),
               showNombreParticipanteInputyButtonAdd(),
@@ -82,11 +88,16 @@ class _RegistrarState extends State<Registrar> {
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
+        style: TextStyle(color: Colors.white),
         decoration: new InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 0.0),
+          ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30)
+            borderRadius: BorderRadius.circular(30),
           ),
             hintText: 'Nombre del equipo',
+            hintStyle: TextStyle(color: Colors.white),
            /* icon: new Icon(
               Icons.mail,
               color: Colors.grey,
@@ -108,27 +119,32 @@ class _RegistrarState extends State<Registrar> {
               new Container(
                 child:
                   new TextField(
+                    style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "Participante",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)
-                      ),
+                      hintStyle: TextStyle(color: Colors.white),
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white, width: 0.0),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                     ),
                   ),
     
                 padding: const EdgeInsets.all(0.0),
                 alignment: Alignment.center,
-                width: 250.0,
+                width: MediaQuery.of(context).size.width * 0.60,
                 height: 100.0,
               ),
-                padding(10.0),
+                padding(5),
               new RaisedButton(key:null, onPressed: (){},
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0)
                 ),
                 child:
                   new Text("Añadir")
-                )
+              )
             ]
     
           ),
@@ -147,11 +163,16 @@ class _RegistrarState extends State<Registrar> {
         maxLines: 1,
         obscureText: true,
         autofocus: false,
+        style: TextStyle(color: Colors.white),
         decoration: new InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 0.0),
+          ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30)
+            borderRadius: BorderRadius.circular(30),
           ),
             hintText: 'Contraseña',
+            hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
         //onSaved: (value) => _password = value.trim(),

@@ -21,7 +21,13 @@ bool comprobar;
     return new Scaffold(
         body: Stack(
           children: <Widget>[
-            _showForm(),
+            Image.asset(
+              "assets/back_LoginRegistro.png",
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+          _showForm(),
           ],
         ));
   }
@@ -35,8 +41,8 @@ bool comprobar;
             shrinkWrap: true,
             children: <Widget>[
               padding(20),
-              showLogo(),
-              padding(20),
+              //showLogo(),
+              padding(80),
               showNombreEquipoInput(),
               padding(20),
               showPasswordInput(),
@@ -84,15 +90,19 @@ bool comprobar;
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
+        style: TextStyle(
+          color: Colors.white
+        ),
         decoration: new InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30)
+          enabledBorder: const OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 0.0),
           ),
-            hintText: 'Nombre del equipo:',
-           /* icon: new Icon(
-              Icons.mail,
-              color: Colors.grey,
-            )*/),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          hintText: 'Nombre del equipo',
+          hintStyle: TextStyle(color: Colors.white),
+        ),
         validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
         //onSaved: (value) => _email = value.trim(),
       ),
@@ -113,11 +123,18 @@ bool comprobar;
         maxLines: 1,
         obscureText: true,
         autofocus: false,
+        style: TextStyle(
+          color: Colors.white
+        ),
         decoration: new InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30)
+          enabledBorder: const OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 0.0),
           ),
-            hintText: 'Contraseña',
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          hintText: 'Contraseña',
+          hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
         //onSaved: (value) => _password = value.trim(),
@@ -133,7 +150,7 @@ bool comprobar;
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0)
         ),
-        child: Text("IniciarSesión"),
+        child: Text("Iniciar Sesión"),
         
         onPressed: () {
           log("Hola");

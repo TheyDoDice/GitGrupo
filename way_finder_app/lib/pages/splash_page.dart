@@ -5,7 +5,6 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
     var _duration = new Duration(seconds: 3);
@@ -23,7 +22,22 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-  Widget build(BuildContext context){
+    Widget build(BuildContext context) {
+    return new Scaffold(
+        body: Stack(
+          children: <Widget>[
+            Image.asset(
+              "assets/back_Splash.png",
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+          ],
+        )
+      );
+  }
+
+  /*Widget build(BuildContext context){
     return Container(
       color: Colors.blueGrey,
       child: Column(
@@ -31,9 +45,15 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/back_LoginRegistro.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ],
       ),
     );
-  }
+  }*/
 }
