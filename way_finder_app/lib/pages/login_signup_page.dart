@@ -27,6 +27,7 @@ bool comprobar;
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
+            padding(20),
           _showForm(),
           ],
         ));
@@ -42,12 +43,13 @@ bool comprobar;
             children: <Widget>[
               padding(20),
               //showLogo(),
-              padding(80),
+              padding(120),
               showNombreEquipoInput(),
               padding(20),
               showPasswordInput(),
               padding(30),
               showButtonIniciarSesion(),
+              showButtonRegistar(),
               //showSecondaryButton(),
               //showErrorMessage(),
             ],
@@ -145,7 +147,7 @@ bool comprobar;
 
   Widget showButtonIniciarSesion(){
     return Container(
-      padding: EdgeInsets.only(left: 150.0, right: 20.0),
+      padding: EdgeInsets.only(left: 50.0, right: 50.0),
       child: new RaisedButton(
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0)
@@ -156,6 +158,24 @@ bool comprobar;
           log("Hola");
           Navigator.pushNamed(context, 'Registrar');
           log("adeu");
+        },
+      )
+    );
+  }
+
+  Widget showButtonRegistar(){
+    return Container(
+      padding: EdgeInsets.only(left: 80.0, right: 80.0),
+      child: new RaisedButton(
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(30.0)
+        ),
+        child: Text("Registrar"),
+        
+        onPressed: () {
+         // log("Hola");
+          Navigator.pushNamed(context, 'Registrar');
+          //log("adeu");
         },
       )
     );
