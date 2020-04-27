@@ -20,12 +20,22 @@ class _HomeState extends State<Home> {
   }
 
   @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      body: 
-      showForm(),
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Image.asset(
+            "assets/back_Mapa.png",
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+          showForm(),
+        ],
+      ),
     );
   }
+
 
   Widget showForm(){
     return new Container(
@@ -53,7 +63,11 @@ class _HomeState extends State<Home> {
   Widget showContainer1(){
     return Container(
       padding: EdgeInsets.all(20.0),
-      color: Colors.blueGrey,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0)),
+        color: Colors.blue),
       child: Text("Mapa", style: TextStyle(
         color: Colors.white
         ),
@@ -66,16 +80,16 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: Colors.black
+            color: Colors.red
           ),
           top: BorderSide(
-            color: Colors.black
+            color: Colors.red
           ),
           right: BorderSide(
-            color: Colors.black
+            color: Colors.red
           ),
           left: BorderSide(
-            color: Colors.black
+            color: Colors.red
           ),
         )
       ),
@@ -86,7 +100,11 @@ class _HomeState extends State<Home> {
   Widget showContainer2(){
     return Container(
       padding: EdgeInsets.all(20.0),
-      color: Colors.blueGrey,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0)),
+        color: Colors.blue),
       child: Text("Pistas", style: TextStyle(
         color: Colors.white
         ),
@@ -97,7 +115,7 @@ class _HomeState extends State<Home> {
   Future<List<Trial>> getData() async {
 
     List<Trial> trials = [];
-
+    /*---DESCOMENTAR QUAN LA API FUNCIONI---
     int idLocation = 1;
 
     http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locationtrials");
@@ -121,6 +139,7 @@ class _HomeState extends State<Home> {
       log(t.name + " - " + t.description);
     }
 
+*/
     return trials;
   }
 

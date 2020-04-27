@@ -153,11 +153,9 @@ bool comprobar;
           borderRadius: new BorderRadius.circular(30.0)
         ),
         child: Text("Iniciar Sesión"),
-        
+        highlightColor: Colors.grey[600],
         onPressed: () {
-          log("Hola");
-          Navigator.pushNamed(context, 'Registrar');
-          log("adeu");
+          Navigator.pushNamed(context, 'ListaConcursos');
         },
       )
     );
@@ -171,7 +169,7 @@ bool comprobar;
           borderRadius: new BorderRadius.circular(30.0)
         ),
         child: Text("Registrar"),
-        
+        highlightColor: Colors.grey[600],
         onPressed: () {
          // log("Hola");
           Navigator.pushNamed(context, 'Registrar');

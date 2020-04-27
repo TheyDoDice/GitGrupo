@@ -20,14 +20,30 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context){
-    //final int idRace = ModalRoute.of(context).settings.arguments;
-    return Scaffold(
+ @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
       appBar: AppBar(
         title: Text("Localizaciones")
       ),
-      body: paginaList(context),
+      body: Stack(
+        children: <Widget>[
+          Image.asset(
+            "assets/back_CursosLocalizaciones.png",
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+          paginaList(context),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, 'Home');
+        },
+        child: Icon(Icons.chevron_right),
+        backgroundColor: Colors.blue,
+      ),
     );
   }
 
@@ -106,7 +122,8 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
   Future<List<Location>> getData() async {
 
     List<Location> locations = [];
-
+    /*---DESCOMENTAR QUAN LA API FUNCIONI---
+    
     http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locations");
     http.Response response_2 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/cities");
 
@@ -119,6 +136,13 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     for (Map<String, dynamic> x in json.decode(response_1.body)) {
       locations.add(new Location(x["id"], x["name"], x["clue"], x["idRace"], x["idCity"], cities[x["idCity"]]));
     }
+
+    */
+
+    locations.add(new Location(1,"Hospitalet de Llobregat","TEST",1,1,"TEST"));
+    locations.add(new Location(2,"Esplugues de Llobregat","TEST",1,1,"TEST"));
+    locations.add(new Location(3,"Cornellá de Llobregat","TEST",1,1,"TEST"));
+    locations.add(new Location(4,"Sant Feliu de Llobregat","TEST",1,1,"TEST"));
 
     return locations;
   }

@@ -26,25 +26,48 @@ class _ListaConcursosState extends State<ListaConcursos> {
 
 
   Future<List<Race>> getData() async {
-
     List<Race> races = [];
-    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/races");
     
+  /*---DESCOMENTAR QUAN LA API FUNCIONI---
+    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/races");
+          
     for (var x in json.decode(response_1.body)) {
       races.add(new Race(x["id"], x["name"]));
     }
+
+    */
+    races.add(new Race(1,"Curso 1"));
+    races.add(new Race(2,"Curso 2"));
+    races.add(new Race(3,"Curso 3"));
+    races.add(new Race(4,"Curso 4"));
+
     return races;
   }
 
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
+@override
+  Widget build(BuildContext context) {
+    return new Scaffold(
       appBar: AppBar(
         title: Text("Cursos disponibles")
       ),
-
-      body: paginaList(context)
-      
+      body: Stack(
+        children: <Widget>[
+          Image.asset(
+            "assets/back_CursosLocalizaciones.png",
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+          paginaList(context),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, 'EscogerCiudad');
+        },
+        child: Icon(Icons.chevron_right),
+        backgroundColor: Colors.blue,
+      ),
     );
   }
 

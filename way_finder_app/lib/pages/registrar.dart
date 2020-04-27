@@ -142,8 +142,8 @@ class _RegistrarState extends State<Registrar> {
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0)
                 ),
-                child:
-                  new Text("Añadir")
+                child: new Text("Añadir"),
+                highlightColor: Colors.grey[600]
               )
             ]
     
@@ -187,12 +187,11 @@ class _RegistrarState extends State<Registrar> {
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0)
         ),
-
         child: Text("Registrar"),
-        
-        onPressed: () => _navigateToListaCursos()//comprobarUsuario(context),
-
-            
+        highlightColor: Colors.grey[600],
+        onPressed: () {
+            Navigator.of(context).pushReplacementNamed('Login');
+        }
      ),
     );
   }
