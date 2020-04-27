@@ -28,18 +28,12 @@ class _ListaConcursosState extends State<ListaConcursos> {
   Future<List<Race>> getData() async {
     List<Race> races = [];
     
-  /*---DESCOMENTAR QUAN LA API FUNCIONI---
-    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/races");
-          
-    for (var x in json.decode(response_1.body)) {
-      races.add(new Race(x["id"], x["name"]));
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/races");          
+    
+    for (var x in json.decode(response_1.body))
+    {
+      races.add(new Race(x["Id"], x["Name"]));
     }
-
-    */
-    races.add(new Race(1,"Curso 1"));
-    races.add(new Race(2,"Curso 2"));
-    races.add(new Race(3,"Curso 3"));
-    races.add(new Race(4,"Curso 4"));
 
     return races;
   }
