@@ -190,7 +190,7 @@ class _RegistrarState extends State<Registrar> {
         child: Text("Registrar"),
         highlightColor: Colors.grey[600],
         onPressed: () {
-            Navigator.of(context).pushReplacementNamed('Login');
+          Navigator.pushNamed(context, 'Login');
         }
      ),
     );

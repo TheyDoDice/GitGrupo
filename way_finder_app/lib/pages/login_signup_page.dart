@@ -144,7 +144,6 @@ bool comprobar;
     );
   }
 
-
   Widget showButtonIniciarSesion(){
     return Container(
       padding: EdgeInsets.only(left: 50.0, right: 50.0),
@@ -171,9 +170,7 @@ bool comprobar;
         child: Text("Registrar"),
         highlightColor: Colors.grey[600],
         onPressed: () {
-         // log("Hola");
           Navigator.pushNamed(context, 'Registrar');
-          //log("adeu");
         },
       )
     );

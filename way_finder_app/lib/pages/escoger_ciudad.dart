@@ -111,7 +111,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     return Text(
       text,
       style: TextStyle(
-        color: Color.fromRGBO(187, 146, 95, 1),
+        color: Colors.white,
         fontSize: fontSize,
       ),
     );

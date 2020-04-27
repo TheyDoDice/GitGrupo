@@ -62,9 +62,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, 'EscogerCiudad');
-        },
+        onPressed: () {Navigator.pushNamed(context, 'EscogerCiudad');},
         child: Icon(Icons.chevron_right),
         backgroundColor: Colors.blue,
       ),
@@ -77,8 +75,10 @@ class _ListaConcursosState extends State<ListaConcursos> {
       height: double.infinity,
       child: FutureBuilder(
         future: getData(),
-        builder: (BuildContext context, AsyncSnapshot snapshot){
-          if(snapshot.data == null){
+        builder: (BuildContext context, AsyncSnapshot snapshot)
+        {
+          if(snapshot.data == null)
+          {
             return _cargando();
           }
           return showList(snapshot, context);
@@ -94,7 +94,8 @@ class _ListaConcursosState extends State<ListaConcursos> {
   Widget showList(AsyncSnapshot snapshot, BuildContext context){
     return ListView.builder(
       itemCount: snapshot.data.length,
-      itemBuilder: (BuildContext context, int index){
+      itemBuilder: (BuildContext context, int index)
+      {
         return _race(snapshot, index, context);
       }
     );
@@ -119,10 +120,9 @@ class _ListaConcursosState extends State<ListaConcursos> {
     return Text(
       text,
       style: TextStyle(
-        color: Color.fromRGBO(187, 146, 95, 1),
+        color: Colors.white,
         fontSize: fontSize,
       ),
-
     );
   }
 
@@ -138,6 +138,9 @@ class _ListaConcursosState extends State<ListaConcursos> {
       ),
     );
   }
+
+
+
 
   /*Widget showList(){
     //if(_list.length > 0){
