@@ -37,13 +37,13 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
           paginaList(context),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, 'Home');
         },
         child: Icon(Icons.chevron_right),
         backgroundColor: Colors.blue,
-      ),
+      ),*/
     );
   }
 
@@ -87,12 +87,23 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
           //color:
           //border:  
         ), 
-        child: _textLocation(snapshot, index),
-      ),
-    onTap: (){
+        child: ListTile(
+          title: _textLocation(snapshot, index),
+          trailing: RaisedButton(
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(30.0)
+            ),
+            child: Icon(Icons.arrow_forward_ios),
+        
+            onPressed: () =>  Navigator.pushNamed(context, 'Home', arguments: snapshot.data[index].name),
+          ),
+
+        )
+      ));
+    /*onTap: (){
          Navigator.pushNamed(context, 'Home', arguments: snapshot.data[index].id);
       }
-      );
+      );*/
   }
 
   Widget _textLocation(AsyncSnapshot snapshot, int index){
@@ -100,7 +111,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
       child: Center(
         child: Column(
           children: <Widget>[
-            _text(snapshot.data[index].city + ": " + snapshot.data[index].name , 23)
+            _text(snapshot.data[index].city, 23)
           ]
         )
       ),
@@ -122,27 +133,27 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
   Future<List<Location>> getData() async {
 
     List<Location> locations = [];
-    /*---DESCOMENTAR QUAN LA API FUNCIONI---
+    //---DESCOMENTAR QUAN LA API FUNCIONI---
     
-    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locations");
-    http.Response response_2 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/cities");
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations");
+    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/city");
 
     Map<int, String> cities = Map.fromIterable(
       json.decode(response_2.body), 
-      key: (x) => x["id"], 
-      value: (x) => x["name"]
+      key: (x) => x["Id"], 
+      value: (x) => x["Name"]
     );
 
     for (Map<String, dynamic> x in json.decode(response_1.body)) {
-      locations.add(new Location(x["id"], x["name"], x["clue"], x["idRace"], x["idCity"], cities[x["idCity"]]));
+      locations.add(new Location(x["Id"], x["Name"], x["Clue"], x["IdRace"], x["IdCity"], cities[x["IdCity"]]));
     }
 
-    */
+    
 
-    locations.add(new Location(1,"Hospitalet de Llobregat","TEST",1,1,"TEST"));
+   /* locations.add(new Location(1,"Hospitalet de Llobregat","TEST",1,1,"TEST"));
     locations.add(new Location(2,"Esplugues de Llobregat","TEST",1,1,"TEST"));
     locations.add(new Location(3,"Cornellá de Llobregat","TEST",1,1,"TEST"));
-    locations.add(new Location(4,"Sant Feliu de Llobregat","TEST",1,1,"TEST"));
+    locations.add(new Location(4,"Sant Feliu de Llobregat","TEST",1,1,"TEST"));*/
 
     return locations;
   }

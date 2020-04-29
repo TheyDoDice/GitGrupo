@@ -55,11 +55,11 @@ class _ListaConcursosState extends State<ListaConcursos> {
           paginaList(context),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         onPressed: () {Navigator.pushNamed(context, 'EscogerCiudad');},
         child: Icon(Icons.chevron_right),
         backgroundColor: Colors.blue,
-      ),
+      ),*/
     );
   }
 
@@ -104,9 +104,20 @@ class _ListaConcursosState extends State<ListaConcursos> {
           //color:
           //border:  
         ),
-        child: _textConcursos(snapshot, index),
+       child: //_textConcursos(snapshot, index),
+        ListTile(
+          title: _textConcursos(snapshot, index),  
+          trailing: RaisedButton(
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(30.0)
+            ),
+            child: Text("Inscribir"),
+        
+            onPressed: () =>  Navigator.pushNamed(context, 'EscogerCiudad', arguments: snapshot.data[index].name),
+          ),
+      )
       ),
-    onTap: () => Navigator.pushNamed(context, 'EscogerCiudad', arguments: snapshot.data[index].name)
+   // onTap: () => Navigator.pushNamed(context, 'EscogerCiudad', arguments: snapshot.data[index].name)
     );
   }
 
