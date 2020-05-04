@@ -47,7 +47,7 @@ bool comprobar;
               showNombreEquipoInput(),
               padding(20),
               showPasswordInput(),
-              padding(30),
+              padding(10),
               showButtonIniciarSesion(),
               showButtonRegistar(),
               //showSecondaryButton(),
@@ -146,7 +146,7 @@ bool comprobar;
 
   Widget showButtonIniciarSesion(){
     return Container(
-      padding: EdgeInsets.only(left: 50.0, right: 50.0),
+      padding: EdgeInsets.only(left: 70.0, right: 70.0),
       child: new RaisedButton(
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0)

@@ -42,15 +42,16 @@ class _RegistrarState extends State<Registrar> {
             shrinkWrap: true,
             children: <Widget>[
               padding(20),
-              //showLogo(),
-              padding(80),
+              padding(70),
+              showLabelRegistroEquipos(),
               showNombreEquipoInput(),
               padding(10),
-              showNombreParticipanteInputyButtonAdd(),
-              padding(10),
               showPassowrdInput(),
-              padding(10),
+              padding(7),
               showButtonRegistrar(),
+              padding(10),
+              showLabelRegistroParticipante(),
+              showNombreParticipanteInputyButtonAdd(),
              // showButtonIniciarSesion(),
               //showSecondaryButton(),
               //showErrorMessage(),
@@ -80,6 +81,35 @@ class _RegistrarState extends State<Registrar> {
     );
   }
 
+  Widget showLabelRegistroEquipos(){
+    return Container(
+        margin: new EdgeInsets.only(left: 20.0),
+      child:  TextFormField(
+        decoration: InputDecoration(
+          labelText: 'Registrar Equipos:',
+          labelStyle: TextStyle(
+            color: Colors.white,
+            decoration: TextDecoration.underline
+          )
+        ),
+      ),
+    );
+  }
+
+  Widget showLabelRegistroParticipante(){
+    return Container(
+        margin: new EdgeInsets.only(left: 20.0),
+      child:  TextFormField(
+        decoration: InputDecoration(
+          labelText: 'Registrar Participantes:',
+          labelStyle: TextStyle(
+            color: Colors.white,
+            decoration: TextDecoration.underline
+          )
+        ),
+      ),
+    );
+  }
 
   Widget showNombreEquipoInput() {
     return Padding(
@@ -109,8 +139,8 @@ class _RegistrarState extends State<Registrar> {
   }
 
   Widget showNombreParticipanteInputyButtonAdd() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 25.0),
+    return Container(
+      margin: EdgeInsets.only(left: 20.0),
       child: new Row(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
@@ -135,7 +165,7 @@ class _RegistrarState extends State<Registrar> {
                 padding: const EdgeInsets.all(0.0),
                 alignment: Alignment.center,
                 width: MediaQuery.of(context).size.width * 0.60,
-                height: 100.0,
+                //height: 100.0,
               ),
                 padding(5),
               new RaisedButton(key:null, onPressed: (){},
