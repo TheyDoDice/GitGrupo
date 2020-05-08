@@ -118,23 +118,23 @@ class _HomeState extends State<Home> {
   Future<List<Trial>> getData() async {
 
     List<Trial> trials = [];
-    /*---DESCOMENTAR QUAN LA API FUNCIONI---
+    //---DESCOMENTAR QUAN LA API FUNCIONI---
     int idLocation = 1;
 
-    http.Response response_1 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/locationtrials");
-    http.Response response_2 = await http.get("https://racetolightsaber20200217051734.azurewebsites.net/api/trials");
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locationtrial");
+    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/trials");
     
     int idTrial;
 
     for (var x in json.decode(response_1.body)) {
-      if (x["idLocation"] == idLocation) {
-        idTrial = x["idTrial"];
+      if (x["IdLocation"] == idLocation) {
+        idTrial = x["IdTrial"];
       }
     }
 
     for (var x in json.decode(response_2.body)) {
-      if (x["id"] == idTrial) {
-        trials.add(new Trial(idTrial, x["name"], x["description"]));
+      if (x["Id"] == idTrial) {
+        trials.add(new Trial(idTrial, x["Name"], x["Description"]));
       }
     }
 
@@ -142,7 +142,7 @@ class _HomeState extends State<Home> {
       log(t.name + " - " + t.description);
     }
 
-*/
+
     return trials;
   }
 
