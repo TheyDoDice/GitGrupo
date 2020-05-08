@@ -31,7 +31,7 @@ namespace GenerarOrder
                 while ((line = file.ReadLine()) != null)
                 {
                     
-                    string[] lineInfo = line.Split('|');
+                    string[] lineInfo = line.Split('|');    
                     string etiqueta = lineInfo[0];
                     string code1 = lineInfo[1], code2 = "", code3 = "";
 
@@ -51,7 +51,7 @@ namespace GenerarOrder
                     }
                     else if (etiqueta == dates)
                     {
-                        order.dateOrder = DateTime.ParseExact(code1, "yyyyMMdd", CultureInfo.InvariantCulture);
+                        order.dateOrder = DateTime.ParseExact(code1, "ddMMyyyy", CultureInfo.InvariantCulture);
                     }
                     else if (etiqueta == emisor)
                     {
