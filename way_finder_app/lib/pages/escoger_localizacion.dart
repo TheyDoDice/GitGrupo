@@ -2,19 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:way_finder_app/models/Location.dart';
-import 'package:way_finder_app/models/City.dart';
 import 'package:way_finder_app/models/city.dart';
 
 
-class EscogerCiudad extends StatefulWidget {
+class EscogerLocalizacion extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new _EscogerCiudadState();
+  State<StatefulWidget> createState() => new _EscogerLocalizacion();
 }
 
-class _EscogerCiudadState extends State<EscogerCiudad> {
+class _EscogerLocalizacion extends State<EscogerLocalizacion> {
   //List<String> _list;
-
-  String raceId;
   
   @override
   void initState() {
@@ -26,10 +23,10 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
 
  @override
   Widget build(BuildContext context) {
-    raceId = ModalRoute.of(context).settings.arguments;
+    final int cityId = ModalRoute.of(context).settings.arguments;
     return new Scaffold(
       appBar: AppBar(
-        title: Text("Ciudades")
+        title: Text("Localizaciones")
       ),
       body: Stack(
         children: <Widget>[
@@ -39,7 +36,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
-          paginaList(context),
+          paginaList(context, cityId),
         ],
       ),
       /*floatingActionButton: FloatingActionButton(
@@ -52,13 +49,13 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     );
   }
 
-  Widget paginaList(BuildContext context){
+  Widget paginaList(BuildContext context, int cityId){
     //if(_list.length > 0){
      return Container(
       width: double.infinity,
       height: double.infinity,
       child: FutureBuilder(
-        future: getData(),
+        future: getData(cityId),
         builder: (BuildContext context, AsyncSnapshot snapshot){
           if(snapshot.data == null){
             return _cargando();
@@ -98,9 +95,8 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
             shape: new RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(30.0)
             ),
-            child: Icon(Icons.arrow_forward_ios),
-        
-            onPressed: () =>  Navigator.pushNamed(context, 'EscogerLocalizacion', arguments: snapshot.data[index].id),
+            child: Icon(Icons.arrow_forward_ios),        
+            onPressed: () =>  Navigator.pushNamed(context, 'Home', arguments: snapshot.data[index].id),
           ),
 
         )
@@ -135,26 +131,22 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
 
 
 
-  Future<List<City>> getData() async {
+  Future<List<Location>> getData(int cityId) async {
 
-    List<City> cities = [];
+    List<Location> locations = [];
     //---DESCOMENTAR QUAN LA API FUNCIONI---
     
-    //http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations");
-    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/races/cities/" + raceId);
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations/byCityId/" + cityId.toString());
+    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/city");
 
-    /*Map<int, String> cities = Map.fromIterable(
+    Map<int, String> cities = Map.fromIterable(
       json.decode(response_2.body), 
       key: (x) => x["Id"], 
       value: (x) => x["Name"]
-    );*/
+    );
 
-/*    for (Map<String, dynamic> x in json.decode(response_1.body)) {
+    for (Map<String, dynamic> x in json.decode(response_1.body)) {
       locations.add(new Location(x["Id"], x["Name"], x["Clue"], x["IdRace"], x["IdCity"], cities[x["IdCity"]]));
-    }*/
-
-    for (Map<String, dynamic> x in json.decode(response_2.body)) {
-      cities.add(new City(x["Id"], x["Name"]));
     }
 
     
@@ -164,6 +156,6 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     locations.add(new Location(3,"Cornellá de Llobregat","TEST",1,1,"TEST"));
     locations.add(new Location(4,"Sant Feliu de Llobregat","TEST",1,1,"TEST"));*/
 
-    return cities;
+    return locations;
   }
 }

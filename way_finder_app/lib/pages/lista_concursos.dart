@@ -13,7 +13,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
   //List<String> _list;
   BuildContext context;
   AsyncSnapshot snapshot;
-
+  String teamId;
 
 
   @override
@@ -28,7 +28,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
   Future<List<Race>> getData() async {
     List<Race> races = [];
     
-    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/races");          
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/team/races/" + teamId);          
     
     for (var x in json.decode(response_1.body))
     {
@@ -40,6 +40,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
 
 @override
   Widget build(BuildContext context) {
+    teamId = ModalRoute.of(context).settings.arguments;
     return new Scaffold(
       appBar: AppBar(
         title: Text("Cursos disponibles")
@@ -113,7 +114,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
             ),
             child: Text("Inscribir"),
         
-            onPressed: () =>  Navigator.pushNamed(context, 'EscogerCiudad', arguments: snapshot.data[index].name),
+            onPressed: () =>  Navigator.pushNamed(context, 'EscogerCiudad', arguments: snapshot.data[index].id),
           ),
       )
       ),

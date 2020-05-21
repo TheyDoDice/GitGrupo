@@ -1,6 +1,9 @@
 import 'dart:developer';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+
+import 'dart:convert';
+import 'package:way_finder_app/models/Team.dart';
 
 class Login extends StatefulWidget {
 
@@ -10,6 +13,10 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 bool comprobar;
+String teamName; 
+String password;
+
+
   @override
   void initState() {
     super.initState();
@@ -105,8 +112,8 @@ bool comprobar;
           hintText: 'Nombre del equipo',
           hintStyle: TextStyle(color: Colors.white),
         ),
-        validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
-        //onSaved: (value) => _email = value.trim(),
+        validator: (value) => value.isEmpty ? 'Name can\'t be empty' : null,
+        onSaved: (value) => teamName = value.trim(),
       ),
     );
   }
@@ -139,7 +146,7 @@ bool comprobar;
           hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
-        //onSaved: (value) => _password = value.trim(),
+        onSaved: (value) => password = value.trim(),
       ),
     );
   }
@@ -154,10 +161,35 @@ bool comprobar;
         child: Text("Iniciar Sesión"),
         highlightColor: Colors.grey[600],
         onPressed: () {
-          Navigator.pushNamed(context, 'ListaConcursos');
+          //crida api login
+          if(login() == 0){
+            //error
+            Text('Dades incorrectes');
+          }else{
+            Navigator.pushNamed(context, 'ListaConcursos', arguments: login());
+          }
+          //
+          
         },
       )
     );
+  }
+
+  Future<int> login() async {
+
+    int teamId = 0;
+
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/teams/login/" + teamName + "/" + password);
+
+    
+
+    for (Map<String, dynamic> x in json.decode(response_1.body)) {
+      if(x.isNotEmpty){
+        teamId = x["Id"];
+      }
+    }
+
+    return teamId;
   }
 
   Widget showButtonRegistar(){

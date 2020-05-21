@@ -25,16 +25,31 @@ namespace WFApi.Controllers
         }
 
         // GET: api/Teams/5
-        [ResponseType(typeof(Team))]
+        [ResponseType(typeof(TeamDto))]
         public async Task<IHttpActionResult> GetTeam(int id)
         {
-            Team team = await db.Team.FindAsync(id);
-            if (team == null)
+            Team team = await db.Team
+                .Include(x => x.TeamsRaces)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            TeamDto teamDto = new TeamDto();
+
+            teamDto.Id = team.Id;
+            teamDto.LocationFinished = team.LocationFinished;
+            teamDto.Members = team.Member;
+            teamDto.Name = team.Name;
+            teamDto.Password = team.Password;
+            foreach(var race in team.TeamsRaces)
+            {
+                teamDto.Races.Add(db.Race.Where(x => x.Id == race.IdRace).FirstOrDefault());
+            }            
+
+            if (teamDto == null)
             {
                 return NotFound();
             }
 
-            return Ok(team);
+            return Ok(teamDto);
         }
 
         //// GET: api/TeamMembers/5

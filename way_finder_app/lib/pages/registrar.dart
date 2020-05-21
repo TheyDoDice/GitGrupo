@@ -227,5 +227,19 @@ class _RegistrarState extends State<Registrar> {
   }
 }
 
+/*
+var body = {
+      "Name": teamName,
+      "Password": password
+    };
+
+    http.post("http://apiwayfinder.gear.host/api/teams",
+      headers: {"Content-Type": "application/json"},
+      body: body
+    ).then((http.Response response) {
+      var id  = response.id
+    }));
+    
+*/
 
 

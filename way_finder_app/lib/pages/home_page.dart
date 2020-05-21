@@ -1,5 +1,5 @@
 import 'dart:developer';
-
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:way_finder_app/models/Trial.dart';
 import 'package:http/http.dart' as http;
@@ -19,8 +19,11 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
+  String locationId;
+
   @override
   Widget build(BuildContext context) {
+    locationId = ModalRoute.of(context).settings.arguments;
     return new Scaffold(
       appBar: AppBar(
         title: Text("Pantalla principal")
@@ -51,10 +54,23 @@ class _HomeState extends State<Home> {
             showContainerImage(),
             padding(20.0),
             showContainer2(),
-            showContainerList()
+            showContainerList(),
+            _showQr()
           ]  
         ),
       ),              
+    );
+  }
+
+  Widget _showQr(){
+    return Column(
+      children: <Widget>[
+            QrImage(
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.all(150),
+              data: 'Conectat',
+         )
+          ]
     );
   }
 
@@ -63,6 +79,7 @@ class _HomeState extends State<Home> {
       padding: EdgeInsets.all(number),
     );
   }
+
   Widget showContainer1(){
     return Container(
       padding: EdgeInsets.all(20.0),
@@ -118,13 +135,14 @@ class _HomeState extends State<Home> {
   Future<List<Trial>> getData() async {
 
     List<Trial> trials = [];
-    //---DESCOMENTAR QUAN LA API FUNCIONI---
-    int idLocation = 1;
-
-    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locationtrial");
-    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/trials");
+    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations/" + locationId);
+    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/trials/" + locationId);
     
     int idTrial;
+
+    for (Map<String, dynamic> x in json.decode(response_1.body)) {
+      trials.add(new Location(x["Id"], x["Name"], x["Clue"], x["IdRace"], x["IdCity"], cities[x["IdCity"]]));
+    }
 
     for (var x in json.decode(response_1.body)) {
       if (x["IdLocation"] == idLocation) {

@@ -183,6 +183,7 @@
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\TeamDto.cs" />
     <Compile Include="Models\TeamsRaces.cs" />
     <Compile Include="Models\Trial.cs" />
     <Compile Include="Models\WFModels.cs" />

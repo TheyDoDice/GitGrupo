@@ -5,3 +5,4 @@ export 'splash_page.dart';
 export 'lista_concursos.dart';
 export 'pistas.dart';
 export 'registrar.dart';
+export 'escoger_localizacion.dart';
