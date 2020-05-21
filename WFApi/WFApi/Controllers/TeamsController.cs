@@ -57,9 +57,26 @@ namespace WFApi.Controllers
         public ICollection<Member> GetTeamMembers(int id)
         {
             Team team = db.Team.Find(id);
-            ICollection<Member> member = team.Member;
+            ICollection<Member> member = db.Member.Where(x => x.TeamId == id).ToList();
 
             return member;
+        }
+
+
+        [ResponseType(typeof(Team))]
+        [Route("Login/{name}/{password}")]
+        public async Task<IHttpActionResult> GetLoginTeam(string name, string password)
+        {
+            try
+            {
+                Team team = await db.Team.Where(x => x.Name == name && x.Password == password).FirstAsync();
+                return Ok(team);
+            }
+            catch
+            {
+                return NotFound();
+            }
+                    
         }
 
         // PUT: api/Teams/5

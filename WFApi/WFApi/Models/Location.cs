@@ -1,4 +1,4 @@
-namespace WFApi.Models
+ namespace WFApi.Models
 {
     using System;
     using System.Collections.Generic;

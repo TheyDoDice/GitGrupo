@@ -25,6 +25,9 @@ namespace WFApi
             .Add(new MediaTypeHeaderValue("text/html"));
 
             config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+= Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
     }
 }

@@ -38,11 +38,14 @@ namespace WFApi.Controllers
         }
 
         // POST: api/Members/5
-        [Route("onTeam/{id:int}")]
         [ResponseType(typeof(Member))]
-        public async Task<IHttpActionResult> PostMember(Member member, int id)
+        public async Task<IHttpActionResult> PostMember(Member member)
         {
-            member.TeamId = id;
+            Team team = db.Team.Find(member.TeamId);
+            team.Member.Add(member);
+
+            db.Entry(team).State = EntityState.Modified;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
