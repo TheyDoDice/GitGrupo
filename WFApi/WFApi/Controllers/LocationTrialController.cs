@@ -13,6 +13,7 @@ using WFApi.Models;
 
 namespace WFApi.Controllers
 {
+    [RoutePrefix("api/locationtrial")]
     public class LocationTrialController : ApiController
     {
         private WFModels db = new WFModels();
@@ -20,7 +21,14 @@ namespace WFApi.Controllers
         // GET: api/LocationTrial
         public IQueryable<LocationTrial> GetLocationTrial()
         {
-            return db.LocationTrial;
+            return db.LocationTrial.Include(x=>x.Location).Include(y=>y.Trial);
+        }
+
+        [Route("location/{id}")]
+        [ResponseType(typeof(IQueryable<Trial>))]
+        public IQueryable<LocationTrial> GetLocationTrialByLocation(int id)
+        {
+            return db.LocationTrial.Include(x => x.Location).Include(y => y.Trial).Where(x=>x.IdLocation == id);
         }
 
         // GET: api/LocationTrial/5

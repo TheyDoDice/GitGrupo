@@ -12,6 +12,7 @@ class EscogerLocalizacion extends StatefulWidget {
 
 class _EscogerLocalizacion extends State<EscogerLocalizacion> {
   //List<String> _list;
+  int cityId;
   
   @override
   void initState() {
@@ -23,10 +24,11 @@ class _EscogerLocalizacion extends State<EscogerLocalizacion> {
 
  @override
   Widget build(BuildContext context) {
-    final int cityId = ModalRoute.of(context).settings.arguments;
+    cityId = ModalRoute.of(context).settings.arguments;
+    print(cityId);
     return new Scaffold(
       appBar: AppBar(
-        title: Text("Localizaciones")
+        title: Text("Pruebas")
       ),
       body: Stack(
         children: <Widget>[
@@ -36,7 +38,7 @@ class _EscogerLocalizacion extends State<EscogerLocalizacion> {
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
-          paginaList(context, cityId),
+          paginaList(context),
         ],
       ),
       /*floatingActionButton: FloatingActionButton(
@@ -49,13 +51,13 @@ class _EscogerLocalizacion extends State<EscogerLocalizacion> {
     );
   }
 
-  Widget paginaList(BuildContext context, int cityId){
+  Widget paginaList(BuildContext context){
     //if(_list.length > 0){
      return Container(
       width: double.infinity,
       height: double.infinity,
       child: FutureBuilder(
-        future: getData(cityId),
+        future: getData(),
         builder: (BuildContext context, AsyncSnapshot snapshot){
           if(snapshot.data == null){
             return _cargando();
@@ -131,25 +133,16 @@ class _EscogerLocalizacion extends State<EscogerLocalizacion> {
 
 
 
-  Future<List<Location>> getData(int cityId) async {
+  Future<List<Location>> getData() async {
 
     List<Location> locations = [];
     //---DESCOMENTAR QUAN LA API FUNCIONI---
     
-    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations/byCityId/" + cityId.toString());
-    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/city");
-
-    Map<int, String> cities = Map.fromIterable(
-      json.decode(response_2.body), 
-      key: (x) => x["Id"], 
-      value: (x) => x["Name"]
-    );
+    http.Response response_1 = await http.get("http://wfapi.gear.host/api/locations/city/" + cityId.toString());
 
     for (Map<String, dynamic> x in json.decode(response_1.body)) {
-      locations.add(new Location(x["Id"], x["Name"], x["Clue"], x["IdRace"], x["IdCity"], cities[x["IdCity"]]));
+      locations.add(new Location(x["Id"], x["Name"], x["Clue"], x["IdRace"], x["IdCity"]));
     }
-
-    
 
    /* locations.add(new Location(1,"Hospitalet de Llobregat","TEST",1,1,"TEST"));
     locations.add(new Location(2,"Esplugues de Llobregat","TEST",1,1,"TEST"));

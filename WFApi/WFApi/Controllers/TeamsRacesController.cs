@@ -81,8 +81,6 @@ namespace WFApi.Controllers
             }
 
             db.TeamsRaces.Add(teamsRaces);
-            db.Team.Where(x => x.Id == teamsRaces.IdTeam).FirstOrDefault().TeamsRaces.Add(teamsRaces);
-            db.Race.Where(x => x.Id == teamsRaces.IdRace).FirstOrDefault().TeamsRaces.Add(teamsRaces);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = teamsRaces.Id }, teamsRaces);

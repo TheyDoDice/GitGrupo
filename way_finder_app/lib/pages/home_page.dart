@@ -19,11 +19,12 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
-  String locationId;
+  int locationId;
 
   @override
   Widget build(BuildContext context) {
     locationId = ModalRoute.of(context).settings.arguments;
+    print('locationid: ' + locationId.toString());
     return new Scaffold(
       appBar: AppBar(
         title: Text("Pantalla principal")
@@ -55,6 +56,8 @@ class _HomeState extends State<Home> {
             padding(20.0),
             showContainer2(),
             showContainerList(),
+            showContainer3(),
+            showContainerList2(),
             _showQr()
           ]  
         ),
@@ -125,43 +128,48 @@ class _HomeState extends State<Home> {
           topLeft: Radius.circular(10.0),
           topRight: Radius.circular(10.0)),
         color: Colors.blue),
-      child: Text("Pistas", style: TextStyle(
+      child: Text("Pista", style: TextStyle(
         color: Colors.white
         ),
       ),
     );
   }
 
-  Future<List<Trial>> getData() async {
+   Widget showContainer3(){
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0)),
+        color: Colors.blue),
+        child: Text("Informació de la prova", style: TextStyle(
+        color: Colors.white
+        ),
+      ),
+    );
+  }
 
-    List<Trial> trials = [];
-    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations/" + locationId);
-    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/trials/" + locationId);
+
+  Future<Trial> getData() async {
+
+    Trial trial;
+    http.Response response_1 = await http.get("http://wfapi.gear.host/api/locations/" + locationId.toString());
+    http.Response response_2 = await http.get("http://wfapi.gear.host/api/trials/" + locationId.toString());
     
-    int idTrial;
+    String clue;
 
-    for (Map<String, dynamic> x in json.decode(response_1.body)) {
+    /*for (Map<String, dynamic> x in json.decode(response_1.body)) {
       trials.add(new Location(x["Id"], x["Name"], x["Clue"], x["IdRace"], x["IdCity"], cities[x["IdCity"]]));
-    }
+    }*/
 
-    for (var x in json.decode(response_1.body)) {
-      if (x["IdLocation"] == idLocation) {
-        idTrial = x["IdTrial"];
-      }
-    }
+    clue = json.decode(response_1.body)["Clue"];
 
-    for (var x in json.decode(response_2.body)) {
-      if (x["Id"] == idTrial) {
-        trials.add(new Trial(idTrial, x["Name"], x["Description"]));
-      }
-    }
+    var trial1 = json.decode(response_2.body);
 
-    for (Trial t in trials) {
-      log(t.name + " - " + t.description);
-    }
+    trial = new Trial(trial1["Id"], trial1["Name"], clue, trial1["Description"]);
 
-
-    return trials;
+    return trial;
   }
 
   Widget showContainerList(){
@@ -178,6 +186,20 @@ class _HomeState extends State<Home> {
     );
   }
 
+  Widget showContainerList2(){
+     return Container(
+      child: FutureBuilder(
+        future: getData(),
+        builder: (BuildContext context, AsyncSnapshot snapshot){
+          if(snapshot.data == null){
+            return _cargando();
+          }
+          return showList2(snapshot, context);
+        }
+      )
+    );
+  }
+
   Widget _cargando(){
     return Center(child: (CircularProgressIndicator()));
   }
@@ -186,9 +208,20 @@ class _HomeState extends State<Home> {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
-      itemCount: snapshot.data.length,
+      itemCount: 1,
       itemBuilder: (BuildContext context, int index){
         return _trial(snapshot, index, context);
+      }
+    );
+  }
+
+  Widget showList2(AsyncSnapshot snapshot, BuildContext context){
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemCount: 1,
+      itemBuilder: (BuildContext context, int index){
+        return _trial2(snapshot, index, context);
       }
     );
   }
@@ -206,12 +239,38 @@ class _HomeState extends State<Home> {
       );
   }
 
+  Widget _trial2(AsyncSnapshot snapshot, int index, BuildContext context){
+    return GestureDetector(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+        decoration: BoxDecoration(), 
+        child: _textTrial2(snapshot, index),
+      ),
+    onTap: (){
+        //Navigator.pushNamed(context, 'EscogerCiudad');
+      }
+      );
+  }
+
   Widget _textTrial(AsyncSnapshot snapshot, int index){
     return Container(
       child: Center(
         child: Column(
           children: <Widget>[
-            _text(snapshot.data[index].name + ": " + snapshot.data[index].description , 23)
+            _text(snapshot.data.clue , 23)
+          ]
+        )
+      ),
+    );
+  }
+
+  
+  Widget _textTrial2(AsyncSnapshot snapshot, int index){
+    return Container(
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            _text2(snapshot.data.description , 23)
           ]
         )
       ),
@@ -228,3 +287,13 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+Widget _text2(String text, double fontSize){
+    return Text(
+      text,
+      style: TextStyle(
+        color: Color.fromRGBO(187, 146, 95, 1),
+        fontSize: fontSize,
+      ),
+    );
+  }

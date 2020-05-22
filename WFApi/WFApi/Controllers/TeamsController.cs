@@ -39,6 +39,7 @@ namespace WFApi.Controllers
             teamDto.Members = team.Member;
             teamDto.Name = team.Name;
             teamDto.Password = team.Password;
+
             foreach(var race in team.TeamsRaces)
             {
                 teamDto.Races.Add(db.Race.Where(x => x.Id == race.IdRace).FirstOrDefault());

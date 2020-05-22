@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:way_finder_app/models/Location.dart';
-import 'package:way_finder_app/models/City.dart';
 import 'package:way_finder_app/models/city.dart';
 
 
@@ -14,7 +13,7 @@ class EscogerCiudad extends StatefulWidget {
 class _EscogerCiudadState extends State<EscogerCiudad> {
   //List<String> _list;
 
-  String raceId;
+  int raceId;
   
   @override
   void initState() {
@@ -141,7 +140,7 @@ class _EscogerCiudadState extends State<EscogerCiudad> {
     //---DESCOMENTAR QUAN LA API FUNCIONI---
     
     //http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/locations");
-    http.Response response_2 = await http.get("http://apiwayfinder.gear.host/api/races/cities/" + raceId);
+    http.Response response_2 = await http.get("http://wfapi.gear.host/api/city");
 
     /*Map<int, String> cities = Map.fromIterable(
       json.decode(response_2.body), 

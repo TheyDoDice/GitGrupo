@@ -13,7 +13,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
   //List<String> _list;
   BuildContext context;
   AsyncSnapshot snapshot;
-  String teamId;
+  int teamId;
 
 
   @override
@@ -28,7 +28,7 @@ class _ListaConcursosState extends State<ListaConcursos> {
   Future<List<Race>> getData() async {
     List<Race> races = [];
     
-    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/team/races/" + teamId);          
+    http.Response response_1 = await http.get("http://wfapi.gear.host/api/races");          
     
     for (var x in json.decode(response_1.body))
     {

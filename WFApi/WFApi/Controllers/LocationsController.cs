@@ -13,6 +13,7 @@ using WFApi.Models;
 
 namespace WFApi.Controllers
 {
+    [RoutePrefix("api/locations")]
     public class LocationsController : ApiController
     {
         private WFModels db = new WFModels();
@@ -34,6 +35,13 @@ namespace WFApi.Controllers
             }
 
             return Ok(location);
+        }
+
+        [Route("city/{id}")]
+        [ResponseType(typeof(IQueryable<Location>))]
+        public IQueryable<Location> GetLocationByCity(int id)
+        {
+            return db.Location.Where(x => x.IdCity == id);
         }
 
         // PUT: api/Locations/5

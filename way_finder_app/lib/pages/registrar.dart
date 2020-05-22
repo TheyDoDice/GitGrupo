@@ -14,6 +14,16 @@ class _RegistrarState extends State<Registrar> {
   String password;
   String name;
   String teamId;
+  Future<Team> _futureTeam;
+
+final _controllerName = TextEditingController();
+  final _controllerPassword = TextEditingController();
+ // TextEditingController _controller;
+ void netejarController(){
+    _controllerName.clear();
+    _controllerPassword.clear();
+  }
+
   @override
   void initState() {
     //_errorMessage = "";
@@ -22,15 +32,17 @@ class _RegistrarState extends State<Registrar> {
     super.initState();
   }
 
-  Future<Team> createTeam(String name, String password) async {
+  Future<Team> createTeam() async {
+   Map<String,String> headers = {
+  'Content-type' : 'application/json', 
+  'Accept': 'application/json',
+  };
   final http.Response response = await http.post(
-    'http://wayfinderapitdd.gear.host/api/teams',
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: (<String, String>{
-      'name': name,
-      'password': password 
+    'http://wfapi.gear.host/api/teams',
+    headers: headers,
+    body: json.encode({
+      'name': teamName,
+      'password': password
     }),
   );
   if (response.statusCode == 201) {
@@ -144,6 +156,7 @@ class _RegistrarState extends State<Registrar> {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       child: new TextFormField(
+        controller: _controllerName,
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
@@ -162,7 +175,9 @@ class _RegistrarState extends State<Registrar> {
               color: Colors.grey,
             )*/),
         validator: (value) => value.isEmpty ? ' can\'t be empty' : null,
-        onChanged: (value) => teamName = value.trim(),
+        onChanged: (String text) {
+          teamName =  text;
+        },
         //onSaved: (value) => _email = value.trim(),
       ),
     );
@@ -220,6 +235,7 @@ class _RegistrarState extends State<Registrar> {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       child: new TextFormField(
+        controller: _controllerPassword,
         maxLines: 1,
         obscureText: true,
         autofocus: false,
@@ -235,7 +251,9 @@ class _RegistrarState extends State<Registrar> {
             hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
-        onChanged: (value) => password = value.trim(),
+        onChanged: (String text) {
+          password =  text;
+        },
         //onSaved: (value) => _password = value.trim(),
       ),
     );
@@ -251,12 +269,13 @@ class _RegistrarState extends State<Registrar> {
         child: Text("Registrar"),
         highlightColor: Colors.grey[600],
         onPressed: () {
-          log(name);
+          netejarController();
           setState(() {
-            _futureTeam = createTeam(_controller.text, _controller.text);
+            _futureTeam = createTeam();
           });
+          
        //   createTeam();
-          Navigator.pushNamed(context, 'Login');
+          //Navigator.pushNamed(context, 'Login');
         }
      ),
     );

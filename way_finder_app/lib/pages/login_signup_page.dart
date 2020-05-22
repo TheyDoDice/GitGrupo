@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 import 'dart:convert';
-import 'package:way_finder_app/models/Team.dart';
 
 class Login extends StatefulWidget {
 
@@ -22,6 +21,13 @@ String password;
     super.initState();
   }
 
+final _controllerName = TextEditingController();
+  final _controllerPassword = TextEditingController();
+ // TextEditingController _controller;
+ void netejarController(){
+    _controllerName.clear();
+    _controllerPassword.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +102,7 @@ String password;
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       child: new TextFormField(
+        controller: _controllerName,
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
@@ -113,7 +120,9 @@ String password;
           hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Name can\'t be empty' : null,
-        onSaved: (value) => teamName = value.trim(),
+        onChanged: (String text) {
+          teamName = text;
+        },
       ),
     );
   }
@@ -129,6 +138,7 @@ String password;
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       child: new TextFormField(
+        controller: _controllerPassword,
         maxLines: 1,
         obscureText: true,
         autofocus: false,
@@ -146,7 +156,9 @@ String password;
           hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
-        onSaved: (value) => password = value.trim(),
+        onChanged: (String text) {
+          password =  text;
+        },
       ),
     );
   }
@@ -160,16 +172,15 @@ String password;
         ),
         child: Text("Iniciar Sesión"),
         highlightColor: Colors.grey[600],
-        onPressed: () {
-          //crida api login
-          if(login() == 0){
-            //error
-            Text('Dades incorrectes');
-          }else{
-            Navigator.pushNamed(context, 'ListaConcursos', arguments: login());
-          }
-          //
-          
+        onPressed: () async {
+          netejarController();
+          var data = await http.get("http://wfapi.gear.host/api/teams/login/" + teamName + "/" + password).then((value) => json.decode(value.body));
+            print(data);
+            if (data["Id"] == 0){
+              print('Error');
+            }else{
+              Navigator.pushNamed(context, 'ListaConcursos', arguments: data["Id"]);
+            }
         },
       )
     );
@@ -179,15 +190,12 @@ String password;
 
     int teamId = 0;
 
-    http.Response response_1 = await http.get("http://apiwayfinder.gear.host/api/teams/login/" + teamName + "/" + password);
+    if(teamName != "" && password != ""){
+      http.Response response_1 = await http.get("http://wayfinderapitdd.gear.host/api/teams/login/" + teamName + "/" + password);
 
-    
-
-    for (Map<String, dynamic> x in json.decode(response_1.body)) {
-      if(x.isNotEmpty){
-        teamId = x["Id"];
-      }
-    }
+    var team = json.decode(response_1.body) ;
+    teamId = team["Id"];
+    }   
 
     return teamId;
   }
@@ -202,6 +210,7 @@ String password;
         child: Text("Registrar"),
         highlightColor: Colors.grey[600],
         onPressed: () {
+          netejarController();
           Navigator.pushNamed(context, 'Registrar');
         },
       )
@@ -223,5 +232,3 @@ String password;
     );
   }
 }
-
-
