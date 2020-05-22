@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:way_finder_app/models/Team.dart';
+import 'dart:convert';
 
 
 class Registrar extends StatefulWidget{
@@ -7,6 +10,10 @@ class Registrar extends StatefulWidget{
 }
 
 class _RegistrarState extends State<Registrar> {
+  String teamName;
+  String password;
+  String name;
+  String teamId;
   @override
   void initState() {
     //_errorMessage = "";
@@ -14,6 +21,28 @@ class _RegistrarState extends State<Registrar> {
    // _isLoginForm = true;
     super.initState();
   }
+
+  Future<Team> createTeam(String name, String password) async {
+  final http.Response response = await http.post(
+    'http://wayfinderapitdd.gear.host/api/teams',
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: (<String, String>{
+      'name': name,
+      'password': password 
+    }),
+  );
+  if (response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return Team.fromJson(json.decode(response.body));
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +162,7 @@ class _RegistrarState extends State<Registrar> {
               color: Colors.grey,
             )*/),
         validator: (value) => value.isEmpty ? ' can\'t be empty' : null,
+        onChanged: (value) => teamName = value.trim(),
         //onSaved: (value) => _email = value.trim(),
       ),
     );
@@ -205,6 +235,7 @@ class _RegistrarState extends State<Registrar> {
             hintStyle: TextStyle(color: Colors.white),
         ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
+        onChanged: (value) => password = value.trim(),
         //onSaved: (value) => _password = value.trim(),
       ),
     );
@@ -220,6 +251,11 @@ class _RegistrarState extends State<Registrar> {
         child: Text("Registrar"),
         highlightColor: Colors.grey[600],
         onPressed: () {
+          log(name);
+          setState(() {
+            _futureTeam = createTeam(_controller.text, _controller.text);
+          });
+       //   createTeam();
           Navigator.pushNamed(context, 'Login');
         }
      ),
